@@ -1,0 +1,36 @@
+
+<fieldset>
+    <div class="form-group col-md-10">
+      <?php echo Form::label('descricao', 'Descrição do Produto: '); ?>
+
+      <?php echo Form::text('descricao', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <?php echo Form::label('um', 'Unidade de Medida: '); ?>
+
+      <?php echo Form::text('um', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-9">
+      <?php echo Form::label('grupo', 'Grupo: '); ?>
+
+      <?php echo Form::select('grupo_id', array(0=>'Selecione')+ProdutoGrupo::all()->lists('descricao','id'), null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+<div class="col-md-9">
+  <button type="submit" class="btn btn-primary">Gravar</button>
+  <?php echo link_to_route('cadastro.produtos.index', 'Cancelar', null, array('class'=>'btn btn-danger')); ?>
+
+
+  </fieldset>
+
+  <script type="text/javascript">
+  $(function(){
+    $('.hora').mask('99:99')
+  })
+  </script>
+</div>

@@ -1,0 +1,16 @@
+<?php $__env->startSection('main'); ?>
+	<?php echo HTML::head('Produtos ', 'controla produtos e materiais das requisições de compra!'); ?>
+
+    <?php echo HTML::boxhead('Novo Produto'); ?>
+
+
+     <div class="box-body">
+	    	<?php echo Form::open(array('route'=>'cadastro.produtos.store')); ?>
+
+	        	<?php echo $__env->make('compras.produtos.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	        <?php echo Form::close(); ?>
+
+     </div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

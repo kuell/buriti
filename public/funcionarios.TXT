@@ -1,0 +1,1129 @@
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00148 SAIONARA MARTA FERRARI
+  Condicao: 0-Ativo                  Funcao: Assist. de Vendas    Admissao: 03/03/1999
+______________________________________________________________________________________________
+02094 NAUDER JARA RODRIGUES
+  Condicao: 0-Ativo                  Funcao: Analista Administrat Admissao: 24/09/2010
+______________________________________________________________________________________________
+02187 DANIELLE CORREA DA COSTA PAREDES
+  Condicao: 0-Ativo                  Funcao: Analista Fiscal/Trib Admissao: 19/05/2011
+______________________________________________________________________________________________
+02346 ERICA CRISTINA PIRES ULRICH
+  Condicao: 0-Ativo                  Funcao: Analista Adm Senior  Admissao: 02/01/2012
+______________________________________________________________________________________________
+02719 GLAUCIA ARALDI
+  Condicao: 0-Ativo                  Funcao: Analista Adm Senior  Admissao: 18/03/2013
+______________________________________________________________________________________________
+02750 ROBERTO SILVA RAMOS
+  Condicao: 0-Ativo                  Funcao: Gerente de Industria Admissao: 02/05/2013
+______________________________________________________________________________________________
+02918 NEURISLENE RODRIGUES DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Recepcionista        Admissao: 05/06/2014
+______________________________________________________________________________________________
+02948 ALINE GABRIELA DE LARA MACHADO
+  Condicao: 0-Ativo                  Funcao: Recepcionista        Admissao: 17/09/2014
+______________________________________________________________________________________________
+00988 DENISE LANE PARENTI RAMIRES
+  Condicao: 0-Ativo                  Funcao: Gerente de RH        Admissao: 02/01/2008
+______________________________________________________________________________________________
+02056 BRUNA LOPES FAQUIN
+  Condicao: 0-Ativo                  Funcao: Analista RH          Admissao: 01/04/2010
+______________________________________________________________________________________________
+02920 JESSIKA LEITE PENEDO
+  Condicao: 0-Ativo                  Funcao: Aux.Deptº Pessoal    Admissao: 06/06/2014
+______________________________________________________________________________________________
+00112 MARIA CRISTINA DE SOUZA
+  Condicao: 0-Ativo                  Funcao: Supervisor de compra Admissao: 03/03/1999
+______________________________________________________________________________________________
+02115 EVERTON SCHEIBEL DA SILVA
+  Condicao: 0-Ativo                  Funcao: Faturista            Admissao: 22/12/2010
+______________________________________________________________________________________________
+02350 ANA PAULA RODRIGUES
+  Condicao: 0-Ativo                  Funcao: Faturista            Admissao: 03/01/2012
+______________________________________________________________________________________________
+02919 EDER AMARAL DA SILVA
+  Condicao: 0-Ativo                  Funcao: Faturista            Admissao: 05/06/2014
+______________________________________________________________________________________________
+02952 ANDREA BORGES RODRIGUES
+  Condicao: 0-Ativo                  Funcao: Faturista            Admissao: 22/09/2014
+______________________________________________________________________________________________
+02007 TIAGO DO CARMO CORREA
+  Condicao: 0-Ativo                  Funcao: Analista T. Informat Admissao: 03/11/2009
+______________________________________________________________________________________________
+00005 ADILSON FRANCISCO DE ARAUJO
+  Condicao: 0-Ativo                  Funcao: Aux. de Abate        Admissao: 03/03/1999
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00029 CLAUDIO CIRILO LUIZ
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 03/03/1999
+______________________________________________________________________________________________
+00066 GILMAR DA SILVA GOMES
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 03/03/1999
+______________________________________________________________________________________________
+00079 JOAO RAMAO VILLALBA
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 03/03/1999
+______________________________________________________________________________________________
+00098 LUIZ RODRIGUES PESSOA
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 03/03/1999
+______________________________________________________________________________________________
+00128 NICOLAS BARBOSA NEVES
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 03/03/1999
+______________________________________________________________________________________________
+00155 VALDECY AUGUSTO DA COSTA
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 03/03/1999
+______________________________________________________________________________________________
+00180 CLAUDEIR CAIRES OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 01/04/1999
+______________________________________________________________________________________________
+00292 RUBENS DE LORENA
+  Condicao: 0-Ativo                  Funcao: Arrancador           Admissao: 01/02/2001
+______________________________________________________________________________________________
+00429 ROBERTO CARLOS APARECIDO GONCALVES
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 03/04/2003
+______________________________________________________________________________________________
+00457 EDSON BARBOSA GOMES
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 02/07/2003
+______________________________________________________________________________________________
+00618 LOURIVAL AUGUSTO DA COSTA
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 06/01/2005
+______________________________________________________________________________________________
+00628 ADEMAR MARQUES LOPES
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 15/02/2005
+______________________________________________________________________________________________
+00640 EDILSON DA SILVA MOTA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 07/03/2005
+______________________________________________________________________________________________
+00642 PATRICO DE VASCONCELOS MONDADORI
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 08/03/2005
+______________________________________________________________________________________________
+00765 RAILDO VALE DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Classificador Carcac Admissao: 15/02/2006
+______________________________________________________________________________________________
+00772 EDGAR RIBEIRO ROSA
+  Condicao: 0-Ativo                  Funcao: Aux. de Abate        Admissao: 06/03/2006
+______________________________________________________________________________________________
+00814 MARCIO PEREIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 07/08/2006
+______________________________________________________________________________________________
+00834 GENIVALDO GRACINO DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 13/10/2006
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00888 ROZIMAR BARBOSA DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 06/03/2007
+______________________________________________________________________________________________
+01003 DAVI CARLOS DA SILVA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 13/02/2008
+______________________________________________________________________________________________
+01071 DIEGO AGUERO
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 02/03/2009
+______________________________________________________________________________________________
+01084 RODINEI APARECIDO ROCHETE
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 23/03/2009
+______________________________________________________________________________________________
+02002 MARCELINO XIMENES BRITES
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 03/11/2009
+______________________________________________________________________________________________
+02040 ADRIANO PORFIRIO DE SANTA ANA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 01/02/2010
+______________________________________________________________________________________________
+02110 VALDECI GARCETE DE SOUZA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 22/11/2010
+______________________________________________________________________________________________
+02161 JOCELDA NUNES DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 22/03/2011
+______________________________________________________________________________________________
+02196 RONALDO SANTOS DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Abate        Admissao: 10/06/2011
+______________________________________________________________________________________________
+02198 LUCIANO DE ALMEIDA MORAES
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 15/06/2011
+______________________________________________________________________________________________
+02336 SIDINEY AJALA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 16/12/2011
+______________________________________________________________________________________________
+02349 ATILIO FERREIRA DE ARRUDA
+  Condicao: 0-Ativo                  Funcao: Abatedor             Admissao: 02/01/2012
+______________________________________________________________________________________________
+02391 IVAN PAIVA MEDEIRO
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 01/02/2012
+______________________________________________________________________________________________
+02402 VALDIR RIBEIRO BONFIM
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 09/02/2012
+______________________________________________________________________________________________
+02468 INACIO OVELAR
+  Condicao: 0-Ativo                  Funcao: Aux. de Abate        Admissao: 26/04/2012
+______________________________________________________________________________________________
+02564 DIOGO HENRIQUE ROBALDO DO NASCIMENTO
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 01/09/2012
+______________________________________________________________________________________________
+02580 RENATO MARTINS ISERNHAGEN
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 01/10/2012
+______________________________________________________________________________________________
+02589 ALDIFAR VELASCO SOSA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 18/10/2012
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02606 ILSON CORREA DA ROCHA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 14/11/2012
+______________________________________________________________________________________________
+02670 MARCELO DA SILVA ARRUDA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 01/02/2013
+______________________________________________________________________________________________
+02718 ANA CLAUDIA RODRIGUES DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Abate        Admissao: 18/03/2013
+______________________________________________________________________________________________
+02743 MARCELA TRINDADE
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 18/04/2013
+______________________________________________________________________________________________
+02748 RUBENS CARLOS RAMOS
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 25/04/2013
+______________________________________________________________________________________________
+02757 ADEMIR DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 13/05/2013
+______________________________________________________________________________________________
+02788 SUENIR MONTEIRO DE SOUZA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 01/07/2013
+______________________________________________________________________________________________
+02812 DAMIAO SANCHES
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 15/08/2013
+______________________________________________________________________________________________
+02847 ANTONIO MARQUES ARAUJO
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 04/12/2013
+______________________________________________________________________________________________
+02848 BENITO ROMERO
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 04/12/2013
+______________________________________________________________________________________________
+02866 MARCOS BELIZARIO NUNES
+  Condicao: 0-Ativo                  Funcao: Aux. de Abate        Admissao: 20/02/2014
+______________________________________________________________________________________________
+02882 JOAO MARIA MACIEL PEREIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 18/03/2014
+______________________________________________________________________________________________
+02883 DOUGLAS DE SOUZA COELHO
+  Condicao: 0-Ativo                  Funcao: Aux. de Abate        Admissao: 20/03/2014
+______________________________________________________________________________________________
+02898 LINDOMAR ALVES DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 08/04/2014
+______________________________________________________________________________________________
+02904 CLAUDINEY ALVES DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 09/05/2014
+______________________________________________________________________________________________
+02916 MARIA DE FATIMA COSTA ROMERO
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 26/05/2014
+______________________________________________________________________________________________
+02921 EDIVALDO DE SOUZA LIMA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 09/06/2014
+______________________________________________________________________________________________
+02923 JOSE HELIO FERREIRA DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 16/06/2014
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02936 EDNEI GOMES SANTOS
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 14/08/2014
+______________________________________________________________________________________________
+02942 ALISSON FERNANDO VIEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 04/09/2014
+______________________________________________________________________________________________
+02954 JOSIMAR SILVA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 25/09/2014
+______________________________________________________________________________________________
+02955 ALTINO FERNANDO MARTINS DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 01/10/2014
+______________________________________________________________________________________________
+02956 WINESTON LOPES DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 01/10/2014
+______________________________________________________________________________________________
+02958 ANDRE LUIS PEREIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 03/10/2014
+______________________________________________________________________________________________
+00090 JOSE PEREIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 03/03/1999
+______________________________________________________________________________________________
+00387 ZEILDO DE JESUS FERREIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 07/05/2002
+______________________________________________________________________________________________
+00434 ADOLFO CESAR WENZ
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 02/05/2003
+______________________________________________________________________________________________
+00923 GUSTAVO CARMO PINTO
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 20/06/2007
+______________________________________________________________________________________________
+01126 VILSON ALVES
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 23/09/2009
+______________________________________________________________________________________________
+02138 LUZIRENE BARBOSA FERREIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 18/02/2011
+______________________________________________________________________________________________
+02233 ELIDEMAR MACHADO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 01/08/2011
+______________________________________________________________________________________________
+02447 ADAILTON VAREIRO PEREIRA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 17/03/2012
+______________________________________________________________________________________________
+02698 ANDERSON SOUZA PEREZ
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 21/02/2013
+______________________________________________________________________________________________
+02721 CARLOS DA SILVA CRISTO
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 21/03/2013
+______________________________________________________________________________________________
+02793 CLEIMAR ALVES DE FARIA
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 08/07/2013
+______________________________________________________________________________________________
+02811 LUIZ CLETO GOMES PACHECO DE CAMPOS
+  Condicao: 0-Ativo                  Funcao: Aux. de Bucharia     Admissao: 15/08/2013
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02887 JAIR RIQUELME ALVES
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 20/03/2014
+______________________________________________________________________________________________
+02888 ALDAIR VAREIRO PEREIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Bucharia     Admissao: 20/03/2014
+______________________________________________________________________________________________
+02890 WASHINGTON GONCALVES ROJAS
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 27/03/2014
+______________________________________________________________________________________________
+02951 JONILSON DE OLIVEIRA SANTIAGO
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 18/09/2014
+______________________________________________________________________________________________
+00106 MARCILIO BUENO CAMARGO
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 03/03/1999
+______________________________________________________________________________________________
+00136 RAIMUNDO BATISTA DE LIMA
+  Condicao: 0-Ativo                  Funcao: Retalahdor de Miudos Admissao: 03/03/1999
+______________________________________________________________________________________________
+00192 MARIA APARECIDA GOMES
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 18/06/1999
+______________________________________________________________________________________________
+00271 ADAO MACHADO SIQUEIRA
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 01/10/2000
+______________________________________________________________________________________________
+00287 SANDRA MARIA MIRANDA CACERES
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 01/02/2001
+______________________________________________________________________________________________
+00416 CICERO ANTONIO FERREIRA
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 01/03/2003
+______________________________________________________________________________________________
+00494 VALDECI PINTO DO REIS
+  Condicao: 0-Ativo                  Funcao: Retalhador de Miudos Admissao: 02/12/2003
+______________________________________________________________________________________________
+00529 IRINEU DA SILVA MOTA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 23/03/2004
+______________________________________________________________________________________________
+00645 VALQUIRIA ALVES NIZA
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 11/03/2005
+______________________________________________________________________________________________
+00651 ARCENIO ARCE DE SANTA ANA
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 23/03/2005
+______________________________________________________________________________________________
+00726 LUZENIR PEREIRA CONCEICAO SILVA
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 08/12/2005
+______________________________________________________________________________________________
+01078 JOAO HEITOR VICENTE PAIVA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 23/03/2009
+______________________________________________________________________________________________
+01079 CLEONICE MARIA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 23/03/2009
+______________________________________________________________________________________________
+01085 JUCELIA XAVIER SOBRINHO
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 23/03/2009
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+01092 JOAO BATISTA TELES DE SALES
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 01/04/2009
+______________________________________________________________________________________________
+01116 ADEMIR GODOI DA SILVA
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 01/07/2009
+______________________________________________________________________________________________
+02005 JOAO LUCIO ALVES
+  Condicao: 0-Ativo                  Funcao: Balanceiro de Miudos Admissao: 03/11/2009
+______________________________________________________________________________________________
+02020 VALMIR DA SILVA
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 13/01/2010
+______________________________________________________________________________________________
+02059 VAGNER LUCIANO XAVIER SOBRINHO
+  Condicao: 0-Ativo                  Funcao: Balanceiro de Miudos Admissao: 01/04/2010
+______________________________________________________________________________________________
+02063 LUCIMAR MARIA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 23/04/2010
+______________________________________________________________________________________________
+02122 ANTONIO DO CARMO BRANDAO
+  Condicao: 0-Ativo                  Funcao: Retalhador de Miudos Admissao: 03/01/2011
+______________________________________________________________________________________________
+02183 PAULO DA SILVA CIPRIANO
+  Condicao: 0-Ativo                  Funcao: Balanceiro de Miudos Admissao: 09/05/2011
+______________________________________________________________________________________________
+02189 VALDOVAN MENDES FARIA
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 01/06/2011
+______________________________________________________________________________________________
+02244 MADALENA GONCALVES DAMACENO
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 15/08/2011
+______________________________________________________________________________________________
+02246 FRANCIENE RAMALHO
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 22/08/2011
+______________________________________________________________________________________________
+02289 MARIA APARECIDA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 14/10/2011
+______________________________________________________________________________________________
+02327 JOSE ELIAS DE MELO
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 03/12/2011
+______________________________________________________________________________________________
+02337 ADRIELE DOS SANTOS PIRES
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 16/12/2011
+______________________________________________________________________________________________
+02381 SILVANA DA SILVA SOUSA
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 21/01/2012
+______________________________________________________________________________________________
+02441 MAIRA LOPES DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 15/03/2012
+______________________________________________________________________________________________
+02449 JEFFERSON FONSECA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Retalhador de Miudos Admissao: 22/03/2012
+______________________________________________________________________________________________
+02538 CICERO CIPRIANO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 23/07/2012
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02576 JOILSON ALVES
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 20/09/2012
+______________________________________________________________________________________________
+02596 CLEDSON QUERUBIM DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 26/10/2012
+______________________________________________________________________________________________
+02633 ANTONIO FRANCEILDO DE SOUZA
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 24/12/2012
+______________________________________________________________________________________________
+02662 LAURA DA SILVA AMORIM
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 17/01/2013
+______________________________________________________________________________________________
+02675 DAVID HENRIQUE PEREIRA DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 04/02/2013
+______________________________________________________________________________________________
+02689 FABIANA APARECIDA BENVINDO
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 14/02/2013
+______________________________________________________________________________________________
+02711 LAUDINEI RODRIGUES DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 08/03/2013
+______________________________________________________________________________________________
+02723 WERLYSON BARBOSA DELGADO
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 21/03/2013
+______________________________________________________________________________________________
+02737 JOAO MARCOS FERREIRA GOMES
+  Condicao: 0-Ativo                  Funcao: Magarefe C           Admissao: 11/04/2013
+______________________________________________________________________________________________
+02766 DEIMISON CARVALHO PLACIDO
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 17/05/2013
+______________________________________________________________________________________________
+02780 EMERSON DE JESUS DONTCHEF ROSA
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 17/06/2013
+______________________________________________________________________________________________
+02790 RAFAEL MENDONCA FERREIRA
+  Condicao: 0-Ativo                  Funcao: Estoquista Congelame Admissao: 01/07/2013
+______________________________________________________________________________________________
+02836 PATRICIA XAVIER DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 07/11/2013
+______________________________________________________________________________________________
+02849 MARCOS ANTONIO FABILICIO DE SOUSA
+  Condicao: 0-Ativo                  Funcao: Retalhador de Miudo  Admissao: 02/01/2014
+______________________________________________________________________________________________
+02850 TATIANE BOGADO DE JESUS
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 09/01/2014
+______________________________________________________________________________________________
+02869 FLAVIANE MARIA PIEREZAN RIZZI
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 20/02/2014
+______________________________________________________________________________________________
+02875 MARCIO DE ABREU CONCEICAO
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 06/03/2014
+______________________________________________________________________________________________
+02878 LUIS MARIO SAMPAIO
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 13/03/2014
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02891 FELIPE CAMPOS MENDES
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 27/03/2014
+______________________________________________________________________________________________
+02892 VITOR DE MORAES LACERDA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 27/03/2014
+______________________________________________________________________________________________
+02896 AILTON OLIVEIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 08/04/2014
+______________________________________________________________________________________________
+02897 JORGE DUARTE CONCEICAO
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 08/04/2014
+______________________________________________________________________________________________
+02906 JOANA DARC ANDRADE DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 09/05/2014
+______________________________________________________________________________________________
+02907 KALINE SOARES FERREIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 09/05/2014
+______________________________________________________________________________________________
+02909 GLAUDIONE DA CONCEICAO FARIAS
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 09/05/2014
+______________________________________________________________________________________________
+02912 GRAZIELE NASCIMENTO MOLINA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 15/05/2014
+______________________________________________________________________________________________
+02913 ADRIANO VAREIRO DA COSTA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 15/05/2014
+______________________________________________________________________________________________
+02917 VALMIR SOARES
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 26/05/2014
+______________________________________________________________________________________________
+02924 LUIZ CARLOS DA SILVA
+  Condicao: 0-Ativo                  Funcao: Retalhador de Miudo  Admissao: 16/06/2014
+______________________________________________________________________________________________
+02934 REGIANE APARECIDA ALVES DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 11/08/2014
+______________________________________________________________________________________________
+02935 DEUSA ARRUDA LULU
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 11/08/2014
+______________________________________________________________________________________________
+02938 JHON DIEGO PACHECO PAIVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Miudos       Admissao: 14/08/2014
+______________________________________________________________________________________________
+02946 FELIPE ALMEIDA DE SOUZA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 11/09/2014
+______________________________________________________________________________________________
+02953 MICHAEL DIONATAN LEITE TORRES
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 25/09/2014
+______________________________________________________________________________________________
+00042 DORIVAL CARDOSO
+  Condicao: 0-Ativo                  Funcao: Rachador de Lenha    Admissao: 03/03/1999
+______________________________________________________________________________________________
+00063 GERSON CARDOSO SOARES
+  Condicao: 0-Ativo                  Funcao: Chefe Setor Graxaria Admissao: 03/03/1999
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00249 ELIAS LAURINDO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Operador Blow Tank   Admissao: 04/04/2000
+______________________________________________________________________________________________
+00817 CLEMENTE VIEIRA DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Operador Blow Tank   Admissao: 11/08/2006
+______________________________________________________________________________________________
+00879 JOEL RODRIGUES DE MATOS
+  Condicao: 0-Ativo                  Funcao: Operador de Decanter Admissao: 16/02/2007
+______________________________________________________________________________________________
+01000 FELIX PEREIRA MENDES
+  Condicao: 0-Ativo                  Funcao: Operador de Decanter Admissao: 01/02/2008
+______________________________________________________________________________________________
+01058 SATURNINO MARTINEZ
+  Condicao: 0-Ativo                  Funcao: Aux. de Graxaria,    Admissao: 06/06/2008
+______________________________________________________________________________________________
+01124 MANOEL FIRMINO DE SOUZA
+  Condicao: 0-Ativo                  Funcao: Aux. de Graxaria     Admissao: 01/09/2009
+______________________________________________________________________________________________
+02108 ROSILDA HONORIO DE MELLO
+  Condicao: 0-Ativo                  Funcao: Aux. de Graxaria     Admissao: 22/11/2010
+______________________________________________________________________________________________
+02668 ROSENILDA LARCON REZENDE DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Graxaria     Admissao: 01/02/2013
+______________________________________________________________________________________________
+02945 CARLOS BELIZARO
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 11/09/2014
+______________________________________________________________________________________________
+02950 DIEGO CESAR DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 18/09/2014
+______________________________________________________________________________________________
+00143 RONALDO AQUINO MARQUES
+  Condicao: 0-Ativo                  Funcao: Chefe Setor de Brete Admissao: 03/03/1999
+______________________________________________________________________________________________
+02038 JOAO FERREIRA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Embretador           Admissao: 20/01/2010
+______________________________________________________________________________________________
+02171 JOSEMAR FERREIRA PIRES
+  Condicao: 0-Ativo                  Funcao: Embretador           Admissao: 20/04/2011
+______________________________________________________________________________________________
+02590 BERTO APARECIDO RODRIGUES
+  Condicao: 0-Ativo                  Funcao: Embretador           Admissao: 19/10/2012
+______________________________________________________________________________________________
+02786 JURACI SERAFIM DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Aux. de Brete        Admissao: 01/07/2013
+______________________________________________________________________________________________
+02846 GLAUCIR GUEDES
+  Condicao: 0-Ativo                  Funcao: Embretador           Admissao: 04/12/2013
+______________________________________________________________________________________________
+02867 RAEL FIGUEREDO AFONSO
+  Condicao: 0-Ativo                  Funcao: Aux. de Brete        Admissao: 20/02/2014
+______________________________________________________________________________________________
+00068 ILSON LOURENCO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Chefe Setor Embarque Admissao: 03/03/1999
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00272 AUREO XAVIER DA HORA
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 01/10/2000
+______________________________________________________________________________________________
+00317 EDER CARLOS VEIGA
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 01/04/2001
+______________________________________________________________________________________________
+00350 WILSON TANAKA PEREIRA DOS REIS
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 01/09/2001
+______________________________________________________________________________________________
+00438 CARLOS ALEXANDRE DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Balanceiro de Embarq Admissao: 07/05/2003
+______________________________________________________________________________________________
+00566 VALDECI AMANTINO
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 06/08/2004
+______________________________________________________________________________________________
+00639 MILENA CRISTINA SANTANA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 07/03/2005
+______________________________________________________________________________________________
+00973 LUAN DE OLIVEIRA SILVA
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 01/12/2007
+______________________________________________________________________________________________
+02006 VILMAR DE JESUS FERREIRA
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 03/11/2009
+______________________________________________________________________________________________
+02287 MANOEL JOSE NEVES
+  Condicao: 0-Ativo                  Funcao: Serrador             Admissao: 10/10/2011
+______________________________________________________________________________________________
+02383 GLAUBER BARRETO DE ARAUJO
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 24/01/2012
+______________________________________________________________________________________________
+02476 RENATO RODRIGUES DE REZENDE
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 04/05/2012
+______________________________________________________________________________________________
+02545 EVANDRO DA SILVA DUARTE
+  Condicao: 0-Ativo                  Funcao: Aux. de Embarque     Admissao: 26/07/2012
+______________________________________________________________________________________________
+02570 OTAIR JOSE PEREIRA DE SOUZA
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 03/09/2012
+______________________________________________________________________________________________
+02613 SILVIO CARLOS DE ASSIS
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 22/11/2012
+______________________________________________________________________________________________
+02620 JOAO VITALINO CASTRO LEAO
+  Condicao: 0-Ativo                  Funcao: Aux. de Embarque     Admissao: 07/12/2012
+______________________________________________________________________________________________
+02700 JOSE MONTEIRO NETO
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 22/02/2013
+______________________________________________________________________________________________
+02760 HILARIO VINICIUS MENDES GOMES DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Aux. de Embarque     Admissao: 13/05/2013
+______________________________________________________________________________________________
+02765 RODRIGO CARDOSO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Agente Limp Industri Admissao: 17/05/2013
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02860 VALDIR FRANCO DE LIMA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 07/02/2014
+______________________________________________________________________________________________
+02865 RAFAEL FERREIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 20/02/2014
+______________________________________________________________________________________________
+02902 ANDRE BORGES RODRIGUES PACHE
+  Condicao: 0-Ativo                  Funcao: Aux de Industria     Admissao: 17/04/2014
+______________________________________________________________________________________________
+02933 ISRAEL CARLOS DA CRUZ
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 25/07/2014
+______________________________________________________________________________________________
+02939 MAYKON MENDES LIMA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 14/08/2014
+______________________________________________________________________________________________
+02962 LUIZ CESAR DE OLIVEIRA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 03/11/2014
+______________________________________________________________________________________________
+00274 PEDRO LUCIANO SOBRINHO
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 01/10/2000
+______________________________________________________________________________________________
+00551 RODINEY GIMENES BRITES
+  Condicao: 0-Ativo                  Funcao: Chefe Setor Camara F Admissao: 15/06/2004
+______________________________________________________________________________________________
+01096 JUVARLEI BORGES
+  Condicao: 0-Ativo                  Funcao: Separ e Lavador Carc Admissao: 09/04/2009
+______________________________________________________________________________________________
+02025 MARCOS ALVES RIBAS
+  Condicao: 0-Ativo                  Funcao: Separ e Lavador Carc Admissao: 13/01/2010
+______________________________________________________________________________________________
+02823 EDUARDO SIMOES BIBIANO
+  Condicao: 0-Ativo                  Funcao: Separ. e Lavador car Admissao: 02/09/2013
+______________________________________________________________________________________________
+01032 JOSE ANTONIO CANDIDO DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 02/04/2008
+______________________________________________________________________________________________
+02268 ROSANA ALVES DA COSTA
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 15/09/2011
+______________________________________________________________________________________________
+02269 NELSON CARDOSO SOARES
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 15/09/2011
+______________________________________________________________________________________________
+02271 NILDA MARIA ROSA FERRAZ
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 15/09/2011
+______________________________________________________________________________________________
+02384 GIANCARLO RAMIRES
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 25/01/2012
+______________________________________________________________________________________________
+02388 MARIA APARECIDA RIBAS DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 01/02/2012
+______________________________________________________________________________________________
+02434 PEDRO GABRIEL DO NASCIMENTO
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 05/03/2012
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02482 FERNANDO CIPRIANO SOBRINHO
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripa     Admissao: 10/05/2012
+______________________________________________________________________________________________
+02495 DAYARA ROSA FERRAZ
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 24/05/2012
+______________________________________________________________________________________________
+02500 ZARQUE TRINDADE
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 04/06/2012
+______________________________________________________________________________________________
+02501 ROSANGELA BARBOSA DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 04/06/2012
+______________________________________________________________________________________________
+02512 TILLER MARTINS DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Triparia     Admissao: 20/06/2012
+______________________________________________________________________________________________
+02516 ROSECLEIA BARBOSA DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 21/06/2012
+______________________________________________________________________________________________
+02529 ELENIR DONTCHEF ROSA
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 11/07/2012
+______________________________________________________________________________________________
+02708 CRISTIANO FERREIRA
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 01/03/2013
+______________________________________________________________________________________________
+02713 MARCIO PEREIRA DE ATAIDE
+  Condicao: 0-Ativo                  Funcao: Magarefe B           Admissao: 14/03/2013
+______________________________________________________________________________________________
+02742 MARIA DE FATIMA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 18/04/2013
+______________________________________________________________________________________________
+02783 FABIANO ANGELO DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Magarefe A           Admissao: 01/07/2013
+______________________________________________________________________________________________
+02886 ANDERSON MARTINS VIEIRA
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 20/03/2014
+______________________________________________________________________________________________
+02899 SUZIELI DANTAS DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Refilador            Admissao: 10/04/2014
+______________________________________________________________________________________________
+02926 DENIVAL PEREIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 23/06/2014
+______________________________________________________________________________________________
+02940 ANTONIO ANGELO DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 21/08/2014
+______________________________________________________________________________________________
+02964 LUIZ APARECIDO VIEIRA RIBEIRO
+  Condicao: 0-Ativo                  Funcao: Aux. de Triparia     Admissao: 03/11/2014
+______________________________________________________________________________________________
+02162 THIAGO NOVAES TORGAN
+  Condicao: 0-Ativo                  Funcao: Armazenista          Admissao: 01/04/2011
+______________________________________________________________________________________________
+02170 CRISTIANO DOS SANTOS ALVES
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 19/04/2011
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02221 ANTONIO JOSE ROSA DA COSTA
+  Condicao: 0-Ativo                  Funcao: Serrador             Admissao: 05/07/2011
+______________________________________________________________________________________________
+02398 TONY RAMOS CHAVES
+  Condicao: 0-Ativo                  Funcao: Balanceiro de Embarq Admissao: 09/02/2012
+______________________________________________________________________________________________
+02408 MAURO TRINDADE
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 15/02/2012
+______________________________________________________________________________________________
+02498 VALDECI FERREIRA
+  Condicao: 0-Ativo                  Funcao: Chefe Setor Embarque Admissao: 01/06/2012
+______________________________________________________________________________________________
+02521 FRANCISCO ASSIS SOUSA
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 02/07/2012
+______________________________________________________________________________________________
+02600 PAULO CESAR BARBOSA BARRETO
+  Condicao: 0-Ativo                  Funcao: Balanceiro de Embarq Admissao: 01/11/2012
+______________________________________________________________________________________________
+02674 NELSON ALEXANDRE DA SILVA
+  Condicao: 0-Ativo                  Funcao: Serrador             Admissao: 04/02/2013
+______________________________________________________________________________________________
+02777 JULIO CESAR URBIETA MATOS
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 03/06/2013
+______________________________________________________________________________________________
+02814 FABIO GUIMARAES BRITES
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 15/08/2013
+______________________________________________________________________________________________
+02820 ISMAEL APARECIDO FERREIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 22/08/2013
+______________________________________________________________________________________________
+02828 JOELSON TROI DA SILVA
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 25/09/2013
+______________________________________________________________________________________________
+02838 JOSE ROSA BARBOZA HONORIO
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 07/11/2013
+______________________________________________________________________________________________
+02861 ALEXSANDRO MEDEIROS DE ARAUJO
+  Condicao: 0-Ativo                  Funcao: Aux. de Tendal       Admissao: 10/02/2014
+______________________________________________________________________________________________
+02879 MARCIO FABIANO DE SOUSA
+  Condicao: 0-Ativo                  Funcao: Lombador B           Admissao: 13/03/2014
+______________________________________________________________________________________________
+02880 EDIMAR DE PAULA BARBOSA
+  Condicao: 0-Ativo                  Funcao: Serrador             Admissao: 13/03/2014
+______________________________________________________________________________________________
+02901 CARLOS ALBERTO DIAS
+  Condicao: 0-Ativo                  Funcao: Lombador A           Admissao: 14/04/2014
+______________________________________________________________________________________________
+02941 LUIZ ANTONIO PARENTI FIGUEIREDO
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 01/09/2014
+______________________________________________________________________________________________
+02961 MANOEL LUIZ GUERRA DE ARAUJO
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 03/11/2014
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02963 ANTONIO LUIZ DE FREITAS
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 03/11/2014
+______________________________________________________________________________________________
+02965 EMANUEL EVARISTO BASILIO RODRIGUES
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 03/11/2014
+______________________________________________________________________________________________
+00530 ACEDINO GOMES DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Encar Montagem e Sol Admissao: 01/04/2004
+______________________________________________________________________________________________
+00561 ELTON LUIZ SOUZA PERES
+  Condicao: 0-Ativo                  Funcao: Aux. Manutencao      Admissao: 02/08/2004
+______________________________________________________________________________________________
+00596 RENATO AUGUSTO PARENTI FIGUEIREDO
+  Condicao: 0-Ativo                  Funcao: Chefe Setor Pintura  Admissao: 08/11/2004
+______________________________________________________________________________________________
+00848 MAGNO SOUZA DOS REIS
+  Condicao: 0-Ativo                  Funcao: Encar Eletric Instal Admissao: 18/12/2006
+______________________________________________________________________________________________
+02184 REGINALDO DE JESUS CORDEIRO
+  Condicao: 0-Ativo                  Funcao: Montador             Admissao: 11/05/2011
+______________________________________________________________________________________________
+02640 VALDEMAR BARBOSA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Eletricista de insta Admissao: 10/01/2013
+______________________________________________________________________________________________
+02831 RICARDO ANTONIO BRISOTTI
+  Condicao: 0-Ativo                  Funcao: Encarregado Manut.Ge Admissao: 15/10/2013
+______________________________________________________________________________________________
+02859 JAIR DA SILVA LEITE
+  Condicao: 0-Ativo                  Funcao: Aux. de Manutencao   Admissao: 06/02/2014
+______________________________________________________________________________________________
+02864 JOAO AUGUSTO DA COSTA FILHO
+  Condicao: 0-Ativo                  Funcao: Mecanico de Manutenc Admissao: 19/02/2014
+______________________________________________________________________________________________
+02932 AMARO QUEIROZ FILHO
+  Condicao: 0-Ativo                  Funcao: Mont.Estruturas Meta Admissao: 21/07/2014
+______________________________________________________________________________________________
+00745 WILLIAN OLIVEIRA DE LORENA
+  Condicao: 0-Ativo                  Funcao: Almoxarife           Admissao: 28/12/2005
+______________________________________________________________________________________________
+02544 JULEI DA SILVA
+  Condicao: 0-Ativo                  Funcao: Almoxarife           Admissao: 26/07/2012
+______________________________________________________________________________________________
+02603 GABRIEL ALEXANDER SILVA
+  Condicao: 0-Ativo                  Funcao: Almoxarife           Admissao: 07/11/2012
+______________________________________________________________________________________________
+00223 MARINETE XAVIER SOBRINHO
+  Condicao: 0-Ativo                  Funcao: Copeira              Admissao: 01/10/1999
+______________________________________________________________________________________________
+00233 VANUSA FERNANDA CANTEIRO
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 04/01/2000
+______________________________________________________________________________________________
+00266 ROSIMEIRE DIAS LOUVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 01/07/2000
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00868 MARILDA OLIVEIRA DO CARMO
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 23/01/2007
+______________________________________________________________________________________________
+01111 CICERA RODRIGUES PESSOA
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 22/06/2009
+______________________________________________________________________________________________
+02201 MARLY ESPINDOLA
+  Condicao: 0-Ativo                  Funcao: Aux. Limp e Conserv  Admissao: 17/06/2011
+______________________________________________________________________________________________
+02307 ZULMIRA FERREIRA DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Limpeza e Co Admissao: 11/11/2011
+______________________________________________________________________________________________
+02312 NEUSA DA SILVA SOUSA
+  Condicao: 0-Ativo                  Funcao: Aux. de Limpeza e Co Admissao: 18/11/2011
+______________________________________________________________________________________________
+02377 BIANCA GALVAO NOGUEIRA DE SOUSA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 19/01/2012
+______________________________________________________________________________________________
+02481 RENATO CIPRIANO SOBRINHO
+  Condicao: 0-Ativo                  Funcao: Puxador de Tripas    Admissao: 10/05/2012
+______________________________________________________________________________________________
+02635 MAGALI DE OLIVEIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Agente Limp Industri Admissao: 26/12/2012
+______________________________________________________________________________________________
+00045 EDILSON SANTOS SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Patio        Admissao: 03/03/1999
+______________________________________________________________________________________________
+00144 RONALDO PEREIRA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Op. de Trilhagem     Admissao: 03/03/1999
+______________________________________________________________________________________________
+00517 VICENTE FIRMO DE ALMEIDA
+  Condicao: 0-Ativo                  Funcao: Op. de Trilhagem     Admissao: 04/03/2004
+______________________________________________________________________________________________
+00921 ABRAAO DE OLIVEIRA VALVERDE
+  Condicao: 0-Ativo                  Funcao: Aux. de Patio        Admissao: 14/06/2007
+______________________________________________________________________________________________
+00985 RAMAO CLAUDIO CAIRES OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Patio        Admissao: 20/12/2007
+______________________________________________________________________________________________
+02228 NATALINO DUARTE GOMES
+  Condicao: 0-Ativo                  Funcao: Aux. de Patio        Admissao: 18/07/2011
+______________________________________________________________________________________________
+02236 FRANCISCO SOARES GONCALVES
+  Condicao: 0-Ativo                  Funcao: Lider area externa   Admissao: 01/08/2011
+______________________________________________________________________________________________
+02484 MARCOS ANTONIO FARIAS DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Chefe Setor Patio    Admissao: 14/05/2012
+______________________________________________________________________________________________
+02497 PAULINO CANDIDO DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Aux. de Patio        Admissao: 24/05/2012
+______________________________________________________________________________________________
+02703 HENRIQUE PAVAO
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 22/02/2013
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02764 EBERSON RIBEIRO DE FREITAS
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 17/05/2013
+______________________________________________________________________________________________
+02822 RAMON DIONISIO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 02/09/2013
+______________________________________________________________________________________________
+02127 SUELY FRANCISCA SOARES DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Cozinha      Admissao: 01/02/2011
+______________________________________________________________________________________________
+02147 ANA ROSA DE JESUS
+  Condicao: 0-Ativo                  Funcao: Cozinheira           Admissao: 09/03/2011
+______________________________________________________________________________________________
+02225 LETICIA ALVES PARENTI DA SILVA
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 12/07/2011
+______________________________________________________________________________________________
+02288 GABRIELLA VILLALBA
+  Condicao: 0-Ativo                  Funcao: Cozinheira           Admissao: 13/10/2011
+______________________________________________________________________________________________
+02370 ROSA FRANCISCA DA TRINDADE
+  Condicao: 0-Ativo                  Funcao: Cozinheira           Admissao: 16/01/2012
+______________________________________________________________________________________________
+02815 MAIZA DA TRINDADE
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 15/08/2013
+______________________________________________________________________________________________
+02853 MARLI ALVES DA COSTA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 14/01/2014
+______________________________________________________________________________________________
+02894 LUANA CARLOS VEIGA
+  Condicao: 0-Ativo                  Funcao: Aux. de Industria    Admissao: 01/04/2014
+______________________________________________________________________________________________
+02930 ALINE PAOLA CANTEIRO
+  Condicao: 0-Ativo                  Funcao: Aux. de industria    Admissao: 17/07/2014
+______________________________________________________________________________________________
+02834 SOTERIO DE CARVALHO
+  Condicao: 0-Ativo                  Funcao: Encarregado          Admissao: 21/10/2013
+______________________________________________________________________________________________
+00188 ADELINA CAMARGO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao II  Admissao: 18/06/1999
+______________________________________________________________________________________________
+00394 BENEDITA ROCHA ALMEIDA
+  Condicao: 0-Ativo                  Funcao: Insp.Contr.Qual III  Admissao: 22/05/2002
+______________________________________________________________________________________________
+00947 GILVANE OLIVEIRA SENA
+  Condicao: 0-Ativo                  Funcao: Insp Contr Qualidade Admissao: 12/09/2007
+______________________________________________________________________________________________
+01104 ROSE CLEIDE ALVES RIBAS
+  Condicao: 0-Ativo                  Funcao: Insp.Contr.Qualidade Admissao: 01/06/2009
+______________________________________________________________________________________________
+02168 TANIA CANO PAVAO
+  Condicao: 0-Ativo                  Funcao: Insp Contr Qualidade Admissao: 13/04/2011
+______________________________________________________________________________________________
+02389 ADENIR PAULO SALES ROCHA
+  Condicao: 0-Ativo                  Funcao: Oper.Balanca Abate   Admissao: 01/02/2012
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+02511 REGINALDO ALEXANDRE RAMIRES NASCIMENTO
+  Condicao: 0-Ativo                  Funcao: Insp.Contr.Qualidade Admissao: 20/06/2012
+______________________________________________________________________________________________
+02949 ADRIANA DA SILVA FERREIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Contr. Quali Admissao: 17/09/2014
+______________________________________________________________________________________________
+02957 CARLA YUNES SIMI
+  Condicao: 0-Ativo                  Funcao: Medico veterinario   Admissao: 01/10/2014
+______________________________________________________________________________________________
+00399 ELIANE CARDOSO SANDIM
+  Condicao: 0-Ativo                  Funcao: Tecnico Enfermagem   Admissao: 10/07/2002
+______________________________________________________________________________________________
+02745 REJANE LIMA TRENTINI
+  Condicao: 0-Ativo                  Funcao: Tecnico de enfermage Admissao: 22/04/2013
+______________________________________________________________________________________________
+00587 JURACI FERREIRA DE LIMA
+  Condicao: 0-Ativo                  Funcao: Sup.Seg.de Trabalho  Admissao: 23/09/2004
+______________________________________________________________________________________________
+02960 DANUBIA JUCA DE MOURA
+  Condicao: 0-Ativo                  Funcao: Tecnologo em Seguran Admissao: 23/10/2014
+______________________________________________________________________________________________
+00016 ANTONIO AUGUSTO DA COSTA
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 03/03/1999
+______________________________________________________________________________________________
+00036 DEJAIR RODRIGUES GOMES
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 03/03/1999
+______________________________________________________________________________________________
+00093 JORACY GOMES DE ARAUJO
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 03/03/1999
+______________________________________________________________________________________________
+02075 PAULO HENRIQUE STEPHAN
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 07/07/2010
+______________________________________________________________________________________________
+02725 WILSON DOS SANTOS GOMES
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 01/04/2013
+______________________________________________________________________________________________
+02826 JOELCIO CORREA DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 16/09/2013
+______________________________________________________________________________________________
+02830 DANIEL CANDIDO DE OLIVEIRA
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 10/10/2013
+______________________________________________________________________________________________
+02845 JOAO CLEBER ALVES DA COSTA
+  Condicao: 0-Ativo                  Funcao: Motorista II         Admissao: 02/12/2013
+______________________________________________________________________________________________
+02928 ROQUE VALE DOS SANTOS
+  Condicao: 0-Ativo                  Funcao: Motorista I          Admissao: 03/07/2014
+______________________________________________________________________________________________
+00219 FRANCISCO LUCIO ALVES
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao II  Admissao: 10/09/1999
+______________________________________________________________________________________________
+00238 JULIO CESAR RODRIGUES SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao I   Admissao: 10/02/2000
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00468 SANDERSON PEREIRA DE LIMA
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao II  Admissao: 08/08/2003
+______________________________________________________________________________________________
+00608 EDSON RIBEIRO ROSA FILHO
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao II  Admissao: 16/12/2004
+______________________________________________________________________________________________
+00813 GILCLECIO LEITE GONCALVES
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao II  Admissao: 07/08/2006
+______________________________________________________________________________________________
+01083 LUIZ CARLOS COSTA DA SILVA
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao III Admissao: 23/03/2009
+______________________________________________________________________________________________
+01090 RONILDO SILVA SANTOS
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao II  Admissao: 01/04/2009
+______________________________________________________________________________________________
+01097 ELIZANDRA CAMPOS DA FONSECA
+  Condicao: 0-Ativo                  Funcao: Analista Adm. Junior Admissao: 24/04/2009
+______________________________________________________________________________________________
+02050 DAIANA CRISTINA FERRAZ
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao III Admissao: 10/03/2010
+______________________________________________________________________________________________
+02113 FABIO CHAVEZ CUELLAR
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao I   Admissao: 22/12/2010
+______________________________________________________________________________________________
+02164 ELIZEDIANA CRISTALDO FLORES
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao III Admissao: 01/04/2011
+______________________________________________________________________________________________
+02188 MIRIAM ROSE PARENTI FIGUEIREDO
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao III Admissao: 01/06/2011
+______________________________________________________________________________________________
+02277 ALESSANDER RODRIGO COLMAN PENEDO
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao II  Admissao: 26/09/2011
+______________________________________________________________________________________________
+02317 MARCELO MEDEIROS BRITES
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao IV  Admissao: 22/11/2011
+______________________________________________________________________________________________
+02895 SANDRO DOS SANTOS FERREIRA
+  Condicao: 0-Ativo                  Funcao: Aux. de Inspecao IV  Admissao: 03/04/2014
+______________________________________________________________________________________________
+02407 VALTER CLAUDINO DA SILVA
+  Condicao: 0-Ativo                  Funcao: Operador de caldeira Admissao: 13/02/2012
+______________________________________________________________________________________________
+02563 OLACIR CONCEICAO SARAVI
+  Condicao: 0-Ativo                  Funcao: Operador de caldeira Admissao: 01/09/2012
+______________________________________________________________________________________________
+00049 EDSON MEDINA DE BARROS
+  Condicao: 0-Ativo                  Funcao: Operador Sala de Maq Admissao: 03/03/1999
+______________________________________________________________________________________________
+00083 JOSE AURI LUZ NETO
+  Condicao: 0-Ativo                  Funcao: Operador Sala de Maq Admissao: 03/03/1999
+______________________________________________________________________________________________
+00134 PEDRO RODRIGUES PACHE
+  Condicao: 0-Ativo                  Funcao: Operador Sala de Maq Admissao: 03/03/1999
+______________________________________________________________________________________________
+
+                12/11/2014
+               Empresa: 0007 FRIZELO FRIGORIFICOS LTDA
+      SETOR ADMINISTRATIVO                    001.001.000
+______________________________________________________________________________________________
+00278 JOAO OLIVEIRA PLACIDO
+  Condicao: 0-Ativo                  Funcao: Operador Sala de Maq Admissao: 03/03/1999
+______________________________________________________________________________________________
+TOTAL DE FUNCIONARIOS:   343

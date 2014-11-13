@@ -1,0 +1,43 @@
+<?php if($pedidos->count()): ?>
+	<div class="table-reponsive">
+	<table id="table" class="table display table-bordered table-striped table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Data/Hora do Pedido</th>
+				<th>Solicitante</th>
+				<th>Prioridade</th>
+				<th>Situação</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($pedidos as $pedido): ?>
+				<tr id="abre">
+					<td><?php echo link_to_route('compras.pedidos.edit', $pedido->id, $pedido->id); ?></td>
+					<td><?php echo e($pedido->data_pedido); ?></td>
+					<td><?php echo e($pedido->solicitante); ?></td>
+					<td><?php echo e($pedido->prioridade); ?></td>
+					<td><?php echo e($pedido->situacao); ?></td>
+				</tr>
+			<?php endforeach; ?>
+
+		</tbody>
+	</table>
+	</div>
+<?php endif; ?>
+
+<?php $__env->startSection('scripts'); ?>
+    <?php echo HTML::script('js/plugins/datatables/jquery.dataTables.js'); ?>
+
+    <?php echo HTML::script('js/plugins/datatables/dataTables.bootstrap.js'); ?>
+
+
+
+    <script type="text/javascript">
+        $(function()
+        	{
+            	 $('#table').dataTable()
+            }
+        );
+    </script>
+<?php $__env->stopSection(); ?>

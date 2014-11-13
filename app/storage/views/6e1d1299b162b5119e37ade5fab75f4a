@@ -1,0 +1,86 @@
+<?php $__env->startSection('main'); ?>
+    <?php echo $__env->make('users.topo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <section class="content PermissaoCtrl">
+        <div class="box" ng-app="App" ng-controller="PermissaoCtrl">
+            <div class="box-header">
+                <h3 class="box-title">Permissões do Sistema<br />
+                    <small>Usuario: <?php echo $usuario->user; ?></small>
+                </h3>
+            </div><!-- /.box-header -->
+            <div class="box-body no-padding">
+                <table class="table table-bordered table-hover">
+                    <?php foreach($menus as $menu): ?>
+<?php $p = false;?>
+<tr>
+                            <?php foreach($usuario->menus as $usuarioMenu): ?>
+                                <?php if($usuarioMenu->menu->id == $menu->id): ?>
+<?php $p = true?>
+<?php endif; ?>
+
+                            <?php endforeach; ?>
+                            <th><?php echo $menu->descricao; ?></th>
+                            <th><?php echo Form::checkbox('menu', $menu->id, $p ,array('class'=>'form-controll',
+                                                                               'ng-click'=>'save('.$menu->id.')')); ?></th>
+                         </tr>
+                         <?php if(count($menu->subMenus)): ?>
+                            <?php foreach($menu->subMenus as $sub): ?>
+                            <tr>
+<?php $ps = false;?>
+<?php foreach($usuario->menus as $usuarioMenu): ?>
+                                    <?php if($usuarioMenu->menu->id == $sub->id): ?>
+<?php $ps = true;?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <td><?php echo $sub->descricao; ?></td>
+                                <td><?php echo Form::checkbox('menu', $menu->id, $ps ,array('class'=>'form-controll', 'ng-click'=>'save('.$sub->id.')')); ?></td>
+                             </tr>
+                            <?php endforeach; ?>
+                         <?php endif; ?>
+                    <?php endforeach; ?>
+
+                </table>
+            </div><!-- /.box-body -->
+
+            <div class="well">
+
+                <?php echo link_to_route('acesso.user.edit','Voltar', $usuario->id, array('class'=>'btn btn-danger')); ?>
+
+            </div>
+        </div><!-- /.box -->
+
+    </section><!-- /.content -->
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+   <?php echo HTML::script('js/angular.min.js'); ?>
+
+    <script>
+        var App = angular.module('App',[]);
+        App.config(function($interpolateProvider) {
+              $interpolateProvider.startSymbol('<%');
+              $interpolateProvider.endSymbol('%>');
+        });
+
+        function PermissaoCtrl($scope, $http, $window){
+                $scope.save = function(menu_id){
+                                        $scope.obj.menu_id = menu_id;
+
+
+                                        $http.post('/acesso/user/menu/', $scope.obj)
+                                            .success(function(data){
+                                                $window.console.log(data);
+                                                });
+
+                }
+
+                var init = function(){
+                    $scope.obj = {menu_id: 0, usuario_id: <?php echo $usuario->id; ?> }
+                };
+
+                init();
+        };
+      </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

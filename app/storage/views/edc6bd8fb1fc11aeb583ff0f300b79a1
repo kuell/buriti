@@ -1,0 +1,27 @@
+<?php if($colaboradores->count()): ?>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nome</th>
+				<th>Setor</th>
+				<th>Interno</th>
+				<th>Código Interno</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($colaboradores as $colaborador): ?>
+				<tr>
+					<td><?php echo e($colaborador->id); ?></td>
+					<td><?php echo e($colaborador->nome); ?></td>
+					<td><?php echo e($colaborador->setor->descricao); ?></td>
+					<td><?php echo e($colaborador->interno); ?></td>
+					<td><?php echo e($colaborador->codigo_interno); ?></td>
+					<td><?php echo link_to_route('cadastro.colaborador.edit', 'Editar', $colaborador->id, array('class'=>'btn btn-primary')); ?></td>
+				</tr>
+			<?php endforeach; ?>
+
+		</tbody>
+
+	</table>
+<?php endif; ?>

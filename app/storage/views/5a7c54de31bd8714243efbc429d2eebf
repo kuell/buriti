@@ -1,0 +1,32 @@
+<?php $__env->startSection('main'); ?>
+
+<section class="content">
+           <?php echo HTML::head('Usuarios ', 'controla usuarios!'); ?>
+
+            <?php echo HTML::boxhead('Lista', '/acesso/user/create'); ?>
+
+
+            <div class="box-body">
+                <ul class="todo-list">
+                <?php foreach($usuarios as $user): ?>
+                    <li>
+                        <!-- drag handle -->
+                        <span class="handle">
+                            <i class="fa  fa-user"></i>
+                        </span>
+                        <!-- todo text -->
+                        <span class="text"><?php echo $user->nome; ?></span>
+                        <!-- Emphasis label -->
+                        <small class="label label-danger">Login: <?php echo $user->user; ?></small>
+                        <!-- General tools such as edit or delete-->
+                        <div class="tools">
+                            <a href="/acesso/user/<?php echo $user->id; ?>/edit"><i class="fa fa-edit"></i></a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+                </ul>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

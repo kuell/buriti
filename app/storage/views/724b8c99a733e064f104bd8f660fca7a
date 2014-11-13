@@ -1,0 +1,123 @@
+<?php $__env->startSection('main'); ?>
+	<?php echo HTML::head('Pedido de Compras ', 'controla pedidos de Compra!'); ?>
+
+     <?php echo HTML::boxhead('Altera Pedido '.$pedido->id); ?>
+
+
+     <div class="box-body">
+	    	<?php echo Form::model($pedido, array('method'=>'PATCH',
+	    									'route'=>array('cadastro.fornecedores.update', $pedido->id),
+	    									'rule'=>'form')); ?>
+
+	        	<?php echo $__env->make('compras.pedidos.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+               <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Adicionar Produtos</button>
+	        <?php echo Form::close(); ?>
+
+     </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Produtos do Pedido <?php echo $pedido->id; ?></h4>
+      </div>
+      <div class="modal-body" ng-app="App">
+
+     	<table class="table table-hover" ng-controller="PedidoProdutoCtrl">
+     		<thead>
+            <tr>
+          			<td>Produto</td>
+          			<td>Qtde. Pedido</td>
+             <td>Qtde. Estoque</td>
+          		</tr>
+                    <tr>
+                         <td>
+                          <form>
+                            <input type="text" ng-model="obj.produto_id" class="form-control col-md-9">
+                            <select class="form-control" ng-model="obj.produto_id">
+                              <option ng-repeat="produto in produtos" value="<%produto.id%>"><%produto.descricao%></option>
+                            </select>
+                         </td>
+                         <td>
+                             <input type="text" ng-model="obj.qtde" class="form-control">
+                         </td>
+                         <td>
+                             <input type="text" ng-model="obj.qtde_estoque" class="form-control">
+                         </td>
+                         <td>
+                            <button class="btn btn-default" ng-click="save()">Incluir</button>
+                            </form>
+                         </td>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr ng-repeat="produto in lista" >
+                         <td><% produto.produto %></td>
+                         <td><% produto.qtde %></td>
+                         <td><% produto.qtde_estoque %></td>
+                         <td>
+                              <a href="" ng-click="delete()">
+                                   <i class="fa fa-fw fa-trash-o"></i>
+                              </a>
+                         </td>
+                    </tr>
+               </tbody>
+     	</table>
+
+     </div>
+     <?php /*
+     <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+       */ ?>
+    </div>
+  </div>
+</div>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+<?php echo HTML::script('js/angular.min.js'); ?>
+
+
+   <script type="text/javascript">
+     var App = angular.module('App',[]);
+        App.config(function($interpolateProvider) {
+              $interpolateProvider.startSymbol('<%');
+              $interpolateProvider.endSymbol('%>');
+        });
+
+     var PedidoProdutoCtrl = function ($scope, $http, $window){
+
+          $scope.delete = function(){
+            $http.post('/compras/pedidos/delete').success(function(data){
+              var index = $scope.lista.indexOf(obj)
+
+              $window.console.log(index);
+            })
+          }
+
+          $scope.save = function(){
+              $http.post('/compras/pedidos/add',
+                        $scope.obj)
+                      .success(function(data){
+                        $scope.lista.unshift(data);
+                        $window.console.log(data)
+                      });
+
+          }
+
+         $scope.lista = <?php echo PedidoProduto::getJson(); ?>
+
+         $scope.obj = {"produto_id":"","qtde": null,"qtde_estoque":"","situacao":"solicitado", "pedido_id": "<?php echo $pedido->id; ?>"};
+         $scope.produtos = <?php echo Produto::all(); ?>
+
+
+
+             };
+   </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

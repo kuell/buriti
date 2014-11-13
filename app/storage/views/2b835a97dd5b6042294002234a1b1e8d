@@ -1,0 +1,77 @@
+<?php $__env->startSection('main'); ?>
+	<section class="content">
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <i class="ion ion-clipboard"></i>
+                <h3 class="box-title">Frequencia dos Internos</h3>
+            </div>
+
+			<div class="form-group">
+		      <?php echo Form::label('nome', 'Nome: '); ?>
+
+		      <?php echo Form::select('interno_id', array('0'=>'Selecione...')+Interno::all()->lists('nome', 'id'), null, array('class'=>'form-control', 'id'=>'interno_id')); ?>
+
+		    </div>
+		    <div class="form-group">
+		      <?php echo Form::label('mes_ano', 'Mes/Ano: '); ?>
+
+		      <?php echo Form::text('mesano', null, array('class'=>'form-control datemask', 'id'=>'mesano', 'data-inputmask'=>"'alias': 'mm/yyyy'", 'data-mask') ); ?>
+
+		    </div>
+
+		<?php echo link_to('#', 'Adicionar', array('class'=>'btn btn-success abre')); ?>
+
+		<?php echo link_to('#', 'Horas Trabalhadas p/ Setor', array('class'=>'btn btn-success setorAbre')); ?>
+
+		</div>
+</section>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+	<?php echo HTML::script('js/plugins/input-mask/jquery.inputmask.js'); ?>
+
+	<?php echo HTML::script('js/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>
+
+<script type="text/javascript">
+
+	$(function(){
+		$(".datemask").inputmask("dd/mm/20yy", {"placeholder": "mm/20yy"});
+        $("[data-mask]").inputmask();
+
+  		$('.abre').click(function(){
+			if($('select[name=interno_id]').val() == 0){
+				alert('O campo Nome do Interno deve ser preenchido!')
+				$('select[name=interno_id]').focus();
+				return false;
+			}
+			if( $('input[name=mesano]').val() == ''){
+				alert('O campo de referencia Mes/Ano deve ser preenchido!')
+				 $('input[name=mesano]').focus()
+				return false;
+			}
+			else{
+				interno = $('select[name=interno_id]').val()
+				mes = $('input[name=mesano]').val()
+
+				open('/internos/frequencia/create?interno='+interno+'&mesano='+mes, 'Frequencia', 'channelmode=yes, scrollbars');
+				};
+		})
+		$('.setorAbre').click(function(){
+			mes = $('input[name=mesano]').val()
+
+			if( $('input[name=mesano]').val() == ''){
+				alert('O campo de referencia Mes/Ano deve ser preenchido!')
+				 $('input[name=mesano]').focus()
+				return false;
+			}
+			else{
+				open('/internos/report/horasSetor?data='+mes, 'Frequencia', 'channelmode=yes');
+			}
+		})
+	})
+</script>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

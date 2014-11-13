@@ -1,0 +1,11 @@
+ <!-- jQuery 2.0.2 -->
+        <?php echo HTML::script('js/jquery.min.js'); ?>
+
+        <!-- Bootstrap -->
+        <?php echo HTML::script('js/bootstrap.min.js'); ?>
+
+        <!-- AdminLTE App -->
+        <?php echo HTML::script('js/AdminLTE/app.js'); ?>
+
+        <!-- AdminLTE for demo purposes -->
+        <?php echo HTML::script('js/AdminLTE/demo.js'); ?>

@@ -1,0 +1,20 @@
+<?php $__env->startSection('main'); ?>
+
+  		<?php echo HTML::head('Colaboradores', 'controla os colaboradores'); ?>
+
+  		<?php echo HTML::boxhead('Editar Colaborador: '.$colaborador->nome); ?>
+
+
+  	<div class="box-body">
+
+	<?php echo Form::model($colaborador, array('method' => 'PATCH',
+                                                 'route' => array('cadastro.colaborador.update', $colaborador->id) ,
+                                                 'rule'=>'form')); ?>
+
+		<?php echo $__env->make('cadastro.colaboradores.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo Form::close(); ?>
+
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

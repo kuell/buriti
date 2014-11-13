@@ -1,0 +1,12 @@
+<?php $__env->startSection('main'); ?>
+	<?php echo HTML::head('Fornecedores ', 'controla fornecedores para cotações de compra!'); ?>
+
+    <?php echo HTML::boxhead('Lista', '/cadastro/fornecedores/create'); ?>
+
+
+     <div class="box-body">
+        	<?php echo $__env->make('compras.fornecedores.lista', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+     </div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

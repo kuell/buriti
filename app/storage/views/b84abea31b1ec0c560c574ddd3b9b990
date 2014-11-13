@@ -1,0 +1,28 @@
+<fieldset>
+    <div class="form-group col-md-10">
+      <?php echo Form::label('razao', 'Razão Social: '); ?>
+
+      <?php echo Form::text('razao', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <?php echo Form::label('contato', 'Contato: '); ?>
+
+      <?php echo Form::text('contato', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-9">
+      <?php echo Form::label('email', 'E-mail: '); ?>
+
+      <?php echo Form::text('email', null, array('class'=>'form-control')); ?>
+
+    </div>
+
+<div class="col-md-9">
+  <button type="submit" class="btn btn-primary">Gravar</button>
+  <?php echo link_to_route('cadastro.fornecedores.index', 'Cancelar', null, array('class'=>'btn btn-danger')); ?>
+
+
+  </fieldset>

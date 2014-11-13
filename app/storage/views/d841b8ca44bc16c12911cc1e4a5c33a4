@@ -1,0 +1,32 @@
+<?php $__env->startSection('main'); ?>
+	<h1>Relatorio de Horas Extra por Interno</h1>
+
+<?php echo Form::open(array('route' => 'internos.reports.interno', 'rule'=>'form', 'target'=>'_blank')); ?>
+
+
+		<div class="form-group">
+	      <?php echo Form::label('nome', 'Nome: '); ?>
+
+	      <?php echo Form::select('interno_id', array(''=>'Selecione...')+Interno::all()->lists('nome', 'id'), null, array('class'=>'form-control', 'id'=>'interno_id')); ?>
+
+	    </div>
+	    <div class="form-group">
+	      <?php echo Form::label('mes_ano', 'Mes/Ano: '); ?>
+
+	      <?php echo Form::text('mesano', null, array('class'=>'form-control mesAno', 'id'=>'mesano') ); ?>
+
+	    </div>
+
+	<?php echo Form::submit('Gerar', array('class'=>'btn btn-primary')); ?>
+
+<?php echo Form::close(); ?>
+
+
+<script type="text/javascript">
+	$(function(){
+		$('.mesAno').mask('99-2099');
+	})
+</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

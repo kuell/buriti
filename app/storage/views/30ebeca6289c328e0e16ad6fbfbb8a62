@@ -1,0 +1,17 @@
+<?php $__env->startSection('main'); ?>
+
+  		<?php echo HTML::head('Ocorrenciaes', 'controla os ocorrenciaes'); ?>
+
+  		<?php echo HTML::boxhead('Criar uma nova ocorrencia'); ?>
+
+
+  	<div class="box-body">
+		<?php echo Form::open(array('route' => 'farmacia.ocorrencias.store', 'rule'=>'form')); ?>
+
+			<?php echo $__env->make('farmacia.ocorrencias.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo Form::close(); ?>
+
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

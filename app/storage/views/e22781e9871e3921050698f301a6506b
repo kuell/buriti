@@ -1,0 +1,14 @@
+<?php $__env->startSection('main'); ?>
+
+  		<?php echo $__env->make('setors.topo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	<?php echo Form::model($setor, array('method' => 'PATCH',
+                                                 'route' => array('cadastro.setor.update', $setor->id) ,
+                                                 'rule'=>'form')); ?>
+
+		<?php echo $__env->make('setors.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo Form::close(); ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

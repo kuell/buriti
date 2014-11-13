@@ -1,0 +1,43 @@
+
+<fieldset>
+    <div class="form-group col-md-9">
+      <?php echo Form::label('descricao', 'Descrição do Setor: '); ?>
+
+      <?php echo Form::text('descricao', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-9">
+      <?php echo Form::label('encarregado', 'Encarregado ou Responsavel: '); ?>
+
+      <?php echo Form::text('encarregado', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-4">
+      <?php echo Form::label('situacao', 'Situação do setor: '); ?>
+
+      <?php echo Form::select('situacao', array(1=>'ativo', 0=>'inativo'), null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-4">
+      <?php echo Form::label('padrao_horatrabalho', 'Padrão de Horas Trabalhadas: '); ?>
+
+      <?php echo Form::text('padrao_horatrabalho', null, array('class'=>'form-control hora') ); ?>
+
+    </div>
+
+<div class="col-md-9">
+  <button type="submit" class="btn btn-primary">Gravar</button>
+  <?php echo link_to_route('cadastro.setor.index', 'Cancelar', null, array('class'=>'btn btn-danger')); ?>
+
+
+  </fieldset>
+
+  <script type="text/javascript">
+  $(function(){
+    $('.hora').mask('99:99')
+  })
+  </script>
+</div>

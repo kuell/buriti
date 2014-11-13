@@ -1,0 +1,61 @@
+<?php if($fornecedores->count()): ?>
+	<div class="table-reponsive">
+	<table id="table" class="table display table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Razão Social</th>
+				<th>Contato</th>
+				<th>e-mail</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($fornecedores as $fornecedor): ?>
+				<tr>
+					<td><?php echo link_to_route('cadastro.fornecedores.edit', $fornecedor->id, $fornecedor->id); ?></td>
+					<td><?php echo e($fornecedor->razao); ?></td>
+					<td><?php echo e($fornecedor->contato); ?></td>
+					<td><?php echo e($fornecedor->email); ?></td>
+				</tr>
+			<?php endforeach; ?>
+
+		</tbody>
+	</table>
+	</div>
+<?php endif; ?>
+
+<?php $__env->startSection('scripts'); ?>
+    <?php echo HTML::script('js/plugins/datatables/jquery.dataTables.js'); ?>
+
+    <?php echo HTML::script('js/plugins/datatables/dataTables.bootstrap.js'); ?>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('#table').DataTable( {
+			        initComplete: function () {
+			            var api = this.api();
+
+			            api.columns().indexes().flatten().each( function ( i ) {
+			                var column = api.column( i );
+			                var select = $('<select><option value=""></option></select>')
+			                    .appendTo( $(column.footer()).empty() )
+			                    .on( 'change', function () {
+			                        var val = $(this).val();
+
+			                        column
+			                            .search( val ? '^'+val+'$' : '', true, false )
+			                            .draw();
+			                    } );
+
+			                column.data().unique().sort().each( function ( d, j ) {
+			                    select.append( '<option value="'+d+'">'+d+'</option>' )
+			                } );
+			            } );
+			        }
+			    } );
+
+
+                });
+    </script>
+<?php $__env->stopSection(); ?>

@@ -1,0 +1,30 @@
+<fieldset>
+    <div class="form-group col-md-10">
+      <?php echo Form::label('solicitante', 'Solicitante: '); ?>
+
+      <?php echo Form::text('solicitante', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <?php echo Form::label('prioridade', 'Prioridade: '); ?>
+
+      <?php echo Form::select('prioridade', array('baixa','media','alta'),null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group col-md-12">
+      <?php echo Form::label('obs', 'Obeservações: '); ?>
+
+      <?php echo Form::textarea('obs', null, array('class'=>'form-control')); ?>
+
+    </div>
+
+  <div class="col-md-9">
+    <button type="submit" class="btn btn-primary">Gravar</button>
+    <?php echo link_to_route('compras.pedidos.index', 'Cancelar', null, array('class'=>'btn btn-danger')); ?>
+
+
+  </div>
+
+  </fieldset>

@@ -1,0 +1,115 @@
+
+
+ <!DOCTYPE html>
+<html ng-app>
+<head>
+  <title></title>
+  <?php echo HTML::style('css/bootstrap.css'); ?>
+
+  <?php echo HTML::style('css/AdminLTE.css'); ?>
+
+  <?php echo HTML::script('js/jquery.min.js'); ?>
+
+  <?php echo HTML::script('js/angular.min.js'); ?>
+
+  <?php echo HTML::script('js/plugins/input-mask/jquery.inputmask.js'); ?>
+
+  <?php echo HTML::script('js/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>
+
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Interno: <?php echo $interno->nome; ?></a></li>
+            <li><a href="#">Referente à: <?php echo $data[0]."/".$data[1]; ?></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+   <div id="load"> </div>
+
+   <div class="container jumbotron">
+      <table class="table table-hover col-md-9">
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Entrada</th>
+            <th>Saida</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <?php echo Form::hidden('interno_id', $interno->id, array('id'=>'interno_id')); ?>
+
+
+            <?php for($i = 1; $i <= cal_days_in_month(CAL_GREGORIAN, $data[0], $data[1]); $i++): ?>
+              <?php if(date('N', strtotime($data[1]."-".$data[0]."-".$i)) == 7): ?>
+                <tr class="danger">
+    	            <td><?php echo date('d/m/Y', strtotime($data[1]."-".$data[0]."-".$i)); ?></td>
+    	            <td>DOMINGO</td>
+    	            <td>DOMINGO</td>
+                </tr>
+              <?php else: ?>
+                <tr>
+                 <td><?php echo Form::text("data$i", date('d/m/Y', strtotime($data[1]."-".$data[0]."-".$i)), array('class'=>'form-control', 'id'=>"data$i")); ?></td>
+
+                 	<?php if(!empty($valor[$i]['entrada'])): ?>
+                  		<td><?php echo Form::text("entrada$i", $valor[$i]['entrada'] , array('class'=>'form-control hora', 'tabindex'=>'1', 'id'=>"entrada$i", 'data-inputmask'=>"'alias': 'hh:mm'", 'data-mask')); ?></td>
+                  	<?php else: ?>
+                  		<td><?php echo Form::text("entrada$i", null , array('class'=>'form-control hora', 'tabindex'=>'1', 'id'=>"entrada$i", 'data-inputmask'=>"'alias': 'hh:mm'", 'data-mask')); ?></td>
+                  	<?php endif; ?>
+
+                  	<?php if(!empty($valor[$i]['entrada'])): ?>
+                  		<td><?php echo Form::text("saida$i", $valor[$i]['saida'], array('class'=>'form-control hora', 'tabindex'=>'1', 'onblur'=>"add($i)", 'id'=>"saida$i", 'data-inputmask'=>"'alias': 'hh:mm'", 'data-mask')); ?></td>
+                  	<?php else: ?>
+                  		 <td><?php echo Form::text("saida$i", null, array('class'=>'form-control hora', 'tabindex'=>'1', 'onblur'=>"add($i)", 'id'=>"saida$i", 'data-inputmask'=>"'alias': 'hh:mm'", 'data-mask')); ?></td>
+                  	<?php endif; ?>
+
+
+                </tr>
+              <?php endif; ?>
+            <?php endfor; ?>
+        </tbody>
+      </table>
+
+
+</div>
+  <script type="text/javascript">
+  $(function(){
+   $(".datemask").inputmask("dd/mm/20yy", {"placeholder": "mm/20yy"});
+   $("[data-mask]").inputmask();
+  })
+
+    function add(id){
+      var date = document.getElementById('data'+id).value
+      var entrada = document.getElementById('entrada'+id).value
+      var saida = document.getElementById('saida'+id).value
+      var interno = document.getElementById('interno_id').value
+      $("#load").addClass('loading-img')
+
+      $.post('/internos/frequencia',
+                          { data: date,
+                            entrada: entrada,
+                            saida: saida,
+                            interno_id: interno
+                          },function(data){
+                              if(data){
+                                alert("Os campos Hora Entrada e Hora Saida, são obrigatórios para inclusão do registro!")
+                               if(entrada == ""){
+                                document.getElementById('entrada'+id).focus();
+                               }
+                               else{
+                                document.getElementById('saida'+id).focus();
+                               }
+
+                              }
+                            }).success(function(data){
+                              $("#load").removeClass('loading-img')
+                            }).error()
+    }
+  </script>ve
+</body>
+</html>

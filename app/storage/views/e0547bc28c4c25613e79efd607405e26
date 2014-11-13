@@ -1,0 +1,18 @@
+<?php $__env->startSection('main'); ?>
+	<section class="content">
+    <?php echo HTML::head('Colaboradores', 'controla os colaboradores'); ?>
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="ion ion-clipboard"></i>
+                    <h3 class="box-title">Colaboradores</h3>
+                    <div class="box-footer clearfix no-border">
+                        <?php echo Form::adicionar('/cadastro/colaborador/create'); ?>
+
+                </div>
+             </div><!-- /.box-header -->
+             <div class="box-body">
+                <?php echo $__env->make('cadastro.colaboradores.lista', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+             </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,22 @@
+<?php $__env->startSection('main'); ?>
+	<section class="content">
+  		<?php echo $__env->make('internos.topo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+  		<div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Alterar Interno</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+				<?php echo Form::model($interno, array('method' => 'PATCH',
+			                                                 'route' => array('internos.internos.update', $interno->id) ,
+			                                                 'rule'=>'form')); ?>
+
+					<?php echo $__env->make('internos.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				<?php echo Form::close(); ?>
+
+			</div>
+		</div>
+	</section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

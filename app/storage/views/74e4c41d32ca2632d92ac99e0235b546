@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Relatorio SIG - SISTEMA INTERNO DE GERENCIAMENTO</title>
+		<?php echo HTML::style('assets/css/bootstrap.css'); ?>
+
+	</head>
+	<body>
+		<?php echo $__env->yieldContent('main'); ?>
+	</body>
+	</html>

@@ -1,0 +1,79 @@
+
+<fieldset>
+    <div class="form-group col-md-12">
+      <?php echo Form::label('nome', 'Nome do Colaborador: '); ?>
+
+      <?php echo Form::text('nome', null, array('class'=>'form-control') ); ?>
+
+    </div>
+    <div class="form-group col-md-12">
+      <div class="form-group col-md-3">
+        <?php echo Form::label('sexo', 'Sexo: '); ?>
+
+        <?php echo Form::select('sexo', array('1'=>'Masculino','0'=>'Feminino'),null, array('class'=>'form-control') ); ?>
+
+      </div>
+
+      <div class="form-group col-md-3">
+        <?php echo Form::label('data_nascimento', 'Data de Nascimento: '); ?>
+
+        <?php echo Form::text('data_nascimento', null, array('class'=>'form-control') ); ?>
+
+      </div>
+
+      <div class="form-group col-md-3">
+        <?php echo Form::label('contato', 'Contato: '); ?>
+
+        <?php echo Form::text('contato', null, array('class'=>'form-control') ); ?>
+
+      </div>
+    </div>
+    <div class="form-group col-md-12">
+      <?php echo Form::label('endereco', 'Endereço: '); ?>
+
+      <?php echo Form::text('endereco', null, array('class'=>'form-control') ); ?>
+
+    </div>
+     <div class="form-group col-md-5">
+        <?php echo Form::label('bairro', 'Bairro: '); ?>
+
+        <?php echo Form::text('bairro', null, array('class'=>'form-control') ); ?>
+
+      </div>
+
+
+
+    <div class="form-group col-md-12"> <h3>Informações Adicionais</h3></div>
+
+
+    <div class="form-group col-md-12">
+      <div class="form-group col-md-4">
+        <?php echo Form::label('setor', 'Setor: '); ?>
+
+        <?php echo Form::select('setor_id', array(""=>'Selecione ...')+Setor::all()->lists('descricao','id'), null, array('class'=>'form-control') ); ?>
+
+      </div>
+
+      <div class="form-group col-md-3">
+        <?php echo Form::label('interno', 'O Colaborador é Interno? '); ?>
+
+        <?php echo Form::select('interno', array('0'=>'NÃO', '1'=>'SIM'), null, array('class'=>'form-control') ); ?>
+
+      </div>
+
+      <div class="form-group col-md-5">
+        <?php echo Form::label('codigo_interno', 'Codigo Interno do Colaborador: '); ?>
+
+        <?php echo Form::text('codigo_interno', null, array('class'=>'form-control') ); ?>
+
+      </div>
+
+    </div>
+
+<div class="col-md-9">
+  <button type="submit" class="btn btn-primary">Gravar</button>
+  <?php echo link_to_route('cadastro.colaborador.index', 'Cancelar', null, array('class'=>'btn btn-danger')); ?>
+
+
+  </fieldset>
+</div>

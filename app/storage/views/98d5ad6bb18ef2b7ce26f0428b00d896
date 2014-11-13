@@ -1,0 +1,36 @@
+
+<fieldset>
+    <div class="form-group">
+      <?php echo Form::label('nome', 'Nome: '); ?>
+
+      <?php echo Form::text('nome', null, array('class'=>'form-control') ); ?>
+
+    </div>
+
+    <div class="form-group">
+      <?php echo Form::label('setor', 'Setor: '); ?>
+
+      <?php echo Form::select('setor_id', array(''=>'Selecione...')+Setor::all()->lists('descricao', 'id'), null, array('class'=>'form-control')); ?>
+
+    </div>
+
+    <div class="form-group col-md-12">
+      <div class="col-md-6">
+        <?php echo Form::label('cod_interno', 'Codigo Interno: '); ?>
+
+        <?php echo Form::text('cod_interno', null, array('class'=>'form-control') ); ?>
+
+      </div>
+      <div class="col-md-6">
+        <?php echo Form::label('ativo', 'Situação: '); ?>
+
+        <?php echo Form::select('situacao', array(true=>'ativo', false=>'desligado'), null, array('class'=>'form-control')); ?>
+
+      </div>
+    </div>
+
+<button type="submit" class="btn btn-primary">Gravar</button>
+<?php echo link_to_route('internos.internos.index', 'Cancelar', null, array('class'=>'btn btn-danger')); ?>
+
+
+</fieldset>

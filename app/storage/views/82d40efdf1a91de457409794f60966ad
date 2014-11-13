@@ -1,0 +1,48 @@
+<?php $__env->startSection('main'); ?>
+<div class="col-md-12">
+	<h1>Controle de Horas Trabalhadas por Setor</h1>
+	<h3>Ref: <?php echo $data; ?> </h3>
+<?php
+$totalInterno = 0;
+?>
+<?php if($dados): ?>
+	<table class="table table-condensed">
+					<tr>
+						<th>Setor</th>
+						<th>Qtde. Colaboradores</th>
+						<th>Hora Base do Setor</th>
+						<th>Qtd. Dias Trabalhados</th>
+						<th>Horas Trabalhadas</th>
+						<th>Horas Potenciais</th>
+					</tr>
+
+					<?php foreach($dados as $val): ?>
+						<tr>
+							<td><?php echo $val->setor; ?></td>
+							<td><?php echo count(Setor::find($val->id)->internos); ?></td>
+							<td><?php echo $val->horabase; ?></td>
+							<td><?php echo $val->qtddias; ?></td>
+							<td><?php echo $val->horastrabalhadas; ?></td>
+							<th><?php echo $val->horaspotenciais; ?> </th>
+						</tr>
+<?php
+$totalInterno = $val->internos+$totalInterno;
+?>
+					<?php endforeach; ?>
+					<tr>
+						<th>Totais: </th>
+						<th><?php echo $totalInterno; ?></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</table>
+</div>
+<?php else: ?>
+	<div class="well">Nenhum registro retornado</div>
+<?php endif; ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.report', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
