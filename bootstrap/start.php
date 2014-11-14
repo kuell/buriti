@@ -25,7 +25,8 @@ $app = new Illuminate\Foundation\Application;
  */
 
 $env = $app->detectEnvironment(array(
-		'local' => array('tcc'),
+		'local'  => array('tcc'),
+		'remoto' => array('10.1.1.198')
 
 	));
 
