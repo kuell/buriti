@@ -50,7 +50,7 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 4,
 				'descricao'  => 'Livro de Ocorrencias',
-				'url'        => '/farmacia/ocorrencias',
+				'url'        => '/farmacia/ocorrencias/',
 				'icone'      => null,
 				'indice'     => null,
 				'menu_pai'   => 3,
@@ -61,7 +61,7 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 5,
 				'descricao'  => 'Lançamento de Atestados',
-				'url'        => '/farmacia/atestados',
+				'url'        => '/farmacia/atestados/',
 				'icone'      => null,
 				'indice'     => null,
 				'menu_pai'   => 3,
@@ -72,7 +72,7 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 6,
 				'descricao'  => 'Perfil',
-				'url'        => '/acesso/user',
+				'url'        => '/acesso/user/',
 				'icone'      => null,
 				'indice'     => null,
 				'menu_pai'   => 1,
