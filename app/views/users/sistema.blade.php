@@ -1,7 +1,6 @@
 @extends('dashboard.index')
 
 @section('main')
-    @include('users.topo')
 
     <section class="content PermissaoCtrl">
         <div class="box" ng-app="App" ng-controller="PermissaoCtrl">
