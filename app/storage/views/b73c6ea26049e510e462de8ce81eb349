@@ -2,7 +2,7 @@
 <fieldset ng-app="App" ng-controller="AtestadoCtrl">
 
     <div class="form-group col-md-12">
-      <div class="form-group col-md-8">
+      <div class="form-group col-md-12">
         <?php echo Form::label('local_atendimento', 'Local de Atendimento: '); ?>
 
         <?php echo Form::text('local_atendimento', null, array('class'=>'form-control') ); ?>
@@ -14,11 +14,11 @@
       <div class="form-group col-md-2">
         <?php echo Form::label('codigo_interno', 'Codigo Interno: '); ?>
 
-        <?php echo Form::text('codigo_interno', null, array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ); ?>
+        <?php echo Form::text('codigo_interno', null,  array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ); ?>
 
       </div>
 
-      <div class="form-group col-md-8">
+      <div class="form-group col-md-10">
         <?php echo Form::label('colaborador_id', 'Nome do Colaborador: '); ?>
 
         <?php echo Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::all()->lists('nome','id'), null, array('class'=>'form-control') ); ?>
@@ -69,36 +69,40 @@
         <?php echo Form::select('acidente_trabalho', array('1'=>'Sim', '0'=>'Não'), null, array('class'=>'form-control', 'rows'=>4) ); ?>
 
       </div>
-       <div class="form-group col-md-4">
-        <?php echo Form::label('seguro', 'Encaminha para seguro? '); ?>
+    </div>
 
-        <?php echo Form::select('seguro', array('1'=>'Sim', '0'=>'Não'), null, array('class'=>'form-control', 'rows'=>4) ); ?>
+    <div class="form-group col-md-12">
+       <div class="form-group col-md-2">
+        <?php echo Form::label('cid', 'Codigo do C.I.D.: '); ?>
+
+        <?php echo Form::text('cid', null, array('class'=>'form-control', 'ng-blur'=>'busca_cid(this.value())') ); ?>
+
+      </div>
+      <div class="form-group col-md-10">
+        <?php echo Form::label('cid_descricao', 'Descrição do CID: '); ?>
+
+        <?php echo Form::text('cid_descricao', null, array('class'=>'form-control', 'disabled'=>'disabled') ); ?>
 
       </div>
     </div>
 
     <div class="form-group col-md-12">
-       <div class="form-group col-md-2">
-        <?php echo Form::label('codigo_cid', 'Codigo do C.I.D.: '); ?>
+       <div class="form-group col-md-3">
+        <?php echo Form::label('cat', 'Numero da CAT: '); ?>
 
-        <?php echo Form::text('codigo_cid', null, array('class'=>'form-control', 'ng-model'=>'cod_cid', 'ng-blur'=>'busca_cid(this)') ); ?>
-
-      </div>
-      <div class="form-group col-md-10">
-        <?php echo Form::label('cid_id', 'C.I.D. '); ?>
-
-        <?php echo Form::select('cid_id', array(''=>'Selecione ...')+FarmaciaCid::all()->lists('descricao', 'id'), null, array('class'=>'form-control') ); ?>
+        <?php echo Form::text('cat', null, array('class'=>'form-control')); ?>
 
       </div>
-    </div>
 
-    <div class="form-group col-md-5">
+       <div class="form-group col-md-5">
         <?php echo Form::label('profissional', 'Profissional: '); ?>
 
         <?php echo Form::text('profissional', null, array('class'=>'form-control') ); ?>
 
-    </div>
+      </div>
 
+
+    </div>
 <div class="col-md-9">
   <button type="submit" class="btn btn-primary">Gravar</button>
   <?php echo link_to_route('farmacia.atestados.index', 'Cancelar', null, array('class'=>'btn btn-danger')); ?>
@@ -116,10 +120,6 @@
       $('input[name=codigo_interno]').val('')
     });
 
-     $('select[name=cid_id]').change(function(){
-      $('input[name=codigo_cid]').val('')
-    });
-
     var App = angular.module('App',[]);
         App.config(function($interpolateProvider) {
               $interpolateProvider.startSymbol('<%');
@@ -127,27 +127,24 @@
         });
 
     var AtestadoCtrl = function ($scope, $http, $window){
-          //$scope.cod_interno = <?php echo isset($ocorrencia->colaborador->codigo_interno) ? $ocorrencia->colaborador->codigo_interno : null; ?>
-
-          //$scope.cod_cid = <?php echo isset($ocorrencia->colaborador->codigo_interno) ? $ocorrencia->colaborador->codigo_interno : null; ?>
+          $scope.cod_interno = <?php echo isset($atestado->colaborador->codigo_interno) ? $atestado->colaborador->codigo_interno : null; ?>
 
 
-          $scope.busca_cid = function(obj){
-            cod_cid = obj.cod_cid;
+          $scope.busca_cid = function(){
+            cod_cid = $('input[name=cid]').val();
 
             if(cod_cid == ''){
-              $('input[name=codigo_cid]').val('');
-              $('select[name=cid_id]').val('')
+              $('input[name=cid_descricao]').val('');
             }
 
             $http.get('/restfull/cid/'+cod_cid.toUpperCase())
                         .success(function(data){
                             if(data == 0){
                               alert('Cid não encontradao, \n Verifique se o código informado esta correto!')
-                              $('input[name=codigo_cid]').val('');
+                              $('input[name=cid]').val('');
                             }
                             else{
-                              $('select[name=cid_id]').val(data[0].id)
+                              $('input[name=cid_descricao]').val(data[0].descricao)
                             }
                         })
           }

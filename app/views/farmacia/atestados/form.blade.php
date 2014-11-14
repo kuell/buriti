@@ -2,7 +2,7 @@
 <fieldset ng-app="App" ng-controller="AtestadoCtrl">
 
     <div class="form-group col-md-12">
-      <div class="form-group col-md-8">
+      <div class="form-group col-md-12">
         {{ Form::label('local_atendimento', 'Local de Atendimento: ') }}
         {{ Form::text('local_atendimento', null, array('class'=>'form-control') ) }}
       </div>
@@ -11,10 +11,10 @@
     <div class="form-group col-md-12">
       <div class="form-group col-md-2">
         {{ Form::label('codigo_interno', 'Codigo Interno: ') }}
-        {{ Form::text('codigo_interno', null, array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ) }}
+        {{ Form::text('codigo_interno', null,  array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ) }}
       </div>
 
-      <div class="form-group col-md-8">
+      <div class="form-group col-md-10">
         {{ Form::label('colaborador_id', 'Nome do Colaborador: ') }}
         {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::all()->lists('nome','id'), null, array('class'=>'form-control') ) }}
       </div>
@@ -52,28 +52,32 @@
         {{ Form::label('acidente_trabalho', 'É um acidente de Trabalho? ') }}
         {{ Form::select('acidente_trabalho', array('1'=>'Sim', '0'=>'Não'), null, array('class'=>'form-control', 'rows'=>4) ) }}
       </div>
-       <div class="form-group col-md-4">
-        {{ Form::label('seguro', 'Encaminha para seguro? ') }}
-        {{ Form::select('seguro', array('1'=>'Sim', '0'=>'Não'), null, array('class'=>'form-control', 'rows'=>4) ) }}
-      </div>
     </div>
 
     <div class="form-group col-md-12">
        <div class="form-group col-md-2">
-        {{ Form::label('codigo_cid', 'Codigo do C.I.D.: ') }}
-        {{ Form::text('codigo_cid', null, array('class'=>'form-control', 'ng-model'=>'cod_cid', 'ng-blur'=>'busca_cid(this)') ) }}
+        {{ Form::label('cid', 'Codigo do C.I.D.: ') }}
+        {{ Form::text('cid', null, array('class'=>'form-control', 'ng-blur'=>'busca_cid(this.value())') ) }}
       </div>
       <div class="form-group col-md-10">
-        {{ Form::label('cid_id', 'C.I.D. ') }}
-        {{ Form::select('cid_id', array(''=>'Selecione ...')+FarmaciaCid::all()->lists('descricao', 'id'), null, array('class'=>'form-control') ) }}
+        {{ Form::label('cid_descricao', 'Descrição do CID: ') }}
+        {{ Form::text('cid_descricao', null, array('class'=>'form-control', 'disabled'=>'disabled') ) }}
       </div>
     </div>
 
-    <div class="form-group col-md-5">
+    <div class="form-group col-md-12">
+       <div class="form-group col-md-3">
+        {{ Form::label('cat', 'Numero da CAT: ') }}
+        {{ Form::text('cat', null, array('class'=>'form-control')) }}
+      </div>
+
+       <div class="form-group col-md-5">
         {{ Form::label('profissional', 'Profissional: ') }}
         {{ Form::text('profissional', null, array('class'=>'form-control') ) }}
-    </div>
+      </div>
 
+
+    </div>
 <div class="col-md-9">
   <button type="submit" class="btn btn-primary">Gravar</button>
   {{ link_to_route('farmacia.atestados.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
@@ -89,10 +93,6 @@
       $('input[name=codigo_interno]').val('')
     });
 
-     $('select[name=cid_id]').change(function(){
-      $('input[name=codigo_cid]').val('')
-    });
-
     var App = angular.module('App',[]);
         App.config(function($interpolateProvider) {
               $interpolateProvider.startSymbol('<%');
@@ -100,25 +100,23 @@
         });
 
     var AtestadoCtrl = function ($scope, $http, $window){
-          //$scope.cod_interno = {{ $ocorrencia->colaborador->codigo_interno or null }}
-          //$scope.cod_cid = {{ $ocorrencia->colaborador->codigo_interno or null }}
+          $scope.cod_interno = {{ $atestado->colaborador->codigo_interno or null }}
 
-          $scope.busca_cid = function(obj){
-            cod_cid = obj.cod_cid;
+          $scope.busca_cid = function(){
+            cod_cid = $('input[name=cid]').val();
 
             if(cod_cid == ''){
-              $('input[name=codigo_cid]').val('');
-              $('select[name=cid_id]').val('')
+              $('input[name=cid_descricao]').val('');
             }
 
             $http.get('/restfull/cid/'+cod_cid.toUpperCase())
                         .success(function(data){
                             if(data == 0){
                               alert('Cid não encontradao, \n Verifique se o código informado esta correto!')
-                              $('input[name=codigo_cid]').val('');
+                              $('input[name=cid]').val('');
                             }
                             else{
-                              $('select[name=cid_id]').val(data[0].id)
+                              $('input[name=cid_descricao]').val(data[0].descricao)
                             }
                         })
           }

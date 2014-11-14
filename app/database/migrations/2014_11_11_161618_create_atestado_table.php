@@ -13,18 +13,16 @@ class CreateAtestadoTable extends Migration {
 	public function up() {
 		Schema::create('farmacia_atestados', function (Blueprint $table) {
 				$table->increments('id');
-				$table->integer('local_atendimento_id');
+				$table->string('local_atendimento');
 				$table->integer('colaborador_id');
-				$table->datetime('data_hora');
-				$table->enum('tipo_atestado', array('consulta', 'acompanhamento'));
-				$table->string('periodo_dia');
+				$table->integer('tipo_atestado');
+				$table->string('periodo_dispensa');
 				$table->date('inicio_afastamento')->nullable();
 				$table->date('fim_afastamento')->nullable();
 				$table->boolean('doenca');
 				$table->boolean('acidente_trabalho');
-				$table->boolean('encaminha_seguro');
-				$table->integer('cid_id');
-				$table->integer('profissional_id');
+				$table->string('cid');
+				$table->string('profissional');
 				$table->string('cat');
 				$table->timestamps();
 			});

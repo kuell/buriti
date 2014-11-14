@@ -3,7 +3,7 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Data</th>
+				<th>Data - Fim</th>
 				<th>Colaborador</th>
 				<th>Local do Atendimento</th>
 				<th>C.I.D. / Descrição</th>
@@ -14,11 +14,11 @@
 			<?php foreach($atestados as $atestado): ?>
 				<tr>
 					<td><?php echo e($atestado->id); ?></td>
-					<td><?php echo e($atestado->data_hora); ?></td>
+					<td><?php echo e($atestado->inicio_afastamento); ?> - <?php echo e($atestado->fim_afastamento); ?></td>
 					<td><?php echo e($atestado->colaborador->nome); ?> / <?php echo e($atestado->colaborador->setor->descricao); ?></td>
-					<td>Local Atendimento</td>
-					<td><?php echo e($atestado->cid_id); ?></td>
-					<td><?php echo e($atestado->profissional_id); ?></td>
+					<td><?php echo e($atestado->local_atendimento); ?></td>
+					<td><?php echo e($atestado->cid); ?></td>
+					<td><?php echo e($atestado->profissional); ?></td>
 					<td></td>
 					<td><?php echo link_to_route('farmacia.atestados.edit', 'Editar', $atestado->id, array('class'=>'btn btn-primary')); ?></td>
 				</tr>

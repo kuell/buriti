@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1553855588">
+    <data-source source="LOCAL" name="PostgreSQL - sig@localhost" uuid="c44e34bd-8acd-462f-8480-09736df5a29f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/sig</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

@@ -4,6 +4,7 @@ class AtestadoController extends \BaseController {
 
 	private $atestados;
 	private $reendenise = "farmacia.atestados.";
+	private $rules      = [];
 
 	public function __construct(Atestado $atestado) {
 		$this->atestados = $atestado;
@@ -15,7 +16,7 @@ class AtestadoController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$atestados = $this->atestados->all();
+		$atestados = $this->atestados->orderBy('id')->get();
 
 		return View::make($this->reendenise.'index', compact('atestados'));
 	}
@@ -35,7 +36,17 @@ class AtestadoController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
-		//
+		$input = array_except(Input::all(), 'codigo_interno');
+
+		$validate = Validator::make($input, $this->rules);
+
+		if ($validate->passes()) {
+			$this->atestados = $this->atestados->create($input);
+
+			return Redirect::route('farmacia.atestados.index');
+		} else {
+			print_r($validate->errors());
+		}
 	}
 
 	/**
@@ -55,7 +66,9 @@ class AtestadoController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-		//
+		$atestado = $this->atestados->find($id);
+
+		return View::make($this->reendenise.'edit', compact('atestado'));
 	}
 
 	/**
@@ -65,7 +78,18 @@ class AtestadoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		//
+		$input = array_except(Input::all(), 'codigo_interno');
+
+		$validate = Validator::make($input, $this->rules);
+
+		if ($validate->passes()) {
+			$atestado = $this->atestados->find($id);
+			$atestado->update($input);
+
+			return Redirect::route($this->reendenise.'index');
+		} else {
+			print_r($validate->error());
+		}
 	}
 
 	/**
