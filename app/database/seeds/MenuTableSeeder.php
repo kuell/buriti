@@ -37,6 +37,17 @@ class MenuTableSeeder extends Seeder {
 			),
 
 			array(
+				'id'         => 7,
+				'descricao'  => 'Colaboradores',
+				'url'        => '/cadastro/colaborador/',
+				'icone'      => null,
+				'indice'     => null,
+				'menu_pai'   => 2,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+			),
+
+			array(
 				'id'         => 3,
 				'descricao'  => 'Farmacia',
 				'url'        => null,

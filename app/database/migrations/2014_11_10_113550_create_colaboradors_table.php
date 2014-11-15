@@ -14,13 +14,13 @@ class CreateColaboradorsTable extends Migration {
 		Schema::create('colaboradors', function (Blueprint $table) {
 				$table->increments('id');
 				$table->string('nome');
-				$table->boolean('sexo');
+				$table->boolean('sexo')->nullable();
 				$table->boolean('interno');
-				$table->date('data_nascimento');
-				$table->string('endereco');
-				$table->string('bairro');
-				$table->string('contato');
-				$table->integer('setor_id');
+				$table->date('data_nascimento')->nullable();
+				$table->string('endereco')->nullable();
+				$table->string('bairro')->nullable();
+				$table->string('contato')->nullable();
+				$table->integer('setor_id')->nullable();
 				$table->integer('codigo_interno');
 				$table->timestamps();
 			});

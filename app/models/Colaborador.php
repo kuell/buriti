@@ -11,9 +11,13 @@ class Colaborador extends Eloquent {
 	}
 
 	public function getDataNascimentoAttribute() {
-		$d = explode('-', $this->attributes['data_nascimento']);
+		if (!$this->attributes['data_nascimento']) {
+			return null;
+		} else {
+			$d = explode('-', $this->attributes['data_nascimento']);
 
-		return $d[2].'/'.$d[1].'/'.$d[0];
+			return $d[2].'/'.$d[1].'/'.$d[0];
+		}
 	}
 
 	public function getInternoAttribute() {
