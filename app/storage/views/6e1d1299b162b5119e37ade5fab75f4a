@@ -1,5 +1,4 @@
 <?php $__env->startSection('main'); ?>
-    <?php echo $__env->make('users.topo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <section class="content PermissaoCtrl">
         <div class="box" ng-app="App" ng-controller="PermissaoCtrl">
@@ -64,16 +63,14 @@
         });
 
         function PermissaoCtrl($scope, $http, $window){
-                $scope.save = function(menu_id){
-                                        $scope.obj.menu_id = menu_id;
+            $scope.save = function(menu_id){
+                $scope.obj.menu_id = menu_id;
+                $http.post('/acesso/user/menu/', $scope.obj)
+                    .success(function(data){
+                        $window.console.log(data);
+                        });
 
-
-                                        $http.post('/acesso/user/menu/', $scope.obj)
-                                            .success(function(data){
-                                                $window.console.log(data);
-                                                });
-
-                }
+            }
 
                 var init = function(){
                     $scope.obj = {menu_id: 0, usuario_id: <?php echo $usuario->id; ?> }

@@ -40,9 +40,9 @@
                                             <i class="fa fa-angle-left pull-right"></i>
 
                                             <ul class="treeview-menu">
-                                            <?php foreach($menu->menu->subMenus as $sub): ?>
-                                                    <li><a href="<?php echo $sub->url; ?>"><i class="fa <?php echo $sub->icone; ?>"></i> <?php echo $sub->descricao; ?></a></li>
-                                            <?php endforeach; ?>
+                                                <?php foreach($menu->menu->subMenus as $sub): ?>
+                                                        <li><a href="<?php echo $sub->url; ?>"><i class="fa <?php echo $sub->icone; ?>"></i> <?php echo $sub->descricao; ?></a></li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </a>
                                 <?php endif; ?>

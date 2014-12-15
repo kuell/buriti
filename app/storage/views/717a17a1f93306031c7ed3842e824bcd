@@ -5,7 +5,7 @@
 
 
      <div class="box-body">
-        <?php echo link_to('#', 'Permissao', array('class'=>'btn btn-primary')); ?>
+        <?php echo link_to('/acesso/user/menu/'.$user->id, 'Permissao', array('class'=>'btn btn-primary')); ?>
 
             <?php echo Form::model($user, array('method' => 'PATCH',
                                                  'route' => array('acesso.user.update', $user->id) ,

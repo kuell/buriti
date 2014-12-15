@@ -1,6 +1,9 @@
  <!-- jQuery 2.0.2 -->
         <?php echo HTML::script('js/jquery.min.js'); ?>
 
+        <!-- Configuração -->
+        <?php echo HTML::script('js/conf.js'); ?>
+
         <!-- Bootstrap -->
         <?php echo HTML::script('js/bootstrap.min.js'); ?>
 
