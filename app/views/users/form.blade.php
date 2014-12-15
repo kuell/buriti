@@ -14,7 +14,6 @@
         <div class="form-group">
             <label for="cal">Contato: </label>
           {{ Form::text('cel', null, array('class'=>'form-control', 'data-inputmask'=>'"mask": "(999) 999-9999"', 'id'=>'data-mask')) }}
-          <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask/>
         </div>
     </div>
 

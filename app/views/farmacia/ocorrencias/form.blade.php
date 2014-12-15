@@ -64,18 +64,19 @@
         });
 
      var OcorrenciaCtrl = function ($scope, $http, $window){
-          $scope.cod_interno = {{ $ocorrencia->colaborador->codigo_interno or null }}
+          $scope.cod_interno = {{ $ocorrencia->colaborador->codigo_interno or 0 }}
 
           $scope.busca = function(obj){
-              codInterno = obj.cod_interno;
+            codInterno = obj.cod_interno;
 
             $http.get('/restfull/colaborador/'+codInterno).success(function(data){
                 if(data == 0){
+                  alert("Colaborador não encontrado!")
                   $('input[name=codigo_interno]').val('')
                   $('select[name=colaborador_id]').val('')
-                  $scope.info = '' ;
                 }
                 else{
+                  $window.console.log(data);
                   $('select[name=colaborador_id]').val(data[0].id)
                 }
             });

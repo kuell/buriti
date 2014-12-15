@@ -42,11 +42,12 @@ class PermissaoController extends \BaseController {
 	 */
 	public function store() {
 		$input = Input::all();
+		$input['user'] = strtolower($input['user']);
 
 		$validation = Validator::make($input, $this->rules);
 
 		if ($validation->passes()) {
-			$input['password'] = Hash::make($input['password']);
+			$input['password'] = Hash::make(strtolower($input['password']));
 
 			$this->usuario->create($input);
 

@@ -98,7 +98,7 @@ class ColaboradorController extends \BaseController {
 	}
 
 	public function show($codigo_interno) {
-		$colaborador = $this->colaboradors->where('codigo_interno', $codigo_interno)->get();
+		$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->get();
 
 		if ($colaborador->count() == 0) {
 			return '0';

@@ -17,7 +17,6 @@
             <label for="cal">Contato: </label>
           <?php echo Form::text('cel', null, array('class'=>'form-control', 'data-inputmask'=>'"mask": "(999) 999-9999"', 'id'=>'data-mask')); ?>
 
-          <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask/>
         </div>
     </div>
 

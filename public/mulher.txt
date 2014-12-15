@@ -1,86 +1,88 @@
-00148 SAIONARA MARTA FERRARI Funcao: Assist. de Vendas    Admissao: 03/03/1999
-02187 DANIELLE CORREA DA COSTA PAREDES Funcao: Analista Fiscal/Trib Admissao: 19/05/2011
-02346 ERICA CRISTINA PIRES ULRICH Funcao: Analista Adm Senior  Admissao: 02/01/2012
-02719 GLAUCIA ARALDI Funcao: Analista Adm Senior  Admissao: 18/03/2013
-02918 NEURISLENE RODRIGUES DE OLIVEIRA Funcao: Recepcionista        Admissao: 05/06/2014
-02948 ALINE GABRIELA DE LARA MACHADO Funcao: Recepcionista        Admissao: 17/09/2014
-00988 DENISE LANE PARENTI RAMIRES Funcao: Gerente de RH        Admissao: 02/01/2008
-02056 BRUNA LOPES FAQUIN Funcao: Analista RH          Admissao: 01/04/2010
-02920 JESSIKA LEITE PENEDO Funcao: Aux.Deptº Pessoal    Admissao: 06/06/2014
-00112 MARIA CRISTINA DE SOUZA Funcao: Supervisor de compra Admissao: 03/03/1999
-02350 ANA PAULA RODRIGUES Funcao: Faturista            Admissao: 03/01/2012
-02952 ANDREA BORGES RODRIGUES Funcao: Faturista            Admissao: 22/09/2014
-02161 JOCELDA NUNES DA SILVA Funcao: Aux. Limp e Conserv  Admissao: 22/03/2011
-02718 ANA CLAUDIA RODRIGUES DA SILVA Funcao: Aux. de Abate        Admissao: 18/03/2013
-02743 MARCELA TRINDADE Funcao: Aux. de Industria    Admissao: 18/04/2013
-02788 SUENIR MONTEIRO DE SOUZA Funcao: Aux. de Industria    Admissao: 01/07/2013
-02916 MARIA DE FATIMA COSTA ROMERO Funcao: Aux. de industria    Admissao: 26/05/2014
-02138 LUZIRENE BARBOSA FERREIRA Funcao: Magarefe C           Admissao: 18/02/2011
-00192 MARIA APARECIDA GOMES Funcao: Refilador            Admissao: 18/06/1999
-00287 SANDRA MARIA MIRANDA CACERES Funcao: Refilador            Admissao: 01/02/2001
-00645 VALQUIRIA ALVES NIZA Funcao: Refilador            Admissao: 11/03/2005
-00726 LUZENIR PEREIRA CONCEICAO SILVA Funcao: Refilador            Admissao: 08/12/2005
-01079 CLEONICE MARIA DE OLIVEIRA Funcao: Refilador            Admissao: 23/03/2009
-01085 JUCELIA XAVIER SOBRINHO Funcao: Aux. de Miudos       Admissao: 23/03/2009
-02063 LUCIMAR MARIA DE OLIVEIRA Funcao: Aux. de Miudos       Admissao: 23/04/2010
-02244 MADALENA GONCALVES DAMACENO Funcao: Aux. Limp e Conserv  Admissao: 15/08/2011
-02246 FRANCIENE RAMALHO Funcao: Refilador            Admissao: 22/08/2011
-02289 MARIA APARECIDA DE OLIVEIRA Funcao: Refilador            Admissao: 14/10/2011
-02337 ADRIELE DOS SANTOS PIRES Funcao: Aux. de Miudos       Admissao: 16/12/2011
-02381 SILVANA DA SILVA SOUSA Funcao: Aux. de Miudos       Admissao: 21/01/2012
-02441 MAIRA LOPES DOS SANTOS Funcao: Refilador            Admissao: 15/03/2012
-02662 LAURA DA SILVA AMORIM Funcao: Aux. de Miudos       Admissao: 17/01/2013
-02689 FABIANA APARECIDA BENVINDO Funcao: Aux. de industria    Admissao: 14/02/2013
-02836 PATRICIA XAVIER DA SILVA Funcao: Aux. de Industria    Admissao: 07/11/2013
-02850 TATIANE BOGADO DE JESUS Funcao: Aux. de Miudos       Admissao: 09/01/2014
-02869 FLAVIANE MARIA PIEREZAN RIZZI Funcao: Aux. de Industria    Admissao: 20/02/2014
-02906 JOANA DARC ANDRADE DE OLIVEIRA Funcao: Aux. de industria    Admissao: 09/05/2014
-02907 KALINE SOARES FERREIRA Funcao: Aux. de industria    Admissao: 09/05/2014
-02912 GRAZIELE NASCIMENTO MOLINA Funcao: Aux. de industria    Admissao: 15/05/2014
-02934 REGIANE APARECIDA ALVES DE OLIVEIRA Funcao: Aux. de industria    Admissao: 11/08/2014
-02935 DEUSA ARRUDA LULU Funcao: Aux. de industria    Admissao: 11/08/2014
-02108 ROSILDA HONORIO DE MELLO Funcao: Aux. de Graxaria     Admissao: 22/11/2010
-02668 ROSENILDA LARCON REZENDE DA SILVA Funcao: Aux. de Graxaria     Admissao: 01/02/2013
-00639 MILENA CRISTINA SANTANA DA SILVA Funcao: Aux. Limp e Conserv  Admissao: 07/03/2005
-02268 ROSANA ALVES DA COSTA Funcao: Magarefe A           Admissao: 15/09/2011
-02271 NILDA MARIA ROSA FERRAZ Funcao: Refilador            Admissao: 15/09/2011
-02388 MARIA APARECIDA RIBAS DOS SANTOS Funcao: Refilador            Admissao: 01/02/2012
-02495 DAYARA ROSA FERRAZ Funcao: Refilador            Admissao: 24/05/2012
-02500 ZARQUE TRINDADE Funcao: Puxador de Tripas    Admissao: 04/06/2012
-02501 ROSANGELA BARBOSA DOS SANTOS Funcao: Refilador            Admissao: 04/06/2012
-02516 ROSECLEIA BARBOSA DOS SANTOS Funcao: Puxador de Tripas    Admissao: 21/06/2012
-02529 ELENIR DONTCHEF ROSA Funcao: Refilador            Admissao: 11/07/2012
-02742 MARIA DE FATIMA DE OLIVEIRA Funcao: Refilador            Admissao: 18/04/2013
-02899 SUZIELI DANTAS DOS SANTOS Funcao: Refilador            Admissao: 10/04/2014
-00223 MARINETE XAVIER SOBRINHO Funcao: Copeira              Admissao: 01/10/1999
-00233 VANUSA FERNANDA CANTEIRO Funcao: Aux. Limp e Conserv  Admissao: 04/01/2000
-00266 ROSIMEIRE DIAS LOUVEIRA Funcao: Aux. Limp e Conserv  Admissao: 01/07/2000
-00868 MARILDA OLIVEIRA DO CARMO Funcao: Aux. Limp e Conserv  Admissao: 23/01/2007
-01111 CICERA RODRIGUES PESSOA Funcao: Aux. Limp e Conserv  Admissao: 22/06/2009
-02201 MARLY ESPINDOLA Funcao: Aux. Limp e Conserv  Admissao: 17/06/2011
-02307 ZULMIRA FERREIRA DE OLIVEIRA Funcao: Aux. de Limpeza e Co Admissao: 11/11/2011
-02312 NEUSA DA SILVA SOUSA Funcao: Aux. de Limpeza e Co Admissao: 18/11/2011
-02377 BIANCA GALVAO NOGUEIRA DE SOUSA Funcao: Aux. de Industria    Admissao: 19/01/2012
-02635 MAGALI DE OLIVEIRA DA SILVA Funcao: Agente Limp Industri Admissao: 26/12/2012
-02127 SUELY FRANCISCA SOARES DA SILVA Funcao: Aux. de Cozinha      Admissao: 01/02/2011
-02147 ANA ROSA DE JESUS Funcao: Cozinheira           Admissao: 09/03/2011
-02225 LETICIA ALVES PARENTI DA SILVA Funcao: Encarregado          Admissao: 12/07/2011
-02288 GABRIELLA VILLALBA Funcao: Cozinheira           Admissao: 13/10/2011
-02370 ROSA FRANCISCA DA TRINDADE Funcao: Cozinheira           Admissao: 16/01/2012
-02815 MAIZA DA TRINDADE Funcao: Aux. de Industria    Admissao: 15/08/2013
-02853 MARLI ALVES DA COSTA Funcao: Aux. de Industria    Admissao: 14/01/2014
-02894 LUANA CARLOS VEIGA Funcao: Aux. de Industria    Admissao: 01/04/2014
-02930 ALINE PAOLA CANTEIRO Funcao: Aux. de industria    Admissao: 17/07/2014
+
 00188 ADELINA CAMARGO DA SILVA Funcao: Aux. de Inspecao II  Admissao: 18/06/1999
-00394 BENEDITA ROCHA ALMEIDA Funcao: Insp.Contr.Qual III  Admissao: 22/05/2002
-01104 ROSE CLEIDE ALVES RIBAS Funcao: Insp.Contr.Qualidade Admissao: 01/06/2009
-02168 TANIA CANO PAVAO Funcao: Insp Contr Qualidade Admissao: 13/04/2011
 02949 ADRIANA DA SILVA FERREIRA Funcao: Aux. de Contr. Quali Admissao: 17/09/2014
+02930 ALINE PAOLA CANTEIRO Funcao: Aux. de industria    Admissao: 17/07/2014
+02718 ANA CLAUDIA RODRIGUES DA SILVA Funcao: Aux. de Abate        Admissao: 18/03/2013
+02350 ANA PAULA RODRIGUES Funcao: Faturista            Admissao: 03/01/2012
+02147 ANA ROSA DE JESUS Funcao: Cozinheira           Admissao: 09/03/2011
+02952 ANDREA BORGES RODRIGUES Funcao: Faturista            Admissao: 22/09/2014
+00394 BENEDITA ROCHA ALMEIDA Funcao: Insp.Contr.Qual III  Admissao: 22/05/2002
+02377 BIANCA GALVAO NOGUEIRA DE SOUSA Funcao: Aux. de Industria    Admissao: 19/01/2012
+02056 BRUNA LOPES FAQUIN Funcao: Analista RH          Admissao: 01/04/2010
 02957 CARLA YUNES SIMI Funcao: Medico veterinario   Admissao: 01/10/2014
-00399 ELIANE CARDOSO SANDIM Funcao: Tecnico Enfermagem   Admissao: 10/07/2002
-02745 REJANE LIMA TRENTINI Funcao: Tecnico de enfermage Admissao: 22/04/2013
-02960 DANUBIA JUCA DE MOURA Funcao: Tecnologo em Seguran Admissao: 23/10/2014
-01097 ELIZANDRA CAMPOS DA FONSECA Funcao: Analista Adm. Junior Admissao: 24/04/2009
+01111 CICERA RODRIGUES PESSOA Funcao: Aux. Limp e Conserv  Admissao: 22/06/2009
+01079 CLEONICE MARIA DE OLIVEIRA Funcao: Refilador            Admissao: 23/03/2009
 02050 DAIANA CRISTINA FERRAZ Funcao: Aux. de Inspecao III Admissao: 10/03/2010
+02187 DANIELLE CORREA DA COSTA PAREDES Funcao: Analista Fiscal/Trib Admissao: 19/05/2011
+02960 DANUBIA JUCA DE MOURA Funcao: Tecnologo em Seguran Admissao: 23/10/2014
+02495 DAYARA ROSA FERRAZ Funcao: Refilador            Admissao: 24/05/2012
+00988 DENISE LANE PARENTI RAMIRES Funcao: Gerente de RH        Admissao: 02/01/2008
+02935 DEUSA ARRUDA LULU Funcao: Aux. de industria    Admissao: 11/08/2014
+02970 DIRLENE SILVA DO NASCIMENTO Funcao: Aux. de industria    Admissao: 12/12/2014
+02529 ELENIR DONTCHEF ROSA Funcao: Refilador            Admissao: 11/07/2012
+00399 ELIANE CARDOSO SANDIM Funcao: Tecnico Enfermagem   Admissao: 10/07/2002
+01097 ELIZANDRA CAMPOS DA FONSECA Funcao: Analista Adm. Junior Admissao: 24/04/2009
 02164 ELIZEDIANA CRISTALDO FLORES Funcao: Aux. de Inspecao III Admissao: 01/04/2011
+02346 ERICA CRISTINA PIRES ULRICH Funcao: Analista Adm Senior  Admissao: 02/01/2012
+02689 FABIANA APARECIDA BENVINDO Funcao: Aux. de industria    Admissao: 14/02/2013
+02869 FLAVIANE MARIA PIEREZAN RIZZI Funcao: Aux. de Industria    Admissao: 20/02/2014
+02246 FRANCIENE RAMALHO Funcao: Refilador            Admissao: 22/08/2011
+02288 GABRIELLA VILLALBA Funcao: Cozinheira           Admissao: 13/10/2011
+02719 GLAUCIA ARALDI Funcao: Analista Adm Senior  Admissao: 18/03/2013
+02912 GRAZIELE NASCIMENTO MOLINA Funcao: Aux. de industria    Admissao: 15/05/2014
+02920 JESSIKA LEITE PENEDO Funcao: Aux.Deptº Pessoal    Admissao: 06/06/2014
+02906 JOANA DARC ANDRADE DE OLIVEIRA Funcao: Aux. de industria    Admissao: 09/05/2014
+02161 JOCELDA NUNES DA SILVA Funcao: Aux. Limp e Conserv  Admissao: 22/03/2011
+01085 JUCELIA XAVIER SOBRINHO Funcao: Aux. de Miudos       Admissao: 23/03/2009
+02907 KALINE SOARES FERREIRA Funcao: Aux. de industria    Admissao: 09/05/2014
+02662 LAURA DA SILVA AMORIM Funcao: Aux. de Miudos       Admissao: 17/01/2013
+02225 LETICIA ALVES PARENTI DA SILVA Funcao: Encarregado          Admissao: 12/07/2011
+02894 LUANA CARLOS VEIGA Funcao: Aux. de Industria    Admissao: 01/04/2014
+02063 LUCIMAR MARIA DE OLIVEIRA Funcao: Aux. de Miudos       Admissao: 23/04/2010
+00726 LUZENIR PEREIRA CONCEICAO SILVA Funcao: Refilador            Admissao: 08/12/2005
+02138 LUZIRENE BARBOSA FERREIRA Funcao: Magarefe C           Admissao: 18/02/2011
+02244 MADALENA GONCALVES DAMACENO Funcao: Aux. Limp e Conserv  Admissao: 15/08/2011
+02635 MAGALI DE OLIVEIRA DA SILVA Funcao: Agente Limp Industri Admissao: 26/12/2012
+02441 MAIRA LOPES DOS SANTOS Funcao: Refilador            Admissao: 15/03/2012
+02815 MAIZA DA TRINDADE Funcao: Aux. de Industria    Admissao: 15/08/2013
+02743 MARCELA TRINDADE Funcao: Aux. de Industria    Admissao: 18/04/2013
+02289 MARIA APARECIDA DE OLIVEIRA Funcao: Refilador            Admissao: 14/10/2011
+00192 MARIA APARECIDA GOMES Funcao: Refilador            Admissao: 18/06/1999
+02388 MARIA APARECIDA RIBAS DOS SANTOS Funcao: Refilador            Admissao: 01/02/2012
+02691 MARIA CRISTINA DE LIMA BARROS Funcao: Aux. de Industria    Admissao: 18/02/2013
+00112 MARIA CRISTINA DE SOUZA Funcao: Supervisor de compra Admissao: 03/03/1999
+02916 MARIA DE FATIMA COSTA ROMERO Funcao: Aux. de industria    Admissao: 26/05/2014
+02742 MARIA DE FATIMA DE OLIVEIRA Funcao: Refilador            Admissao: 18/04/2013
+00868 MARILDA OLIVEIRA DO CARMO Funcao: Aux. Limp e Conserv  Admissao: 23/01/2007
+00223 MARINETE XAVIER SOBRINHO Funcao: Copeira              Admissao: 01/10/1999
+02853 MARLI ALVES DA COSTA Funcao: Aux. de Industria    Admissao: 14/01/2014
+02201 MARLY ESPINDOLA Funcao: Aux. Limp e Conserv  Admissao: 17/06/2011
+00639 MILENA CRISTINA SANTANA DA SILVA Funcao: Aux. Limp e Conserv  Admissao: 07/03/2005
 02188 MIRIAM ROSE PARENTI FIGUEIREDO Funcao: Aux. de Inspecao III Admissao: 01/06/2011
+02918 NEURISLENE RODRIGUES DE OLIVEIRA Funcao: Recepcionista        Admissao: 05/06/2014
+02312 NEUSA DA SILVA SOUSA Funcao: Aux. de Limpeza e Co Admissao: 18/11/2011
+02271 NILDA MARIA ROSA FERRAZ Funcao: Refilador            Admissao: 15/09/2011
+02836 PATRICIA XAVIER DA SILVA Funcao: Alimentador de linha Admissao: 07/11/2013
+02934 REGIANE APARECIDA ALVES DE OLIVEIRA Funcao: Aux. de industria    Admissao: 11/08/2014
+02745 REJANE LIMA TRENTINI Funcao: Tecnico de enfermage Admissao: 22/04/2013
+02370 ROSA FRANCISCA DA TRINDADE Funcao: Cozinheira           Admissao: 16/01/2012
+02268 ROSANA ALVES DA COSTA Funcao: Magarefe A           Admissao: 15/09/2011
+02501 ROSANGELA BARBOSA DOS SANTOS Funcao: Refilador            Admissao: 04/06/2012
+01104 ROSE CLEIDE ALVES RIBAS Funcao: Insp.Contr.Qualidade Admissao: 01/06/2009
+02516 ROSECLEIA BARBOSA DOS SANTOS Funcao: Puxador de Tripas    Admissao: 21/06/2012
+02668 ROSENILDA LARCON REZENDE DA SILVA Funcao: Aux. de Graxaria     Admissao: 01/02/2013
+02108 ROSILDA HONORIO DE MELLO Funcao: Aux. de Graxaria     Admissao: 22/11/2010
+00266 ROSIMEIRE DIAS LOUVEIRA Funcao: Aux. Limp e Conserv  Admissao: 01/07/2000
+00148 SAIONARA MARTA FERRARI Funcao: Assist. de Vendas    Admissao: 03/03/1999
+00287 SANDRA MARIA MIRANDA CACERES Funcao: Refilador            Admissao: 01/02/2001
+02381 SILVANA DA SILVA SOUSA Funcao: Aux. de Miudos       Admissao: 21/01/2012
+02127 SUELY FRANCISCA SOARES DA SILVA Funcao: Aux. de Cozinha      Admissao: 01/02/2011
+02788 SUENIR MONTEIRO DE SOUZA Funcao: Aux. de Industria    Admissao: 01/07/2013
+02899 SUZIELI DANTAS DOS SANTOS Funcao: Refilador            Admissao: 10/04/2014
+02753 TAISE KELEN AMBROSIO PEREIRA Funcao: Aux. de Industria    Admissao: 06/05/2013
+02168 TANIA CANO PAVAO Funcao: Insp Contr Qualidade Admissao: 13/04/2011
+02850 TATIANE BOGADO DE JESUS Funcao: Aux. de Miudos       Admissao: 09/01/2014
+00645 VALQUIRIA ALVES NIZA Funcao: Refilador            Admissao: 11/03/2005
+00233 VANUSA FERNANDA CANTEIRO Funcao: Aux. Limp e Conserv  Admissao: 04/01/2000
+02500 ZARQUE TRINDADE Funcao: Puxador de Tripas    Admissao: 04/06/2012
+02307 ZULMIRA FERREIRA DE OLIVEIRA Funcao: Aux. de Limpeza e Co Admissao: 11/11/2011

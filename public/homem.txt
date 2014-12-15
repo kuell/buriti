@@ -1,258 +1,252 @@
 
-02094 NAUDER JARA RODRIGUES Funcao: Analista Administrat Admissao: 24/09/2010
-02750 ROBERTO SILVA RAMOS Funcao: Gerente de Industria Admissao: 02/05/2013
-02115 EVERTON SCHEIBEL DA SILVA Funcao: Faturista            Admissao: 22/12/2010
-02919 EDER AMARAL DA SILVA Funcao: Faturista            Admissao: 05/06/2014              
-02007 TIAGO DO CARMO CORREA Funcao: Analista T. Informat Admissao: 03/11/2009
-00005 ADILSON FRANCISCO DE ARAUJO Funcao: Aux. de Abate        Admissao: 03/03/1999
-00029 CLAUDIO CIRILO LUIZ Funcao: Magarefe A           Admissao: 03/03/1999
-00066 GILMAR DA SILVA GOMES Funcao: Magarefe A           Admissao: 03/03/1999
-00079 JOAO RAMAO VILLALBA Funcao: Magarefe B           Admissao: 03/03/1999
-00098 LUIZ RODRIGUES PESSOA Funcao: Magarefe B           Admissao: 03/03/1999
-00128 NICOLAS BARBOSA NEVES Funcao: Magarefe B           Admissao: 03/03/1999
-00155 VALDECY AUGUSTO DA COSTA Funcao: Encarregado          Admissao: 03/03/1999
-00180 CLAUDEIR CAIRES OLIVEIRA Funcao: Magarefe A           Admissao: 01/04/1999
-00292 RUBENS DE LORENA Funcao: Arrancador           Admissao: 01/02/2001
-00429 ROBERTO CARLOS APARECIDO GONCALVES Funcao: Magarefe A           Admissao: 03/04/2003
-00457 EDSON BARBOSA GOMES Funcao: Magarefe B           Admissao: 02/07/2003
-00618 LOURIVAL AUGUSTO DA COSTA Funcao: Magarefe B           Admissao: 06/01/2005
-00628 ADEMAR MARQUES LOPES Funcao: Magarefe A           Admissao: 15/02/2005
-00640 EDILSON DA SILVA MOTA Funcao: Magarefe A           Admissao: 07/03/2005
-00642 PATRICO DE VASCONCELOS MONDADORI Funcao: Magarefe B           Admissao: 08/03/2005
-00765 RAILDO VALE DOS SANTOS Funcao: Classificador Carcac Admissao: 15/02/2006
-00772 EDGAR RIBEIRO ROSA Funcao: Aux. de Abate        Admissao: 06/03/2006
-00814 MARCIO PEREIRA DA SILVA Funcao: Magarefe A           Admissao: 07/08/2006
-00834 GENIVALDO GRACINO DE OLIVEIRA Funcao: Magarefe A           Admissao: 13/10/2006
-00888 ROZIMAR BARBOSA DOS SANTOS Funcao: Magarefe A           Admissao: 06/03/2007
-01003 DAVI CARLOS DA SILVA Funcao: Magarefe A           Admissao: 13/02/2008
-01071 DIEGO AGUERO Funcao: Magarefe A           Admissao: 02/03/2009
-01084 RODINEI APARECIDO ROCHETE Funcao: Magarefe A           Admissao: 23/03/2009
-02002 MARCELINO XIMENES BRITES Funcao: Magarefe A           Admissao: 03/11/2009
-02040 ADRIANO PORFIRIO DE SANTA ANA Funcao: Magarefe A           Admissao: 01/02/2010
-02110 VALDECI GARCETE DE SOUZA Funcao: Magarefe A           Admissao: 22/11/2010
-02196 RONALDO SANTOS DA SILVA Funcao: Aux. de Abate        Admissao: 10/06/2011
-02198 LUCIANO DE ALMEIDA MORAES Funcao: Encarregado          Admissao: 15/06/2011
-02336 SIDINEY AJALA Funcao: Magarefe A           Admissao: 16/12/2011
-02349 ATILIO FERREIRA DE ARRUDA Funcao: Abatedor             Admissao: 02/01/2012
-02391 IVAN PAIVA MEDEIRO Funcao: Magarefe C           Admissao: 01/02/2012
-02402 VALDIR RIBEIRO BONFIM Funcao: Magarefe A           Admissao: 09/02/2012
-02468 INACIO OVELAR Funcao: Aux. de Abate        Admissao: 26/04/2012
-02564 DIOGO HENRIQUE ROBALDO DO NASCIMENTO Funcao: Magarefe A           Admissao: 01/09/2012
-02580 RENATO MARTINS ISERNHAGEN Funcao: Aux. de Industria    Admissao: 01/10/2012
-02589 ALDIFAR VELASCO SOSA Funcao: Magarefe A           Admissao: 18/10/2012
-02606 ILSON CORREA DA ROCHA Funcao: Magarefe A           Admissao: 14/11/2012
-02670 MARCELO DA SILVA ARRUDA Funcao: Aux. de Industria    Admissao: 01/02/2013
-02748 RUBENS CARLOS RAMOS Funcao: Magarefe A           Admissao: 25/04/2013
-02757 ADEMIR DE OLIVEIRA Funcao: Magarefe B           Admissao: 13/05/2013
-02812 DAMIAO SANCHES Funcao: Magarefe B           Admissao: 15/08/2013
-02847 ANTONIO MARQUES ARAUJO Funcao: Magarefe B           Admissao: 04/12/2013
-02848 BENITO ROMERO Funcao: Magarefe C           Admissao: 04/12/2013
-02866 MARCOS BELIZARIO NUNES Funcao: Aux. de Abate        Admissao: 20/02/2014
-02882 JOAO MARIA MACIEL PEREIRA Funcao: Magarefe A           Admissao: 18/03/2014
-02883 DOUGLAS DE SOUZA COELHO Funcao: Aux. de Abate        Admissao: 20/03/2014
-02898 LINDOMAR ALVES DE OLIVEIRA Funcao: Aux. de Industria    Admissao: 08/04/2014
-02904 CLAUDINEY ALVES DE OLIVEIRA Funcao: Aux. de industria    Admissao: 09/05/2014
-02921 EDIVALDO DE SOUZA LIMA Funcao: Magarefe A           Admissao: 09/06/2014
-02923 JOSE HELIO FERREIRA DOS SANTOS Funcao: Magarefe B           Admissao: 16/06/2014
-02936 EDNEI GOMES SANTOS Funcao: Aux. de industria    Admissao: 14/08/2014
-02942 ALISSON FERNANDO VIEIRA Funcao: Aux. de industria    Admissao: 04/09/2014
-02954 JOSIMAR SILVA DE OLIVEIRA Funcao: Aux. de industria    Admissao: 25/09/2014
-02955 ALTINO FERNANDO MARTINS DOS SANTOS Funcao: Aux. de industria    Admissao: 01/10/2014
-02956 WINESTON LOPES DE OLIVEIRA Funcao: Aux. de industria    Admissao: 01/10/2014
-02958 ANDRE LUIS PEREIRA Funcao: Magarefe A           Admissao: 03/10/2014
-00090 JOSE PEREIRA DA SILVA Funcao: Magarefe A           Admissao: 03/03/1999
-00387 ZEILDO DE JESUS FERREIRA Funcao: Magarefe A           Admissao: 07/05/2002
-00434 ADOLFO CESAR WENZ Funcao: Magarefe C           Admissao: 02/05/2003
-00923 GUSTAVO CARMO PINTO Funcao: Encarregado          Admissao: 20/06/2007
-01126 VILSON ALVES Funcao: Magarefe A           Admissao: 23/09/2009
-02233 ELIDEMAR MACHADO DA SILVA Funcao: Magarefe A           Admissao: 01/08/2011
-02447 ADAILTON VAREIRO PEREIRA Funcao: Magarefe A           Admissao: 17/03/2012
-02698 ANDERSON SOUZA PEREZ Funcao: Magarefe C           Admissao: 21/02/2013
-02721 CARLOS DA SILVA CRISTO Funcao: Magarefe A           Admissao: 21/03/2013
-02793 CLEIMAR ALVES DE FARIA Funcao: Magarefe C           Admissao: 08/07/2013
-02811 LUIZ CLETO GOMES PACHECO DE CAMPOS Funcao: Aux. de Bucharia     Admissao: 15/08/2013
-02887 JAIR RIQUELME ALVES Funcao: Magarefe C           Admissao: 20/03/2014
-02888 ALDAIR VAREIRO PEREIRA Funcao: Aux. de Bucharia     Admissao: 20/03/2014
-02890 WASHINGTON GONCALVES ROJAS Funcao: Magarefe C           Admissao: 27/03/2014
-02951 JONILSON DE OLIVEIRA SANTIAGO Funcao: Aux. de industria    Admissao: 18/09/2014
-00106 MARCILIO BUENO CAMARGO Funcao: Encarregado          Admissao: 03/03/1999
-00136 RAIMUNDO BATISTA DE LIMA Funcao: Retalahdor de Miudos Admissao: 03/03/1999
-00271 ADAO MACHADO SIQUEIRA Funcao: Encarregado          Admissao: 01/10/2000
-00416 CICERO ANTONIO FERREIRA Funcao: Estoquista Congelame Admissao: 01/03/2003
-00494 VALDECI PINTO DO REIS Funcao: Retalhador de Miudos Admissao: 02/12/2003
-00529 IRINEU DA SILVA MOTA Funcao: Magarefe A           Admissao: 23/03/2004
-00651 ARCENIO ARCE DE SANTA ANA Funcao: Magarefe C           Admissao: 23/03/2005
-01078 JOAO HEITOR VICENTE PAIVA Funcao: Magarefe A           Admissao: 23/03/2009
-01092 JOAO BATISTA TELES DE SALES Funcao: Estoquista Congelame Admissao: 01/04/2009
-01116 ADEMIR GODOI DA SILVA Funcao: Estoquista Congelame Admissao: 01/07/2009
-02005 JOAO LUCIO ALVES Funcao: Balanceiro de Miudos Admissao: 03/11/2009
-02020 VALMIR DA SILVA Funcao: Estoquista Congelame Admissao: 13/01/2010
-02059 VAGNER LUCIANO XAVIER SOBRINHO Funcao: Balanceiro de Miudos Admissao: 01/04/2010
-02122 ANTONIO DO CARMO BRANDAO Funcao: Retalhador de Miudos Admissao: 03/01/2011
-02183 PAULO DA SILVA CIPRIANO Funcao: Balanceiro de Miudos Admissao: 09/05/2011
-02189 VALDOVAN MENDES FARIA Funcao: Aux. de Miudos       Admissao: 01/06/2011
-02327 JOSE ELIAS DE MELO Funcao: Magarefe A           Admissao: 03/12/2011
-02449 JEFFERSON FONSECA DE OLIVEIRA Funcao: Retalhador de Miudos Admissao: 22/03/2012
-02538 CICERO CIPRIANO DA SILVA Funcao: Estoquista Congelame Admissao: 23/07/2012
-02576 JOILSON ALVES Funcao: Aux. de Industria    Admissao: 20/09/2012
-02596 CLEDSON QUERUBIM DOS SANTOS Funcao: Magarefe A           Admissao: 26/10/2012
-02633 ANTONIO FRANCEILDO DE SOUZA Funcao: Estoquista Congelame Admissao: 24/12/2012
-02675 DAVID HENRIQUE PEREIRA DOS SANTOS Funcao: Aux. de Miudos       Admissao: 04/02/2013
-02711 LAUDINEI RODRIGUES DE OLIVEIRA Funcao: Aux. de Miudos       Admissao: 08/03/2013
-02723 WERLYSON BARBOSA DELGADO Funcao: Estoquista Congelame Admissao: 21/03/2013
-02737 JOAO MARCOS FERREIRA GOMES Funcao: Magarefe C           Admissao: 11/04/2013
-02766 DEIMISON CARVALHO PLACIDO Funcao: Aux. de Miudos       Admissao: 17/05/2013
-02780 EMERSON DE JESUS DONTCHEF ROSA Funcao: Aux. de Miudos       Admissao: 17/06/2013
-02790 RAFAEL MENDONCA FERREIRA Funcao: Estoquista Congelame Admissao: 01/07/2013
-02849 MARCOS ANTONIO FABILICIO DE SOUSA Funcao: Retalhador de Miudo  Admissao: 02/01/2014
-02875 MARCIO DE ABREU CONCEICAO Funcao: Aux. de Miudos       Admissao: 06/03/2014
-02878 LUIS MARIO SAMPAIO Funcao: Aux. de Miudos       Admissao: 13/03/2014
-02891 FELIPE CAMPOS MENDES Funcao: Aux. de Industria    Admissao: 27/03/2014
-02892 VITOR DE MORAES LACERDA Funcao: Aux. de Industria    Admissao: 27/03/2014
-02896 AILTON OLIVEIRA DA SILVA Funcao: Aux. de Industria    Admissao: 08/04/2014
-02897 JORGE DUARTE CONCEICAO Funcao: Aux. de Industria    Admissao: 08/04/2014
-02909 GLAUDIONE DA CONCEICAO FARIAS Funcao: Aux. de industria    Admissao: 09/05/2014
-02913 ADRIANO VAREIRO DA COSTA Funcao: Aux. de industria    Admissao: 15/05/2014
-02917 VALMIR SOARES Funcao: Aux. de industria    Admissao: 26/05/2014
-02924 LUIZ CARLOS DA SILVA Funcao: Retalhador de Miudo  Admissao: 16/06/2014
-02938 JHON DIEGO PACHECO PAIVA Funcao: Aux. de Miudos       Admissao: 14/08/2014
-02946 FELIPE ALMEIDA DE SOUZA Funcao: Aux. de industria    Admissao: 11/09/2014
-02953 MICHAEL DIONATAN LEITE TORRES Funcao: Aux. de industria    Admissao: 25/09/2014
-00042 DORIVAL CARDOSO Funcao: Rachador de Lenha    Admissao: 03/03/1999
-00063 GERSON CARDOSO SOARES Funcao: Chefe Setor Graxaria Admissao: 03/03/1999
-00249 ELIAS LAURINDO DA SILVA Funcao: Operador Blow Tank   Admissao: 04/04/2000
-00817 CLEMENTE VIEIRA DOS SANTOS Funcao: Operador Blow Tank   Admissao: 11/08/2006
-00879 JOEL RODRIGUES DE MATOS Funcao: Operador de Decanter Admissao: 16/02/2007
-01000 FELIX PEREIRA MENDES Funcao: Operador de Decanter Admissao: 01/02/2008
-01058 SATURNINO MARTINEZ Funcao: Aux. de Graxaria,    Admissao: 06/06/2008
-01124 MANOEL FIRMINO DE SOUZA Funcao: Aux. de Graxaria     Admissao: 01/09/2009
-02945 CARLOS BELIZARO Funcao: Aux. de industria    Admissao: 11/09/2014
-02950 DIEGO CESAR DE OLIVEIRA Funcao: Aux. de industria    Admissao: 18/09/2014
-00143 RONALDO AQUINO MARQUES Funcao: Chefe Setor de Brete Admissao: 03/03/1999
-02038 JOAO FERREIRA DE OLIVEIRA Funcao: Embretador           Admissao: 20/01/2010
-02171 JOSEMAR FERREIRA PIRES Funcao: Embretador           Admissao: 20/04/2011
-02590 BERTO APARECIDO RODRIGUES Funcao: Embretador           Admissao: 19/10/2012
-02786 JURACI SERAFIM DOS SANTOS Funcao: Aux. de Brete        Admissao: 01/07/2013
-02846 GLAUCIR GUEDES Funcao: Embretador           Admissao: 04/12/2013
-02867 RAEL FIGUEREDO AFONSO Funcao: Aux. de Brete        Admissao: 20/02/2014
-00068 ILSON LOURENCO DA SILVA Funcao: Chefe Setor Embarque Admissao: 03/03/1999
-00272 AUREO XAVIER DA HORA Funcao: Encarregado          Admissao: 01/10/2000
-00317 EDER CARLOS VEIGA Funcao: Lombador A           Admissao: 01/04/2001
-00350 WILSON TANAKA PEREIRA DOS REIS Funcao: Lombador A           Admissao: 01/09/2001
-00438 CARLOS ALEXANDRE DOS SANTOS Funcao: Balanceiro de Embarq Admissao: 07/05/2003
-00566 VALDECI AMANTINO Funcao: Lombador A           Admissao: 06/08/2004
-00973 LUAN DE OLIVEIRA SILVA Funcao: Lombador A           Admissao: 01/12/2007
-02006 VILMAR DE JESUS FERREIRA Funcao: Lombador A           Admissao: 03/11/2009
-02287 MANOEL JOSE NEVES Funcao: Serrador             Admissao: 10/10/2011
-02383 GLAUBER BARRETO DE ARAUJO Funcao: Aux. de Tendal       Admissao: 24/01/2012
-02476 RENATO RODRIGUES DE REZENDE Funcao: Lombador A           Admissao: 04/05/2012
-02545 EVANDRO DA SILVA DUARTE Funcao: Aux. de Embarque     Admissao: 26/07/2012
-02570 OTAIR JOSE PEREIRA DE SOUZA Funcao: Aux. de Tendal       Admissao: 03/09/2012
-02613 SILVIO CARLOS DE ASSIS Funcao: Aux. de Tendal       Admissao: 22/11/2012
-02620 JOAO VITALINO CASTRO LEAO Funcao: Aux. de Embarque     Admissao: 07/12/2012
-02700 JOSE MONTEIRO NETO Funcao: Aux. de Industria    Admissao: 22/02/2013
-02760 HILARIO VINICIUS MENDES GOMES DOS SANTOS Funcao: Aux. de Embarque     Admissao: 13/05/2013
-02765 RODRIGO CARDOSO DA SILVA Funcao: Agente Limp Industri Admissao: 17/05/2013
-02860 VALDIR FRANCO DE LIMA Funcao: Aux. de Industria    Admissao: 07/02/2014
-02865 RAFAEL FERREIRA DA SILVA Funcao: Aux. de Industria    Admissao: 20/02/2014
-02902 ANDRE BORGES RODRIGUES PACHE Funcao: Aux de Industria     Admissao: 17/04/2014
-02933 ISRAEL CARLOS DA CRUZ Funcao: Aux. de industria    Admissao: 25/07/2014
-02939 MAYKON MENDES LIMA Funcao: Aux. de industria    Admissao: 14/08/2014
-02962 LUIZ CESAR DE OLIVEIRA SILVA Funcao: Aux. de industria    Admissao: 03/11/2014
-00274 PEDRO LUCIANO SOBRINHO Funcao: Encarregado          Admissao: 01/10/2000
-00551 RODINEY GIMENES BRITES Funcao: Chefe Setor Camara F Admissao: 15/06/2004
-01096 JUVARLEI BORGES Funcao: Separ e Lavador Carc Admissao: 09/04/2009
-02025 MARCOS ALVES RIBAS Funcao: Separ e Lavador Carc Admissao: 13/01/2010
-02823 EDUARDO SIMOES BIBIANO Funcao: Separ. e Lavador car Admissao: 02/09/2013
-01032 JOSE ANTONIO CANDIDO DE OLIVEIRA Funcao: Puxador de Tripas    Admissao: 02/04/2008
-02269 NELSON CARDOSO SOARES Funcao: Magarefe A           Admissao: 15/09/2011
-02384 GIANCARLO RAMIRES Funcao: Puxador de Tripas    Admissao: 25/01/2012
-02434 PEDRO GABRIEL DO NASCIMENTO Funcao: Puxador de Tripas    Admissao: 05/03/2012
-02482 FERNANDO CIPRIANO SOBRINHO Funcao: Puxador de Tripa     Admissao: 10/05/2012
-02512 TILLER MARTINS DA SILVA Funcao: Aux. de Triparia     Admissao: 20/06/2012
-02708 CRISTIANO FERREIRA Funcao: Encarregado          Admissao: 01/03/2013
-02713 MARCIO PEREIRA DE ATAIDE Funcao: Magarefe B           Admissao: 14/03/2013
-02783 FABIANO ANGELO DOS SANTOS Funcao: Magarefe A           Admissao: 01/07/2013
-02886 ANDERSON MARTINS VIEIRA Funcao: Puxador de Tripas    Admissao: 20/03/2014
-02926 DENIVAL PEREIRA DA SILVA Funcao: Aux. de industria    Admissao: 23/06/2014
-02940 ANTONIO ANGELO DOS SANTOS Funcao: Puxador de Tripas    Admissao: 21/08/2014
-02964 LUIZ APARECIDO VIEIRA RIBEIRO Funcao: Aux. de Triparia     Admissao: 03/11/2014
-02162 THIAGO NOVAES TORGAN Funcao: Armazenista          Admissao: 01/04/2011
-02170 CRISTIANO DOS SANTOS ALVES Funcao: Lombador A           Admissao: 19/04/2011
-02221 ANTONIO JOSE ROSA DA COSTA Funcao: Serrador             Admissao: 05/07/2011
-02398 TONY RAMOS CHAVES Funcao: Balanceiro de Embarq Admissao: 09/02/2012
-02408 MAURO TRINDADE Funcao: Aux. de Tendal       Admissao: 15/02/2012
-02498 VALDECI FERREIRA Funcao: Chefe Setor Embarque Admissao: 01/06/2012
-02521 FRANCISCO ASSIS SOUSA Funcao: Encarregado          Admissao: 02/07/2012
-02600 PAULO CESAR BARBOSA BARRETO Funcao: Balanceiro de Embarq Admissao: 01/11/2012
-02674 NELSON ALEXANDRE DA SILVA Funcao: Serrador             Admissao: 04/02/2013
-02777 JULIO CESAR URBIETA MATOS Funcao: Aux. de Tendal       Admissao: 03/06/2013
-02814 FABIO GUIMARAES BRITES Funcao: Aux. de Tendal       Admissao: 15/08/2013
-02820 ISMAEL APARECIDO FERREIRA DA SILVA Funcao: Aux. de Tendal       Admissao: 22/08/2013
-02828 JOELSON TROI DA SILVA Funcao: Lombador A           Admissao: 25/09/2013
-02838 JOSE ROSA BARBOZA HONORIO Funcao: Aux. de Tendal       Admissao: 07/11/2013
-02861 ALEXSANDRO MEDEIROS DE ARAUJO Funcao: Aux. de Tendal       Admissao: 10/02/2014
-02879 MARCIO FABIANO DE SOUSA Funcao: Lombador B           Admissao: 13/03/2014
-02880 EDIMAR DE PAULA BARBOSA Funcao: Serrador             Admissao: 13/03/2014
-02901 CARLOS ALBERTO DIAS Funcao: Lombador A           Admissao: 14/04/2014
-02941 LUIZ ANTONIO PARENTI FIGUEIREDO Funcao: Aux. de industria    Admissao: 01/09/2014
-02961 MANOEL LUIZ GUERRA DE ARAUJO Funcao: Aux. de industria    Admissao: 03/11/2014
-02963 ANTONIO LUIZ DE FREITAS Funcao: Aux. de industria    Admissao: 03/11/2014
-02965 EMANUEL EVARISTO BASILIO RODRIGUES Funcao: Aux. de industria    Admissao: 03/11/2014
-00530 ACEDINO GOMES DOS SANTOS Funcao: Encar Montagem e Sol Admissao: 01/04/2004
-00561 ELTON LUIZ SOUZA PERES Funcao: Aux. Manutencao      Admissao: 02/08/2004
-00596 RENATO AUGUSTO PARENTI FIGUEIREDO Funcao: Chefe Setor Pintura  Admissao: 08/11/2004
-00848 MAGNO SOUZA DOS REIS Funcao: Encar Eletric Instal Admissao: 18/12/2006
-02184 REGINALDO DE JESUS CORDEIRO Funcao: Montador             Admissao: 11/05/2011
-02640 VALDEMAR BARBOSA DA SILVA Funcao: Eletricista de insta Admissao: 10/01/2013
-02831 RICARDO ANTONIO BRISOTTI Funcao: Encarregado Manut.Ge Admissao: 15/10/2013
-02859 JAIR DA SILVA LEITE Funcao: Aux. de Manutencao   Admissao: 06/02/2014
-02864 JOAO AUGUSTO DA COSTA FILHO Funcao: Mecanico de Manutenc Admissao: 19/02/2014
-02932 AMARO QUEIROZ FILHO Funcao: Mont.Estruturas Meta Admissao: 21/07/2014
-00745 WILLIAN OLIVEIRA DE LORENA Funcao: Almoxarife           Admissao: 28/12/2005
-02544 JULEI DA SILVA Funcao: Almoxarife           Admissao: 26/07/2012
-02603 GABRIEL ALEXANDER SILVA Funcao: Almoxarife           Admissao: 07/11/2012
-02481 RENATO CIPRIANO SOBRINHO Funcao: Puxador de Tripas    Admissao: 10/05/2012
-00045 EDILSON SANTOS SILVA Funcao: Aux. de Patio        Admissao: 03/03/1999
-00144 RONALDO PEREIRA DA SILVA Funcao: Op. de Trilhagem     Admissao: 03/03/1999
-00517 VICENTE FIRMO DE ALMEIDA Funcao: Op. de Trilhagem     Admissao: 04/03/2004
-00921 ABRAAO DE OLIVEIRA VALVERDE Funcao: Aux. de Patio        Admissao: 14/06/2007
-00985 RAMAO CLAUDIO CAIRES OLIVEIRA Funcao: Aux. de Patio        Admissao: 20/12/2007
-02228 NATALINO DUARTE GOMES Funcao: Aux. de Patio        Admissao: 18/07/2011
-02236 FRANCISCO SOARES GONCALVES Funcao: Lider area externa   Admissao: 01/08/2011
-02484 MARCOS ANTONIO FARIAS DOS SANTOS Funcao: Chefe Setor Patio    Admissao: 14/05/2012
-02497 PAULINO CANDIDO DOS SANTOS Funcao: Aux. de Patio        Admissao: 24/05/2012
-02703 HENRIQUE PAVAO Funcao: Aux. de Industria    Admissao: 22/02/2013
-02764 EBERSON RIBEIRO DE FREITAS Funcao: Aux. de Industria    Admissao: 17/05/2013
-02822 RAMON DIONISIO DA SILVA Funcao: Aux. de Industria    Admissao: 02/09/2013
-02834 SOTERIO DE CARVALHO Funcao: Encarregado          Admissao: 21/10/2013
-00947 GILVANE OLIVEIRA SENA Funcao: Insp Contr Qualidade Admissao: 12/09/2007
-02389 ADENIR PAULO SALES ROCHA Funcao: Oper.Balanca Abate   Admissao: 01/02/2012
-02511 REGINALDO ALEXANDRE RAMIRES NASCIMENTO Funcao: Insp.Contr.Qualidade Admissao: 20/06/2012
-00587 JURACI FERREIRA DE LIMA Funcao: Sup.Seg.de Trabalho  Admissao: 23/09/2004
-00016 ANTONIO AUGUSTO DA COSTA Funcao: Motorista II         Admissao: 03/03/1999
-00036 DEJAIR RODRIGUES GOMES Funcao: Motorista II         Admissao: 03/03/1999
-00093 JORACY GOMES DE ARAUJO Funcao: Motorista II         Admissao: 03/03/1999
-02075 PAULO HENRIQUE STEPHAN Funcao: Motorista II         Admissao: 07/07/2010
-02725 WILSON DOS SANTOS GOMES Funcao: Motorista II         Admissao: 01/04/2013
-02826 JOELCIO CORREA DOS SANTOS Funcao: Motorista II         Admissao: 16/09/2013
-02830 DANIEL CANDIDO DE OLIVEIRA Funcao: Motorista II         Admissao: 10/10/2013
-02845 JOAO CLEBER ALVES DA COSTA Funcao: Motorista II         Admissao: 02/12/2013
-02928 ROQUE VALE DOS SANTOS Funcao: Motorista I          Admissao: 03/07/2014
-00219 FRANCISCO LUCIO ALVES Funcao: Aux. de Inspecao II  Admissao: 10/09/1999
-00238 JULIO CESAR RODRIGUES SILVA Funcao: Aux. de Inspecao I   Admissao: 10/02/2000
-00468 SANDERSON PEREIRA DE LIMA Funcao: Aux. de Inspecao II  Admissao: 08/08/2003
-00608 EDSON RIBEIRO ROSA FILHO Funcao: Aux. de Inspecao II  Admissao: 16/12/2004
-00813 GILCLECIO LEITE GONCALVES Funcao: Aux. de Inspecao II  Admissao: 07/08/2006
-01083 LUIZ CARLOS COSTA DA SILVA Funcao: Aux. de Inspecao III Admissao: 23/03/2009
-01090 RONILDO SILVA SANTOS Funcao: Aux. de Inspecao II  Admissao: 01/04/2009
-02113 FABIO CHAVEZ CUELLAR Funcao: Aux. de Inspecao I   Admissao: 22/12/2010
-02277 ALESSANDER RODRIGO COLMAN PENEDO Funcao: Aux. de Inspecao II  Admissao: 26/09/2011
-02317 MARCELO MEDEIROS BRITES Funcao: Aux. de Inspecao IV  Admissao: 22/11/2011
-02895 SANDRO DOS SANTOS FERREIRA Funcao: Aux. de Inspecao IV  Admissao: 03/04/2014
-02407 VALTER CLAUDINO DA SILVA Funcao: Operador de caldeira Admissao: 13/02/2012
-02563 OLACIR CONCEICAO SARAVI Funcao: Operador de caldeira Admissao: 01/09/2012
-00049 EDSON MEDINA DE BARROS Funcao: Operador Sala de Maq Admissao: 03/03/1999
-00083 JOSE AURI LUZ NETO Funcao: Operador Sala de Maq Admissao: 03/03/1999
-00134 PEDRO RODRIGUES PACHE Funcao: Operador Sala de Maq Admissao: 03/03/1999
-00278 JOAO OLIVEIRA PLACIDO Funcao: Operador Sala de Maq Admissao: 03/03/1999
+ 00921 ABRAAO DE OLIVEIRA VALVERDE Funcao: Aux. de Patio        Admissao: 14/06/2007
+ 00530 ACEDINO GOMES DOS SANTOS Funcao: Encar Montagem e Sol Admissao: 01/04/2004
+ 02447 ADAILTON VAREIRO PEREIRA Funcao: Magarefe A           Admissao: 17/03/2012
+ 00628 ADEMAR MARQUES LOPES Funcao: Magarefe A           Admissao: 15/02/2005
+ 02757 ADEMIR DE OLIVEIRA Funcao: Magarefe B           Admissao: 13/05/2013
+ 01116 ADEMIR GODOI DA SILVA Funcao: Estoquista Congelame Admissao: 01/07/2009
+ 02389 ADENIR PAULO SALES ROCHA Funcao: Oper.Balanca Abate   Admissao: 01/02/2012
+ 00005 ADILSON FRANCISCO DE ARAUJO Funcao: Aux. de Abate        Admissao: 03/03/1999
+ 00434 ADOLFO CESAR WENZ Funcao: Magarefe C           Admissao: 02/05/2003
+ 02040 ADRIANO PORFIRIO DE SANTA ANA Funcao: Magarefe A           Admissao: 01/02/2010
+ 02913 ADRIANO VAREIRO DA COSTA Funcao: Aux. de industria    Admissao: 15/05/2014
+ 00271 ADAO MACHADO SIQUEIRA Funcao: Encarregado          Admissao: 01/10/2000
+ 02896 AILTON OLIVEIRA DA SILVA Funcao: Aux. de Industria    Admissao: 08/04/2014
+ 02888 ALDAIR VAREIRO PEREIRA Funcao: Aux. de Bucharia     Admissao: 20/03/2014
+ 02589 ALDIFAR VELASCO SOSA Funcao: Magarefe A           Admissao: 18/10/2012
+ 02277 ALESSANDER RODRIGO COLMAN PENEDO Funcao: Aux. de Inspecao II  Admissao: 26/09/2011
+ 02861 ALEXSANDRO MEDEIROS DE ARAUJO Funcao: Aux. de Tendal       Admissao: 10/02/2014
+ 02942 ALISSON FERNANDO VIEIRA Funcao: Aux. de industria    Admissao: 04/09/2014 
+ 02955 ALTINO FERNANDO MARTINS DOS SANTOS Funcao: Aux. de industria    Admissao: 01/10/2014
+ 02932 AMARO QUEIROZ FILHO Funcao: Mont.Estruturas Meta Admissao: 21/07/2014
+ 02698 ANDERSON SOUZA PEREZ Funcao: Magarefe C           Admissao: 21/02/2013
+ 02902 ANDRE BORGES RODRIGUES PACHE Funcao: Aux de Industria     Admissao: 17/04/2014
+ 02958 ANDRE LUIS PEREIRA Funcao: Magarefe A           Admissao: 03/10/2014
+ 02940 ANTONIO ANGELO DOS SANTOS Funcao: Puxador de Tripas    Admissao: 21/08/2014
+ 00016 ANTONIO AUGUSTO DA COSTA Funcao: Motorista II         Admissao: 03/03/1999
+ 02122 ANTONIO DO CARMO BRANDAO Funcao: Retalhador de Miudos Admissao: 03/01/2011
+ 02633 ANTONIO FRANCEILDO DE SOUZA Funcao: Estoquista Congelame Admissao: 24/12/2012
+ 02221 ANTONIO JOSE ROSA DA COSTA Funcao: Serrador             Admissao: 05/07/2011
+ 02963 ANTONIO LUIZ DE FREITAS Funcao: Aux. de industria    Admissao: 03/11/2014
+ 02847 ANTONIO MARQUES ARAUJO Funcao: Magarefe B           Admissao: 04/12/2013
+ 00651 ARCENIO ARCE DE SANTA ANA Funcao: Magarefe C           Admissao: 23/03/2005
+ 02349 ATILIO FERREIRA DE ARRUDA Funcao: Abatedor             Admissao: 02/01/2012
+ 00272 AUREO XAVIER DA HORA Funcao: Encarregado          Admissao: 01/10/2000
+ 02848 BENITO ROMERO Funcao: Magarefe C           Admissao: 04/12/2013
+ 02590 BERTO APARECIDO RODRIGUES Funcao: Embretador           Admissao: 19/10/2012
+ 02901 CARLOS ALBERTO DIAS Funcao: Lombador A           Admissao: 14/04/2014 
+ 00438 CARLOS ALEXANDRE DOS SANTOS Funcao: Balanceiro de Embarq Admissao: 07/05/2003
+ 02945 CARLOS BELIZARO Funcao: Aux. de industria    Admissao: 11/09/2014
+ 02721 CARLOS DA SILVA CRISTO Funcao: Magarefe A           Admissao: 21/03/2013
+ 02966 CESAR AUGUSTO PEREIRA MACHADO Funcao: Aux. de industria    Admissao: 01/12/2014
+ 00416 CICERO ANTONIO FERREIRA Funcao: Estoquista Congelame Admissao: 01/03/2003
+ 02538 CICERO CIPRIANO DA SILVA Funcao: Estoquista Congelame Admissao: 23/07/2012
+ 00180 CLAUDEIR CAIRES OLIVEIRA Funcao: Magarefe A           Admissao: 01/04/1999
+ 02904 CLAUDINEY ALVES DE OLIVEIRA Funcao: Aux. de industria    Admissao: 09/05/2014
+ 00029 CLAUDIO CIRILO LUIZ Funcao: Magarefe A           Admissao: 03/03/1999
+ 02596 CLEDSON QUERUBIM DOS SANTOS Funcao: Magarefe A           Admissao: 26/10/2012
+ 02793 CLEIMAR ALVES DE FARIA Funcao: Magarefe C           Admissao: 08/07/2013
+ 00817 CLEMENTE VIEIRA DOS SANTOS Funcao: Operador Blow Tank   Admissao: 11/08/2006
+ 02170 CRISTIANO DOS SANTOS ALVES Funcao: Lombador A           Admissao: 19/04/2011
+ 02708 CRISTIANO FERREIRA Funcao: Encarregado          Admissao: 01/03/2013
+ 02812 DAMIAO SANCHES Funcao: Magarefe B           Admissao: 15/08/2013
+ 02830 DANIEL CANDIDO DE OLIVEIRA Funcao: Motorista II         Admissao: 10/10/2013
+ 01003 DAVI CARLOS DA SILVA Funcao: Magarefe A           Admissao: 13/02/2008
+ 02675 DAVID HENRIQUE PEREIRA DOS SANTOS Funcao: Aux. de Miudos       Admissao: 04/02/2013 
+ 02766 DEIMISON CARVALHO PLACIDO Funcao: Aux. de Miudos       Admissao: 17/05/2013
+ 00036 DEJAIR RODRIGUES GOMES Funcao: Motorista II         Admissao: 03/03/1999
+ 02926 DENIVAL PEREIRA DA SILVA Funcao: Aux. de industria    Admissao: 23/06/2014
+ 01071 DIEGO AGUERO Funcao: Magarefe A           Admissao: 02/03/2009
+ 02564 DIOGO HENRIQUE ROBALDO DO NASCIMENTO Funcao: Magarefe A           Admissao: 01/09/2012
+ 00042 DORIVAL CARDOSO Funcao: Rachador de Lenha    Admissao: 03/03/1999
+ 02883 DOUGLAS DE SOUZA COELHO Funcao: Aux. de Abate        Admissao: 20/03/2014
+ 02764 EBERSON RIBEIRO DE FREITAS Funcao: Aux. de Industria    Admissao: 17/05/2013
+ 02919 EDER AMARAL DA SILVA Funcao: Faturista            Admissao: 05/06/2014
+ 00317 EDER CARLOS VEIGA Funcao: Lombador A           Admissao: 01/04/2001
+ 00772 EDGAR RIBEIRO ROSA Funcao: Aux. de Abate        Admissao: 06/03/2006
+ 00640 EDILSON DA SILVA MOTA Funcao: Magarefe A           Admissao: 07/03/2005
+ 00045 EDILSON SANTOS SILVA Funcao: Aux. de Patio        Admissao: 03/03/1999
+ 02880 EDIMAR DE PAULA BARBOSA Funcao: Serrador             Admissao: 13/03/2014
+ 02921 EDIVALDO DE SOUZA LIMA Funcao: Magarefe A           Admissao: 09/06/2014
+ 00457 EDSON BARBOSA GOMES Funcao: Magarefe B           Admissao: 02/07/2003
+ 00049 EDSON MEDINA DE BARROS Funcao: Operador Sala de Maq Admissao: 03/03/1999
+ 00608 EDSON RIBEIRO ROSA FILHO Funcao: Aux. de Inspecao II  Admissao: 16/12/2004 
+ 02823 EDUARDO SIMOES BIBIANO Funcao: Separ. e Lavador car Admissao: 02/09/2013
+ 00249 ELIAS LAURINDO DA SILVA Funcao: Operador Blow Tank   Admissao: 04/04/2000
+ 02233 ELIDEMAR MACHADO DA SILVA Funcao: Magarefe A           Admissao: 01/08/2011
+ 02967 ELISON SOARES RAMAI Funcao: Operador de caldeira Admissao: 01/12/2014
+ 00561 ELTON LUIZ SOUZA PERES Funcao: Aux. Manutencao      Admissao: 02/08/2004
+ 02965 EMANUEL EVARISTO BASILIO RODRIGUES Funcao: Aux. de industria    Admissao: 03/11/2014
+ 02780 EMERSON DE JESUS DONTCHEF ROSA Funcao: Aux. de Miudos       Admissao: 17/06/2013
+ 02545 EVANDRO DA SILVA DUARTE Funcao: Aux. de Embarque     Admissao: 26/07/2012
+ 02115 EVERTON SCHEIBEL DA SILVA Funcao: Faturista            Admissao: 22/12/2010
+ 02783 FABIANO ANGELO DOS SANTOS Funcao: Magarefe A           Admissao: 01/07/2013
+ 02113 FABIO CHAVEZ CUELLAR Funcao: Aux. de Inspecao I   Admissao: 22/12/2010
+ 02814 FABIO GUIMARAES BRITES Funcao: Aux. de Tendal       Admissao: 15/08/2013
+ 02946 FELIPE ALMEIDA DE SOUZA Funcao: Aux. de industria    Admissao: 11/09/2014
+ 02891 FELIPE CAMPOS MENDES Funcao: Alimentador de linha Admissao: 27/03/2014
+ 01000 FELIX PEREIRA MENDES Funcao: Operador de Decanter Admissao: 01/02/2008
+ 02482 FERNANDO CIPRIANO SOBRINHO Funcao: Puxador de Tripa     Admissao: 10/05/2012
+ 02521 FRANCISCO ASSIS SOUSA Funcao: Encarregado          Admissao: 02/07/2012
+ 00219 FRANCISCO LUCIO ALVES Funcao: Aux. de Inspecao II  Admissao: 10/09/1999 
+ 02236 FRANCISCO SOARES GONCALVES Funcao: Lider area externa   Admissao: 01/08/2011
+ 02603 GABRIEL ALEXANDER SILVA Funcao: Almoxarife           Admissao: 07/11/2012
+ 00834 GENIVALDO GRACINO DE OLIVEIRA Funcao: Magarefe A           Admissao: 13/10/2006
+ 00063 GERSON CARDOSO SOARES Funcao: Chefe Setor Graxaria Admissao: 03/03/1999
+ 00813 GILCLECIO LEITE GONCALVES Funcao: Aux. de Inspecao II  Admissao: 07/08/2006
+ 00066 GILMAR DA SILVA GOMES Funcao: Magarefe A           Admissao: 03/03/1999
+ 02968 GILVAN LOURENCO GOMES Funcao: Eletricista de insta Admissao: 04/12/2014
+ 00947 GILVANE OLIVEIRA SENA Funcao: Insp Contr Qualidade Admissao: 12/09/2007
+ 02383 GLAUBER BARRETO DE ARAUJO Funcao: Aux. de Tendal       Admissao: 24/01/2012
+ 02846 GLAUCIR GUEDES Funcao: Embretador           Admissao: 04/12/2013
+ 02909 GLAUDIONE DA CONCEICAO FARIAS Funcao: Alimentador de linha Admissao: 09/05/2014
+ 00923 GUSTAVO CARMO PINTO Funcao: Encarregado          Admissao: 20/06/2007
+ 02703 HENRIQUE PAVAO Funcao: Aux. de Industria    Admissao: 22/02/2013
+ 02760 HILARIO VINICIUS MENDES GOMES DOS SANTOS Funcao: Aux. de Embarque     Admissao: 13/05/2013
+ 02606 ILSON CORREA DA ROCHA Funcao: Magarefe A           Admissao: 14/11/2012
+ 00068 ILSON LOURENCO DA SILVA Funcao: Chefe Setor Embarque Admissao: 03/03/1999
+ 02468 INACIO OVELAR Funcao: Aux. de Abate        Admissao: 26/04/2012
+ 00529 IRINEU DA SILVA MOTA Funcao: Magarefe A           Admissao: 23/03/2004 
+ 02820 ISMAEL APARECIDO FERREIRA DA SILVA Funcao: Aux. de Tendal       Admissao: 22/08/2013
+ 02933 ISRAEL CARLOS DA CRUZ Funcao: Aux. de industria    Admissao: 25/07/2014
+ 02391 IVAN PAIVA MEDEIRO Funcao: Magarefe C           Admissao: 01/02/2012
+ 02859 JAIR DA SILVA LEITE Funcao: Aux. de Manutencao   Admissao: 06/02/2014
+ 02887 JAIR RIQUELME ALVES Funcao: Magarefe C           Admissao: 20/03/2014
+ 02449 JEFFERSON FONSECA DE OLIVEIRA Funcao: Retalhador de Miudos Admissao: 22/03/2012
+ 02938 JHON DIEGO PACHECO PAIVA Funcao: Aux. de Miudos       Admissao: 14/08/2014
+ 00879 JOEL RODRIGUES DE MATOS Funcao: Operador de Decanter Admissao: 16/02/2007
+ 02826 JOELCIO CORREA DOS SANTOS Funcao: Motorista II         Admissao: 16/09/2013
+ 02828 JOELSON TROI DA SILVA Funcao: Lombador A           Admissao: 25/09/2013
+ 02951 JONILSON DE OLIVEIRA SANTIAGO Funcao: Aux. de industria    Admissao: 18/09/2014
+ 00093 JORACY GOMES DE ARAUJO Funcao: Encarregado Transpor Admissao: 03/03/1999
+ 00083 JOSE AURI LUZ NETO Funcao: Operador Sala de Maq Admissao: 03/03/1999
+ 02327 JOSE ELIAS DE MELO Funcao: Magarefe A           Admissao: 03/12/2011
+ 02923 JOSE HELIO FERREIRA DOS SANTOS Funcao: Magarefe B           Admissao: 16/06/2014
+ 02700 JOSE MONTEIRO NETO Funcao: Aux. de Industria    Admissao: 22/02/2013
+ 00090 JOSE PEREIRA DA SILVA Funcao: Magarefe A           Admissao: 03/03/1999
+ 02838 JOSE ROSA BARBOZA HONORIO Funcao: Aux. de Tendal       Admissao: 07/11/2013 
+ 02171 JOSEMAR FERREIRA PIRES Funcao: Embretador           Admissao: 20/04/2011
+ 02954 JOSIMAR SILVA DE OLIVEIRA Funcao: Aux. de industria    Admissao: 25/09/2014
+ 02864 JOAO AUGUSTO DA COSTA FILHO Funcao: Mecanico de Manutenc Admissao: 19/02/2014
+ 01092 JOAO BATISTA TELES DE SALES Funcao: Estoquista Congelame Admissao: 01/04/2009
+ 02845 JOAO CLEBER ALVES DA COSTA Funcao: Motorista II         Admissao: 02/12/2013
+ 02038 JOAO FERREIRA DE OLIVEIRA Funcao: Embretador           Admissao: 20/01/2010
+ 01078 JOAO HEITOR VICENTE PAIVA Funcao: Magarefe A           Admissao: 23/03/2009
+ 02005 JOAO LUCIO ALVES Funcao: Balanceiro de Miudos Admissao: 03/11/2009
+ 02882 JOAO MARIA MACIEL PEREIRA Funcao: Magarefe A           Admissao: 18/03/2014
+ 00278 JOAO OLIVEIRA PLACIDO Funcao: Operador Sala de Maq Admissao: 03/03/1999
+ 00079 JOAO RAMAO VILLALBA Funcao: Magarefe B           Admissao: 03/03/1999
+ 02620 JOAO VITALINO CASTRO LEAO Funcao: Aux. de Embarque     Admissao: 07/12/2012
+ 02544 JULEI DA SILVA Funcao: Almoxarife           Admissao: 26/07/2012
+ 00238 JULIO CESAR RODRIGUES SILVA Funcao: Aux. de Inspecao I   Admissao: 10/02/2000
+ 02777 JULIO CESAR URBIETA MATOS Funcao: Aux. de Tendal       Admissao: 03/06/2013
+ 00587 JURACI FERREIRA DE LIMA Funcao: Sup.Seg.de Trabalho  Admissao: 23/09/2004
+ 02786 JURACI SERAFIM DOS SANTOS Funcao: Aux. de Brete        Admissao: 01/07/2013
+ 02711 LAUDINEI RODRIGUES DE OLIVEIRA Funcao: Aux. de Miudos       Admissao: 08/03/2013 
+ 02898 LINDOMAR ALVES DE OLIVEIRA Funcao: Aux. de Industria    Admissao: 08/04/2014
+ 00618 LOURIVAL AUGUSTO DA COSTA Funcao: Magarefe B           Admissao: 06/01/2005
+ 00973 LUAN DE OLIVEIRA SILVA Funcao: Lombador A           Admissao: 01/12/2007
+ 02198 LUCIANO DE ALMEIDA MORAES Funcao: Encarregado          Admissao: 15/06/2011
+ 02878 LUIS MARIO SAMPAIO Funcao: Aux. de Miudos       Admissao: 13/03/2014
+ 02941 LUIZ ANTONIO PARENTI FIGUEIREDO Funcao: Aux. de Tendal       Admissao: 01/09/2014
+ 02964 LUIZ APARECIDO VIEIRA RIBEIRO Funcao: Aux. de Triparia     Admissao: 03/11/2014
+ 01083 LUIZ CARLOS COSTA DA SILVA Funcao: Aux. de Inspecao III Admissao: 23/03/2009
+ 02924 LUIZ CARLOS DA SILVA Funcao: Retalhador de Miudo  Admissao: 16/06/2014
+ 02962 LUIZ CESAR DE OLIVEIRA SILVA Funcao: Aux. de industria    Admissao: 03/11/2014
+ 02811 LUIZ CLETO GOMES PACHECO DE CAMPOS Funcao: Aux. de Bucharia     Admissao: 15/08/2013
+ 00098 LUIZ RODRIGUES PESSOA Funcao: Magarefe B           Admissao: 03/03/1999
+ 00848 MAGNO SOUZA DOS REIS Funcao: Encar Eletric Instal Admissao: 18/12/2006
+ 01124 MANOEL FIRMINO DE SOUZA Funcao: Aux. de Graxaria     Admissao: 01/09/2009
+ 02287 MANOEL JOSE NEVES Funcao: Serrador             Admissao: 10/10/2011
+ 02961 MANOEL LUIZ GUERRA DE ARAUJO Funcao: Aux. de industria    Admissao: 03/11/2014
+ 02002 MARCELINO XIMENES BRITES Funcao: Magarefe A           Admissao: 03/11/2009
+ 02317 MARCELO MEDEIROS BRITES Funcao: Aux. de Inspecao IV  Admissao: 22/11/2011 
+ 00106 MARCILIO BUENO CAMARGO Funcao: Encarregado          Admissao: 03/03/1999
+ 00814 MARCIO PEREIRA DA SILVA Funcao: Magarefe A           Admissao: 07/08/2006
+ 02713 MARCIO PEREIRA DE ATAIDE Funcao: Magarefe B           Admissao: 14/03/2013
+ 02025 MARCOS ALVES RIBAS Funcao: Separ e Lavador Carc Admissao: 13/01/2010
+ 02849 MARCOS ANTONIO FABILICIO DE SOUSA Funcao: Retalhador de Miudo  Admissao: 02/01/2014
+ 02484 MARCOS ANTONIO FARIAS DOS SANTOS Funcao: Chefe Setor Patio    Admissao: 14/05/2012
+ 02866 MARCOS BELIZARIO NUNES Funcao: Aux. de Abate        Admissao: 20/02/2014
+ 02186 MAURO EDER DIAS Funcao: Embretador           Admissao: 19/05/2011
+ 02939 MAYKON MENDES LIMA Funcao: Aux. de industria    Admissao: 14/08/2014
+ 02953 MICHAEL DIONATAN LEITE TORRES Funcao: Aux. de industria    Admissao: 25/09/2014
+ 02228 NATALINO DUARTE GOMES Funcao: Aux. de Patio        Admissao: 18/07/2011
+ 02094 NAUDER JARA RODRIGUES Funcao: Analista Administrat Admissao: 24/09/2010
+ 02674 NELSON ALEXANDRE DA SILVA Funcao: Serrador             Admissao: 04/02/2013
+ 02269 NELSON CARDOSO SOARES Funcao: Magarefe A           Admissao: 15/09/2011
+ 00128 NICOLAS BARBOSA NEVES Funcao: Magarefe B           Admissao: 03/03/1999
+ 02563 OLACIR CONCEICAO SARAVI Funcao: Operador de caldeira Admissao: 01/09/2012
+ 02570 OTAIR JOSE PEREIRA DE SOUZA Funcao: Aux. de Tendal       Admissao: 03/09/2012
+ 00642 PATRICO DE VASCONCELOS MONDADORI Funcao: Magarefe B           Admissao: 08/03/2005 
+ 02497 PAULINO CANDIDO DOS SANTOS Funcao: Aux. de Patio        Admissao: 24/05/2012
+ 02600 PAULO CESAR BARBOSA BARRETO Funcao: Balanceiro de Embarq Admissao: 01/11/2012
+ 02183 PAULO DA SILVA CIPRIANO Funcao: Balanceiro de Miudos Admissao: 09/05/2011
+ 02075 PAULO HENRIQUE STEPHAN Funcao: Motorista II         Admissao: 07/07/2010
+ 02434 PEDRO GABRIEL DO NASCIMENTO Funcao: Puxador de Tripas    Admissao: 05/03/2012
+ 00274 PEDRO LUCIANO SOBRINHO Funcao: Encarregado          Admissao: 01/10/2000
+ 00134 PEDRO RODRIGUES PACHE Funcao: Operador Sala de Maq Admissao: 03/03/1999
+ 02867 RAEL FIGUEREDO AFONSO Funcao: Aux. de Brete        Admissao: 20/02/2014
+ 02865 RAFAEL FERREIRA DA SILVA Funcao: Aux. de Industria    Admissao: 20/02/2014
+ 02790 RAFAEL MENDONCA FERREIRA Funcao: Estoquista Congelame Admissao: 01/07/2013
+ 00765 RAILDO VALE DOS SANTOS Funcao: Classificador Carcac Admissao: 15/02/2006
+ 00136 RAIMUNDO BATISTA DE LIMA Funcao: Retalahdor de Miudos Admissao: 03/03/1999
+ 02822 RAMON DIONISIO DA SILVA Funcao: Aux. de Industria    Admissao: 02/09/2013
+ 00985 RAMAO CLAUDIO CAIRES OLIVEIRA Funcao: Aux. de Patio        Admissao: 20/12/2007
+ 02511 REGINALDO ALEXANDRE RAMIRES NASCIMENTO Funcao: Insp.Contr.Qualidade Admissao: 20/06/2012
+ 02184 REGINALDO DE JESUS CORDEIRO Funcao: Montador             Admissao: 11/05/2011
+ 00596 RENATO AUGUSTO PARENTI FIGUEIREDO Funcao: Chefe Setor Pintura  Admissao: 08/11/2004
+ 02481 RENATO CIPRIANO SOBRINHO Funcao: Puxador de Tripas    Admissao: 10/05/2012 
+ 02580 RENATO MARTINS ISERNHAGEN Funcao: Aux. de Industria    Admissao: 01/10/2012
+ 02476 RENATO RODRIGUES DE REZENDE Funcao: Lombador A           Admissao: 04/05/2012
+ 02831 RICARDO ANTONIO BRISOTTI Funcao: Encarregado Manut.Ge Admissao: 15/10/2013
+ 02931 ROBERCY MONGELOS Funcao: Lombador B           Admissao: 17/07/2014
+ 00429 ROBERTO CARLOS APARECIDO GONCALVES Funcao: Magarefe A           Admissao: 03/04/2003
+ 02750 ROBERTO SILVA RAMOS Funcao: Gerente de Industria Admissao: 02/05/2013
+ 01084 RODINEI APARECIDO ROCHETE Funcao: Magarefe A           Admissao: 23/03/2009
+ 00551 RODINEY GIMENES BRITES Funcao: Chefe Setor Camara F Admissao: 15/06/2004
+ 02765 RODRIGO CARDOSO DA SILVA Funcao: Agente Limp Industri Admissao: 17/05/2013
+ 02969 ROMAN DANILO CALAZANS LOPES Funcao: Chefe de Setor Eletr Admissao: 04/12/2014
+ 00143 RONALDO AQUINO MARQUES Funcao: Chefe Setor de Brete Admissao: 03/03/1999
+ 00144 RONALDO PEREIRA DA SILVA Funcao: Op. de Trilhagem     Admissao: 03/03/1999
+ 02196 RONALDO SANTOS DA SILVA Funcao: Aux. de Abate        Admissao: 10/06/2011
+ 01090 RONILDO SILVA SANTOS Funcao: Aux. de Inspecao II  Admissao: 01/04/2009
+ 02928 ROQUE VALE DOS SANTOS Funcao: Motorista I          Admissao: 03/07/2014
+ 00888 ROZIMAR BARBOSA DOS SANTOS Funcao: Magarefe A           Admissao: 06/03/2007
+ 02748 RUBENS CARLOS RAMOS Funcao: Magarefe A           Admissao: 25/04/2013
+ 00292 RUBENS DE LORENA Funcao: Arrancador           Admissao: 01/02/2001 
+ 00468 SANDERSON PEREIRA DE LIMA Funcao: Aux. de Inspecao II  Admissao: 08/08/2003
+ 02895 SANDRO DOS SANTOS FERREIRA Funcao: Aux. de Inspecao IV  Admissao: 03/04/2014
+ 01058 SATURNINO MARTINEZ Funcao: Aux. de Graxaria,    Admissao: 06/06/2008
+ 02336 SIDINEY AJALA Funcao: Magarefe A           Admissao: 16/12/2011
+ 02613 SILVIO CARLOS DE ASSIS Funcao: Aux. de Tendal       Admissao: 22/11/2012
+ 02834 SOTERIO DE CARVALHO Funcao: Encarregado          Admissao: 21/10/2013
+ 02162 THIAGO NOVAES TORGAN Funcao: Armazenista          Admissao: 01/04/2011
+ 02007 TIAGO DO CARMO CORREA Funcao: Analista T. Informat Admissao: 03/11/2009
+ 02512 TILLER MARTINS DA SILVA Funcao: Aux. de Triparia     Admissao: 20/06/2012
+ 02827 TONIEL GOMES DA SILVA Funcao: Aux. de Tendal       Admissao: 25/09/2013
+ 02398 TONY RAMOS CHAVES Funcao: Balanceiro de Embarq Admissao: 09/02/2012
+ 02059 VAGNER LUCIANO XAVIER SOBRINHO Funcao: Balanceiro de Miudos Admissao: 01/04/2010
+ 00566 VALDECI AMANTINO Funcao: Lombador A           Admissao: 06/08/2004
+ 02498 VALDECI FERREIRA Funcao: Chefe Setor Embarque Admissao: 01/06/2012
+ 02110 VALDECI GARCETE DE SOUZA Funcao: Magarefe A           Admissao: 22/11/2010
+ 00494 VALDECI PINTO DO REIS Funcao: Retalhador de Miudos Admissao: 02/12/2003
+ 00155 VALDECY AUGUSTO DA COSTA Funcao: Encarregado          Admissao: 03/03/1999
+ 02640 VALDEMAR BARBOSA DA SILVA Funcao: Eletricista de insta Admissao: 10/01/2013 
+ 02860 VALDIR FRANCO DE LIMA Funcao: Aux. de Industria    Admissao: 07/02/2014
+ 02402 VALDIR RIBEIRO BONFIM Funcao: Magarefe A           Admissao: 09/02/2012
+ 02189 VALDOVAN MENDES FARIA Funcao: Aux. de Miudos       Admissao: 01/06/2011
+ 02020 VALMIR DA SILVA Funcao: Estoquista Congelame Admissao: 13/01/2010
+ 02917 VALMIR SOARES Funcao: Alimentador de linha Admissao: 26/05/2014
+ 02407 VALTER CLAUDINO DA SILVA Funcao: Operador de caldeira Admissao: 13/02/2012
+ 00517 VICENTE FIRMO DE ALMEIDA Funcao: Op. de Trilhagem     Admissao: 04/03/2004
+ 02006 VILMAR DE JESUS FERREIRA Funcao: Lombador A           Admissao: 03/11/2009
+ 01126 VILSON ALVES Funcao: Magarefe A           Admissao: 23/09/2009
+ 02892 VITOR DE MORAES LACERDA Funcao: Aux. de Industria    Admissao: 27/03/2014
+ 02890 WASHINGTON GONCALVES ROJAS Funcao: Magarefe C           Admissao: 27/03/2014
+ 02723 WERLYSON BARBOSA DELGADO Funcao: Estoquista Congelame Admissao: 21/03/2013
+ 00745 WILLIAN OLIVEIRA DE LORENA Funcao: Almoxarife           Admissao: 28/12/2005
+ 02725 WILSON DOS SANTOS GOMES Funcao: Motorista II         Admissao: 01/04/2013
+ 00350 WILSON TANAKA PEREIRA DOS REIS Funcao: Lombador A           Admissao: 01/09/2001
+ 02956 WINESTON LOPES DE OLIVEIRA Funcao: Aux. de industria    Admissao: 01/10/2014
+ 00387 ZEILDO DE JESUS FERREIRA Funcao: Magarefe A           Admissao: 07/05/2002

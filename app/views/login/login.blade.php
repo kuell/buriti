@@ -2,7 +2,7 @@
 <html class="bg-black">
     <head>
         <meta charset="UTF-8">
-        <title>AdminLTE | Log in</title>
+        <title>Acesso Restrito | Log in</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         {{ HTML::style('css/bootstrap.min.css') }}
@@ -66,6 +66,5 @@
         {{ HTML::script('js/jquery.min.js') }}
         <!-- Bootstrap -->
         {{ HTML::script('js/bootstrap.min.js') }}
-
     </body>
 </html>

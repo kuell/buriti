@@ -77,6 +77,5 @@
         <!-- Bootstrap -->
         <?php echo HTML::script('js/bootstrap.min.js'); ?>
 
-
     </body>
 </html>

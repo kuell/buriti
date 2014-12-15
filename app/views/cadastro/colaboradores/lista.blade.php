@@ -14,7 +14,7 @@
 				<tr>
 					<td>{{{ $colaborador->id }}}</td>
 					<td>{{{ $colaborador->nome }}}</td>
-					<td>{{{ $colaborador->setor->descricao}}}</td>
+					<td>{{{ $colaborador->setor->descricao or "Não Definido"}}}</td>
 					<td>{{{ $colaborador->interno }}}</td>
 					<td>{{{ $colaborador->codigo_interno }}}</td>
 					<td>{{ link_to_route('cadastro.colaborador.edit', 'Editar', $colaborador->id, array('class'=>'btn btn-primary')) }}</td>

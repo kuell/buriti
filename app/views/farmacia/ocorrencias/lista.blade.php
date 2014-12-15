@@ -13,7 +13,7 @@
 				<tr>
 					<td>{{{ $ocorrencia->data_hora }}}</td>
 					<td>{{{ $ocorrencia->colaborador->nome }}}</td>
-					<td>{{{ $ocorrencia->colaborador->setor->descricao }}}</td>
+					<td>{{{ $ocorrencia->colaborador->setor->descricao or "Não Identificado"}}}</td>
 					<td>{{{ $ocorrencia->conduta }}}</td>
 					<td></td>
 					<td>{{ link_to_route('farmacia.ocorrencias.edit', 'Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}</td>

@@ -16,7 +16,7 @@ class ColaboradorTableSeeder extends Seeder {
 
 			$d = explode('\n ', $linha);
 			if ($d[0] != null) {
-				$cod      = (substr($d[0], 0, 5));
+				$cod      = (substr($d[0], 0, 6));
 				$restante = explode('Funcao', substr($d[0], 6));
 				$nome     = $restante[0];
 				$restante = explode('Admissao: ', substr($d[0], 6));
