@@ -15,7 +15,7 @@
 				<tr>
 					<td>{{{ $atestado->id }}}</td>
 					<td>{{{ $atestado->inicio_afastamento }}} - {{{ $atestado->fim_afastamento }}}</td>
-					<td>{{{ $atestado->colaborador->nome }}} / {{{ $atestado->colaborador->setor->descricao }}}</td>
+					<td>{{{ $atestado->colaborador->nome or null }}} / {{{ $atestado->colaborador->setor->descricao or null }}}</td>
 					<td>{{{ $atestado->local_atendimento }}}</td>
 					<td>{{{ $atestado->cid }}}</td>
 					<td>{{{ $atestado->profissional }}}</td>

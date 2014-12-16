@@ -48,7 +48,7 @@ class ColaboradorController extends \BaseController {
 			$colaborador = $this->colaboradors->create($input);
 			return Redirect::route('cadastro.colaborador.index');
 		} else {
-			echo "Erro";
+			print_r($validate->errors());
 		}
 	}
 
@@ -74,6 +74,7 @@ class ColaboradorController extends \BaseController {
 		$input = Input::all();
 
 		$this->rules['nome'] = $this->rules['nome'].', '.$id;
+		$this->rules['codigo_interno'] = $this->rules['codigo_interno'].', '.$id;
 
 		$validate = Validator::make($input, $this->rules);
 

@@ -2,8 +2,7 @@
 
 @section('main')
 
-<section class="content">
-           {{ HTML::head('Usuarios ', 'controla usuarios!') }}
+            {{ HTML::head('Usuarios ', 'controla usuarios!') }}
             {{ HTML::boxhead('Lista', '/acesso/user/create') }}
 
             <div class="box-body">
@@ -27,5 +26,5 @@
                 </ul>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
-    </section>
+
 @endsection

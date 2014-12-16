@@ -62,6 +62,19 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 		Route::resource('atestados', 'AtestadoController');
 	});
 
+/**
+*
+*	Ordem Interna
+*
+**/
+
+Route::group(array('before' => 'auth|permissao', 'prefix' => 'osi'), function () {
+		Route::resource('osi', 'OrdemInternaController');
+		Route::resource('osi/servicos', 'OrdemInternaServicosController');
+	});
+
+
+
 Route::group(array('before' => 'auth', 'prefix' => 'restfull'), function () {
 		Route::get('cid/{cod}', function ($cod) {
 				$cid = FarmaciaCid::where('cod_cid', '=', $cod)->get();

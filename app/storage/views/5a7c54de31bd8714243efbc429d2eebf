@@ -1,7 +1,6 @@
 <?php $__env->startSection('main'); ?>
 
-<section class="content">
-           <?php echo HTML::head('Usuarios ', 'controla usuarios!'); ?>
+            <?php echo HTML::head('Usuarios ', 'controla usuarios!'); ?>
 
             <?php echo HTML::boxhead('Lista', '/acesso/user/create'); ?>
 
@@ -27,6 +26,6 @@
                 </ul>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
-    </section>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

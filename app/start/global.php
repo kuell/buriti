@@ -51,12 +51,13 @@ HTML::macro('boxhead', function ($titulo, $routeCreate = null) {
 
 		$return = '<!-- .box-header -->
 						<div class="box box-primary">
-					        <div class="box-header">
-					            <i class="ion ion-clipboard"></i>
-					            <h3 class="box-title"> %s </h3>
-					            <div class="box-footer clearfix no-border">
-					            %s
-					        </div>
+						    <div class="box-header">
+						        <i class="ion ion-clipboard"></i>
+						        <h3 class="box-title"> %s </h3>
+						        <div class="box-footer clearfix no-border">
+						            %s
+						    	</div>
+						    </div>
 					     </div>
 			     	<!-- /.box-header -->';
 		return sprintf($return, $titulo, $link);

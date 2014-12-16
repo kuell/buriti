@@ -7,12 +7,12 @@
 
   	<div class="box-body">
 
-	{{ Form::model($atestado, array('method' => 'PATCH',
-                                                 'route' => array('farmacia.atestados.update', $atestado->id) ,
-                                                 'rule'=>'form'))
-                                                 }}
-		@include('farmacia.atestados.form')
-	{{ Form::close() }}
-	</div>
+    	{{ Form::model($atestado, array('method' => 'PATCH',
+                                                     'route' => array('farmacia.atestados.update', $atestado->id) ,
+                                                     'rule'=>'form'))
+                                                     }}
+    		@include('farmacia.atestados.form')
+    	{{ Form::close() }}
+    </div>
 
 @endsection
