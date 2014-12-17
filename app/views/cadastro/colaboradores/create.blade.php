@@ -1,7 +1,7 @@
 @extends('dashboard.index')
 
 @section('main')
-
+<div class="box box-info">
   		{{ HTML::head('Colaboradores', 'controla os colaboradores') }}
   		{{ HTML::boxhead('Criar um novo colaborador') }}
 
@@ -10,5 +10,5 @@
 			@include('cadastro.colaboradores.form')
 		{{ Form::close() }}
 	</div>
-
+</div>
 @endsection

@@ -1,18 +1,18 @@
 <?php $__env->startSection('main'); ?>
-	<section class="content">
+<section class="content">
     <?php echo HTML::head('Setores', 'controla os setores'); ?>
 
-            <div class="box box-primary">
-                <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">Setores</h3>
-                    <div class="box-footer clearfix no-border">
-                        <?php echo Form::adicionar('/cadastro/setor/create'); ?>
+    <div class="box box-primary">
+        <div class="box-header">
+            <i class="ion ion-clipboard"></i>
+            <h3 class="box-title">Setores</h3>
+            <div class="box-footer clearfix no-border">
+                <?php echo Form::adicionar('/cadastro/setors/create'); ?>
 
-                </div>
-             </div><!-- /.box-header -->
-             <div class="box-body">
-                <?php echo $__env->make('setors.lista', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-             </div>
-<?php $__env->stopSection(); ?>
+            </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <?php echo $__env->make('setors.lista', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </div>
+        <?php $__env->stopSection(); ?>
 <?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

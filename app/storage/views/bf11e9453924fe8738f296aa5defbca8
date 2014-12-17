@@ -1,26 +1,39 @@
 <?php if($setors->count()): ?>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Descrição</th>
-				<th>Encarregado</th>
-				<th>Ativo</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach($setors as $setor): ?>
-				<tr>
-					<td><?php echo e($setor->id); ?></td>
-					<td><?php echo e($setor->descricao); ?></td>
-					<td><?php echo e($setor->encarregado); ?></td>
-					<td><?php echo e($setor->situacao == 1 ? 'ativo' : 'inativo'); ?></td>
-					<td></td>
-					<td><?php echo link_to_route('cadastro.setor.edit', 'Editar', $setor->id, array('class'=>'btn btn-primary')); ?></td>
-				</tr>
-			<?php endforeach; ?>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Descrição</th>
+			<th>Encarregado</th>
+			<th>Ativo</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($setors as $setor): ?>
+		<tr>
+			<td><?php echo e($setor->id); ?></td>
+			<td><?php echo e($setor->descricao); ?></td>
+			<td><?php echo e($setor->encarregado); ?></td>
+			<td><?php echo e($setor->situacao == 1 ? 'ativo' : 'inativo'); ?></td>
+			<td><?php echo link_to_route('cadastro.setors.edit', 'Editar', $setor->id, array('class'=>'btn btn-primary')); ?></td>
+		</tr>
+		<?php endforeach; ?>
 
-		</tbody>
+	</tbody>
 
-	</table>
+</table>
 <?php endif; ?>
+
+<?php $__env->startSection('scripts'); ?>
+<?php echo HTML::script('js/plugins/datatables/jquery.dataTables.js'); ?>
+
+<?php echo HTML::script('js/plugins/datatables/dataTables.bootstrap.js'); ?>
+
+
+<script type="text/javascript">
+	$(function() {
+		$("table").dataTable();
+	})
+</script>
+<?php $__env->stopSection(); ?>

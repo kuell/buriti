@@ -12,7 +12,7 @@
 
       <div class="form-group col-md-3">
         {{ Form::label('data_nascimento', 'Data de Nascimento: ') }}
-        {{ Form::text('data_nascimento', null, array('class'=>'form-control') ) }}
+        {{ Form::text('data_nascimento', null, array('class'=>'form-control data') ) }}
       </div>
 
       <div class="form-group col-md-3">

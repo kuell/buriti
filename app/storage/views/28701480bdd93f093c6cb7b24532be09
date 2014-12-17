@@ -46,5 +46,11 @@
 
         <?php echo $__env->yieldContent('scripts'); ?>
 
+        <script type="text/javascript">
+        $(function(){
+            $('.data').maskinput('99/99/9999');
+        })
+        </script>
+
     </body>
 </html>

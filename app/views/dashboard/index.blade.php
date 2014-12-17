@@ -42,5 +42,11 @@
 
         @yield('scripts')
 
+        <script type="text/javascript">
+        $(function(){
+            $('.data').maskinput('99/99/9999');
+        })
+        </script>
+
     </body>
 </html>

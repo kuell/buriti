@@ -1,12 +1,17 @@
 <?php $__env->startSection('main'); ?>
 
-  		<?php echo $__env->make('setors.topo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo HTML::head('Setores', 'controla os setores'); ?>
 
-	<?php echo Form::open(array('route' => 'cadastro.setor.store', 'rule'=>'form')); ?>
+<?php echo HTML::boxhead('Criar um novo setor'); ?>
 
-		<?php echo $__env->make('setors.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<div class="box-body">
+	<?php echo Form::open(array('route' => 'cadastro.setors.store', 'rule'=>'form')); ?>
+
+	<?php echo $__env->make('setors.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<?php echo Form::close(); ?>
 
+</div>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

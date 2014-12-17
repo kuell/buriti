@@ -16,7 +16,7 @@
 
       <div class="form-group col-md-10">
         {{ Form::label('colaborador_id', 'Nome do Colaborador: ') }}
-        {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::all()->lists('nome','id'), null, array('class'=>'form-control') ) }}
+        {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::orderBy('nome')->lists('nome','id'), null, array('class'=>'form-control') ) }}
       </div>
     </div>
 
