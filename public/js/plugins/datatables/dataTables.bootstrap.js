@@ -1,12 +1,32 @@
 /* Set the defaults for DataTables initialisation */
 $.extend( true, $.fn.dataTable.defaults, {
 	"sDom":
-		"<'row'<'col-xs-6'l><'col-xs-6'f>r>"+
+		"<'row'<'col-md-6'l><'col-md-6'f>r>"+
 		"t"+
-		"<'row'<'col-xs-6'i><'col-xs-6'p>>",
+		"<'row'<'col-md-6'i><'col-md-6'p>>",
 	"oLanguage": {
-		"sLengthMenu": "_MENU_ records per page"
-	}
+			    "sEmptyTable": "Nenhum registro encontrado",
+			    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+			    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+			    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+			    "sInfoPostFix": "",
+			    "sInfoThousands": ".",
+			    "sLengthMenu": "_MENU_ resultados por página",
+			    "sLoadingRecords": "Carregando...",
+			    "sProcessing": "Processando...",
+			    "sZeroRecords": "Nenhum registro encontrado",
+			    "sSearch": "Pesquisar",
+			    "oPaginate": {
+			        "sNext": "Próximo",
+			        "sPrevious": "Anterior",
+			        "sFirst": "Primeiro",
+			        "sLast": "Último"
+			    },
+			    "oAria": {
+			        "sSortAscending": ": Ordenar colunas de forma ascendente",
+			        "sSortDescending": ": Ordenar colunas de forma descendente"
+			    }
+			}
 } );
 
 

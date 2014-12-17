@@ -1,7 +1,7 @@
 <fieldset ng-app="App">
     <div class="form-group col-md-12" ng-controller="OcorrenciaCtrl">
       <div class="form-group col-md-2">
-        {{ Form::label('codigo_interno', 'Codigo Interno: ') }}
+        {{ Form::label('codigo_interno', 'Matrícula: ') }}
         {{ Form::text('codigo_interno', null, array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ) }}
       </div>
 

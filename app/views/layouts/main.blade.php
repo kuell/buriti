@@ -21,6 +21,7 @@
   {{ HTML::script('assets/js/jquery-1.10.2.js') }}
   {{ HTML::script('assets/js/bootstrap.js') }}
   {{ HTML::script('assets/js/jquery.maskedinput.js') }}
+  
   </head>
 
   <body>

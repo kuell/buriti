@@ -6,6 +6,7 @@
 				<th>Colaborador</th>
 				<th>Setor</th>
 				<th>Conduta</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -15,7 +16,6 @@
 					<td>{{{ $ocorrencia->colaborador->nome }}}</td>
 					<td>{{{ $ocorrencia->colaborador->setor->descricao or "Não Identificado"}}}</td>
 					<td>{{{ $ocorrencia->conduta }}}</td>
-					<td></td>
 					<td>{{ link_to_route('farmacia.ocorrencias.edit', 'Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}</td>
 				</tr>
 			@endforeach

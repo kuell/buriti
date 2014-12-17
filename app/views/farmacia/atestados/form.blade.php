@@ -75,8 +75,12 @@
         {{ Form::label('profissional', 'Profissional: ') }}
         {{ Form::text('profissional', null, array('class'=>'form-control') ) }}
       </div>
-
-
+    </div>
+    <div class="form-group col-md-12">
+      <div>
+        {{ Form::label('obs', 'Observação: ') }}
+        {{ Form::textarea('obs', null, ['class'=>'form-control']) }}
+      </div>
     </div>
 <div class="col-md-9">
   <button type="submit" class="btn btn-primary">Gravar</button>

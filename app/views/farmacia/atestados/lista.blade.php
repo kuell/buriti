@@ -8,6 +8,7 @@
 				<th>Local do Atendimento</th>
 				<th>C.I.D. / Descrição</th>
 				<th>Profissional</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,7 +20,6 @@
 					<td>{{{ $atestado->local_atendimento }}}</td>
 					<td>{{{ $atestado->cid }}}</td>
 					<td>{{{ $atestado->profissional }}}</td>
-					<td></td>
 					<td>{{ link_to_route('farmacia.atestados.edit', 'Editar', $atestado->id, array('class'=>'btn btn-primary')) }}</td>
 				</tr>
 			@endforeach
