@@ -79,7 +79,7 @@
         }
         else{
           $window.console.log(data);
-          $('select[name=colaborador_id]').val(data[0].id)
+          $('select[name=colaborador_id]').val(data.id)
         }
       });
     };
