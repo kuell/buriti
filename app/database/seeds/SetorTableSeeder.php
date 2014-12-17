@@ -13,7 +13,7 @@ class SetorTableSeeder extends Seeder {
 		$subMenu->id = 10;
 		$subMenu->descricao = "Setor";
 		$subMenu->menu_pai = 2;
-		$subMenu->url = '/setors/setors';
+		$subMenu->url = '/cadastro/setors/';
 		$subMenu->save();
 
 	}

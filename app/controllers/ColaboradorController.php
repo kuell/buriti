@@ -7,7 +7,7 @@ class ColaboradorController extends \BaseController {
 	private $rules = array(
 		'nome'           => 'required|min:5|unique:colaboradors,nome',
 		'codigo_interno' => 'required|unique:colaboradors,codigo_interno',
-	);
+		);
 
 	public function __construct(Colaborador $colaborador) {
 		$this->colaboradors = $colaborador;
@@ -99,12 +99,11 @@ class ColaboradorController extends \BaseController {
 	}
 
 	public function show($codigo_interno) {
-		$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->get();
+		$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->first();
 
 		if ($colaborador->count() == 0) {
 			return '0';
 		} else {
-			$colaborador[0]->setor = $colaborador[0]->setor;
 			return $colaborador;
 		}
 	}

@@ -78,8 +78,8 @@
           $('select[name=colaborador_id]').val('')
         }
         else{
-          $window.console.log(data);
-          $('select[name=colaborador_id]').val(data[0].id)
+          $window.console.log(data.colaborador[0]);
+          $('select[name=colaborador_id]').val(data.colaborador[0].id)
         }
       });
     };
