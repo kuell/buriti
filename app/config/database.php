@@ -65,7 +65,7 @@ return array(
 
 		'pgsql'     => array(
 			'driver'   => 'pgsql',
-			'host'     => '10.1.1.3',
+			'host'     => 'localhost',
 			'database' => 'sig_testes',
 			'username' => 'postgres',
 			'password' => 'aporedux',
