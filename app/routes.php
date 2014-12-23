@@ -42,25 +42,6 @@ Route::group(array('before' => 'auth', 'prefix' => 'acesso'), function () {
 	Route::post('user/menu', 'PermissaoController@postMenu');
 });
 
-/*
- * Cadastros
- *
- */
-
-Route::group(array('before' => 'auth|permissao', 'prefix' => 'cadastro'), function () {
-	Route::resource('setors', 'SetorsController');
-	Route::resource('colaborador', 'ColaboradorController');
-});
-
-/**
- *	Farmacia
- *
- **/
-
-Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), function () {
-	Route::resource('ocorrencias', 'OcorrenciasController');
-	Route::resource('atestados', 'AtestadoController');
-});
 
 /**
 *

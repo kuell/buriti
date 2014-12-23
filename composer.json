@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"barryvdh/laravel-dompdf": "0.4.*"
+		"barryvdh/laravel-dompdf": "0.4.*",
+		"creolab/laravel-modules": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
@@ -15,7 +16,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+			"app/modules"
 		]
 	},
 	"scripts": {
