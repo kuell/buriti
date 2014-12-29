@@ -43,7 +43,7 @@ class Atestado extends Eloquent {
 		$atestado = Atestado::find($id);
 
 		if($atestado->tipo_atestado == 0){
-			if($atestado->cat != null){
+			if($atestado->acidente_trabalho){
 				return "Cat";
 			}
 			else{
@@ -52,6 +52,9 @@ class Atestado extends Eloquent {
 		}
 		else if($atestado->tipo_atestado == 1){
 			return "Acompanhamento Familiar";
+		}
+		else{
+			return 'Erro no processamento!';
 		}
 
 
