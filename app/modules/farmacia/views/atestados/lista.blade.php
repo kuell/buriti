@@ -8,6 +8,7 @@
 			<th>Local do Atendimento</th>
 			<th>C.I.D. / Descrição</th>
 			<th>Profissional</th>
+			<th>Acidente Trabalho</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -20,6 +21,7 @@
 			<td>{{{ $atestado->local_atendimento }}}</td>
 			<td>{{{ $atestado->cid }}}</td>
 			<td>{{{ $atestado->profissional }}}</td>
+			<td>{{{ $atestado->acidente_trabalho == 1 ? "Sim" : "Não"  }}}</td>
 			<td>{{ link_to_route('farmacia.atestados.edit', 'Editar', $atestado->id, array('class'=>'btn btn-primary')) }}</td>
 		</tr>
 		@endforeach

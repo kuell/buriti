@@ -86,7 +86,7 @@ class AtestadoController extends \BaseController {
 			$atestado = $this->atestados->find($id);
 			$atestado->update($input);
 
-			return Redirect::route($this->reendenise.'index');
+			return Redirect::route('farmacia.atestados.index');
 		} else {
 			print_r($validate->error());
 		}
@@ -101,5 +101,4 @@ class AtestadoController extends \BaseController {
 	public function destroy($id) {
 		//
 	}
-
 }

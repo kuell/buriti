@@ -67,3 +67,17 @@ Route::group(array('before' => 'auth', 'prefix' => 'restfull'), function () {
 	});
 	Route::get('colaborador/{cod}', 'ColaboradorController@show');
 });
+
+use SimpleExcel\SimpleExcel;
+
+Route::get('teste', function(){
+	Excel::create('Planilha de Controle da Farmacia - Atestado / Cesta Básica', function($excel) {
+		$excel->sheet('Excel sheet', function($sheet) {
+			
+			$atestados = Atestado::listaAtestados();
+			$sheet->fromArray($atestados);
+
+		});
+	})->export('xls');
+	
+});

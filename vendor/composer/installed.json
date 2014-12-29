@@ -1698,18 +1698,65 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "laravel/framework",
-        "version": "v4.2.13",
-        "version_normalized": "4.2.13.0",
+        "name": "creolab/laravel-modules",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/laravel/framework.git",
-            "reference": "a8104d53fef0582a8e93b33f424eafd4bd5c7989"
+            "url": "https://github.com/creolab/laravel-modules.git",
+            "reference": "6e51036302cae60381352e10a3c32bc12efe979f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/a8104d53fef0582a8e93b33f424eafd4bd5c7989",
-            "reference": "a8104d53fef0582a8e93b33f424eafd4bd5c7989",
+            "url": "https://api.github.com/repos/creolab/laravel-modules/zipball/6e51036302cae60381352e10a3c32bc12efe979f",
+            "reference": "6e51036302cae60381352e10a3c32bc12efe979f",
+            "shasum": ""
+        },
+        "require": {
+            "laravel/framework": "~4",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "way/generators": "~2"
+        },
+        "suggest": {
+            "way/generators": "Required for modules:generate functionality."
+        },
+        "time": "2014-11-29 10:08:38",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Creolab\\LaravelModules\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Boris Strahija",
+                "email": "bstrahija@gmail.com"
+            }
+        ],
+        "description": "Application specific modules in Laravel 4",
+        "homepage": "http://creolab.hr",
+        "keywords": [
+            "laravel",
+            "modules"
+        ]
+    },
+    {
+        "name": "laravel/framework",
+        "version": "v4.2.16",
+        "version_normalized": "4.2.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/framework.git",
+            "reference": "31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f",
+            "reference": "31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f",
             "shasum": ""
         },
         "require": {
@@ -1779,7 +1826,7 @@
         "suggest": {
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
         },
-        "time": "2014-12-21 20:31:14",
+        "time": "2014-12-22 20:56:10",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1815,50 +1862,180 @@
         ]
     },
     {
-        "name": "creolab/laravel-modules",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "tijsverkoyen/css-to-inline-styles",
+        "version": "1.5.2",
+        "version_normalized": "1.5.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/creolab/laravel-modules.git",
-            "reference": "6e51036302cae60381352e10a3c32bc12efe979f"
+            "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
+            "reference": "c50e8cd86acb0e528855c59653006e96d094a5b1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/creolab/laravel-modules/zipball/6e51036302cae60381352e10a3c32bc12efe979f",
-            "reference": "6e51036302cae60381352e10a3c32bc12efe979f",
+            "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/c50e8cd86acb0e528855c59653006e96d094a5b1",
+            "reference": "c50e8cd86acb0e528855c59653006e96d094a5b1",
             "shasum": ""
         },
         "require": {
-            "laravel/framework": "~4",
-            "php": ">=5.3.0"
+            "php": ">=5.3.0",
+            "symfony/css-selector": "~2.1"
         },
         "require-dev": {
-            "way/generators": "~2"
+            "phpunit/phpunit": "~4.0"
         },
-        "suggest": {
-            "way/generators": "Required for modules:generate functionality."
-        },
-        "time": "2014-11-29 10:08:38",
+        "time": "2014-08-01 18:02:04",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5.x-dev"
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Creolab\\LaravelModules\\": "src/"
+                "TijsVerkoyen\\CssToInlineStyles\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD"
+        ],
         "authors": [
             {
-                "name": "Boris Strahija",
-                "email": "bstrahija@gmail.com"
+                "name": "Tijs Verkoyen",
+                "email": "css_to_inline_styles@verkoyen.eu",
+                "role": "Developer"
             }
         ],
-        "description": "Application specific modules in Laravel 4",
-        "homepage": "http://creolab.hr",
+        "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+        "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles"
+    },
+    {
+        "name": "phpoffice/phpexcel",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PHPExcel.git",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
+            "shasum": ""
+        },
+        "require": {
+            "ext-xml": "*",
+            "ext-xmlwriter": "*",
+            "php": ">=5.2.0"
+        },
+        "time": "2014-03-02 15:22:49",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PHPExcel": "Classes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "http://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "http://blog.rootslabs.net"
+            },
+            {
+                "name": "Erik Tilt"
+            }
+        ],
+        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "http://phpexcel.codeplex.com",
         "keywords": [
-            "laravel",
-            "modules"
+            "OpenXML",
+            "excel",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
+        ]
+    },
+    {
+        "name": "maatwebsite/excel",
+        "version": "v1.2.3",
+        "version_normalized": "1.2.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
+            "reference": "331792997e21cc37e027abd10e5d988a624f4569"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/331792997e21cc37e027abd10e5d988a624f4569",
+            "reference": "331792997e21cc37e027abd10e5d988a624f4569",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/cache": "~4.0|~5.0",
+            "illuminate/config": "~4.0|~5.0",
+            "illuminate/filesystem": "~4.0|~5.0",
+            "illuminate/support": "~4.0|~5.0",
+            "nesbot/carbon": "~1.0",
+            "php": ">=5.3.0",
+            "phpoffice/phpexcel": "~1.8.0",
+            "tijsverkoyen/css-to-inline-styles": "~1.5"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9",
+            "orchestra/testbench": "~2.2.0",
+            "phpseclib/phpseclib": ">=0.3.7",
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "illuminate/http": "~4.0|~5.0",
+            "illuminate/routing": "~4.0|~5.0",
+            "illuminate/view": "~4.0|~5.0"
+        },
+        "time": "2014-12-16 21:01:32",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/Maatwebsite/Excel",
+                "tests/TestCase.php"
+            ],
+            "psr-0": {
+                "Maatwebsite\\Excel\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Maatwebsite.nl",
+                "email": "patrick@maatwebsite.nl"
+            }
+        ],
+        "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
+        "keywords": [
+            "PHPExcel",
+            "batch",
+            "csv",
+            "excel",
+            "export",
+            "import",
+            "laravel"
         ]
     }
 ]
