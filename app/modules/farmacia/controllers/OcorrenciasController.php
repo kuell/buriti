@@ -43,7 +43,7 @@ class OcorrenciasController extends \BaseController {
 
 		if ($validate->passes()) {
 			$this->ocorrencias = $this->ocorrencias->create($input);
-			return Redirect::route($this->reedenise.'index');
+			return Redirect::route('farmacia.ocorrencias.index');
 		} else {
 			return "Erro";
 		}
@@ -86,7 +86,7 @@ class OcorrenciasController extends \BaseController {
 			$ocorrencia = $this->ocorrencias->find($id);
 			$ocorrencia->update($input);
 
-			return Redirect::route($this->reedenise."index");
+			return Redirect::route("farmacia.ocorrencias.index");
 		} else {
 			return "Erro";
 		}
