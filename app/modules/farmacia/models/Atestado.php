@@ -5,7 +5,8 @@ class Atestado extends Eloquent {
 	protected $table   = "farmacia_atestados";
 
 	public function getAcidenteTrabalhoAttribute(){
-		if($this->attribute['acidente_trabalho']){
+
+		if($this->attributes['acidente_trabalho']){
 			return 1;
 		}
 		else{
@@ -14,7 +15,7 @@ class Atestado extends Eloquent {
 	}
 
 	public function getDoencaAttribute(){
-		if($this->attribute['doenca']){
+		if($this->attributes['doenca']){
 			return 1;
 		}
 		else{
