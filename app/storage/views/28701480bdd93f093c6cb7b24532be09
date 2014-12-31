@@ -32,7 +32,6 @@
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <?php echo $__env->make('dashboard.partials._menu_lateral', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
                 <div class="col-md-12">
@@ -41,6 +40,7 @@
 
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
+        <?php echo $__env->make('dashboard.partials._modal_suporte', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <?php echo $__env->make('dashboard.partials._scripts_js', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 

@@ -67,3 +67,14 @@ Route::group(array('before' => 'auth', 'prefix' => 'restfull'), function () {
 	});
 	Route::get('colaborador/{cod}', 'ColaboradorController@show');
 });
+
+Route::post('suporte', function(){
+	$input = array_except(Input::all(), '_token');
+	$input['usuario'] = Auth::user()->user;
+
+	Mail::send('dashboard.email_suporte', $input, function($message)
+	{
+		$message->to('suporte@frizelo.com.br')->subject('['.Input::get('tipo').'] - '. Auth::user()->nome);
+	});
+	return Redirect::to('/');
+});

@@ -1,1 +1,1 @@
-@extends('layout.main')
+Ola Mundo

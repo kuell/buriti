@@ -32,7 +32,7 @@
     $(function() {
         $("table").dataTable();
         $("#rh").click(function(event) {
-            window.open('/farmacia/atestados/rel_rh?'+$('form[name=relatorio]').serialize(), 'print', 'channel-mooe=yes')
+            window.open('/farmacia/atestados/rel_rh?'+$('form[name=relatorio]').serialize(), 'print', 'channel-mooe=yes,scrollbars=yes')
         });
 
         $("#operacoes").click(function(event) {

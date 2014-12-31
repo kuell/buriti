@@ -28,7 +28,6 @@
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             @include('dashboard.partials._menu_lateral')
-
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
                 <div class="col-md-12">
@@ -37,6 +36,7 @@
 
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
+        @include('dashboard.partials._modal_suporte')
 
         @include('dashboard.partials._scripts_js')
 
