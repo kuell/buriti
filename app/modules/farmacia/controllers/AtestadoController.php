@@ -101,4 +101,78 @@ class AtestadoController extends \BaseController {
 	public function destroy($id) {
 		//
 	}
+
+	public function relatorioOperacoes(){
+		$input = array_except(Input::all(), '_token');
+
+		Excel::create('Planilha de Controle da Farmacia - Atestado / Cesta Básica', function($excel) {
+			$excel->sheet('Excel sheet', function($sheet) {
+
+				$sheet->mergeCells('A1:J5');
+				$sheet->setHeight(1, 50);
+
+				$sheet->row(1, function ($row) {
+					$row->setFontFamily('Arial');
+					$row->setFontSize(20);
+				});
+
+				$sheet->cell('A1', function($cell) {
+					$cell->setAlignment('center');
+				});
+
+				$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
+
+				$input = array_except(Input::all(),'_token');
+
+				$a = new Atestado();
+				$a->inicio_afastamento 	= implode('-', array_reverse(explode('/',$input['datai'])));
+				$a->fim_afastamento 	= implode('-', array_reverse(explode('/',$input['dataf'])));
+
+				$sheet->setAutoFilter('A6:J6');
+				$sheet->setOrientation('landscape');
+
+				$sheet->fromArray($a->listaAtestados($a), null, 'A6', true);
+
+			});
+		})->export($input['tipo_arquivo']); 
+	}
+
+	public function relatorioRh(){
+		$input = array_except(Input::all(), '_token');
+
+		$a = new Atestado();
+		$a->inicio_afastamento 	= implode('-', array_reverse(explode('/',$input['datai'])));
+		$a->fim_afastamento 	= implode('-', array_reverse(explode('/',$input['dataf'])));
+
+		$dados = $a->atestadoTipo($a);
+		return View::make('farmacia::atestados.relatorio_rh', compact('dados'));
+	}
+
+	public function exportExcel(){
+
+		Excel::create('Relatorio de Atestados / Cesta Básica', function($excel) {
+			$excel->sheet('Excel sheet', function($sheet) {
+
+				$sheet->mergeCells('A1:J5');
+				$sheet->setHeight(1, 50);
+
+				$sheet->row(1, function ($row) {
+					$row->setFontFamily('Arial');
+					$row->setFontSize(20);
+				});
+
+				$sheet->cell('A1', function($cell) {
+					$cell->setAlignment('center');
+				});
+
+				$dados = $this->relatorio_rh();
+
+				$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
+
+				$sheet->loadView('farmacia::atestados.relatorio_rh');
+
+			});
+		})->export($input['tipo_arquivo']); 
+
+	}
 }

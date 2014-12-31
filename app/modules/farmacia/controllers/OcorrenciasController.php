@@ -16,7 +16,7 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$ocorrencias = $this->ocorrencias->orderBy('data_hora','desc')->get();
+		$ocorrencias = $this->ocorrencias->orderBy('data_hora')->get();
 
 		return View::make($this->reedenise.'index', compact('ocorrencias'));
 

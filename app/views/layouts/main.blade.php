@@ -38,7 +38,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Controle de Internos</a>
+        <a class="navbar-brand" href="/">Controle de Internos</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
