@@ -1,21 +1,23 @@
 <?php $__env->startSection('main'); ?>
-    <?php echo HTML::head('Fornecedores ', 'controla fornecedores!'); ?>
+    <div class="box box-info">
+        <?php echo HTML::head('Fornecedores ', 'controla fornecedores!'); ?>
 
-    <?php echo HTML::boxhead('Altera Usuario '.$user->id); ?>
+        <?php echo HTML::boxhead('Altera Usuario '.$user->id); ?>
 
 
-     <div class="box-body">
-        <?php echo link_to('/acesso/user/menu/'.$user->id, 'Permissao', array('class'=>'btn btn-primary')); ?>
+         <div class="box-body">
+            <?php echo link_to('/users/user/permissao/'.$user->id, 'Permissao', array('class'=>'btn btn-primary')); ?>
 
             <?php echo Form::model($user, array('method' => 'PATCH',
-                                                 'route' => array('acesso.user.update', $user->id) ,
+                                                 'route' => array('users.user.update', $user->id) ,
                                                  'rule'=>'form',
                                                  'enctype'=>'multipart/form-data')); ?>
 
                 <?php echo $__env->make('users.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo Form::close(); ?>
 
-     </div>
+         </div>
+    </div>
 
 <?php $__env->stopSection(); ?>
 

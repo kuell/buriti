@@ -27,6 +27,5 @@
 		@endforeach
 
 	</tbody>
-
 </table>
 @endif

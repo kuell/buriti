@@ -3,7 +3,7 @@
 class AtestadoController extends \BaseController {
 
 	private $atestados;
-	private $reendenise = "farmacia::atestados.";
+	protected $layout = 'layouts.modulo';
 	private $rules      = [];
 
 	public function __construct(Atestado $atestado) {
@@ -13,12 +13,19 @@ class AtestadoController extends \BaseController {
 	/**
 	 * Display a listing of the resource.
 	 *
+	 * @param $data
 	 * @return Response
 	 */
 	public function index() {
-		$atestados = $this->atestados->orderBy('id')->get();
 
-		return View::make($this->reendenise.'index', compact('atestados'));
+		if(!Input::get('data')){
+			$data = [date('Y-m-d'), date('Y-m-d')];
+		}
+		else{
+			$data = explode(' - ', Input::get('data'));
+		}
+		$atestados = $this->atestados->orderBy('id')->get();
+		return $this->layout = View::make('farmacia::atestados.index', compact('atestados'));
 	}
 
 	/**
@@ -27,7 +34,7 @@ class AtestadoController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return View::make($this->reendenise.'create');
+		return View::make('farmacia::atestados.create');
 	}
 
 	/**
@@ -68,7 +75,7 @@ class AtestadoController extends \BaseController {
 	public function edit($id) {
 		$atestado = $this->atestados->find($id);
 
-		return View::make($this->reendenise.'edit', compact('atestado'));
+		return View::make('farmacia::atestados.edit', compact('atestado'));
 	}
 
 	/**

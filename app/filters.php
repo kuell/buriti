@@ -79,7 +79,7 @@ Route::filter('csrf', function () {
 	});
 
 Route::filter('permissao', function ($route, $request) {
-		$url = '/'.$request->segment(1).'/'.$request->segment(2).'/';
+		$url = '/'.$request->segment(1).'/'.$request->segment(2);
 		$idUrl = Menu::where('url', $url)->get();
 
 		if (empty($idUrl[0]) || $idUrl[0]->id == 0 || $idUrl[0]->id == '') {

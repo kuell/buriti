@@ -6,7 +6,7 @@
 
   <div class="form-group col-md-12">
     <div class="col-md-2">
-      {{ Form::label('codigo_interno', 'Codigo Interno: ') }}
+      {{ Form::label('codigo_interno', 'Nº Matricula: ') }}
       {{ Form::text('codigo_interno', null,  array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ) }}
     </div>
 

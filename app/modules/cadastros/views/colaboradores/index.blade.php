@@ -8,7 +8,7 @@
             <i class="ion ion-clipboard"></i>
             <h3 class="box-title">Colaboradores</h3>
             <div class="box-footer clearfix no-border">
-                {{ Form::adicionar('/cadastro/colaborador/create') }}
+                {{ Form::adicionar('/colaboradors/create') }}
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">

@@ -1,4 +1,4 @@
-            <aside class="left-side sidebar-offcanvas">
+
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
@@ -26,28 +26,22 @@
                     <ul class="sidebar-menu">
                         <li>
                             <a href="/">
-                                <i class="fa fa-home"></i> <span>Pagina Inicial</span>
+                                <i class="fa fa-plus-circle"></i> <span>Inicio</span>
                             </a>
                         </li>
-                            @foreach (Auth::user()->menus as $menu)
-                                @if(!$menu->menu->menu_pai)
-                                    <li class="treeview">
-                                        <a href="#">
-                                            <i class="fa {{ $menu->menu->icone  }}"></i>
-                                            <span>{{ $menu->menu->descricao }}</span>
-                                            <span>{{ $menu->menu->menu_pai }}</span>
-                                            <i class="fa fa-angle-left pull-right"></i>
 
-                                            <ul class="treeview-menu">
-                                                @foreach($menu->menu->subMenus as $sub)
-                                                        <li><a href="{{ $sub->url }}"><i class="fa {{ $sub->icone  }}"></i> {{ $sub->descricao }}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        </a>
-                                @endif
+                        @foreach (Auth::user()->menus()->where('menu_id', 2)->get() as $menu)
+                            @foreach($menu->menu->subMenus as $sub)
+                            <li class="active">
+                                <a href="{{ $sub->url }}">
+                                    <i class="fa {{ $sub->icone  }}"></i>
+                                    <span>{{ $sub->descricao }}</span>
+                                    <span>{{ $menu->menu->menu_pai }}</span>
+
+                                </a>
                             </li>
                             @endforeach
+                        @endforeach
                     </ul>
                 </section>
                 <!-- /.sidebar -->
-            </aside>

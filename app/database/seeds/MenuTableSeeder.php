@@ -17,9 +17,9 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 1,
 				'descricao'  => 'Usuarios e Permissões',
-				'url'        => null,
-				'icone'      => null,
-				'indice'     => null,
+				'url'        => 'users/user',
+				'icone'      => 'ion ion-person-add',
+				'indice'     => '',
 				'menu_pai'   => null,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
@@ -28,7 +28,7 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 2,
 				'descricao'  => 'Cadastros',
-				'url'        => null,
+				'url'        => 'cadastro',
 				'icone'      => null,
 				'indice'     => null,
 				'menu_pai'   => null,
@@ -37,21 +37,10 @@ class MenuTableSeeder extends Seeder {
 			),
 
 			array(
-				'id'         => 7,
-				'descricao'  => 'Colaboradores',
-				'url'        => '/cadastro/colaborador/',
-				'icone'      => null,
-				'indice'     => null,
-				'menu_pai'   => 2,
-				'created_at' => 'now()',
-				'updated_at' => 'now()',
-			),
-
-			array(
 				'id'         => 3,
 				'descricao'  => 'Farmacia',
-				'url'        => null,
-				'icone'      => null,
+				'url'        => '/farmacia',
+				'icone'      => 'fa fa-plus-square',
 				'indice'     => null,
 				'menu_pai'   => null,
 				'created_at' => 'now()',
@@ -61,8 +50,8 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 4,
 				'descricao'  => 'Livro de Ocorrencias',
-				'url'        => '/farmacia/ocorrencias/',
-				'icone'      => null,
+				'url'        => 'ocorrencias',
+				'icone'      => 'glyphicon glyphicon-list-alt',
 				'indice'     => null,
 				'menu_pai'   => 3,
 				'created_at' => 'now()',
@@ -72,8 +61,8 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 5,
 				'descricao'  => 'Lançamento de Atestados',
-				'url'        => '/farmacia/atestados/',
-				'icone'      => null,
+				'url'        => 'atestados',
+				'icone'      => 'glyphicon glyphicon-file',
 				'indice'     => null,
 				'menu_pai'   => 3,
 				'created_at' => 'now()',
@@ -83,10 +72,54 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 6,
 				'descricao'  => 'Perfil',
-				'url'        => '/acesso/user/',
+				'url'        => '/perfil',
 				'icone'      => null,
 				'indice'     => null,
 				'menu_pai'   => 1,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+			),
+
+			array(
+				'id'         => 7,
+				'descricao'  => 'Colaboradores',
+				'url'        => '/colaboradors',
+				'icone'      => 'fa-male',
+				'indice'     => null,
+				'menu_pai'   => 2,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+			),
+
+			array(
+				'id'         => 8,
+				'descricao'  => 'Setor',
+				'url'        => '/setors',
+				'icone'      => 'fa-gear',
+				'indice'     => null,
+				'menu_pai'   => 2,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+			),
+
+			array(
+				'id'         => 9,
+				'descricao'  => 'SESMT',
+				'url'        => '/sesmt',
+				'icone'      => 'fa fa-plus-circle inverse',
+				'indice'     => null,
+				'menu_pai'   => null,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+			),
+
+			array(
+				'id'         => 10,
+				'descricao'  => 'Investigação',
+				'url'        => 'investigacao',
+				'icone'      => 'fa-search-plus',
+				'indice'     => null,
+				'menu_pai'   => 9,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
 			)

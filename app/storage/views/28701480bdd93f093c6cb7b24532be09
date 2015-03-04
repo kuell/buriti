@@ -25,26 +25,38 @@
           <![endif]-->
       </head>
       <body class="skin-blue">
-        <!-- header logo: style can be found in header.less -->
 
-        <?php echo $__env->make('dashboard.partials._menu_topo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+                <?php echo $__env->make('dashboard.partials._menu_topo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </header>
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
-            <?php echo $__env->make('dashboard.partials._menu_lateral', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <aside class="left-side sidebar-offcanvas">
+                <?php echo $__env->make('dashboard.partials._menu_lateral', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </aside>
             <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
-                <div class="col-md-12">
-                    <?php echo $__env->yieldContent('main'); ?>
-                </div>
 
+            <aside class="right-side">
+
+
+                <?php if(Request::segment(1) == 'dashboard'): ?>
+                    <?php echo $__env->make('dashboard.partials._menu_body', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <?php else: ?>
+                    <?php echo $__env->yieldContent('main'); ?>
+                <?php endif; ?>
             </aside><!-- /.right-side -->
-        </div><!-- ./wrapper -->
+        </div>
+        <!-- ./wrapper -->
         <?php echo $__env->make('dashboard.partials._modal_suporte', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <?php echo $__env->make('dashboard.partials._scripts_js', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-        <?php echo $__env->yieldContent('scripts'); ?>
+        <section class="content">
+            <?php echo $__env->yieldContent('scripts'); ?>
+        </section>
+
 
         <script type="text/javascript">
             $(function(){

@@ -28,20 +28,11 @@ Route::get('logout', array('as' => 'users.logout', function () {
  *  Usuario
  */
 
-Route::group(array('before' => 'auth', 'prefix' => 'users'), function () {
-	Route::resource('users', 'UserController');
+Route::group(array('before' => 'auth|permissao', 'prefix' => '/users'), function () {
+	Route::resource('user', 'UserController');
+	Route::get('user/permissao/{id}', 'PermissaoController@getSistema');
+	Route::post('user/permissao', 'PermissaoController@postMenu');
 });
-
-/*
- * Controle de Acesso
- */
-
-Route::group(array('before' => 'auth', 'prefix' => 'acesso'), function () {
-	Route::resource('user', 'PermissaoController');
-	Route::get('user/menu/{id}', array('as' => 'acesso.menu', 'uses' => 'PermissaoController@getSistema'));
-	Route::post('user/menu', 'PermissaoController@postMenu');
-});
-
 
 /**
 *

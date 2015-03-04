@@ -45,7 +45,7 @@
 
             <div class="well">
 
-                {{ link_to_route('acesso.user.edit','Voltar', $usuario->id, array('class'=>'btn btn-danger')) }}
+                {{ link_to_route('users.user.edit','Voltar', $usuario->id, array('class'=>'btn btn-danger')) }}
             </div>
         </div><!-- /.box -->
 
@@ -65,7 +65,7 @@
         function PermissaoCtrl($scope, $http, $window){
             $scope.save = function(menu_id){
                 $scope.obj.menu_id = menu_id;
-                $http.post('/acesso/user/menu/', $scope.obj)
+                $http.post('/users/user/permissao/', $scope.obj)
                     .success(function(data){
                         $window.console.log(data);
                         });

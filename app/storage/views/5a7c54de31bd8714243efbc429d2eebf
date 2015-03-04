@@ -1,8 +1,9 @@
 <?php $__env->startSection('main'); ?>
-
+<section class="content">
+    <div class="box box-info">
             <?php echo HTML::head('Usuarios ', 'controla usuarios!'); ?>
 
-            <?php echo HTML::boxhead('Lista', '/acesso/user/create'); ?>
+            <?php echo HTML::boxhead('Lista', '/users/user/create'); ?>
 
 
             <div class="box-body">
@@ -11,7 +12,7 @@
                     <li>
                         <!-- drag handle -->
                         <span class="handle">
-                            <i class="fa  fa-user"></i>
+                            <i class="fa fa-user"></i>
                         </span>
                         <!-- todo text -->
                         <span class="text"><?php echo $user->nome; ?></span>
@@ -19,13 +20,14 @@
                         <small class="label label-danger">Login: <?php echo $user->user; ?></small>
                         <!-- General tools such as edit or delete-->
                         <div class="tools">
-                            <a href="/acesso/user/<?php echo $user->id; ?>/edit"><i class="fa fa-edit"></i></a>
+                            <a href="/users/user/<?php echo $user->id; ?>/edit"><i class="fa fa-edit"></i></a>
                         </div>
                     </li>
                 <?php endforeach; ?>
                 </ul>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
+</section>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

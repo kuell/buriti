@@ -1,5 +1,5 @@
-<header class="header">
-    <a href="../../index.html" class="logo">
+
+    <a href="/" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
         Frizelo Frigorificos Ltda.
     </a>
@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu">
                         <li class="header">Suporte / Duvidas / Sugestões</li>
                         <li>
-                         {{-- 
+                         {{--
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
                                 <li><!-- start message -->
@@ -100,7 +100,7 @@
                     <li class="footer"><a href="#">View all</a></li>
                 </ul>
             </li>
-            
+
 
             <!-- Tasks: style can be found in dropdown.less -->
             <li class="dropdown tasks-menu">
@@ -172,7 +172,7 @@
                     </li>
                 </ul>
             </li>
-            
+
 
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
@@ -204,7 +204,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        {{ link_to_route('users.users.show', 'Perfil', Auth::user()->id, array('class'=>'btn btn-default btn-flat')) }}
+                                        {{ link_to_route('users.user.show', 'Perfil', Auth::user()->id, array('class'=>'btn btn-default btn-flat')) }}
                                     </div>
                                     <div class="pull-right">
                                         {{ link_to_route('users.logout', 'Sair', null, array('class'=>'btn btn-default btn-flat')) }}
@@ -215,4 +215,3 @@
                     </ul>
                 </div>
             </nav>
-        </header>

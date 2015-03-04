@@ -1,22 +1,24 @@
 <?php $__env->startSection('main'); ?>
 
 	<section class="content">
-	<?php echo HTML::head('Usuario ', 'controla usuarios!'); ?>
+        <div class="box box-info">
+            <?php echo HTML::head('Usuario ', 'controla usuarios!'); ?>
 
-    <?php echo HTML::boxhead('Novo Usuario'); ?>
+            <?php echo HTML::boxhead('Novo Usuario'); ?>
 
-    <div>
-            <?php echo Form::open(array('route' => 'acesso.user.store',
-                                                 'rule'=>'form')); ?>
+            <div>
+                <?php echo Form::open(array('route' => 'users.user.store',
+                                                     'rule'=>'form')); ?>
 
-                <div class="box-body">
+                    <div class="box-body">
 
-                <?php echo $__env->make('dashboard.partials._alerts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                <?php echo $__env->make('users.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                </div><!-- /.box-body -->
-            <?php echo Form::close(); ?>
+                    <?php echo $__env->make('dashboard.partials._alerts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    <?php echo $__env->make('users.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    </div><!-- /.box-body -->
+                <?php echo Form::close(); ?>
 
-        </div><!-- /.box -->
+            </div><!-- /.box -->
+        </div>
     </section><!-- /.content -->
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

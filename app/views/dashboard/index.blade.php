@@ -21,26 +21,38 @@
           <![endif]-->
       </head>
       <body class="skin-blue">
-        <!-- header logo: style can be found in header.less -->
 
-        @include('dashboard.partials._menu_topo')
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+                @include('dashboard.partials._menu_topo')
+        </header>
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
-            @include('dashboard.partials._menu_lateral')
+            <aside class="left-side sidebar-offcanvas">
+                @include('dashboard.partials._menu_lateral')
+            </aside>
             <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
-                <div class="col-md-12">
-                    @yield('main')
-                </div>
 
+            <aside class="right-side">
+
+
+                @if(Request::segment(1) == 'dashboard')
+                    @include('dashboard.partials._menu_body')
+                @else
+                    @yield('main')
+                @endif
             </aside><!-- /.right-side -->
-        </div><!-- ./wrapper -->
+        </div>
+        <!-- ./wrapper -->
         @include('dashboard.partials._modal_suporte')
 
         @include('dashboard.partials._scripts_js')
 
-        @yield('scripts')
+        <section class="content">
+            @yield('scripts')
+        </section>
+
 
         <script type="text/javascript">
             $(function(){

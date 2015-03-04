@@ -1,6 +1,6 @@
-@extends('dashboard.index')
+@extends('layouts.modulo')
 
-@section('main')
+@section('content')
 
 {{ HTML::head('Ocorrenciaes', 'controla os ocorrenciaes') }}
 {{ HTML::boxhead('Criar uma nova ocorrencia') }}

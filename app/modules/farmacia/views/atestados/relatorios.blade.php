@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          {{ Form::open(['name'=>'relatorio']) }}
+          {{ Form::open(['name'=>'relatorio', 'method'=>'get', 'route'=>'farmacia.atestados.index']) }}
           <div class="form-group col-md-12">
             <div class="col-md-6">
               {{ Form::label('Periodo: ') }}

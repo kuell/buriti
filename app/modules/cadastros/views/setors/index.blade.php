@@ -6,9 +6,9 @@
     <div class="box box-primary">
         <div class="box-header">
             <i class="ion ion-clipboard"></i>
-            <h3 class="box-title">Setores</h3>
+            <h4 class="box-title">Setores</h4>
             <div class="box-footer clearfix no-border">
-                {{ Form::adicionar('/cadastro/setors/create') }}
+                {{ Form::adicionar('/setors/create') }}
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">

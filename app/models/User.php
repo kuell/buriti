@@ -8,6 +8,9 @@ use Illuminate\Auth\UserTrait;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
+	public $rules = array(
+		'nome' => 'required|unique:usuarios,nome',
+	);
 
 	/**
 	 * The database table used by the model.

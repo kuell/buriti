@@ -1,6 +1,6 @@
-@extends('dashboard.index')
+@extends('layouts.modulo')
 
-@section('main')
+@section('content')
 <section class="content">
 	{{ HTML::head('Atestados', 'controla os atestados') }}
 	<div class="row">

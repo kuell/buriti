@@ -6,8 +6,8 @@
 	{{ HTML::boxhead('Criar um novo colaborador') }}
 
 	<div class="box-body">
-		{{ Form::open(array('route' => 'cadastro.colaborador.store', 'rule'=>'form')) }}
-		@include('cadastros::colaboradores.form')
+		{{ Form::open(array('route' => 'colaboradors.store', 'rule'=>'form')) }}
+			@include('cadastros::colaboradores.form')
 		{{ Form::close() }}
 	</div>
 </div>

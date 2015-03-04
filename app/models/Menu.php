@@ -11,5 +11,8 @@ class Menu extends Eloquent {
     public function subMenus(){
         return $this->hasMany('Menu', 'menu_pai');
     }
+    public function sistema(){
+        return $this->belongsTo('Menu', 'id');
+    }
 
 } 

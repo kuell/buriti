@@ -3,8 +3,7 @@
 class OcorrenciasController extends \BaseController {
 
 	private $ocorrencias;
-	private $reedenise = 'farmacia::ocorrencias.';
-	private $rules     = [];
+	private $rules = [];
 
 	public function __construct(Ocorrencia $ocorrencia) {
 		$this->ocorrencias = $ocorrencia;
@@ -18,7 +17,7 @@ class OcorrenciasController extends \BaseController {
 	public function index() {
 		$ocorrencias = $this->ocorrencias->orderBy('data_hora')->get();
 
-		return View::make($this->reedenise.'index', compact('ocorrencias'));
+		return View::make('farmacia::ocorrencias.index', compact('ocorrencias'));
 
 	}
 
@@ -28,7 +27,7 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return View::make($this->reedenise.'create');
+		return View::make('farmacia::ocorrencias.create');
 	}
 
 	/**
@@ -68,7 +67,7 @@ class OcorrenciasController extends \BaseController {
 	public function edit($id) {
 		$ocorrencia = $this->ocorrencias->find($id);
 
-		return View::make($this->reedenise.'edit', compact('ocorrencia'));
+		return View::make('farmacia::ocorrencias.edit', compact('ocorrencia'));
 	}
 
 	/**
@@ -100,6 +99,45 @@ class OcorrenciasController extends \BaseController {
 	 */
 	public function destroy($id) {
 		//
+	}
+
+	/**
+	 *	Relatorio de Ocorrencias
+	 * @return  excel lista de ocorrencias do periodo
+	 */
+	public function getRelatorio() {
+
+		Excel::create('Planilha de Controle da Farmacia - Ocorrencias', function ($excel) {
+				$excel->sheet('Ref. ', function ($sheet) {
+
+						$sheet->mergeCells('A1:J5');
+						$sheet->setHeight(1, 50);
+
+						$sheet->row(1, function ($row) {
+								$row->setFontFamily('Arial');
+								$row->setFontSize(20);
+							});
+
+						$sheet->cell('A1', function ($cell) {
+								$cell->setAlignment('center');
+							});
+						$sheet->getStyle('D')->getAlignment()->setWrapText(true);
+
+						$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
+
+						$datai = implode('-', array_reverse(explode('/', Input::get('datai'))));
+						$dataf = implode('-', array_reverse(explode('/', Input::get('dataf'))));
+
+						$a = Ocorrencia::getRelatorioOperacoes($datai, $dataf);
+
+						$sheet->setAutoFilter('A6:J6');
+						$sheet->setOrientation('landscape');
+
+						$sheet->fromArray($a, null, 'A6', true);
+
+					});
+			})->export('xls');
+
 	}
 
 }

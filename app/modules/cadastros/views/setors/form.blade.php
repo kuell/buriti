@@ -1,4 +1,6 @@
 
+@include('dashboard.partials._alerts')
+
 <fieldset>
   <div class="form-group col-md-9">
     <div class="col-md-3">
@@ -28,7 +30,7 @@
 
   <div class="col-md-9">
     <button type="submit" class="btn btn-primary">Gravar</button>
-    {{ link_to_route('cadastro.setors.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
+    {{ link_to_route('setors.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
 
   </fieldset>
 </div>

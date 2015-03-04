@@ -1,6 +1,6 @@
-@extends('dashboard.index')
+@extends('layouts.modulo')
 
-@section('main')
+@section('content')
 
 {{ HTML::head('Atestados', 'controla os atestados') }}
 {{ HTML::boxhead('Editar atestado: '.$atestado->id) }}

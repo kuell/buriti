@@ -3,9 +3,6 @@
 class UserController extends \BaseController {
 
 	private $usuario;
-	private $rules = array(
-		'nome' => 'required',
-	);
 
 	public function __construct(User $usuario) {
 		$this->usuario = $usuario;
@@ -33,7 +30,7 @@ class UserController extends \BaseController {
 			$input = array_except(Input::all(), '_token');
 
 			if (Auth::attempt($input)) {
-				return Redirect::route('users.users.index');
+				return Redirect::to('/');
 			} else {
 				return Redirect::route('users.login')
 					->with('message', 'Erro na validação dos dados!');
@@ -42,9 +39,9 @@ class UserController extends \BaseController {
 	}
 
 	public function index() {
-		$usuario = User::find(Auth::user()->id);
+		$usuarios = User::all();
 
-		return View::make('dashboard.index', compact('usuario'));
+		return View::make('users.index', compact('usuarios'));
 	}
 
 	/**
@@ -53,7 +50,7 @@ class UserController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		//
+		return View::make('users.create');
 	}
 
 	/**
@@ -62,7 +59,17 @@ class UserController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
-		//
+		$input = Input::all();
+
+		$validate = Validator::make($input, $this->usuario->rules);
+
+		if($validate->passes()){
+			$id = $this->usuario->create($input);
+			return Redirect::route('users.user.edit', $id->id);
+		}
+		else{
+			return "Erro";
+		}
 	}
 
 	/**
@@ -84,7 +91,8 @@ class UserController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-
+		$user = $this->usuario->find($id);
+		return View::make('users.edit', compact('user'));
 	}
 
 	/**

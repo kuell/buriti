@@ -44,10 +44,10 @@ class SetorsController extends \BaseController {
 		if ($validation->passes()) {
 			$this->setors->create($input);
 
-			return Redirect::route('cadastro.setors.index');
+			return Redirect::route('setors.index');
 		}
 
-		return Redirect::route('cadastro.setor.create')
+		return Redirect::route('setors.create')
 		->withInput()
 		->withErrors($validation)
 		->with('message', 'Houve erros na validação dos dados.');

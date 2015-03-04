@@ -22,7 +22,7 @@ class ColaboradorController extends \BaseController {
 	public function index() {
 		$colaboradores = $this->colaboradors->all();
 
-		return View::make($this->reendenize.'index', compact('colaboradores'));
+		return View::make('cadastros::colaboradores.index', compact('colaboradores'));
 	}
 
 	/**
@@ -46,9 +46,12 @@ class ColaboradorController extends \BaseController {
 
 		if ($validate->passes()) {
 			$colaborador = $this->colaboradors->create($input);
-			return Redirect::route('cadastro.colaborador.index');
+			return Redirect::route('colaborador.index');
 		} else {
-			print_r($validate->errors());
+			return Redirect::route('colaboradors.create')
+				->withInput()
+				->withErrors($validate)
+				->with('message', 'Houve erros na validação dos dados.');
 		}
 	}
 
@@ -61,7 +64,7 @@ class ColaboradorController extends \BaseController {
 	public function edit($id) {
 		$colaborador = $this->colaboradors->find($id);
 
-		return View::make($this->reendenize.'edit', compact('colaborador'));
+		return View::make('cadastros::colaboradores.edit', compact('colaborador'));
 	}
 
 	/**
@@ -82,9 +85,11 @@ class ColaboradorController extends \BaseController {
 			$colaborador = $this->colaboradors->find($id);
 			$colaborador->update($input);
 
-			return Redirect::route('cadastro.colaborador.index');
+			return Redirect::route('colaboradors.index');
 		} else {
-			print_r($validate->errors());
+			return Redirect::route('colaboradors.create')->withInput()
+				->withErrors($validate)
+				->with('message', 'Houve erros na validação dos dados.');
 		}
 	}
 

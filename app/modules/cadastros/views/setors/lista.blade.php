@@ -16,7 +16,7 @@
 			<td>{{{ $setor->descricao }}}</td>
 			<td>{{{ $setor->encarregado}}}</td>
 			<td>{{{ $setor->situacao == 1 ? 'ativo' : 'inativo' }}}</td>
-			<td>{{ link_to_route('cadastro.setors.edit', 'Editar', $setor->id, array('class'=>'btn btn-primary')) }}</td>
+			<td>{{ link_to_route('setors.edit', 'Editar', $setor->id, array('class'=>'btn btn-primary')) }}</td>
 		</tr>
 		@endforeach
 

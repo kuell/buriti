@@ -22,4 +22,22 @@ class Ocorrencia extends Eloquent {
 		return $this->belongsTo('Colaborador', 'colaborador_id');
 	}
 
+	public function investigacao() {
+		return $this->hasOne('Investigacao');
+	}
+
+	public static function getRelatorioOperacoes($datai, $dataf) {
+		$result = [];
+
+		foreach (Ocorrencia::whereBetween('data_hora', [$datai, $dataf])->get() as $val) {
+			$result[] = ['Nome'     => $val->colaborador->nome,
+				'Setor'                => !empty($val->colaborador->setor->descricao)?$val->colaborador->setor->descricao:null,
+				'Data'                 => $val->data_hora,
+				'Descrição / Motivo' => $val->relato.' - '.$val->diagnostico,
+				'Conduta / Destino'    => $val->Conduta.' - '.$val->destino];
+		}
+
+		return $result;
+	}
+
 }

@@ -1,3 +1,4 @@
+@include('dashboard.partials._alerts')
 
 <fieldset>
     <div class="form-group col-md-12">
@@ -46,15 +47,18 @@
       </div>
 
       <div class="form-group col-md-5">
-        {{ Form::label('codigo_interno', 'Codigo Interno do Colaborador: ') }}
+        {{ Form::label('codigo_interno', 'Matricula: ') }}
         {{ Form::text('codigo_interno', null, array('class'=>'form-control') ) }}
       </div>
-
+      <div class="form-group col-md-3">
+            {{ Form::label('data_admissao', 'Data de Admissão: ') }}
+            {{ Form::text('data_admissao', null, array('class'=>'form-control data') ) }}
+        </div>
     </div>
 
 <div class="col-md-9">
   <button type="submit" class="btn btn-primary">Gravar</button>
-  {{ link_to_route('cadastro.colaborador.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
+  {{ link_to_route('colaboradors.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
 
   </fieldset>
 </div>
