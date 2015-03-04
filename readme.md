@@ -1,4 +1,4 @@
-## Sig - Sistema interno de Gerenciamento
+### Sig - Sistema interno de Gerenciamento
 
 ** Frizelo Frigorificos Ltda. **
  
