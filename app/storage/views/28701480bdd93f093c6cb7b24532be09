@@ -54,6 +54,7 @@
         <?php echo $__env->make('dashboard.partials._scripts_js', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <section class="content">
+
             <?php echo $__env->yieldContent('scripts'); ?>
         </section>
 
@@ -62,6 +63,7 @@
             $(function(){
                 $('.data').mask('99/99/9999');
             })
+
         </script>
 
     </body>

@@ -50,6 +50,7 @@
         @include('dashboard.partials._scripts_js')
 
         <section class="content">
+
             @yield('scripts')
         </section>
 
@@ -58,6 +59,7 @@
             $(function(){
                 $('.data').mask('99/99/9999');
             })
+
         </script>
 
     </body>

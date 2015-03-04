@@ -24,11 +24,11 @@ $app = new Illuminate\Foundation\Application;
 |
  */
 
-$env = $app->detectEnvironment(array(
-		'local'  => array('tcc'),
+$env = $app->detectEnvironment([
+		'local'  => array('tiago-Latitude-E5420'),
 		'remoto' => array('10.1.1.198')
 
-	));
+	]);
 
 /*
 |--------------------------------------------------------------------------
