@@ -7,38 +7,37 @@ class InvestigacaoController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
+	public function index() {
 		$investigacaos = Investigacao::all()->lists('ocorrencia_id');
-		$ocorrencias = Ocorrencia::whereNotIn('id', $investigacaos)->get();
+
+		if (count($investigacaos)) {
+			$ocorrencias = Ocorrencia::whereNotIn('id', $investigacaos)->get();
+		} else {
+			$ocorrencias = Ocorrencia::all();
+		}
 
 		return View::make('sesmt::investigacao.index', compact('ocorrencias'));
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
+	public function create() {
 		$ocorrencia = Ocorrencia::find(Input::get('ocorrencia'));
 
 		return View::make('sesmt::investigacao.create', compact('ocorrencia'));
 	}
-
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
+	public function store() {
 		//
 	}
-
 
 	/**
 	 * Display the specified resource.
@@ -46,11 +45,9 @@ class InvestigacaoController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
+	public function show($id) {
 		//
 	}
-
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -58,11 +55,9 @@ class InvestigacaoController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
+	public function edit($id) {
 		//
 	}
-
 
 	/**
 	 * Update the specified resource in storage.
@@ -70,11 +65,9 @@ class InvestigacaoController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
+	public function update($id) {
 		//
 	}
-
 
 	/**
 	 * Remove the specified resource from storage.
@@ -82,10 +75,8 @@ class InvestigacaoController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
+	public function destroy($id) {
 		//
 	}
-
 
 }
