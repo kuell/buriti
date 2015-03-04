@@ -16,13 +16,15 @@ class MenuTableSeeder extends Seeder {
 		array(
 			array(
 				'id'         => 1,
-				'descricao'  => 'Usuarios e Permissões',
-				'url'        => 'users/user',
+				'descricao'  => 'Usuarios',
+				'url'        => '/users/user',
 				'icone'      => 'ion ion-person-add',
 				'indice'     => '',
 				'menu_pai'   => null,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => 'blue',
+
 			),
 
 			array(
@@ -34,6 +36,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => null,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => null,
 			),
 
 			array(
@@ -45,6 +48,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => null,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => 'red',
 			),
 
 			array(
@@ -56,6 +60,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => 3,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => null,
 			),
 
 			array(
@@ -67,6 +72,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => 3,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => null,
 			),
 
 			array(
@@ -78,6 +84,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => 1,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => null,
 			),
 
 			array(
@@ -89,6 +96,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => 2,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => null,
 			),
 
 			array(
@@ -100,6 +108,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => 2,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => null,
 			),
 
 			array(
@@ -111,6 +120,7 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => null,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => 'green',
 			),
 
 			array(
@@ -122,9 +132,23 @@ class MenuTableSeeder extends Seeder {
 				'menu_pai'   => 9,
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
+				'color'      => null,
 			)
 		);
 
 		DB::table('menus')->insert($menu);
+
+		$menu = Menu::all();
+
+		foreach ($menu as $value) {
+			$res = UsuarioPermissao::where('usuario_id', '=', 1)
+				->where('menu_id', '=', $value->id)->count();
+			if ($res == 0) {
+				$permissao             = new UsuarioPermissao();
+				$permissao->usuario_id = 1;
+				$permissao->menu_id    = $value->id;
+				$permissao->save();
+			}
+		}
 	}
 }

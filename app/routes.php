@@ -20,52 +20,49 @@ Route::post('login', 'UserController@postLogin');
 Route::get('login', array('as' => 'users.login', 'uses' => 'UserController@postLogin'));
 
 Route::get('logout', array('as' => 'users.logout', function () {
-	Auth::logout();
-	return Redirect::to('/');
-}));
+			Auth::logout();
+			return Redirect::to('/');
+		}));
 
 /*
  *  Usuario
  */
 
 Route::group(array('before' => 'auth|permissao', 'prefix' => '/users'), function () {
-	Route::resource('user', 'UserController');
-	Route::get('user/permissao/{id}', 'PermissaoController@getSistema');
-	Route::post('user/permissao', 'PermissaoController@postMenu');
-});
+		Route::resource('user', 'UserController');
+		Route::get('user/permissao/{id}', 'PermissaoController@getSistema');
+		Route::post('user/permissao', 'PermissaoController@postMenu');
+	});
 
 /**
-*
-*	Ordem Interna
-*
-**/
+ *
+ *	Ordem Interna
+ *
+ **/
 
 Route::group(array('before' => 'auth|permissao', 'prefix' => 'osi'), function () {
-	Route::resource('osi', 'OrdemInternaController');
-	Route::resource('osi/servicos', 'OrdemInternaServicosController');
-});
-
-
+		Route::resource('osi', 'OrdemInternaController');
+		Route::resource('osi/servicos', 'OrdemInternaServicosController');
+	});
 
 Route::group(array('before' => 'auth', 'prefix' => 'restfull'), function () {
-	Route::get('cid/{cod}', function ($cod) {
-		$cid = FarmaciaCid::where('cod_cid', '=', $cod)->get();
-		if ($cid->count() == 0) {
-			return 0;
-		} else {
-			return $cid;
-		}
+		Route::get('cid/{cod}', function ($cod) {
+				$cid = FarmaciaCid::where('cod_cid', '=', $cod)->get();
+				if ($cid->count() == 0) {
+					return 0;
+				} else {
+					return $cid;
+				}
+			});
+		Route::get('colaborador/{cod}', 'ColaboradorController@show');
 	});
-	Route::get('colaborador/{cod}', 'ColaboradorController@show');
-});
 
-Route::post('suporte', function(){
-	$input = array_except(Input::all(), '_token');
-	$input['usuario'] = Auth::user()->user;
+Route::post('suporte', function () {
+		$input = array_except(Input::all(), '_token');
+		$input['usuario'] = Auth::user()->user;
 
-	Mail::send('dashboard.email_suporte', $input, function($message)
-	{
-		$message->to('suporte@frizelo.com.br')->subject('['.Input::get('tipo').'] - '. Auth::user()->nome);
+		Mail::send('dashboard.email_suporte', $input, function ($message) {
+				$message->to('suporte@frizelo.com.br')->subject('['.Input::get('tipo').'] - '.Auth::user()->nome);
+			});
+		return Redirect::to('/');
 	});
-	return Redirect::to('/');
-});

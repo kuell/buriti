@@ -4,7 +4,7 @@ class SetorsController extends \BaseController {
 
 	private $rules = array(
 		'descricao' => 'required|unique:setors,descricao',
-		);
+	);
 	private $setors;
 
 	public function __construct(Setor $setor) {
@@ -48,9 +48,9 @@ class SetorsController extends \BaseController {
 		}
 
 		return Redirect::route('setors.create')
-		->withInput()
-		->withErrors($validation)
-		->with('message', 'Houve erros na validação dos dados.');
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Houve erros na validação dos dados.');
 	}
 
 	/**
@@ -104,13 +104,13 @@ class SetorsController extends \BaseController {
 			$setor = $this->setors->find($id);
 			$setor->update($input);
 
-			return Redirect::route('cadastro.setors.index');
+			return Redirect::route('setors.index');
 		}
 
-		return Redirect::route('cadastro.setors.edit', $id)
-		->withInput()
-		->withErrors($validation)
-		->with('message', 'Houve erros na validação dos dados.');
+		return Redirect::route('setors.edit', $id)
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Houve erros na validação dos dados.');
 	}
 
 	/**

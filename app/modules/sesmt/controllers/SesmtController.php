@@ -7,9 +7,8 @@ class SesmtController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		$menus = BaseController::getMenu(11);
+	public function index() {
+		$menus = BaseController::getMenu(9);
 		Session::put('menus', $menus);
 		return View::make('layouts.modulo', compact('menus'));
 	}
