@@ -50,7 +50,7 @@ return array(
 			'driver'   => 'sqlite',
 			'database' => __DIR__ .'/../database/production.sqlite',
 			'prefix'   => '',
-			),
+		),
 
 		'mysql'      => array(
 			'driver'    => 'mysql',
@@ -61,18 +61,18 @@ return array(
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-			),
+		),
 
 		'pgsql'     => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'sig_testes',
+			'database' => 'sig',
 			'username' => 'postgres',
 			'password' => 'aporedux',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
-			),
+		),
 
 		'sqlsrv'    => array(
 			'driver'   => 'sqlsrv',
@@ -81,9 +81,9 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'prefix'   => '',
-			),
-
 		),
+
+	),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -117,8 +117,8 @@ return array(
 			'host'     => '127.0.0.1',
 			'port'     => 6379,
 			'database' => 0,
-			),
-
 		),
 
-	);
+	),
+
+);

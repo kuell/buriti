@@ -1,6 +1,7 @@
 <?php
 
 class Atestado extends Eloquent {
+
 	protected $guarded  = array();
 	protected $fillable = [];
 	protected $table    = "farmacia_atestados";

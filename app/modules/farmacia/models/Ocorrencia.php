@@ -34,7 +34,7 @@ class Ocorrencia extends Eloquent {
 				'Setor'                => !empty($val->colaborador->setor->descricao)?$val->colaborador->setor->descricao:null,
 				'Data'                 => $val->data_hora,
 				'Descrição / Motivo' => $val->relato.' - '.$val->diagnostico,
-				'Conduta / Destino'    => $val->Conduta.' - '.$val->destino];
+				'Conduta / Destino'    => $val->conduta.' - '.$val->destino];
 		}
 
 		return $result;
