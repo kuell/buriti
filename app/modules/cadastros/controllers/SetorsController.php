@@ -123,4 +123,12 @@ class SetorsController extends \BaseController {
 		//
 	}
 
+	public function getFuncao($id) {
+
+		$funcaos = $this->setors->find($id)->funcaos;
+
+		return View::make('cadastros::setors.funcao.index', compact('funcaos'));
+
+	}
+
 }

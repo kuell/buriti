@@ -69,4 +69,10 @@ class Colaborador extends Eloquent {
 		}
 	}
 
+	public function getFuncaoAttribute() {
+		$funcao = ColaboradorFuncao::where('colaborador_id', $this->attributes['id'])->orderBy('created_at', 'desc')->first();
+
+		return SetorFuncao::find($funcao['funcao_id'])['descricao'];
+	}
+
 }

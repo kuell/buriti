@@ -10,9 +10,9 @@ class AlterSesmtInvestigacao extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		//Schema::table('sesmt_investigacao_epis', function ($table) {
-		//		$table->dropForeign('sesmt_investigacao_epis_investigacao_id_foreign');
-		//	});
+		Schema::table('sesmt_investigacao_epis', function ($table) {
+				$table->dropForeign('sesmt_investigacao_epis_investigacao_id_foreign');
+			});
 
 		Schema::dropIfExists('sesmt_investigacaos');
 		Schema::dropIfExists('sesmt_investigacao_epis');

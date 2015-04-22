@@ -19,7 +19,11 @@ class Ocorrencia extends Eloquent {
 	}
 
 	public function getElementoAttribute() {
-		return FarmaciaElemento::find($this->attributes['elemento_id']);
+		if (!empty($this->attributes['elemento_id'])) {
+			return FarmaciaElemento::find($this->attributes['elemento_id']);
+		} else {
+			return null;
+		}
 	}
 
 	public function colaborador() {
@@ -42,6 +46,15 @@ class Ocorrencia extends Eloquent {
 		}
 
 		return $result;
+	}
+
+	public function setElementoIdAttribute($elemento_id = null) {
+		if (!$elemento_id) {
+			return null;
+		} else {
+			return $this->attributes['elemento_id'] = $elemento_id;
+		}
+
 	}
 
 }

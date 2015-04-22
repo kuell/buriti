@@ -77,6 +77,25 @@ class ColaboradorController extends \BaseController {
 	public function update($id) {
 		$input = Input::all();
 
+		// Verifica se a função existe no setor //
+		$funcao = SetorFuncao::where('descricao', $input['funcao'])->where('setor_id', $input['setor_id'])->get();
+
+		if (!count($funcao)) {
+			$f    = ['setor_id' => $input['setor_id'], 'descricao' => $input['funcao']];
+			$func = SetorFuncao::create($f);
+		} else {
+			$func = $funcao->first();
+		}
+
+		// Fim verifica setor funcao
+
+		// Atualiza função do colaborador
+		$colaboradorFuncao = ['colaborador_id' => $id, 'funcao_id' => $func->id, 'data_mudanca' => date('Y-m-d H:i:s')];
+		ColaboradorFuncao::create($colaboradorFuncao);
+		// Fim verifica funcao colaborador
+
+		unset($input['funcao']);
+
 		$this->rules['nome']           = $this->rules['nome'].', '.$id;
 		$this->rules['codigo_interno'] = $this->rules['codigo_interno'].', '.$id;
 

@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Creolab\LaravelModules\ServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
 	),
 
 	/*

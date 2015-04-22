@@ -11,14 +11,38 @@
             <div class="box-tools pull-right">
                 {{ Form::adicionar('/farmacia/ocorrencias/create') }}
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                    <i class="fa fa-list-alt"></i>
+                    <i class="glyphicon glyphicon-list-alt"></i>
                     Relatorios
                 </button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalElementos">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                    	Natureza da Lesão
+                </button>
+
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
             @include('farmacia::ocorrencias.lista')
             @include('farmacia::ocorrencias.relatorio')
+
+			<!-- Modal -->
+				<div class="modal fade" id="modalElementos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h4 class="modal-title" id="myModalLabel">Natureza da Lesão</h4>
+					    	</div>
+						    <div class="modal-body">
+								<iframe src="/farmacia/ocorrencias/elementos" class="col-md-12 bordered" height="500px"></iframe>
+						    </div>
+						    <div class="modal-footer">
+						        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+						    </div>
+						</div>
+				  	</div>
+				</div>
+			<!-- Fim Modal -->
+
         </div>
     </div>
 </section>

@@ -27,7 +27,9 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return View::make('farmacia::ocorrencias.create');
+		$ocorrencia = $this->ocorrencias;
+
+		return View::make('farmacia::ocorrencias.create', compact('ocorrencia'));
 	}
 
 	/**
@@ -144,6 +146,26 @@ class OcorrenciasController extends \BaseController {
 	public function getElemento($id) {
 		$elementos = FarmaciaElemento::find($id);
 		return $elementos->elementos_filho()->get()->toJson();
+	}
+
+	public function getElementos() {
+		$elementos = FarmaciaElemento::whereNull('elemento_pai')->get();
+
+		return View::make('farmacia::ocorrencias.elementos.index', compact('elementos'));
+	}
+
+	public function postElementos() {
+		$input = Input::all();
+
+		foreach ($input['form'] as $elemento) {
+			if ($elemento['name'] != 'elemento_add' && $elemento['value'] != null) {
+				$e = ['elemento_pai' => $elemento['value']];
+			}
+		}
+		$e = $e+['descricao' => $input['form'][count($input['form'])-1]['value']];
+
+		return FarmaciaElemento::create($e);
+
 	}
 
 }

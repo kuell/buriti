@@ -24,7 +24,7 @@ ClassLoader::addDirectories(array(
  */
 Form::macro('adicionar',
 	function ($route) {
-		$add = sprintf('<a href="%s" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Adicionar</a>', $route);
+		$add = sprintf('<a href="%s" class="btn btn-default pull-right"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>', $route);
 		return $add;
 	});
 
