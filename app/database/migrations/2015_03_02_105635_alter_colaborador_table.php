@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AlterColaboradorTable extends Migration {
@@ -10,11 +9,10 @@ class AlterColaboradorTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
-		Schema::table('colaboradors', function($table){
-			$table->date('data_admissao')->nullable();
-		});
+	public function up() {
+		Schema::table('colaboradors', function ($table) {
+				$table->date('data_admissao')->nullable();
+			});
 	}
 
 	/**
@@ -22,9 +20,10 @@ class AlterColaboradorTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
-		//
+	public function down() {
+		Schema::table('colaboradors', function ($table) {
+				$table->dropColumn('data_admissao');
+			});
 	}
 
 }

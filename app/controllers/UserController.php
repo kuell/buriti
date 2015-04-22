@@ -63,11 +63,10 @@ class UserController extends \BaseController {
 
 		$validate = Validator::make($input, $this->usuario->rules);
 
-		if($validate->passes()){
+		if ($validate->passes()) {
 			$id = $this->usuario->create($input);
-			return Redirect::route('users.user.edit', $id->id);
-		}
-		else{
+			return Redirect::route('users.edit', $id->id);
+		} else {
 			return "Erro";
 		}
 	}

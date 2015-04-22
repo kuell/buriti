@@ -204,7 +204,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        {{ link_to_route('users.user.show', 'Perfil', Auth::user()->id, array('class'=>'btn btn-default btn-flat')) }}
+                                        {{ link_to_route('users.show', 'Perfil', Auth::user()->id, array('class'=>'btn btn-default btn-flat')) }}
                                     </div>
                                     <div class="pull-right">
                                         {{ link_to_route('users.logout', 'Sair', null, array('class'=>'btn btn-default btn-flat')) }}

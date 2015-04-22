@@ -79,18 +79,16 @@ Route::filter('csrf', function () {
 	});
 
 Route::filter('permissao', function ($route, $request) {
-		$url = '/'.$request->segment(1).'/'.$request->segment(2);
+		$url = '/'.$request->segment(1);
 		$idUrl = Menu::where('url', $url)->get();
 
-		if (empty($idUrl[0]) || $idUrl[0]->id == 0 || $idUrl[0]->id == '') {
-			return Response::make('Página não encontrada!', 401);
-		} else {
-			$permissao = UsuarioPermissao::where('usuario_id', Auth::user()->id)
-			->where('menu_id', $idUrl[0]->id)->count();
-		}
+		//	print_r(count($idUrl));
+		//	die;
 
-		if (isset($permissao) && $permissao == 0) {
+		$permissao = UsuarioPermissao::where('usuario_id', Auth::user()->id)
+		->where('menu_id', $idUrl[0]->id)->count();
+
+		if (!$permissao) {
 			return Response::make('Usuario não tem permissao para realizar este procedimento!', 401);
 		}
-
 	});

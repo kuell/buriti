@@ -28,10 +28,10 @@ Route::get('logout', array('as' => 'users.logout', function () {
  *  Usuario
  */
 
-Route::group(array('before' => 'auth|permissao', 'prefix' => '/users'), function () {
-		Route::resource('user', 'UserController');
-		Route::get('user/permissao/{id}', 'PermissaoController@getSistema');
-		Route::post('user/permissao', 'PermissaoController@postMenu');
+Route::group(array('before' => 'auth|permissao'), function () {
+		Route::resource('users', 'UserController');
+		Route::get('users/permissao/{id}', 'PermissaoController@getSistema');
+		Route::post('users/permissao', 'PermissaoController@postMenu');
 	});
 
 /**
@@ -54,7 +54,6 @@ Route::group(array('before' => 'auth', 'prefix' => 'restfull'), function () {
 					return $cid;
 				}
 			});
-		Route::get('colaborador/{cod}', 'ColaboradorController@show');
 	});
 
 Route::post('suporte', function () {

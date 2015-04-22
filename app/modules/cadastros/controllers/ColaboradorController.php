@@ -7,11 +7,12 @@ class ColaboradorController extends \BaseController {
 	private $rules = array(
 		'nome'           => 'required|min:5|unique:colaboradors,nome',
 		'codigo_interno' => 'required|unique:colaboradors,codigo_interno',
-		);
+		'setor_id'       => 'required',
+	);
 
 	public function __construct(Colaborador $colaborador) {
+		$this->beforeFilter('auth');
 		$this->colaboradors = $colaborador;
-		$this->reendenize   = "cadastros::colaboradores.";
 	}
 
 	/**
@@ -76,7 +77,7 @@ class ColaboradorController extends \BaseController {
 	public function update($id) {
 		$input = Input::all();
 
-		$this->rules['nome'] = $this->rules['nome'].', '.$id;
+		$this->rules['nome']           = $this->rules['nome'].', '.$id;
 		$this->rules['codigo_interno'] = $this->rules['codigo_interno'].', '.$id;
 
 		$validate = Validator::make($input, $this->rules);
@@ -88,8 +89,8 @@ class ColaboradorController extends \BaseController {
 			return Redirect::route('colaboradors.index');
 		} else {
 			return Redirect::route('colaboradors.create')->withInput()
-				->withErrors($validate)
-				->with('message', 'Houve erros na validação dos dados.');
+			                                             ->withErrors($validate)
+			                                             ->with('message', 'Houve erros na validação dos dados.');
 		}
 	}
 
@@ -104,13 +105,27 @@ class ColaboradorController extends \BaseController {
 	}
 
 	public function show($codigo_interno) {
-		$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->first();
+		$input = Input::get('id');
 
-		if ($colaborador->count() == 0) {
-			return '0';
+		if ($input) {
+			$colaborador = $this->colaboradors->find($input);
 		} else {
-			return $colaborador;
+			$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->first();
 		}
+
+		return $colaborador;
+
+		/*
+	$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->first();
+
+	if ($colaborador->count() == 0) {
+	$colaborador->find($id);
+
+	return '0';
+	} else {
+	return $colaborador;
+	}
+	 */
 	}
 
 }

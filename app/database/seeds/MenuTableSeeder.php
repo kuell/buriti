@@ -17,7 +17,7 @@ class MenuTableSeeder extends Seeder {
 			array(
 				'id'         => 1,
 				'descricao'  => 'Usuarios',
-				'url'        => '/users/user',
+				'url'        => '/users',
 				'icone'      => 'ion ion-person-add',
 				'indice'     => '',
 				'menu_pai'   => null,

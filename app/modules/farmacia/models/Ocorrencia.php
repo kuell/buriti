@@ -18,6 +18,10 @@ class Ocorrencia extends Eloquent {
 		$this->attributes['codigo_interno'] = Colaborador::find($this->attributes['colaborador_id'])->codigo_interno;
 	}
 
+	public function getElementoAttribute() {
+		return FarmaciaElemento::find($this->attributes['elemento_id']);
+	}
+
 	public function colaborador() {
 		return $this->belongsTo('Colaborador', 'colaborador_id');
 	}

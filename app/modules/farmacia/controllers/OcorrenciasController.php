@@ -15,7 +15,7 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$ocorrencias = $this->ocorrencias->orderBy('data_hora')->get();
+		$ocorrencias = $this->ocorrencias->whereNull('tipo')->orderBy('data_hora', 'desc')->limit(100)->get();
 
 		return View::make('farmacia::ocorrencias.index', compact('ocorrencias'));
 
@@ -36,6 +36,8 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
+		print_r(Input::all());
+
 		$input = array_except(Input::all(), 'codigo_interno');
 
 		$validate = Validator::make($input, $this->rules);
@@ -138,6 +140,10 @@ class OcorrenciasController extends \BaseController {
 					});
 			})->export('xls');
 
+	}
+	public function getElemento($id) {
+		$elementos = FarmaciaElemento::find($id);
+		return $elementos->elementos_filho()->get()->toJson();
 	}
 
 }

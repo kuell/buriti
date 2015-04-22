@@ -20,7 +20,7 @@
                         <small class="label label-danger">Login: {{ $user->user }}</small>
                         <!-- General tools such as edit or delete-->
                         <div class="tools">
-                            <a href="/users/user/{{ $user->id }}/edit"><i class="fa fa-edit"></i></a>
+                            <a href="/users/{{ $user->id }}/edit"><i class="fa fa-edit"></i></a>
                         </div>
                     </li>
                 @endforeach

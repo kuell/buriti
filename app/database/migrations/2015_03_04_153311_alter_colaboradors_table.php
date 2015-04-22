@@ -11,7 +11,7 @@ class AlterColaboradorsTable extends Migration {
 	 */
 	public function up() {
 		Schema::table('colaboradors', function ($table) {
-				$table->string('situacao');
+				$table->string('situacao')->nullable();
 			});
 	}
 
@@ -21,7 +21,9 @@ class AlterColaboradorsTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		//
+		Schema::table('colaboradors', function ($table) {
+				$table->dropColumn('situacao');
+			});
 	}
 
 }

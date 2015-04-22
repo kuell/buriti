@@ -1,39 +1,18 @@
-<div>
-    <h3>
-        Dados do Acidentado
-    </h3>
-    <div class="col-md-12">
-        <div class="col-md-9">
-            Nome: {{ $ocorrencia->colaborador->nome }}
-        </div>
-        <div class="col-md-3">
-            Matricula: {{ $ocorrencia->colaborador->codigo_interno }}
-        </div>
-        <div class="col-md-3">
-            Data Nascimento: {{ $ocorrencia->colaborador->data_nascimento }}
-        </div>
-        <div class="col-md-3">
-            Sexo: {{ $ocorrencia->colaborador->sexoDescricao }}
-        </div>
-        <div class="col-md-12">
-            Endereço: {{ $ocorrencia->colaborador->endereco }}
-        </div>
-        Setor: {{ $ocorrencia->colaborador->setor->descricao or null }} <br />
-        Funcao: {{ Form::text('funcao', null) }} <br />
-        Data Admissão: {{ Form::text('data_admissao', null) }} <br />
-    </div>
-</div>
-<div>
+
+
+<div class="row">
     <h3>Uso de Proteção Individual</h3>
-    Uso de epi: {{ Form::select('epi', ['sim', 'nao']) }} -> Descrição se não: {{ Form::text('descricao_epi', null) }}<br />
-    Se sim, Quais: {{ Form::button('Epi Utilizados') }}<br />
-    <table class="table">
-        <tr>
-            <th>Descrição</th>
-            <th>C.A.</th>
-            <th>Validade</th>
-        </tr>
-    </table><br />
+    <div class="col-md-12">
+        <div class="col-md-2">
+            Uso de epi:
+            {{ Form::select('epi', ['','sim', 'nao'], null, ['class'=>'form-control']) }}
+        </div>
+        <div class="col-md-12 invisible" id='epi_descricao'>
+            Por qual motivo não utilizava o E.P.I.:
+            {{ Form::text('descricao_epi', null, ['class'=>'form-control']) }}
+        </div>
+
+    </div>
 </div>
 <div>
     <h3>Organização do Trabalho</h3>
@@ -79,3 +58,49 @@
 <div>
 
 </div>
+
+<div class="modal fade modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+@section('scripts')
+
+    {{ HTML::script('js/jquery.methodOverride.js')}}
+    <script type="text/javascript">
+    $(function(){
+
+        $('#colaborador').click(function() {
+            $.put('/colaboradors', $('form').serializeArray() , function(data) {
+                window.console.log(data)
+            });
+        })
+
+// Epis
+        $('select[name=epi').change(function(event) {
+            if($(this).val() == 1){
+                $('#myModal').modal(
+                    {
+                    remote: '/sesmt/investigacao/{{ $ocorrencia->id }}/epi',
+                    show: true,
+                    }
+                    );
+
+                $('#epi_descricao').addClass('invisible');
+            }
+            else if($(this).val() == 2){
+                $('#epi_descricao').removeClass('invisible');
+                $('#epis').addClass('invisible')
+            }
+            else{
+                $('#epi_descricao').addClass('invisible');
+                $('#epis').addClass('invisible')
+            }
+        });
+// -- Fim Epi
+    })
+
+    </script>
+@stop

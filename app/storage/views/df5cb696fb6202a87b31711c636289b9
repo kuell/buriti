@@ -68,6 +68,6 @@
 </div>
 <div class="box-footer">
     <button type="submit" class="btn btn-primary">Gravar</button>
-    <?php echo link_to_route('users.user.index', 'Voltar', null, array('class'=>'btn btn-danger')); ?>
+    <?php echo link_to_route('users.index', 'Voltar', null, array('class'=>'btn btn-danger')); ?>
 
 </div>

@@ -7,6 +7,7 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {{ HTML::style('css/bootstrap.min.css') }}
+    {{ HTML::style('css/bootstrap-theme.min.css') }}
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -34,14 +35,12 @@
 
 <div class="container-fluid col-md-12">
     <div class="row row-offcanvas row-offcanvas-left">
-        <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="col-sm-3 col-md-2 sidebar" id="sidebar" role="navigation">
             <ul class="nav nav-sidebar">
                 <li class="well-sm">Menu</li>
                 @foreach(Session::get('menus')->first()->menu->subMenus as $menu)
-
-                    <li></li>
                     <li>
-                        <a href="{{ Session::get('menus')->first()->menu->url. '/'. $menu->url }}">
+                        <a href="{{ Session::get('menus')->first()->menu->url. '/'. $menu->url }}" >
                             <i class="{{ $menu->icone }}"></i>
                             <span>{{ $menu->descricao  }}</span>
                         </a>

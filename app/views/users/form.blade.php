@@ -60,5 +60,5 @@
 </div>
 <div class="box-footer">
     <button type="submit" class="btn btn-primary">Gravar</button>
-    {{ link_to_route('users.user.index', 'Voltar', null, array('class'=>'btn btn-danger')) }}
+    {{ link_to_route('users.index', 'Voltar', null, array('class'=>'btn btn-danger')) }}
 </div>

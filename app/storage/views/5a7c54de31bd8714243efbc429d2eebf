@@ -20,7 +20,7 @@
                         <small class="label label-danger">Login: <?php echo $user->user; ?></small>
                         <!-- General tools such as edit or delete-->
                         <div class="tools">
-                            <a href="/users/user/<?php echo $user->id; ?>/edit"><i class="fa fa-edit"></i></a>
+                            <a href="/users/<?php echo $user->id; ?>/edit"><i class="fa fa-edit"></i></a>
                         </div>
                     </li>
                 <?php endforeach; ?>

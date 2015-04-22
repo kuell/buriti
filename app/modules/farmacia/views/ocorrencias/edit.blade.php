@@ -1,6 +1,6 @@
-@extends('dashboard.index')
+@extends('layouts.modulo')
 
-@section('main')
+@section('content')
 
 {{ HTML::head('Ocorrencias', 'controla os setores') }}
 {{ HTML::boxhead('Editar ocorrencia: '.$ocorrencia->id) }}

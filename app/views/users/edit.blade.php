@@ -7,9 +7,9 @@
         {{ HTML::boxhead('Altera Usuario '.$user->id) }}
 
          <div class="box-body">
-            {{ link_to('/users/user/permissao/'.$user->id, 'Permissao', array('class'=>'btn btn-primary')) }}
+            {{ link_to('/users/permissao/'.$user->id, 'Permissao', array('class'=>'btn btn-primary')) }}
             {{ Form::model($user, array('method' => 'PATCH',
-                                                 'route' => array('users.user.update', $user->id) ,
+                                                 'route' => array('users.update', $user->id) ,
                                                  'rule'=>'form',
                                                  'enctype'=>'multipart/form-data'))
                                                  }}
