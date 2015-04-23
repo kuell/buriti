@@ -14,10 +14,10 @@
                     <i class="glyphicon glyphicon-list-alt"></i>
                     Relatorios
                 </button>
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalElementos">
+				<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalElementos">
                     <i class="glyphicon glyphicon-plus-sign"></i>
                     	Natureza da Lesão
-                </button>
+                </button -->
 
             </div>
         </div><!-- /.box-header -->

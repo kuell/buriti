@@ -2266,3 +2266,11 @@ Stack trace:
 #24 /var/www/sig/public/index.php(49): Illuminate\Foundation\Application->run()
 #25 /var/www/sig/server.php(19): require_once('/var/www/sig/pu...')
 #26 {main} [] []
+[2015-04-23 08:21:22] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function elementos_filho() on a non-object' in /var/www/sig/app/modules/farmacia/controllers/OcorrenciasController.php:148
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-23 08:21:23] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function elementos_filho() on a non-object' in /var/www/sig/app/modules/farmacia/controllers/OcorrenciasController.php:148
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

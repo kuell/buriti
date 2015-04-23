@@ -40,8 +40,6 @@
 		<ul>
 		@foreach($elementos as $elemento)
 			<li>{{ $elemento->descricao }} </li>
-
-			<li> {{ $elemento->elementos_filho }}</li>
 		@endforeach
 		</ul>
 
