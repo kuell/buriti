@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -22,6 +22,7 @@
 {{ HTML::script('js/jquery.maskedinput.js') }}
 {{ HTML::script('js/scripts.js') }}
 {{ HTML::script('js/conf.js') }}
+
 @yield('scripts')
 
 </body>

@@ -19,4 +19,8 @@ class Setor extends Eloquent {
 		return $this->hasMany('SetorFuncao', 'setor_id');
 	}
 
+	public function postoTrabalhos() {
+		return $this->hasMany('SetorPosto', 'setor_id');
+	}
+
 }

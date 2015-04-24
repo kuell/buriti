@@ -127,7 +127,56 @@ class SetorsController extends \BaseController {
 
 		$funcaos = $this->setors->find($id)->funcaos;
 
-		return View::make('cadastros::setors.funcao.index', compact('funcaos'));
+		return View::make('cadastros::setors.elementos.funcao', compact('funcaos'));
+
+	}
+
+	public function getPosto($id) {
+		$setor = $this->setors->find($id);
+
+		return View::make('cadastros::setors.elementos.posto_trabalho', compact('setor'));
+	}
+
+	public function postPosto($id) {
+		$input = Input::all()+['setor_id' => $id];
+
+		SetorPosto::create($input);
+
+		return Redirect::route('setors.posto', $id);
+
+	}
+
+	public function destroyPosto($posto_id) {
+		$posto = SetorPosto::find($posto_id);
+		$setor = $posto->setor_id;
+
+		$posto->delete();
+
+		return Redirect::route('setors.posto', $setor);
+
+	}
+
+	public function getAtividades($id) {
+		$posto = SetorPosto::find($id);
+
+		return View::make('cadastros::setors.elementos.posto_atividades', compact('posto'));
+	}
+
+	public function postAtividades($id) {
+		$input = Input::all()+['posto_id' => $id];
+
+		SetorPostoAtividade::create($input);
+
+		return Redirect::route('setors.posto.atividades', $id);
+	}
+
+	public function destroyAtividade($atividade_id) {
+		$atividade = SetorPostoAtividade::find($atividade_id);
+		$posto     = $atividade->posto_id;
+
+		$atividade->delete();
+
+		return Redirect::route('setors.posto.atividades', $posto);
 
 	}
 

@@ -133,6 +133,17 @@ class MenuTableSeeder extends Seeder {
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
 				'color'      => null,
+			),
+			array(
+				'id'         => 11,
+				'descricao'  => 'Ficha A.S.U.',
+				'url'        => 'asu',
+				'icone'      => 'glyphicon glyphicon-folder-open',
+				'indice'     => null,
+				'menu_pai'   => 3,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => null,
 			)
 		);
 
