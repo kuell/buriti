@@ -32,10 +32,10 @@ HTML::macro('head', function ($title, $subTitle = null) {
 		$return = '
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>
+				<h3>
 			    	%s
 			    	<small>%s</small>
-				</h1>
+				</h3>
 			</section>
 			<!-- Main content -->';
 		return sprintf($return, $title, $subTitle);

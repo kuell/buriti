@@ -9,5 +9,6 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'sesmt'), function 
 		Route::get('investigacao/{investigacao}/epi/delete', array('as' => 'sesmt.investigacao.epi.delete', 'uses' => 'InvestigacaoController@destroyEpi'));
 
 		Route::resource('investigacao', 'InvestigacaoController');
+		Route::resource('risco', 'RiscoController');
 
 	});

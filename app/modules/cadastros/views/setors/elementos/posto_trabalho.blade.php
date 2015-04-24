@@ -14,7 +14,6 @@
 			{{ Form::label('Descrição do Posto de Trabalho: ')}}
 			{{ Form::text('descricao', null, ['class'=>'form-control col-md-9']) }}
 		</div>
-
 			{{ Form::submit('Grava', ['class'=>'btn btn-success btn-sm']) }}
 	{{ Form::close() }}
 </div>
