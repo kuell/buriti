@@ -13,7 +13,7 @@
 
 Route::get('/', 'UserController@getLogin');
 
-Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'UserController@index'));
+Route::get('dashboard', array('before' => 'auth', 'as' => 'dashboard', 'uses' => 'UserController@index'));
 
 Route::post('login', 'UserController@postLogin');
 

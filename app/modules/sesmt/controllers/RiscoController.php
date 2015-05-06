@@ -88,7 +88,11 @@ class RiscoController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {
-		//
+		$risco           = $this->riscos->find($id);
+		$risco->situacao = 'inativo';
+		$risco->update();
+
+		return Redirect::route('sesmt.risco.index');
 	}
 
 }

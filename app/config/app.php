@@ -124,6 +124,7 @@ return array(
 		'Creolab\LaravelModules\ServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+		'Anouar\Fpdf\FpdfServiceProvider',
 	),
 
 	/*
@@ -191,6 +192,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
+		'Fpdf'              => 'Anouar\Fpdf\Fpdf',
 	),
 
 );

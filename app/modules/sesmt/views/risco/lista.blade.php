@@ -6,6 +6,7 @@
 		            <th>Posto de Trabaho</th>
 		            <th>Tipo do Risco</th>
 		            <th>Descrição do Risco</th>
+					<th>Situação</th>
 		            <th></th>
 		        </tr>
 		    </thead>
@@ -15,8 +16,11 @@
 		            <td>{{ $risco->postoTrabalho->descricao }}</td>
 		            <td>{{ $risco->tipo }}</td>
 		            <td>{{ $risco->descricao }}</td>
+					<td>{{ $risco->situacao }}</td>
 		            <td>
-		                {{ link_to_route('sesmt.risco.destroy', 'excluir', $risco->id , ['class'=>'btn btn-danger']) }}
+					{{ Form::open(array('route' => array('sesmt.risco.destroy', $risco->id), 'method' => 'delete')) }}
+				        <button type="submit" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+				    {{ Form::close() }}
 		            </td>
 		        </tr>
 		        @endforeach

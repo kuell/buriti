@@ -33,7 +33,8 @@ class UserController extends \BaseController {
 				return Redirect::to('/');
 			} else {
 				return Redirect::route('users.login')
-					->with('message', 'Erro na validação dos dados!');
+					->with('message', 'Erro na validação dos dados!')
+					->withInput(Input::all());
 			}
 		}
 	}

@@ -15,6 +15,12 @@ Route::group(array('before'                => 'auth|permissao'), function () {
 		Route::post('/setors/posto/{id}/atividades', ['as'       => 'setors.posto.atividade.add', 'uses'       => 'SetorsController@postAtividades']);
 		Route::get('/setors/posto/atividades/{id}/delete', ['as' => 'setors.posto.atividade.delete', 'uses' => 'SetorsController@destroyAtividade']);
 
+		Route::get('/colaboradors/find/{matricula}', function ($matricula) {
+				$colaborador = Colaborador::where('codigo_interno', $matricula)->first();
+
+				return Response::json($colaborador);
+			});
+
 		Route::resource('/setors', 'SetorsController');
 		Route::resource('/colaboradors', 'ColaboradorController');
 

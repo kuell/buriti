@@ -6,6 +6,10 @@ class Atestado extends Eloquent {
 	protected $fillable = [];
 	protected $table    = "farmacia_atestados";
 
+	public function getCid() {
+		return $this->belongsTo('FarmaciaCid', 'cid', 'cod_cid');
+	}
+
 	public function getAcidenteTrabalhoAttribute() {
 
 		if ($this->attributes['acidente_trabalho']) {

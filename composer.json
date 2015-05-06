@@ -9,7 +9,8 @@
 		"barryvdh/laravel-dompdf": "0.4.*",
 		"creolab/laravel-modules": "dev-master",
 		"maatwebsite/excel": "~1.2.1",
-		"way/generators": "~2.0"
+		"way/generators": "~2.0",
+		"anouar/fpdf": "1.0.1"
 	},
 	"autoload": {
 		"classmap": [

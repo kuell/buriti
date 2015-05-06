@@ -16,6 +16,7 @@ class CreatePostoRiscosTable extends Migration {
 				$table->integer('posto_id');
 				$table->string('tipo');
 				$table->string('descricao');
+				$table->string('situacao')->default('ativo');
 				$table->timestamps();
 			});
 	}

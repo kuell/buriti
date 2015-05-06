@@ -136,8 +136,8 @@ class MenuTableSeeder extends Seeder {
 			),
 			array(
 				'id'         => 11,
-				'descricao'  => 'Ficha A.S.U.',
-				'url'        => 'asu',
+				'descricao'  => 'Ficha A.S.O.',
+				'url'        => 'aso',
 				'icone'      => 'glyphicon glyphicon-folder-open',
 				'indice'     => null,
 				'menu_pai'   => 3,

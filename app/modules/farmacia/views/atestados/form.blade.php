@@ -123,7 +123,7 @@
     $scope.busca = function(obj){
       codInterno = obj.cod_interno;
 
-      $http.get('/restfull/colaborador/'+codInterno).success(function(data){
+      $http.get('/colaboradors/find/'+codInterno).success(function(data){
         if(data == 0){
           $('input[name=codigo_interno]').val('')
           $('select[name=colaborador_id]').val('')

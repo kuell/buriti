@@ -12,12 +12,21 @@ class Colaborador extends Eloquent {
 		return $this->hasMany('Atestado', 'colaborador_id');
 	}
 
+	public function ocorrencias() {
+		return $this->hasMany('Ocorrencia', 'colaborador_id');
+	}
+
+	public function postoTrabalho() {
+		return $this->belongsTo('ColaboradorPosto', 'colaborador_id');
+
+	}
+
 	public function getDataAdmissaoAttribute() {
 		if ($this->attributes['data_admissao']) {
 			$d = explode('-', $this->attributes['data_admissao']);
-			return $d[2].'-'.$d[1].'-'.$d[0];
+			return $d[2].'/'.$d[1].'/'.$d[0];
 		} else {
-			return false;
+			return null;
 		}
 	}
 
@@ -27,7 +36,7 @@ class Colaborador extends Eloquent {
 
 			return $d[2].'/'.$d[1].'/'.$d[0];
 		} else {
-			return false;
+			return null;
 		}
 
 	}
@@ -37,6 +46,14 @@ class Colaborador extends Eloquent {
 			return "Masculino";
 		} else {
 			return 'Feminino';
+		}
+	}
+
+	public function getSexoAttribute() {
+		if ($this->attributes['sexo']) {
+			return 1;
+		} else {
+			return 0;
 		}
 	}
 

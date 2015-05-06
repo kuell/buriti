@@ -47,9 +47,9 @@ class ColaboradorController extends \BaseController {
 
 		if ($validate->passes()) {
 			$colaborador = $this->colaboradors->create($input);
-			return Redirect::route('colaborador.index');
+			return Redirect::route('cadastros::colaborador.index');
 		} else {
-			return Redirect::route('colaboradors.create')
+			return Redirect::route('cadastros::colaboradors.create')
 				->withInput()
 				->withErrors($validate)
 				->with('message', 'Houve erros na validação dos dados.');
@@ -107,9 +107,9 @@ class ColaboradorController extends \BaseController {
 
 			return Redirect::route('colaboradors.index');
 		} else {
-			return Redirect::route('colaboradors.create')->withInput()
-			                                             ->withErrors($validate)
-			                                             ->with('message', 'Houve erros na validação dos dados.');
+			return Redirect::route('colaboradors.edit', $id)->withInput()
+			                                                ->withErrors($validate)
+			                                                ->with('message', 'Houve erros na validação dos dados.');
 		}
 	}
 
@@ -123,28 +123,10 @@ class ColaboradorController extends \BaseController {
 		//
 	}
 
-	public function show($codigo_interno) {
-		$input = Input::get('id');
+	public function show($id) {
+		$colaborador = $this->colaboradors->find($id);
 
-		if ($input) {
-			$colaborador = $this->colaboradors->find($input);
-		} else {
-			$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->first();
-		}
-
-		return $colaborador;
-
-		/*
-	$colaborador = $this->colaboradors->where('codigo_interno', '=', $codigo_interno)->first();
-
-	if ($colaborador->count() == 0) {
-	$colaborador->find($id);
-
-	return '0';
-	} else {
-	return $colaborador;
-	}
-	 */
+		return View::make('cadastros::colaboradores.show', compact('colaborador'));
 	}
 
 }

@@ -19,21 +19,7 @@
         <![endif]-->
     </head>
     <body class="bg-black">
-
-        @if (Session::has('message'))
-    <div class="alert alert-danger alert-dismissable">
-        <i class="fa fa-ban"></i>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <b>{{ Session::get('message') }}</b>
-            @if ($errors->any())
-                <ul>
-                    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
-                </ul>
-            @endif
-    </div>
-@endif
-
-        <div class="form-box" id="login-box">
+       <div class="form-box" id="login-box">
             <div class="header">Acesso Restrito</div>
             {{ Form::open(array('route'=>'users.login')) }}
 
@@ -60,6 +46,12 @@
             </div>
 --}}
         </div>
+@if (Session::has('message'))
+    <script type="text/javascript">
+		alert('Erro na validação das informações!\n \t Usuário ou Senha incorreto(s)')
+	</script>
+@endif
+
 
 
         <!-- jQuery 2.0.2 -->
