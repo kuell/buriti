@@ -42,7 +42,7 @@ $fpdf->SetFont('Arial', '', 6);
 
 foreach ($colaborador->ocorrencias as $ocorrencia) {
 	$fpdf->MultiCell(190, 4, str_replace('
-', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).'| '.$ocorrencia->profissional), 'LTBR', 'L');
+', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).' | '.$ocorrencia->profissional), 'LTBR', 'L');
 }
 //$fpdf->Ln();
 
@@ -53,7 +53,7 @@ $fpdf->Ln();
 $fpdf->SetFont('Arial', '', 6);
 
 foreach ($colaborador->atestados as $atestado) {
-	$fpdf->Cell(190, 4, $atestado->inicio_afastamento.' a '.$atestado->fim_afastamento.': '.$atestado->local_atendimento.' '.utf8_decode($atestado->getCid->descricao).' - Profissional: '.$atestado->profissional.' Cat: '.utf8_decode(!$atestado->cat?'Não':$atestado->cat), 'LBR', 0, 'L');
+	$fpdf->Cell(190, 4, utf8_decode($atestado->inicio_afastamento.' a '.$atestado->fim_afastamento.': '.$atestado->local_atendimento.' '.$atestado->getCid->descricao.' - Profissional: '.$atestado->profissional.' Cat: '.(!$atestado->cat?'Não':$atestado->cat)), 'LBR', 0, 'L');
 
 	$fpdf->Ln();
 }
