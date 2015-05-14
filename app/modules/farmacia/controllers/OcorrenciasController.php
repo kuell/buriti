@@ -168,4 +168,10 @@ class OcorrenciasController extends \BaseController {
 
 	}
 
+	public function getMedicamentos($id) {
+		$ocorrencia = $this->ocorrencias->find($id);
+
+		return View::make('farmacia::ocorrencias.elementos.medicamento', compact('ocorrencia'));
+	}
+
 }

@@ -3,6 +3,7 @@
 class Aso extends \Eloquent {
 	protected $guarded  = [];
 	protected $fillable = [];
+	protected $prefix   = 'asd';
 	protected $table    = 'farmacia_asos';
 
 	public function colaborador() {
@@ -10,6 +11,9 @@ class Aso extends \Eloquent {
 	}
 	public function postoTrabalho() {
 		return $this->belongsTo('SetorPosto', 'posto_id');
+	}
+	public function exames() {
+		return $this->hasMany('Exame', 'relacao_id');
 	}
 
 	public function getDataAttribute() {

@@ -1,12 +1,4 @@
 @if($colaboradores->count())
-
-<style type="text/css">
-	*{
-		font-size: 11px;
-	}
-
-</style>
-
 	<table class="table table-hover">
 		<thead>
 			<tr>

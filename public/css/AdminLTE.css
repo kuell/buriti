@@ -13,6 +13,7 @@
 html,
 body {
   overflow-x: hidden!important;
+  font-size: 11px;
   font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;

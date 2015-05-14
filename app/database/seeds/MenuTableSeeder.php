@@ -155,6 +155,17 @@ class MenuTableSeeder extends Seeder {
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
 				'color'      => null,
+			),
+			array(
+				'id'         => 13,
+				'descricao'  => 'Medicamentos',
+				'url'        => 'medicamentos',
+				'icone'      => 'glyphicon glyphicon-briefcase',
+				'indice'     => null,
+				'menu_pai'   => 3,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => null,
 			)
 		);
 

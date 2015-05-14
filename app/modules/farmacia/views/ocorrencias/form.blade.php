@@ -81,6 +81,8 @@
   <div class="form-group col-md-12">
     <div class="form-group col-md-6">
       {{ Form::label('conduta', 'Conduta: ') }}
+	{{--	<iframe src="{{ URL::route('farmacia.ocorrencias.medicamentos') }}" class="col-md-12"></iframe> --}}
+
       {{ Form::textarea('conduta', null, array('class'=>'form-control', 'rows'=>4) ) }}
     </div>
     <div class="form-group col-md-6">

@@ -80,8 +80,21 @@ class AsoController extends \BaseController {
 		$input['data'] = date('Y-m-d');
 		$input['medico'];
 		$input['situacao'] = 'aberto';
+		$aso               = new Aso();
 
 		$aso = $this->asos->create($input);
+
+		// Inclui os riscos a aso incluida
+		if (!empty($input['posto_id'])) {
+			foreach (SesmtPostoRisco::where('posto_id', $input['posto_id'])->get() as $risco) {
+				if (AsoRisco::where('aso_id', $aso->id)->where('risco_id', $risco->id)->count() < 1) {
+					$insert = ['aso_id' => $aso->id, 'risco_id' => $risco->id];
+					AsoRisco::create($insert);
+				}
+			}
+		}
+
+		// --- Fim Inclui os riscos a aso incluida
 
 		return Redirect::route('farmacia.aso.index', ['id' => $aso->id]);
 
@@ -123,6 +136,10 @@ class AsoController extends \BaseController {
 	public function update($id) {
 		$input = Input::all();
 
+		$colaborador                 = Colaborador::find($input['colaborador_id']);
+		$colaborador->codigo_interno = $input['codigo_interno'];
+		$colaborador->sexo           = $input['sexo'];
+
 	}
 
 	/**
@@ -134,6 +151,39 @@ class AsoController extends \BaseController {
 	 */
 	public function destroy($id) {
 		//
+	}
+
+	public function setRisco($tipo) {
+		if ($tipo == 'true') {
+			return AsoRisco::create(Input::all());
+		} else {
+			$risco = AsoRisco::where('aso_id', Input::get('aso_id'))->where('risco_id', Input::get('risco_id'))->first();
+
+			return $risco->delete();
+		}
+	}
+
+	public function getExames($aso_id) {
+		$aso = $this->asos->find($aso_id);
+		return View::make('farmacia::aso.partials._exames', compact('aso'));
+	}
+
+	public function setExames($aso_id) {
+		$input               = Input::all();
+		$input['relacao_id'] = $aso_id;
+		$input['tipo_exame'] = 'ASO';
+
+		Exame::create($input);
+
+		return Redirect::route('farmacia.aso.exames', $aso_id);
+	}
+
+	public function destroyExame($id) {
+		$exame  = Exame::find($id);
+		$aso_id = $exame->relacao_id;
+		$exame->delete();
+
+		return Redirect::route('farmacia.aso.exames', $aso_id);
 	}
 
 }

@@ -58,7 +58,7 @@
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">
                     <i class="glyphicon glyphicon-chevron-left"></i></button>
             </p>
-
+			@include('layouts.erros')
             @yield('content')
 
         </div><!--/row-->
