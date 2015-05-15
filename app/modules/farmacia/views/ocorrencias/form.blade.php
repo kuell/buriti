@@ -51,25 +51,21 @@
 	</div>
 
 	<div class="form-group col-md-12" ng-controller="OcorrenciaCtrl">
-	    <div class="form-group col-md-2">
-	      {{ Form::label('codigo_interno', 'Matrícula: ') }}
-	      {{ Form::text('codigo_interno', null, array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ) }}
+	     <div class="form-group col-md-2">
+	      {{ Form::label('data', 'Data e Hora: ') }}
+	      {{ Form::text('data_hora', date('d/m/Y H:i'), array('class'=>'form-control') ) }}
 	    </div>
 
 	    <div class="form-group col-md-8">
-	      {{ Form::label('colaborador_id', 'Nome do Colaborador: ') }}
-	      {{ Form::select('colaborador_id', array('0'=>'Selecione ...')+Colaborador::orderBy('nome')->lists('nome','id'), null, array('class'=>'form-control') ) }}
-	    </div>
-	    <div class="form-group col-md-2">
-	      {{ Form::label('data', 'Data e Hora: ') }}
-	      {{ Form::text('data_hora', date('d/m/Y H:i'), array('class'=>'form-control') ) }}
+	      {{ Form::label('colaborador_id', 'Matrícula - Nome do Colaborador: ') }}
+	      {{ Form::select('colaborador_id', array('0'=>'Selecione ...')+Colaborador::orderBy('nome')->whereNull('situacao')->lists('nome','id'), null, array('class'=>'form-control', 'size'=>'10') ) }}
 	    </div>
 	</div>
 
 
   <div class="col-md-12">
     <div class="form-group col-md-6">
-      {{ Form::label('relato', 'Relato do Acidente: ') }}
+      {{ Form::label('relato', 'Relato da ocorrencia: ') }}
       {{ Form::textarea('relato', null, array('class'=>'form-control', 'rows'=>4) ) }}
     </div>
     <div class="form-group col-md-6">
@@ -79,30 +75,17 @@
   </div>
 
   <div class="form-group col-md-12">
-    <div class="form-group col-md-6">
-      {{ Form::label('conduta', 'Conduta: ') }}
-	{{--	<iframe src="{{ URL::route('farmacia.ocorrencias.medicamentos') }}" class="col-md-12"></iframe> --}}
 
-      {{ Form::textarea('conduta', null, array('class'=>'form-control', 'rows'=>4) ) }}
-    </div>
     <div class="form-group col-md-6">
       {{ Form::label('destino', 'Destino: ') }}
-      {{ Form::textarea('encaminhamento', null, array('class'=>'form-control', 'rows'=>4) ) }}
+      {{ Form::text('encaminhamento', null, array('class'=>'form-control', 'rows'=>4) ) }}
     </div>
+	 <div class="form-group col-md-5">
+	    {{ Form::label('profissional', 'Profissional: ') }}
+	    {{ Form::text('profissional', null, array('class'=>'form-control') ) }}
+	  </div>
   </div>
-
-  <div class="form-group col-md-5">
-    {{ Form::label('profissional', 'Profissional: ') }}
-    {{ Form::text('profissional', null, array('class'=>'form-control') ) }}
-  </div>
-
-
-  <div class="col-md-9">
-    <button type="submit" class="btn btn-primary">Gravar</button>
-    {{ link_to_route('farmacia.ocorrencias.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
-
   </fieldset>
-</div>
 
 @section('scripts')
 
@@ -149,22 +132,6 @@ $(function(){
 			$('input[name=codigo_interno]').val(data.codigo_interno);
 		})
 	});
-
-	$('input[name=codigo_interno]').blur(function(event) {
-		if($(this).val() != null){
-			$.get('/colaboradors/'+$(this).val(), null, function(data){
-				if(data.id == null){
-					$('input[name=codigo_interno]').val('');
-					$('select[name=colaborador_id]').val(0);
-
-					alert("Código interno do colaborador não encontrado!")
-				}
-				else{
-					$('select[name=colaborador_id]').val(data.id)
-				}
-			})
-		}
-	}).val({{ $ocorrencia->colaborador->codigo_interno or null }});
 });
 </script>
 

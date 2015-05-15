@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {{ HTML::style('css/bootstrap.min.css') }}
     {{ HTML::style('css/bootstrap-theme.min.css') }}
+	{{ HTML::style('css/bootstrap-chosen/bootstrap-chosen.css') }}
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -71,8 +72,10 @@
 
 <!-- script references -->
 {{ HTML::script('js/jquery.min.js') }}
+
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/jquery.maskedinput.js') }}
+{{ HTML::script('css/bootstrap-chosen/chosen.jquery.js') }}
 {{ HTML::script('js/scripts.js') }}
 {{ HTML::script('js/conf.js') }}
 @yield('scripts')

@@ -10,6 +10,10 @@ class Ocorrencia extends Eloquent {
 	protected $guarded = array();
 	protected $table   = "farmacia_ocorrencias";
 
+	public function medicamentos() {
+		return $this->hasMany('OcorrenciaMedicacao', 'ocorrencia_id');
+	}
+
 	public function getDataHoraAttribute() {
 		return date('d/m/Y H:i', strtotime($this->attributes['data_hora']));
 	}

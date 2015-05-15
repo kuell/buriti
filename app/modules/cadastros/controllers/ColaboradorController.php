@@ -32,7 +32,7 @@ class ColaboradorController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return View::make($this->reendenize."create");
+		return View::make("cadastros::colaboradores.create");
 	}
 
 	/**

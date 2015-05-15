@@ -2,17 +2,27 @@
 
 @section('content')
 
-{{ HTML::head('Ocorrencias', 'controla os setores') }}
-{{ HTML::boxhead('Editar ocorrencia: '.$ocorrencia->id) }}
-
-<div class="box-body">
-
-	{{ Form::model($ocorrencia, array('method' => 'PATCH',
+{{ Form::model($ocorrencia, array('method' => 'PATCH',
    'route' => array('farmacia.ocorrencias.update', $ocorrencia->id) ,
    'rule'=>'form'))
  }}
- @include('farmacia::ocorrencias.form')
- {{ Form::close() }}
-</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Alterar Ocorrencia: {{ $ocorrencia->id }}</h3>
+		</div>
+		<div class="panel-body">
+	 		@include('farmacia::ocorrencias.form')
 
+			<div class="col-md-12">
+				<div class="col-md-12">Conduta / Medicamentos: </div>
+				<iframe class="col-md-12" height="400" style="border:1 solid;" src="{{ URL::route('farmacia.ocorrencias.medicamentos', $ocorrencia->id) }}"></iframe>
+			</div>
+		</div>
+
+		<div class="panel-footer">
+		    <button type="submit" class="btn btn-primary">Gravar</button>
+		    {{ link_to_route('farmacia.ocorrencias.index', 'Voltar', null, array('class'=>'btn btn-danger')) }}
+		</div>
+	</div>
+{{ Form::close() }}
 @endsection

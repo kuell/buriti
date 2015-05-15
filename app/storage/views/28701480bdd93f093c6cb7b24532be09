@@ -7,6 +7,8 @@
     <!-- bootstrap 3.0.2 -->
     <?php echo HTML::style('css/bootstrap.min.css'); ?>
 
+	<?php echo HTML::style('css/bootstrap-chosen/bootstrap-chosen.css'); ?>
+
     <!-- font Awesome -->
     <?php echo HTML::style('css/font-awesome.min.css'); ?>
 

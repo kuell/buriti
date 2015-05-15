@@ -174,4 +174,22 @@ class OcorrenciasController extends \BaseController {
 		return View::make('farmacia::ocorrencias.elementos.medicamento', compact('ocorrencia'));
 	}
 
+	public function addMedicamento($ocorrencia_id) {
+		$input = Input::all()+['ocorrencia_id' => $ocorrencia_id];
+
+		OcorrenciaMedicacao::create($input);
+
+		return Redirect::route('farmacia.ocorrencias.medicamentos', $ocorrencia_id);
+	}
+
+	public function destroyMedicamento($medicamento_id) {
+		$medicamento   = OcorrenciaMedicacao::find($medicamento_id);
+		$ocorrencia_id = $medicamento->ocorrencia_id;
+
+		$medicamento->delete();
+
+		return Redirect::route('farmacia.ocorrencias.medicamentos', $ocorrencia_id);
+
+	}
+
 }

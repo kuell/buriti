@@ -1,19 +1,20 @@
- <!-- jQuery 2.0.2 -->
- <?php echo HTML::script('js/jquery.min.js'); ?>
+<!-- jQuery 2.0.2 -->
+	<?php echo HTML::script('js/jquery.min.js'); ?>
 
+	<?php echo HTML::script('css/bootstrap-chosen/chosen.jquery.js'); ?>
 
- <?php echo HTML::script('js/jquery.maskedinput.js'); ?>
+ 	<?php echo HTML::script('js/jquery.maskedinput.js'); ?>
 
  <!-- Configuração -->
- <?php echo HTML::script('js/conf.js'); ?>
+ 	<?php echo HTML::script('js/conf.js'); ?>
 
  <!-- Bootstrap -->
- <?php echo HTML::script('js/bootstrap.min.js'); ?>
+ 	<?php echo HTML::script('js/bootstrap.min.js'); ?>
 
  <!-- AdminLTE App -->
- <?php echo HTML::script('js/AdminLTE/app.js'); ?>
+ 	<?php echo HTML::script('js/AdminLTE/app.js'); ?>
 
  <!-- AdminLTE for demo purposes -->
- <?php echo HTML::script('js/AdminLTE/demo.js'); ?>
+ 	<?php echo HTML::script('js/AdminLTE/demo.js'); ?>
 
 
