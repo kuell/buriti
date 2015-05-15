@@ -3,7 +3,6 @@
 class OcorrenciasController extends \BaseController {
 
 	private $ocorrencias;
-	private $rules = [];
 
 	public function __construct(Ocorrencia $ocorrencia) {
 		$this->ocorrencias = $ocorrencia;
@@ -38,17 +37,21 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
-		print_r(Input::all());
+		$input = Input::all();
 
-		$input = array_except(Input::all(), 'codigo_interno');
+		$input = array_except($input, 'codigo_interno');
 
-		$validate = Validator::make($input, $this->rules);
+		$validate = Validator::make($input, $this->ocorrencias->rules);
 
 		if ($validate->passes()) {
-			$this->ocorrencias = $this->ocorrencias->create($input);
-			return Redirect::route('farmacia.ocorrencias.index');
+			$ocorrencia = $this->ocorrencias = $this->ocorrencias->create($input);
+
+			return Redirect::route('farmacia.ocorrencias.edit', $ocorrencia->id);
 		} else {
-			return "Erro";
+			return Redirect::route('farmacia.ocorrencias.create')
+				->withInput()
+				->withErrors($validate)
+				->with('message', 'Erro na inclusão das informações!');
 		}
 	}
 
@@ -83,15 +86,18 @@ class OcorrenciasController extends \BaseController {
 	public function update($id) {
 		$input = array_except(Input::all(), 'codigo_interno');
 
-		$validate = Validator::make($input, $this->rules);
+		$validate = Validator::make($input, $this->ocorrencias->rules);
 
 		if ($validate->passes()) {
 			$ocorrencia = $this->ocorrencias->find($id);
 			$ocorrencia->update($input);
 
-			return Redirect::route("farmacia.ocorrencias.index");
+			return Redirect::route("farmacia.ocorrencias.edit", $id);
 		} else {
-			return "Erro";
+			return Redirect::route('farmacia.ocorrencias.edit', $id)
+				->withInput()
+				->withErrors($validate)
+				->with('message', 'Erro na inclusão das informações!');
 		}
 	}
 

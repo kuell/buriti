@@ -47,6 +47,7 @@
 			{{ Form::button('Limpa Seleção', ['class'=>'btn btn-success', 'id'=>'limpa_select'])}}
 		</div>
 		{{ Form::hidden('elemento_id', null)}}
+		{{ Form::hidden('conduta', null)}}
 
 	</div>
 
@@ -58,7 +59,7 @@
 
 	    <div class="form-group col-md-8">
 	      {{ Form::label('colaborador_id', 'Matrícula - Nome do Colaborador: ') }}
-	      {{ Form::select('colaborador_id', array('0'=>'Selecione ...')+Colaborador::orderBy('nome')->whereNull('situacao')->lists('nome','id'), null, array('class'=>'form-control', 'size'=>'10') ) }}
+	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::orderBy('nome')->whereNull('situacao')->lists('nome','id'), null, array('class'=>'form-control', 'size'=>'10') ) }}
 	    </div>
 	</div>
 

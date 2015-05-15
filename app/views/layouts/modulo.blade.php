@@ -40,12 +40,15 @@
             <ul class="nav nav-sidebar">
                 <li class="well-sm">Menu</li>
                 @foreach(Session::get('menus')->first()->menu->subMenus as $menu)
+					@if(UsuarioPermissao::where('menu_id', $menu->id)->where('usuario_id', Auth::user()->id)->count() != 0)
+
                     <li>
                         <a href="{{ Session::get('menus')->first()->menu->url. '/'. $menu->url }}" >
                             <i class="{{ $menu->icone }}"></i>
                             <span>{{ $menu->descricao  }}</span>
                         </a>
                     </li>
+					@endif
                 @endforeach
                     <li><a href="/">Sair</a></li>
             </ul>

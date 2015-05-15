@@ -9,6 +9,9 @@
 class Ocorrencia extends Eloquent {
 	protected $guarded = array();
 	protected $table   = "farmacia_ocorrencias";
+	public $rules      = [
+		'colaborador_id' => 'required'
+	];
 
 	public function medicamentos() {
 		return $this->hasMany('OcorrenciaMedicacao', 'ocorrencia_id');
