@@ -23,9 +23,13 @@ $(function(){
 			toLabel: 'Até',
 			daysOfWeek: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex','Sab'],
             monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+			applyLabel: 'Aplicar',
+			cancelLabel: 'Cancelar',
 		},
-		format: 'DD/MM/YYYY'
+		format: 'DD/MM/YYYY',
+		buttonClasses: ['btn', 'btn-sm'],
+		cancelClass: 'btn-danger btn-sm',
 	
 
-	});
+	}).mask('99/99/9999 - 99/99/9999');
 })

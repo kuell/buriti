@@ -20,7 +20,7 @@
 			{{ Form::label('Periodo: ', null, ['class'=>'nav-brand'])}}
 
 			<div class="form-group">
-					{{ Form::text('periodo', null, ['class'=>'form-control col-xs-6 periodo', 'placeholder'=>'Periodo']) }}
+					{{ Form::text('periodo', null, ['class'=>'form-control periodo', 'size'=>'30', 'placeholder'=>'Periodo']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::select('colaborador_id', [''=>'Selecione ...']+Colaborador::all()->lists('nome', 'id'), null, ['class'=>'form-control']) }}
@@ -50,6 +50,10 @@
 			periodo = $('input[name=periodo]').val()
 			colaborador_id = $('select[name=colaborador_id]').val()
 
+			if(periodo == '' || colaborador_id == ''){
+				alert("Periodo e Colaborador devem ser informados!")
+				return false;
+			}
 
 			window.open("/colaboradors/"+colaborador_id+"?periodo="+periodo, 'Print', 'channelmode=yes')
 		});
