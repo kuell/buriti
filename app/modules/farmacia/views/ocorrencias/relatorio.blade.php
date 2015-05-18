@@ -10,12 +10,11 @@
           {{ Form::open(['name'=>'relatorio']) }}
           <div class="form-group col-md-12">
             <div class="col-md-6">
-              {{ Form::label('Periodo: ') }}
-              {{ Form::text('datai', null, ['class'=>'form-control data', 'placeholder'=>'Data Inicial']) }}
-            </div>
-            <div class="col-md-6">
-              {{ Form::label('a', 'a') }}
-              {{ Form::text('dataf', null, ['class'=>'form-control data', 'placeholder'=>'Data Final']) }}
+              	{{ Form::label('Periodo: ') }}
+              	{{ Form::text('periodo', null, ['class'=>'form-control periodo', 'placeholder'=>'Data Inicial']) }}
+			</div>
+			<div class="col-md-6">
+				{{ Form::select('tipo', ['s'=>'Por Setor', 'c'=>'Por Colaborador', 'sc'=>'Por Setor / Colaborador'], null, ['class'=>'form-control'])}}
             </div>
           </div>
         </div>

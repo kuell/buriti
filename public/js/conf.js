@@ -29,6 +29,7 @@ $(function(){
 		format: 'DD/MM/YYYY',
 		buttonClasses: ['btn', 'btn-sm'],
 		cancelClass: 'btn-danger btn-sm',
+		separator: ' - ',
 	
 
 	}).mask('99/99/9999 - 99/99/9999');

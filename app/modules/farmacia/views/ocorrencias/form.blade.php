@@ -1,5 +1,5 @@
 
-@if($ocorrencia->elemento)
+{{--@if($ocorrencia->elemento)
 	@if(count($ocorrencia->elemento->pai->first()->pai->first()->pai))
 		<label class="label label-default">
 			{{ $ocorrencia->elemento->pai->first()->pai->first()->pai->first()->descricao }}
@@ -24,7 +24,7 @@
 		</label>
 	@endif
 
-@endif
+@endif --}}
 
 <fieldset ng-app="App">
 	<div class="form-group col-md-12">

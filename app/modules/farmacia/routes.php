@@ -7,7 +7,6 @@
 Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), function () {
 		Route::get('/', 'FarmaciaController@index');
 		// ----Ocorrencias
-		Route::get('ocorrencias/relatorioOcorrencias', 'OcorrenciasController@getRelatorio');
 		Route::get('ocorrencias/elemento/{id}', array('as' => 'farmacia.ocorrencias.elemento', 'uses' => 'OcorrenciasController@getElemento'));
 
 		Route::get('ocorrencias/elementos', ['as' => 'farmacia.ocorrencias.elementos', 'uses' => 'OcorrenciasController@getElementos']);
@@ -18,6 +17,9 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 
 		Route::get('ocorrencias/{id}/medicamentos/delete', ['as' => 'farmacia.ocorrencias.medicamentos.delete', 'uses' => 'OcorrenciasController@destroyMedicamento']);
 		Route::post('ocorrencias/{id}/medicamentos', ['as'       => 'farmacia.ocorrencias.medicamentos', 'uses'       => 'OcorrenciasController@addMedicamento']);
+
+		Route::get('ocorrencias/relatorioOcorrencias', 'OcorrenciasController@getRelatorio');
+		Route::get('ocorrencias/report/{tipo}', 'OcorrenciasController@getReport');
 
 		// --- Atestados
 		Route::get('atestados/rel_operacoes', 'AtestadoController@relatorioOperacoes');

@@ -42,14 +42,15 @@ class ColaboradorController extends \BaseController {
 	 */
 	public function store() {
 		$input = Input::all();
+		unset($input['funcao']);
 
 		$validate = Validator::make($input, $this->rules);
 
 		if ($validate->passes()) {
 			$colaborador = $this->colaboradors->create($input);
-			return Redirect::route('cadastros::colaborador.index');
+			return Redirect::route('colaborador.index');
 		} else {
-			return Redirect::route('cadastros::colaboradors.create')
+			return Redirect::route('colaboradors.create')
 				->withInput()
 				->withErrors($validate)
 				->with('message', 'Houve erros na validação dos dados.');

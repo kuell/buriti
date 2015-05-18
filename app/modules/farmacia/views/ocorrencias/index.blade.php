@@ -52,13 +52,9 @@
 
 <script type="text/javascript">
     $(function() {
-        $("table").dataTable( {
+        $("ocorrencias").dataTable( {
 			"order": [ 0, "desc" ]
 			} );
     })
-
-    function getRelatorio(rota, parametro){
-        window.open(rota+'?'+parametro, 'Print', 'channelmode=yes');
-    }
 </script>
 @stop

@@ -62,7 +62,7 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		//
+
 	}
 
 	/**
@@ -195,6 +195,21 @@ class OcorrenciasController extends \BaseController {
 		$medicamento->delete();
 
 		return Redirect::route('farmacia.ocorrencias.medicamentos', $ocorrencia_id);
+
+	}
+
+	public function getReport($tipo = null) {
+
+		switch ($tipo) {
+			case 'setor':
+
+				break;
+
+			default:
+
+				return Ocorrencia::all();
+				break;
+		}
 
 	}
 

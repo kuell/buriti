@@ -1,5 +1,5 @@
 @if($ocorrencias->count())
-	<table class="table table-hover">
+	<table class="table table-hover" id="ocorrencias">
 		<thead>
 			<tr>
 				<th>#</th>
