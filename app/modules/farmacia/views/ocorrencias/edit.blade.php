@@ -21,7 +21,8 @@
 
 		<div class="panel-footer">
 		    <button type="submit" class="btn btn-primary">Gravar</button>
-		    {{ link_to_route('farmacia.ocorrencias.index', 'Voltar', null, array('class'=>'btn btn-danger')) }}
+		    {{ link_to_route('farmacia.ocorrencias.create', 'Nova Ocorrencia', null, array('class'=>'btn btn-success')) }}
+			{{ link_to_route('farmacia.ocorrencias.index', 'Voltar', null, array('class'=>'btn btn-danger')) }}
 		</div>
 	</div>
 {{ Form::close() }}

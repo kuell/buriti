@@ -1,4 +1,5 @@
 @if($colaboradores->count())
+<div class="row">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -24,7 +25,7 @@
 					<td>{{{ $colaborador->situacao or 'Ativo' }}}</td>
 					<td>
 						{{ link_to_route('colaboradors.edit', ' ', $colaborador->id, array('class'=>'btn btn-primary glyphicon glyphicon-pencil')) }}
-						{{ link_to_route('colaboradors.show', ' ', $colaborador->id, ['class'=>'btn btn-warning glyphicon glyphicon-print', 'target'=> '_new']) }}
+						{{ link_to_route('colaboradors.show', ' ', [$colaborador->id, 'f'=>1], ['class'=>'btn btn-warning glyphicon glyphicon-print', 'target'=> '_new']) }}
 					</td>
 				</tr>
 
@@ -33,4 +34,5 @@
 		</tbody>
 
 	</table>
+</div>
 @endif

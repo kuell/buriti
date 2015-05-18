@@ -14,7 +14,7 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$ocorrencias = $this->ocorrencias->whereNull('tipo')->orderBy('data_hora', 'desc')->limit(100)->get();
+		$ocorrencias = $this->ocorrencias->whereNull('tipo')->whereRaw('date(data_hora) = date(now())')->get();
 
 		return View::make('farmacia::ocorrencias.index', compact('ocorrencias'));
 

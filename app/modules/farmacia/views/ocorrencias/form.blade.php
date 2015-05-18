@@ -59,7 +59,7 @@
 
 	    <div class="form-group col-md-8">
 	      {{ Form::label('colaborador_id', 'Matrícula - Nome do Colaborador: ') }}
-	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::orderBy('nome')->whereNull('situacao')->lists('nome','id'), null, array('class'=>'form-control', 'size'=>'10') ) }}
+	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::orderBy('nome')->whereNull('situacao')->lists('nome','id'), null, array('class'=>'form-control') ) }}
 	    </div>
 	</div>
 
@@ -92,6 +92,7 @@
 
 <script type="text/javascript">
 $(function(){
+	$("select[name=colaborador_id]").chosen()
 	$('#limpa_select').click(function(event) {
 		$('#elemento1, #elemento2, #elemento3, #elemento4').val("");
 		$('#elemento2, #elemento3, #elemento4').addClass('hidden').removeAttr('disabled');
@@ -125,14 +126,9 @@ $(function(){
 		$('#'+$(this)[0].id).attr('disabled', 'disabled');
 		$("input[name=elemento_id]").val($(this).val())
 
+
 	});
 
-
-	$('select[name=colaborador_id]').bind('change blur', function(){
-	    $.get('/colaboradors/'+$(this).val(), {id:$(this).val()}, function(data){
-			$('input[name=codigo_interno]').val(data.codigo_interno);
-		})
-	});
 });
 </script>
 

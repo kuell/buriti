@@ -124,7 +124,23 @@ class ColaboradorController extends \BaseController {
 	}
 
 	public function show($id) {
+
 		$colaborador = $this->colaboradors->find($id);
+		/**
+		 * Verifica se existe filtro de datas
+		 * se existir filtra as informaçõe do colaborador
+		 **/
+		if (!empty(Input::get('datai')) && !empty(Input::get('dataf'))) {
+
+			$datai = implode('-', array_reverse(explode('/', Input::get('datai'))));
+			$dataf = implode('-', array_reverse(explode('/', Input::get('dataf'))));
+
+			$colaborador->ocorrencias = $colaborador->ocorrencias($datai, $dataf);
+			$colaborador->atestados   = $colaborador->atestados($datai, $dataf);
+
+		}
+
+		/** **/
 
 		return View::make('cadastros::colaboradores.show', compact('colaborador'));
 	}

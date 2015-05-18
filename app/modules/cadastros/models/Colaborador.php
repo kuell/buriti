@@ -8,12 +8,26 @@ class Colaborador extends Eloquent {
 		return $this->belongsTo('Setor', 'setor_id');
 	}
 
-	public function atestados() {
-		return $this->hasMany('Atestado', 'colaborador_id');
+	public function atestados($datai = null, $dataf = null) {
+		$return = $this->hasMany('Atestado', 'colaborador_id');
+
+		if (empty($datai) or empty($dataf)) {
+			return $return;
+		} else {
+			return $return->whereBetween('inicio_afastamento', [$datai, $dataf])->get();
+		}
+
 	}
 
-	public function ocorrencias() {
-		return $this->hasMany('Ocorrencia', 'colaborador_id');
+	public function ocorrencias($datai = null, $dataf = null) {
+		$return = $this->hasMany('Ocorrencia', 'colaborador_id');
+
+		if (empty($datai) or empty($dataf)) {
+			return $return;
+		} else {
+			return $return->whereBetween('data_hora', [$datai, $dataf])->get();
+		}
+
 	}
 
 	public function postoTrabalho() {

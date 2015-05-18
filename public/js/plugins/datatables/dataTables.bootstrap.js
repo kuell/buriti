@@ -1,9 +1,9 @@
 /* Set the defaults for DataTables initialisation */
 $.extend( true, $.fn.dataTable.defaults, {
 	"sDom":
-		"<'row'<'col-md-6'l><'col-md-6'f>r>"+
+		"<'row'<'col-md-4'l><'col-md-6'f>r>"+
 		"t"+
-		"<'row'<'col-md-6'i><'col-md-6'p>>",
+		"<'row'<'col-md-8'j><'col-md-6'p>>",
 	"oLanguage": {
 			    "sEmptyTable": "Nenhum registro encontrado",
 			    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -33,8 +33,8 @@ $.extend( true, $.fn.dataTable.defaults, {
 /* Default class modification */
 $.extend( $.fn.dataTableExt.oStdClasses, {
 	"sWrapper": "dataTables_wrapper form-inline",
-	"sFilterInput": "form-control input-sm",
-	"sLengthSelect": "form-control input-sm"
+	"sFilterInput": "form-control",
+	"sLengthSelect": "form-control"
 } );
 
 // In 1.10 we use the pagination renderers to draw the Bootstrap paging,
