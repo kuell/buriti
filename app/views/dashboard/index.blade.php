@@ -7,11 +7,14 @@
     <!-- bootstrap 3.0.2 -->
     {{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/bootstrap-chosen/bootstrap-chosen.css') }}
+
     <!-- font Awesome -->
     {{ HTML::style('css/font-awesome.min.css') }}
     <!-- Ionicons -->
     {{ HTML::style('css/ionicons.min.css') }}
     <!-- Theme style -->
+	{{ HTML::style('css/daterangepicker/daterangepicker-bs3.css') }}
+
     {{ HTML::style('css/AdminLTE.css') }}
 
 

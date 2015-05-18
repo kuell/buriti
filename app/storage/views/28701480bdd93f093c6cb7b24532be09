@@ -9,6 +9,7 @@
 
 	<?php echo HTML::style('css/bootstrap-chosen/bootstrap-chosen.css'); ?>
 
+
     <!-- font Awesome -->
     <?php echo HTML::style('css/font-awesome.min.css'); ?>
 
@@ -16,6 +17,9 @@
     <?php echo HTML::style('css/ionicons.min.css'); ?>
 
     <!-- Theme style -->
+	<?php echo HTML::style('css/daterangepicker/daterangepicker-bs3.css'); ?>
+
+
     <?php echo HTML::style('css/AdminLTE.css'); ?>
 
 

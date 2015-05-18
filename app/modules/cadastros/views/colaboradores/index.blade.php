@@ -20,11 +20,7 @@
 			{{ Form::label('Periodo: ', null, ['class'=>'nav-brand'])}}
 
 			<div class="form-group">
-
-					{{ Form::text('datai', null, ['class'=>'form-control col-xs-3 data', 'placeholder'=>'Data inicial']) }}
-			</div>
-			<div class="form-group">
-				{{ Form::text('dataf', null, ['class'=>'form-control col-xs-3 data', 'placeholder'=>'Data Final']) }}
+					{{ Form::text('periodo', null, ['class'=>'form-control col-xs-6 periodo', 'placeholder'=>'Periodo']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::select('colaborador_id', [''=>'Selecione ...']+Colaborador::all()->lists('nome', 'id'), null, ['class'=>'form-control']) }}
@@ -49,14 +45,13 @@
 
 <script type="text/javascript">
     $(function() {
-        $("table").dataTable();
+        $("#colaboradors").dataTable();
 		$('#gerar_relatorio').bind('click', function() {
-			datai = $('input[name=datai]').val()
-			dataf = $('input[name=dataf]').val()
+			periodo = $('input[name=periodo]').val()
 			colaborador_id = $('select[name=colaborador_id]').val()
 
 
-			window.open("/colaboradors/"+colaborador_id+"?datai="+datai+"&dataf="+dataf, 'Print', 'channelmode=yes')
+			window.open("/colaboradors/"+colaborador_id+"?periodo="+periodo, 'Print', 'channelmode=yes')
 		});
 		$('select[name=colaborador_id]').chosen()
 

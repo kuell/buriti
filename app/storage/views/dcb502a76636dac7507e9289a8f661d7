@@ -17,4 +17,6 @@
  <!-- AdminLTE for demo purposes -->
  	<?php echo HTML::script('js/AdminLTE/demo.js'); ?>
 
+	<?php echo HTML::script('js/plugins/daterangepicker/daterangepicker.js'); ?>
+
 

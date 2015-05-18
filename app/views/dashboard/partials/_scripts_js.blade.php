@@ -10,4 +10,5 @@
  	{{ HTML::script('js/AdminLTE/app.js') }}
  <!-- AdminLTE for demo purposes -->
  	{{ HTML::script('js/AdminLTE/demo.js') }}
+	{{ HTML::script('js/plugins/daterangepicker/daterangepicker.js') }}
 

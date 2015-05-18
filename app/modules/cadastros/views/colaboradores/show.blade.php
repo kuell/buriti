@@ -51,7 +51,7 @@ Class ColaboradorReport extends Fpdf {
 		$this->SetY(-15);
 		$this->SetFont("Arial", "I", 8);
 		$this->SetDrawColor(200);
-		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()."Processado em ".date('d-m-Y h:i')." \ Periodo:  ".Input::get('datai').' a '.Input::get('dataf'), 0, 0, "C");
+		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()."Processado em ".date('d-m-Y h:i')." \ Periodo:  ".Input::get('periodo'), 0, 0, "C");
 	}
 }
 

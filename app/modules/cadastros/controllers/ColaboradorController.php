@@ -130,10 +130,12 @@ class ColaboradorController extends \BaseController {
 		 * Verifica se existe filtro de datas
 		 * se existir filtra as informaçõe do colaborador
 		 **/
-		if (!empty(Input::get('datai')) && !empty(Input::get('dataf'))) {
+		if (!empty(Input::get('periodo'))) {
 
-			$datai = implode('-', array_reverse(explode('/', Input::get('datai'))));
-			$dataf = implode('-', array_reverse(explode('/', Input::get('dataf'))));
+			$periodo = explode('-', str_replace(' ', '', Input::get('periodo')));
+
+			$datai = implode('-', array_reverse(explode('/', $periodo[0]))).' 00:00:00';
+			$dataf = implode('-', array_reverse(explode('/', $periodo[1]))).' 23:59:59';
 
 			$colaborador->ocorrencias = $colaborador->ocorrencias($datai, $dataf);
 			$colaborador->atestados   = $colaborador->atestados($datai, $dataf);
