@@ -48,7 +48,7 @@ class ColaboradorController extends \BaseController {
 
 		if ($validate->passes()) {
 			$colaborador = $this->colaboradors->create($input);
-			return Redirect::route('colaborador.index');
+			return Redirect::route('colaboradors.index');
 		} else {
 			return Redirect::route('colaboradors.create')
 				->withInput()
