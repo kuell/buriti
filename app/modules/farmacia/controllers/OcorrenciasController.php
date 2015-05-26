@@ -201,7 +201,31 @@ class OcorrenciasController extends \BaseController {
 	public function getReport($tipo = null) {
 
 		switch ($tipo) {
-			case 'setor':
+			case 's':
+				$dados = DB::select('Select
+										extract(month from data_hora) as mes,
+										extract(year from data_hora) as ano,
+										c.id as setor,
+										b.nome,
+										count(*) as total
+									from
+										farmacia_ocorrencias a
+										inner join colaboradors b on a.colaborador_id = b.id
+										inner join setors c on b.setor_id = c.id
+									where
+										extract(year from data_hora) = ?
+									group by
+										c.id, b.id, extract(month from data_hora), extract(year from data_hora)
+									order by
+										extract(month from data_hora), count(*) desc'	, ['2015']);
+
+				foreach ($dados as $val) {
+					$returns[$val->setor][$val->nome][$val->ano][$val->mes] = $val->total;
+				}
+			case 'c':
+
+				break;
+			case 'sc':
 
 				break;
 
@@ -210,6 +234,8 @@ class OcorrenciasController extends \BaseController {
 				return Ocorrencia::all();
 				break;
 		}
+
+		return View::make('farmacia::ocorrencias.report', compact('returns'));
 
 	}
 

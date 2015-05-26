@@ -3,7 +3,8 @@
 		<table class="table">
 		    <thead>
 		        <tr>
-		            <th>Posto de Trabaho</th>
+		            <th>Setor</th>
+					<th>Posto de Trabaho</th>
 		            <th>Tipo do Risco</th>
 		            <th>Descrição do Risco</th>
 					<th>Situação</th>
@@ -12,17 +13,30 @@
 		    </thead>
 		    <tbody>
 		        @foreach($riscos as $risco)
-		        <tr>
-		            <td>{{ $risco->postoTrabalho->descricao }}</td>
-		            <td>{{ $risco->tipo }}</td>
-		            <td>{{ $risco->descricao }}</td>
-					<td>{{ $risco->situacao }}</td>
-		            <td>
-					{{ Form::open(array('route' => array('sesmt.risco.destroy', $risco->id), 'method' => 'delete')) }}
-				        <button type="submit" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-				    {{ Form::close() }}
-		            </td>
-		        </tr>
+				@if($risco->situacao == 'inativo')
+			        <tr class="danger">
+				@else
+					<tr>
+				@endif
+			            <td>{{ $risco->postoTrabalho->setor->descricao }}</td>
+						<td>{{ $risco->postoTrabalho->descricao }}</td>
+			            <td>{{ $risco->tipo }}</td>
+			            <td>{{ $risco->descricao }}</td>
+						<td>{{ $risco->situacao }}</td>
+			            <td>
+					@if($risco->situacao == 'inativo')
+						{{ Form::model($risco, array('route' => array('sesmt.risco.update', $risco->id), 'method' => 'patch')) }}
+					        <button type="submit" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-ok"></i></button>
+					    {{ Form::close() }}
+					@else
+						{{ Form::open(array('route' => array('sesmt.risco.destroy', $risco->id), 'method' => 'delete')) }}
+					        <button type="submit" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-remove"></i></button>
+					    {{ Form::close() }}
+					@endif
+
+			            </td>
+			        </tr>
+
 		        @endforeach
 		    </tbody>
 		</table>

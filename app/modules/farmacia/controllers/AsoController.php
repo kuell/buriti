@@ -44,45 +44,45 @@ class AsoController extends \BaseController {
 	public function store() {
 		$input = Input::all();
 
-		if ($input['tipo'] == 'admissional') {
-			$colaborador = [
-				'nome'            => $input['nome'],
-				'setor_id'        => $input['setor_id'],
-				'data_nascimento' => $input['data_nascimento'],
-				'sexo'            => $input['sexo'],
-				'interno'         => false,
-				'codigo_interno'  => 0
-			];
+		switch ($input['tipo']) {
+			case 'admissional':
+				$validate = Validator::make($input, $this->asos->rules['admissional']['create']);
+				if ($validate->passes()) {
+					$input['colaborador_nome'] = strtoupper($input['colaborador_nome']);
 
-			$input['colaborador_id'] = Colaborador::create($colaborador)->id;
+					$aso = $this->asos->create($input);
+					return Redirect::route('farmacia.aso.index', ['id' => $aso->id]);
+				} else {
+					return Redirect::route('farmacia.aso.create')
+						->withInput()
+						->withErrors($validate)
+						->with('message', 'Erro na inclusão das informações!');
+				}
+				break;
 
-			unset($input['nome']);
-			unset($input['data_nascimento']);
-			unset($input['sexo']);
-			unset($input['setor_id']);
-		} else {
-			$colaborador = Colaborador::where('codigo_interno', $input['codigo_interno'])->first();
+			default:
+				$validate = Validator::make($input, $this->asos->rules['periodico']);
 
-			$input['colaborador_id'] = $colaborador->id;
-			unset($input['setor_id']);
-			unset($input['codigo_interno']);
-			unset($input['data_nascimento']);
-			unset($input['sexo']);
+				if ($validate->passes()) {
+					$colaborador = Colaborador::find($input['colaborador_id']);
+
+					$input = $input+[
+						'colaborador_nome'            => strtoupper($colaborador->nome),
+						'colaborador_sexo'            => $colaborador->sexo,
+						'colaborador_data_nascimento' => $colaborador->data_nascimento,
+						'colaborador_setor_id'        => $colaborador->setor_id
+					];
+
+					$aso = $this->asos->create($input);
+					return Redirect::route('farmacia.aso.index', ['id' => $aso->id]);
+				} else {
+					return Redirect::route('farmacia.aso.create')
+						->withInput()
+						->withErrors($validate)
+						->with('message', 'Erro na inclusão das informações!');
+				}
+				break;
 		}
-
-		if (empty($input['posto_id'])) {
-			$input['posto_id'] = 0;
-		}
-
-		$postoColaborador = ['posto_id' => $input['posto_id'], 'colaborador_id' => $input['colaborador_id']];
-		ColaboradorPosto::create($postoColaborador);
-
-		$input['data'] = date('Y-m-d');
-		$input['medico'];
-		$input['situacao'] = 'aberto';
-		$aso               = new Aso();
-
-		$aso = $this->asos->create($input);
 
 		// Inclui os riscos a aso incluida
 		if (!empty($input['posto_id'])) {
@@ -136,9 +136,28 @@ class AsoController extends \BaseController {
 	public function update($id) {
 		$input = Input::all();
 
-		$colaborador                 = Colaborador::find($input['colaborador_id']);
-		$colaborador->codigo_interno = $input['codigo_interno'];
-		$colaborador->sexo           = $input['sexo'];
+		$aso = $this->asos->find($id);
+
+		switch ($aso->tipo) {
+			case 'admissional':
+				$validate = Validator::make($input, $this->asos->rules['admissional']['update']);
+
+				if ($validate->passes()) {
+					$aso->update($input);
+					return Redirect::route('farmacia.aso.edit', $id);
+
+				} else {
+					return Redirect::route('farmacia.aso.edit', $id)
+						->withInput()
+						->withErrors($validate)
+						->with('message', 'Erro na atualização das informações!');
+				}
+				break;
+
+			default:
+				# code...
+				break;
+		}
 
 	}
 
@@ -184,6 +203,51 @@ class AsoController extends \BaseController {
 		$exame->delete();
 
 		return Redirect::route('farmacia.aso.exames', $aso_id);
+	}
+
+	public function setConfirma($id) {
+		$input = Input::all();
+
+		$aso         = $this->asos->find($input['aso']);
+		$aso->status = $input['classifica'];
+
+		// Se tipo do aso é admissional e a classificação é a apto //
+
+		if ($input['aso'] == 'admissional' && $input['classifica'] == 'apto') {
+
+			$colaborador = [
+				'nome'            => $aso->colaborador_nome,
+				'codigo_interno'  => $aso->colaborador_matricula,
+				'setor_id'        => $aso->colaborador_setor_id,
+				'data_nascimento' => $aso->colaborador_data_nascimento,
+				'sexo'            => $aso->colaborador_sexo,
+				'interno'         => false
+			];
+
+			$validate = Validator::make($colaborador, $aso->colaborador->rules);
+
+			if ($validate->passes()) {
+				$c                   = Colaborador::create($colaborador);
+				$aso->colaborador_id = $c->id;
+				return Redirect::route('farmacia.aso.index');
+			} else {
+				return Redirect::route('farmacia.aso.edit', $id)
+					->withInput()
+					->withErrors($validate)
+					->with('message', 'Erro na inclusão das informações do Colaborador!');
+			}
+
+		}
+		// Se não se, tipo do aso é demissional e a classificação é apto //
+		 elseif ($aso->tipo == 'demissional' && $input['classifica'] == 'apto') {
+			$colaborador           = $aso->colaborador;
+			$colaborador->situacao = 'demitido';
+			$colaborador->obs      = 'Demitido em :'.date('d/m/Y H:i:s').' - Aso: '.$aso->id;
+			$colaborador->save();
+
+		}
+
+		print_r($aso->save());
 	}
 
 }

@@ -52,9 +52,15 @@
 
 <script type="text/javascript">
     $(function() {
-        $("ocorrencias").dataTable( {
+        $("#ocorrencias").dataTable( {
 			"order": [ 0, "desc" ]
 			} );
+		$('#gerar').click(function() {
+			periodo = $('#periodo').val()
+			tipo = $('#tipo').val()
+
+			window.open("/farmacia/ocorrencias/report/"+tipo, 'Print')
+		});
     })
 </script>
 @stop

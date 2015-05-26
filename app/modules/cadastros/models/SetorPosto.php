@@ -23,4 +23,9 @@ class SetorPosto extends \Eloquent {
 
 	}
 
+	public function setor() {
+		return $this->belongsTo('Setor', 'setor_id');
+
+	}
+
 }

@@ -3,8 +3,9 @@
 		<div class="col-md-3">
 			<h5>{{ $tipo }} </h5>
 			@foreach(SesmtPostoRisco::where('tipo', $tipo)->get() as $risco)
+
 				<div class="font-sm">
-					@if(SesmtPostoRisco::where('posto_id', $aso->posto_id)->count())
+					@if(SesmtPostoRisco::where('posto_id', $aso->posto_id)->where('id', $risco->id)->count())
 							<small>{{ Form::checkbox('risco', $risco->id , 1, ['disabled'=>'disabled']) }} {{ $risco->descricao}}</small>
 					@else
 

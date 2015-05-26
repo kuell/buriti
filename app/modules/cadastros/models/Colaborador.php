@@ -3,6 +3,11 @@
 class Colaborador extends Eloquent {
 
 	protected $guarded = array();
+	public $rules      = array(
+		'nome'           => 'required|min:5|unique:colaboradors,nome',
+		'codigo_interno' => 'required|unique:colaboradors,codigo_interno',
+		'setor_id'       => 'required',
+	);
 
 	public function setor() {
 		return $this->belongsTo('Setor', 'setor_id');

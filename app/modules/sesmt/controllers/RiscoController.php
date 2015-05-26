@@ -16,7 +16,6 @@ class RiscoController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-
 		$riscos     = $this->riscos->all();
 		$tipo_risco = ['Físico' => 'Fisico', 'Quimico' => 'Químico', 'Biologico' => 'Biologico', 'Ergonomico' => 'Ergonomico', 'Acidente' => 'Acidente'];
 
@@ -41,10 +40,21 @@ class RiscoController extends \BaseController {
 	 */
 	public function store() {
 		$input = Input::all();
+		unset($input['setor_id']);
 
-		$this->riscos->create($input);
+		$validate = Validator::make($input, $this->riscos->rules);
 
-		return Redirect::route('sesmt.risco.index');
+		if ($validate->passes()) {
+			$this->riscos->create($input);
+
+			return Redirect::route('sesmt.risco.index');
+		} else {
+			return Redirect::route('sesmt.risco.index')
+				->withInput()
+				->withErrors($validate)
+				->with('message', 'Erro na inclusão das informações!');
+
+		}
 	}
 
 	/**
@@ -77,7 +87,12 @@ class RiscoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		//
+		$risco = $this->riscos->find($id);
+		$ativa = ['situacao' => 'ativo'];
+
+		$risco->update($ativa);
+
+		return Redirect::route('sesmt.risco.index');
 	}
 
 	/**

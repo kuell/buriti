@@ -5,8 +5,8 @@
 			<th>#</th>
 			<th>Data</th>
 			<th>Colaborador</th>
-			<th>Posto de Trabalho</th>
 			<th>Tipo de Aso</th>
+			<th>Status</th>
 			<th>Situação</th>
 			<th></th>
 		</tr>
@@ -15,14 +15,27 @@
 		@foreach($asos as $aso)
 		<tr>
 			<td>{{{ $aso->id }}}</td>
-			<td>{{{ $aso->data }}}</td>
-			<td>{{{ $aso->colaborador->nome }}}</td>
-			<td>{{{ $aso->postoTrabalho->descricao or null }}}</td>
+			<td>{{{ $aso->created_at }}}</td>
+			<td>{{{ $aso->colaborador_nome }}}</td>
 			<td>{{{ $aso->tipo }}}</td>
+			<td>{{{ $aso->status }}}</td>
 			<td>{{{ $aso->situacao }}}</td>
 			<td>
-				{{ link_to_route('farmacia.aso.edit', 'Editar', $aso->id, array('class'=>'btn btn-primary')) }}
-				<a href="#" onclick="window.open('/farmacia/aso/{{ $aso->id }}', 'Print', 'channelmode=yes')" class="btn btn-warning">Emitir</a>
+				<div class="btn-group" role="group" aria-label="...">
+
+					<a href="/farmacia/aso/{{ $aso->id }}/edit" class="btn btn-sm btn-info ">
+						<i class="glyphicon glyphicon-pencil"></i>
+					</a>
+					<a href="#" onclick="window.open('/farmacia/aso/{{ $aso->id }}', 'Print', 'channelmode=yes')" class="btn btn-sm btn-warning ">
+						<i class="glyphicon glyphicon-print"></i>
+					</a>
+					<a href="#" onclick="document.getElementById('{{ $aso->id }}').submit()" class="btn btn-sm btn-danger">
+						<i class="glyphicon glyphicon-trash"></i>
+					</a>
+
+					{{ Form::open(array('route' => array('farmacia.aso.destroy', $aso->id), 'id'=>$aso->id, 'method' => 'delete')) }}
+				    {{ Form::close() }}
+				</div>
 			</td>
 		</tr>
 		@endforeach

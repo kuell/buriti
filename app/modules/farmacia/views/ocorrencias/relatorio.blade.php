@@ -6,22 +6,22 @@
         <h4 class="modal-title" id="myModalLabel">Relatorio de Ocorrencias</h4>
       </div>
       <div class="modal-body">
-        <div class="row">
-          {{ Form::open(['name'=>'relatorio']) }}
-          <div class="form-group col-md-12">
-            <div class="col-md-6">
-              	{{ Form::label('Periodo: ') }}
-              	{{ Form::text('periodo', null, ['class'=>'form-control periodo', 'placeholder'=>'Data Inicial']) }}
-			</div>
-			<div class="col-md-6">
-				{{ Form::select('tipo', ['s'=>'Por Setor', 'c'=>'Por Colaborador', 'sc'=>'Por Setor / Colaborador'], null, ['class'=>'form-control'])}}
-            </div>
-          </div>
-        </div>
-        {{ Form::close() }}
+		<div class="panel">
+	        {{ Form::open(['name'=>'relatorio', 'class'=>'navbar-form navbar-left']) }}
+		        {{ Form::label('Periodo: ', null, ['class'=>'nav-brand']) }}
+				<div class="form-group">
+	              	{{ Form::text('periodo', null, ['class'=>'form-control periodo', "id"=>'periodo', 'placeholder'=>'Data Inicial']) }}
+	            </div>
+				{{ Form::label('Tipo: ', null, ['class'=>'nav-brand']) }}
+				<div class="form-group">
+					{{ Form::select('tipo', ['s'=>'Por Setor', 'c'=>'Por Colaborador', 'sc'=>'Por Setor / Colaborador'], null, ['class'=>'form-control', 'id'=>'tipo'])}}
+				</div>
+
+	        {{ Form::close() }}
+		</div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-info" onclick="getRelatorio('ocorrencias/relatorioOcorrencias', $('form[name=relatorio]').serialize())">Gerar</button>
+        <button class="btn btn-info" id="gerar">Gerar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
       </div>
     </div>

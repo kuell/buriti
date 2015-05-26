@@ -26,14 +26,14 @@ $fpdf->MultiCell(190, 9, utf8_decode('A.S.O. - Atestado de Saúde Ocupacional'),
 
 $fpdf->SetTextColor(0);
 $fpdf->SetFont('Arial', '', 9);
-$fpdf->Cell(33, 7, utf8_decode('Matrícula: ').(!$aso->colaborador->codigo_interno?'_________':$aso->colaborador->codigo_interno), 'LTR', 0, 'L');
-$fpdf->Cell(97, 7, 'Nome: '.$aso->colaborador->nome, 'LTR', 0, 'L');
-$fpdf->Cell(60, 7, utf8_decode('Data de Admissão: ').(!$aso->colaborador->data_admissao?'_____/_____/______':$aso->colaborador->data_admissao), 'LTR', 0, 'L');
+$fpdf->Cell(33, 7, utf8_decode('Matrícula: '.$aso->matricula), 'LTR', 0, 'L');
+$fpdf->Cell(97, 7, 'Nome: '.$aso->colaborador_nome, 'LTR', 0, 'L');
+$fpdf->Cell(60, 7, utf8_decode('Data de Admissão: '.$aso->data_admissao), 'LTR', 0, 'L');
 $fpdf->Ln();
 
-$fpdf->Cell(30, 7, 'Sexo: '.$aso->colaborador->sexoDescricao, 'LTR', 0, 'L');
-$fpdf->Cell(50, 7, 'Data de Nascimento: '.$aso->colaborador->data_nascimento, 'LTR', 0, 'L');
-$fpdf->Cell(110, 7, utf8_decode('Setor: '.$aso->colaborador->setor->descricao), 'LTR', 0, 'L');
+$fpdf->Cell(30, 7, 'Sexo: '.$aso->colaborador_sexo, 'LTR', 0, 'L');
+$fpdf->Cell(50, 7, 'Data de Nascimento: '.$aso->colaborador_data_nascimento, 'LTR', 0, 'L');
+$fpdf->Cell(110, 7, utf8_decode('Setor: '.$aso->setor), 'LTR', 0, 'L');
 $fpdf->Ln();
 $fpdf->Cell(190, 7, 'Posto de Trabalho: '.utf8_decode(!$aso->postoTrabalho?null:$aso->postoTrabalho->descricao), 'LTR', 0, 'L');
 $fpdf->Ln();
