@@ -31,7 +31,7 @@ $fpdf->Cell(97, 7, 'Nome: '.$aso->colaborador_nome, 'LTR', 0, 'L');
 $fpdf->Cell(60, 7, utf8_decode('Data de Admissão: '.$aso->data_admissao), 'LTR', 0, 'L');
 $fpdf->Ln();
 
-$fpdf->Cell(30, 7, 'Sexo: '.$aso->colaborador_sexo, 'LTR', 0, 'L');
+$fpdf->Cell(30, 7, 'Sexo: '.$aso->colaborador_sexo_descricao, 'LTR', 0, 'L');
 $fpdf->Cell(50, 7, 'Data de Nascimento: '.$aso->colaborador_data_nascimento, 'LTR', 0, 'L');
 $fpdf->Cell(110, 7, utf8_decode('Setor: '.$aso->setor), 'LTR', 0, 'L');
 $fpdf->Ln();

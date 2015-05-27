@@ -10,7 +10,7 @@ Class ColaboradorReport extends Fpdf {
 		$this->SetFont('Arial', '', 6);
 		$this->Cell(140, 5, 'ROD. BR-262 - KM 375, ZONA SUBURBANA, TERENOS-MS FONE: (67) - 3246-8100', 'BLR', 0, 'C', 0);
 		$this->SetFont('Arial', '', 9);
-		$this->MultiCell(50, 5, utf8_decode('Situação :').$colaborador->situacao, 'BR', 1);
+		$this->MultiCell(50, 5, utf8_decode('Situação: ').strtoupper($colaborador->situacao), 'BR', 1);
 		$this->Ln();
 		$this->Cell(145, 6, utf8_decode('Nome: '.$colaborador->nome), 'BRLT', 0);
 		$this->Cell(45, 6, utf8_decode('Admissão: ').$colaborador->data_admissao, 'LTBR', 0);
@@ -44,6 +44,11 @@ Class ColaboradorReport extends Fpdf {
 			$this->Cell(190, 4, utf8_decode($atestado->inicio_afastamento.' a '.$atestado->fim_afastamento.': '.$atestado->local_atendimento.' '.$atestado->getCid->descricao.' - Profissional: '.$atestado->profissional.' Cat: '.(!$atestado->cat?'Não':$atestado->cat)), 'LBR', 0, 'L');
 			$this->Ln();
 		}
+
+		$this->Cell(190, 6, utf8_decode('Observações'), 'LTBR', 0, 'L', 1);
+		$this->Ln();
+		$this->MultiCell(190, 4, $colaborador->obs, 'LTBR', 'L');
+
 	}
 
 	function footer() {

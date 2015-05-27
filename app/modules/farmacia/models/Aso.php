@@ -52,11 +52,20 @@ class Aso extends \Eloquent {
 		return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_nascimento'])));
 	}
 
-	public function getSexoAttribute() {
+	public function getColaboradorSexoAttribute() {
 		if ($this->colaborador->sexo) {
 			return 1;
 		} else {
 			return 0;
+		}
+
+	}
+
+	public function getColaboradorSexoDescricaoAttribute() {
+		if ($this->colaborador->sexo) {
+			return 'MASCULINO';
+		} else {
+			return 'FEMININO';
 		}
 
 	}

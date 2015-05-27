@@ -28,7 +28,7 @@
 
 			$('#tipo_aso').focus().bind('change blur', function(){
 				if($(this).val() != 'admissional'){
-					$('.colaborador').html('{{ Form::select('colaborador_id', [''=>'Selecione o colaborador']+Colaborador::all()->lists('nome', 'id'), null, ['class'=>'form-control'])}}')
+					$('.colaborador').html('{{ Form::select('colaborador_id', [''=>'Selecione o colaborador']+Colaborador::all()->lists('nome', 'id'), null, ['class'=>'form-control', 'id'=>'colaborador_id'])}}')
 					$('input[name=colaborador_data_nascimento], select[name=colaborador_sexo], select[name=colaborador_setor_id]').attr('disabled', 'disabled');
 
 
@@ -50,7 +50,7 @@
 										})
 
 										$("select[name=posto_id]").append(options);
-										$('select[name=posto_id]').val(49).chosen()
+										$('select[name=posto_id]').val().chosen()
 
 										}
 								})
@@ -74,33 +74,9 @@
 	<script type="text/javascript">
 		$(function(){
 
-			$('.confirma').bind('click', function() {
-				if(confirm("Deseja concluir a Ficha ASO classificando como "+$(this).val().toUpperCase()+'? ')){
-					aso = {{ $aso->id }}
-					matricula = $('input[name=colaborador_matricula').val()
-
-					$.post("{{ URL::route('farmacia.aso.confirma', $aso->id) }}", {aso:aso, matricula:matricula, classifica:$(this).val()},
-						function(data) {
-							$('#progress').find('progress-bar').addClass('animate');
-							$('#progress').modal('show')
-								if(data == 'false'){
-									alert("Erro na Atualização das informações!")
-									$('#progress').modal('hide')
-								}
-								else{
-									location = '{{ URL::route('farmacia.aso.index') }}'
-								}
-
-						});
-				}
-				else{
-					return false;
-					}
-				});
-
 			@if(!empty($aso->colaborador_id))
 				$('select[name=colaborador_setor_id]').prop('disabled', true).trigger("chosen:updated");
-				$('select[name=colaborador_id]').prop('disabled', true).trigger("chosen:updated");
+				$('#colaborador_id').prop('disabled', true).trigger("chosen:updated");
 				$('input[name=colaborador_nome], input[name=colaborador_data_nascimento], select[name=colaborador_sexo], select[name=colaborador_setor_id]').attr('disabled', 'disabled');
 			@endif
 
