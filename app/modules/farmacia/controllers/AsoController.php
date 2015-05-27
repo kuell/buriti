@@ -45,6 +45,9 @@ class AsoController extends \BaseController {
 	 */
 	public function store() {
 		$input = Input::all();
+		if (empty($input['posto_id'])) {
+			$input['posto_id'] = 0;
+		}
 
 		switch ($input['tipo']) {
 			case 'admissional':
@@ -155,7 +158,7 @@ class AsoController extends \BaseController {
 							'sexo'            => $aso->colaborador_sexo,
 							'interno'         => false,
 							'data_admissao'   => $aso->colaborador_data_admissao,
-							'obs'             => 'Admitido pelo ASO :'.$aso->id
+							'obs'             => 'Admitido em: '.date('d/m/Y', strtotime($aso->created_at)).' - ASO: '.$aso->id.' |'
 						];
 						// Valida Informações do Colaborador
 						$validaColaborador = Validator::make($colaborador, $this->colaborador->rules);
@@ -167,7 +170,7 @@ class AsoController extends \BaseController {
 						} else {
 							return Redirect::route('farmacia.aso.edit', $id)
 								->withInput()
-								->withErrors($validate)
+								->withErrors($validaColaborador)
 								->with('message', 'Erro nas Informações do Colaborador!');
 						}
 
@@ -194,7 +197,7 @@ class AsoController extends \BaseController {
 				if ($input['status'] == 'apto' && $input['situacao'] == 'fechado') {
 					$colaborador           = $aso->colaborador;
 					$colaborador->situacao = 'demitido';
-					$colaborador->obs      = 'Demitido em :'.date('d/m/Y H:i:s').' - Aso: '.$aso->id;
+					$colaborador->obs      = $colaborador->obs.' Demitido em: '.date('d/m/Y', strtotime($aso->created_at)).' - Aso: '.$aso->id;
 					$colaborador->save();
 					$aso->update($input);
 					return Redirect::route('farmacia.aso.index');
@@ -207,8 +210,13 @@ class AsoController extends \BaseController {
 			default:
 				$validate = Validator::make($input, $this->asos->rules['periodico']);
 				if ($validate->passes()) {
-					$aso->update($input);
 					if ($input['situacao'] == 'fechado') {
+						$colaborador      = $aso->colaborador;
+						$colaborador->obs = $colaborador->obs.' '.ucwords($aso->tipo).' em: '.date('d/m/Y', strtotime($aso->created_at)).' - ASO: '.$aso->id.'| ';
+
+						$colaborador->save();
+						$aso->update($input);
+
 						return Redirect::route('farmacia.aso.index');
 					} else {
 						return Redirect::route('farmacia.aso.edit', $id);

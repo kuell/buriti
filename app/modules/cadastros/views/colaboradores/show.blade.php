@@ -23,32 +23,38 @@ Class ColaboradorReport extends Fpdf {
 		$this->Cell(120, 6, utf8_decode('Posto de Trabalho: '.$colaborador->postoTrabalho), 'BRLT', 0);
 		$this->Ln(7);
 		//Informações da Farmacia
-		$this->SetFont('Arial', 'B', 12);
-		$this->Cell(190, 6, utf8_decode('Farmácia'), 'LTBR', 0, 'C');
-		$this->Ln();
-		$this->SetFont('Arial', '', 9);
-		$this->Cell(190, 6, utf8_decode('Ocorrencias'), 'LTBR', 0, 'L', 1);
-		$this->Ln();
-		$this->SetFont('Arial', '', 6);
-
-		foreach ($colaborador->ocorrencias as $ocorrencia) {
-			$this->MultiCell(190, 4, str_replace('
-		', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).' | '.$ocorrencia->profissional), 'LTBR', 'L');
-		}
-
-		$this->SetFont('Arial', '', 9);
-		$this->Cell(190, 6, utf8_decode('Atestados'), 'LTBR', 0, 'L', 1);
-		$this->Ln();
-		$this->SetFont('Arial', '', 6);
-		foreach ($colaborador->atestados as $atestado) {
-			$this->Cell(190, 4, utf8_decode($atestado->inicio_afastamento.' a '.$atestado->fim_afastamento.': '.$atestado->local_atendimento.' '.$atestado->getCid->descricao.' - Profissional: '.$atestado->profissional.' Cat: '.(!$atestado->cat?'Não':$atestado->cat)), 'LBR', 0, 'L');
+		if (count($colaborador->ocorrencias) || count($colaborador->atestados)) {
+			$this->SetFont('Arial', 'B', 12);
+			$this->Cell(190, 6, utf8_decode('Farmácia'), 'LTBR', 0, 'C');
 			$this->Ln();
+			if (count($colaborador->ocorrencias)) {
+				$this->SetFont('Arial', '', 9);
+				$this->Cell(190, 6, utf8_decode('Ocorrencias'), 'LTBR', 0, 'L', 1);
+				$this->Ln();
+				$this->SetFont('Arial', '', 6);
+
+				foreach ($colaborador->ocorrencias as $ocorrencia) {
+					$this->MultiCell(190, 4, str_replace('
+		', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).' | '.$ocorrencia->profissional), 'LTBR', 'L');
+				}
+			}
+			if (count($colaborador->atestados)) {
+				$this->SetFont('Arial', '', 9);
+				$this->Cell(190, 6, utf8_decode('Atestados'), 'LTBR', 0, 'L', 1);
+				$this->Ln();
+				$this->SetFont('Arial', '', 6);
+				foreach ($colaborador->atestados as $atestado) {
+					$this->MultiCell(190, 4, utf8_decode($atestado->inicio_afastamento.' a '.$atestado->fim_afastamento.': '.$atestado->local_atendimento.' '.$atestado->getCid->descricao.' - Profissional: '.$atestado->profissional.' Cat: '.(!$atestado->cat?'Não':$atestado->cat)), 'LBR', 'L');
+					//			$this->Ln();
+				}
+			}
 		}
 
-		$this->Cell(190, 6, utf8_decode('Observações'), 'LTBR', 0, 'L', 1);
-		$this->Ln();
-		$this->MultiCell(190, 4, $colaborador->obs, 'LTBR', 'L');
-
+		if (!empty($colaborador->obs)) {
+			$this->Cell(190, 6, utf8_decode('Observações'), 'LTBR', 0, 'L', 1);
+			$this->Ln();
+			$this->MultiCell(190, 4, $colaborador->obs, 'LTBR', 'L');
+		}
 	}
 
 	function footer() {

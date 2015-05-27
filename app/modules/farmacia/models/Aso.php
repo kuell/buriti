@@ -53,16 +53,24 @@ class Aso extends \Eloquent {
 	}
 
 	public function getColaboradorSexoAttribute() {
-		if ($this->colaborador->sexo) {
-			return 1;
+		if (!empty($this->attributes['colaborador_id'])) {
+			$sexo = $this->colaborador->sexo;
 		} else {
-			return 0;
+			$sexo = $this->attributes['colaborador_sexo'];
 		}
+
+		return $sexo;
 
 	}
 
 	public function getColaboradorSexoDescricaoAttribute() {
-		if ($this->colaborador->sexo) {
+		if (!empty($this->attributes['colaborador_id'])) {
+			$sexo = $this->colaborador->sexo;
+		} else {
+			$sexo = $this->colaborador_sexo;
+		}
+
+		if ($sexo) {
 			return 'MASCULINO';
 		} else {
 			return 'FEMININO';

@@ -9,6 +9,10 @@ class Colaborador extends Eloquent {
 		'setor_id'       => 'required',
 	);
 
+	public static function ativos() {
+		return Colaborador::whereRaw("situacao = 'ativo' or situacao is null")->get();
+	}
+
 	public function setor() {
 		return $this->belongsTo('Setor', 'setor_id');
 	}
