@@ -109,4 +109,8 @@ class Atestado extends Eloquent {
 		return $result;
 	}
 
+	public function getCidDescricaoAttribute() {
+		return $this->getCid->descricao;
+	}
+
 }

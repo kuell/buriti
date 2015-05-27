@@ -3,9 +3,11 @@
 class AsoController extends \BaseController {
 
 	private $asos;
+	private $colaborador;
 
 	public function __construct(Aso $aso) {
-		$this->asos = $aso;
+		$this->asos        = $aso;
+		$this->colaborador = new Colaborador();
 	}
 
 	/**
@@ -143,8 +145,41 @@ class AsoController extends \BaseController {
 				$validate = Validator::make($input, $this->asos->rules['admissional']['update']);
 
 				if ($validate->passes()) {
+					if ($input['situacao'] == 'fechado' && $input['status'] == 'apto') {
+						// Cria Novo Colaborador //
+						$colaborador = [
+							'nome'            => $aso->colaborador_nome,
+							'codigo_interno'  => $aso->colaborador_matricula,
+							'setor_id'        => $aso->colaborador_setor_id,
+							'data_nascimento' => $aso->colaborador_data_nascimento,
+							'sexo'            => $aso->colaborador_sexo,
+							'interno'         => false,
+							'data_admissao'   => $aso->colaborador_data_admissao,
+							'obs'             => 'Admitido pelo ASO :'.$aso->id
+						];
+						// Valida Informações do Colaborador
+						$validaColaborador = Validator::make($colaborador, $this->colaborador->rules);
+
+						if ($validaColaborador->passes()) {
+							$col = $this->colaborador->create($colaborador);
+
+							$input['colaborador_id'] = $col->id;
+						} else {
+							return Redirect::route('farmacia.aso.edit', $id)
+								->withInput()
+								->withErrors($validate)
+								->with('message', 'Erro nas Informações do Colaborador!');
+						}
+
+						// Fim Cria Novo Colaborador //
+					}
+
 					$aso->update($input);
-					return Redirect::route('farmacia.aso.edit', $id);
+					if ($input['situacao'] == 'fechado') {
+						return Redirect::route('farmacia.aso.index');
+					} else {
+						return Redirect::route('farmacia.aso.edit', $id);
+					}
 
 				} else {
 					return Redirect::route('farmacia.aso.edit', $id)
@@ -154,8 +189,38 @@ class AsoController extends \BaseController {
 				}
 				break;
 
+			case 'demissional':
+
+				if ($input['status'] == 'apto' && $input['situacao'] == 'fechado') {
+					$colaborador           = $aso->colaborador;
+					$colaborador->situacao = 'demitido';
+					$colaborador->obs      = 'Demitido em :'.date('d/m/Y H:i:s').' - Aso: '.$aso->id;
+					$colaborador->save();
+					$aso->update($input);
+					return Redirect::route('farmacia.aso.index');
+				} else {
+					$aso->update($input);
+					return Redirect::route('farmacia.aso.index');
+				}
+				break;
+
 			default:
-				# code...
+				$validate = Validator::make($input, $this->asos->rules['periodico']);
+				if ($validate->passes()) {
+					$aso->update($input);
+					if ($input['situacao'] == 'fechado') {
+						return Redirect::route('farmacia.aso.index');
+					} else {
+						return Redirect::route('farmacia.aso.edit', $id);
+					}
+
+				} else {
+					return Redirect::route('farmacia.aso.edit', $id)
+						->withInput()
+						->withErrors($validate)
+						->with('message', 'Erro na atualização das informações!');
+				}
+
 				break;
 		}
 
@@ -203,51 +268,6 @@ class AsoController extends \BaseController {
 		$exame->delete();
 
 		return Redirect::route('farmacia.aso.exames', $aso_id);
-	}
-
-	public function setConfirma($id) {
-		$input = Input::all();
-
-		$aso         = $this->asos->find($input['aso']);
-		$aso->status = $input['classifica'];
-
-		// Se tipo do aso é admissional e a classificação é a apto //
-
-		if ($input['aso'] == 'admissional' && $input['classifica'] == 'apto') {
-
-			$colaborador = [
-				'nome'            => $aso->colaborador_nome,
-				'codigo_interno'  => $aso->colaborador_matricula,
-				'setor_id'        => $aso->colaborador_setor_id,
-				'data_nascimento' => $aso->colaborador_data_nascimento,
-				'sexo'            => $aso->colaborador_sexo,
-				'interno'         => false
-			];
-
-			$validate = Validator::make($colaborador, $aso->colaborador->rules);
-
-			if ($validate->passes()) {
-				$c                   = Colaborador::create($colaborador);
-				$aso->colaborador_id = $c->id;
-				return Redirect::route('farmacia.aso.index');
-			} else {
-				return Redirect::route('farmacia.aso.edit', $id)
-					->withInput()
-					->withErrors($validate)
-					->with('message', 'Erro na inclusão das informações do Colaborador!');
-			}
-
-		}
-		// Se não se, tipo do aso é demissional e a classificação é apto //
-		 elseif ($aso->tipo == 'demissional' && $input['classifica'] == 'apto') {
-			$colaborador           = $aso->colaborador;
-			$colaborador->situacao = 'demitido';
-			$colaborador->obs      = 'Demitido em :'.date('d/m/Y H:i:s').' - Aso: '.$aso->id;
-			$colaborador->save();
-
-		}
-
-		print_r($aso->save());
 	}
 
 }

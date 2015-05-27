@@ -1,7 +1,7 @@
 @extends('layouts.modulo')
 
 @section('content')
- {{ Form::model($aso, array('method' => 'PATCH', 'route' => array('farmacia.aso.update', $aso->id) )) }}
+ {{ Form::model($aso, array('method' => 'PATCH', 'route' => array('farmacia.aso.update', $aso->id) , 'id'=>'form_aso')) }}
 	<div class="panel panel-success">
 		<div class="panel-heading">
 			<h3 class="panel-title">
@@ -46,11 +46,13 @@
 				</div>
 			</div>
 
+			<div class="panel-footer">
+				{{ Form::submit('Atualizar', ['class'=>'btn btn-primary btn-sm']) }}
+				{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
+			</div>
+
 		</div>
-		<div class="panel-footer">
-			{{ Form::button('Apto', ['class'=>'btn btn-success confirma', 'value'=>'apto'])}}
-			{{ Form::button('Inapto', ['class'=>'btn btn-danger confirma', 'value'=>'inapto'])}}
-		</div>
+
 	</div>
  {{ Form::close() }}
 

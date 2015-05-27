@@ -21,11 +21,14 @@
 			<td>{{{ $aso->status }}}</td>
 			<td>{{{ $aso->situacao }}}</td>
 			<td>
-				<div class="btn-group" role="group" aria-label="...">
-
+				<div class="btn-group" role="group">
+					@if($aso->situacao != 'fechado')
 					<a href="/farmacia/aso/{{ $aso->id }}/edit" class="btn btn-sm btn-info ">
 						<i class="glyphicon glyphicon-pencil"></i>
 					</a>
+					@endif
+
+
 					<a href="#" onclick="window.open('/farmacia/aso/{{ $aso->id }}', 'Print', 'channelmode=yes')" class="btn btn-sm btn-warning ">
 						<i class="glyphicon glyphicon-print"></i>
 					</a>

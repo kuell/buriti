@@ -21,10 +21,11 @@ class Aso extends \Eloquent {
 				'colaborador_data_nascimento' => 'required',
 				'colaborador_setor_id'        => 'required',
 				'colaborador_matricula'       => 'required|unique:colaboradors,codigo_interno',
+				'colaborador_data_admissao'   => 'required',
+				'status'                      => 'required'
 			]
 		],
 		'periodico'       => [
-			'medico'         => 'required',
 			'colaborador_id' => 'required'
 		]
 	];
@@ -82,6 +83,27 @@ class Aso extends \Eloquent {
 		} else {
 			return $this->colaborador->setor->descricao;
 		}
+	}
+
+	public function getColaboradorDataAdmissaoAttribute() {
+		if (empty($this->attributes['colaborador_id'])) {
+			return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_admissao'])));
+		} else {
+			return $this->colaborador->data_admissao;
+		}
+	}
+
+	public function getMedicoAttribute() {
+		if (empty($this->attributes['medico'])) {
+			return "DR PEDRO LUIZ GOMES";
+		} else {
+			return $this->attributes['medico'];
+		}
+
+	}
+
+	public function setColaboradorNomeAttribute($nome) {
+		return $this->attributes['colaborador_nome'] = strtoupper(utf8_decode($nome));
 	}
 
 }

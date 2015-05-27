@@ -5,14 +5,9 @@
   </div>
 
   <div class="form-group col-md-12">
-    <div class="col-md-2">
-      {{ Form::label('codigo_interno', 'Nº Matricula: ') }}
-      {{ Form::text('codigo_interno', null,  array('class'=>'form-control', 'ng-model'=>'cod_interno', 'ng-blur'=>'busca(this)') ) }}
-    </div>
-
-    <div class="col-md-10">
+    <div class="col-md-12">
       {{ Form::label('colaborador_id', 'Nome do Colaborador: ') }}
-      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::orderBy('nome')->lists('nome','id'), null, array('class'=>'form-control') ) }}
+      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::whereRaw("situacao is null or situacao = 'ativo'")->orderBy('nome')->lists('nome','id'), null, array('class'=>'form-control') ) }}
     </div>
   </div>
 
@@ -135,6 +130,12 @@
       });
     };
   };
+
+	$(function(){
+		$('select[name=colaborador_id]').chosen()
+
+	})
+
 </script>
 
 @stop
