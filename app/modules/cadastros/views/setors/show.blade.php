@@ -23,7 +23,7 @@ Class ColaboradorReport extends Fpdf {
 
 		foreach ($setor->postoTrabalhos as $posto) {
 			$this->SetFont('Arial', '', 8);
-			$this->Cell(60, 4, $id.' - '.utf8_decode($posto->descricao), 'TBL', 0, 'L', 0);
+			$this->Cell(60, 4, $id.' - '.utf8_decode($posto->descricao), 'B', 0, 'L', 0);
 			$this->SetFont('Times', '', 6);
 			$this->MultiCell(130, 4, utf8_decode(implode($posto->atividades->lists('descricao'), '/ ')), 'TBR', 'L', 0);
 			$this->Ln();
@@ -36,7 +36,7 @@ Class ColaboradorReport extends Fpdf {
 		$this->SetY(-15);
 		$this->SetFont("Arial", "I", 8);
 		$this->SetDrawColor(200);
-		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()." - Processado em: ".date('d/m/Y h:i'), 0, 0, "C");
+		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()." - Processado em: ".date('''d/m/Y h:i'), 0, 0, "C");
 	}
 }
 
