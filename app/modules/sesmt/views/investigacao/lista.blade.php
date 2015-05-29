@@ -16,7 +16,7 @@
             <td>{{ $ocorrencia->colaborador->nome }}</td>
             <td>{{ $ocorrencia->colaborador->setor->descricao or 'Não Informado' }}</td>
             <td>
-                {{ link_to_route('sesmt.investigacao.create', 'Investigar', 'ocorrencia='.$ocorrencia->id , ['class'=>'btn btn-primary']) }}
+                {{ link_to_route('sesmt.investigacao.show', 'Investigar', $ocorrencia->id , ['class'=>'btn btn-primary', 'target'=>'new']) }}
             </td>
         </tr>
         @endforeach

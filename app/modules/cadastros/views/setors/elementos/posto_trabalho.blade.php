@@ -12,7 +12,7 @@
 	{{ Form::open(['route'=>['setors.posto.add', $setor->id]]) }}
 		<div class="form form-group col-md-9">
 			{{ Form::label('Descrição do Posto de Trabalho: ')}}
-			{{ Form::text('descricao', null, ['class'=>'form-control col-md-9']) }}
+			{{ Form::text('descricao', null, ['class'=>'form-control col-md-9', 'required']) }}
 		</div>
 			{{ Form::submit('Grava', ['class'=>'btn btn-success btn-sm']) }}
 	{{ Form::close() }}

@@ -24,11 +24,11 @@
 				})
 
 
-			$('.colaborador').html('{{ Form::text('colaborador_nome', null, ['class'=>'form-control', 'placeholder'=>'Nome do Colaborador'])}}')
+			$('.colaborador').html('{{ Form::text('colaborador_nome', null, ['class'=>'form-control', 'placeholder'=>'Nome do Colaborador', 'required'])}}')
 
 			$('#tipo_aso').focus().bind('change blur', function(){
 				if($(this).val() != 'admissional'){
-					$('.colaborador').html('{{ Form::select('colaborador_id', [''=>'Selecione o colaborador']+Colaborador::ativos()->lists('nome', 'id'), null, ['class'=>'form-control', 'id'=>'colaborador_id'])}}')
+					$('.colaborador').html('{{ Form::select('colaborador_id', [''=>'Selecione o colaborador']+Colaborador::ativos()->lists('nome', 'id'), null, ['class'=>'form-control', 'id'=>'colaborador_id', 'required'])}}')
 					$('input[name=colaborador_data_nascimento], select[name=colaborador_sexo], select[name=colaborador_setor_id]').attr('disabled', 'disabled');
 
 
@@ -60,7 +60,7 @@
 					})
 				}
 				else{
-					$('.colaborador').html('{{ Form::text('colaborador_nome', null, ['class'=>'form-control', 'placeholder'=>'Nome do Colaborador'])}}')
+					$('.colaborador').html('{{ Form::text('colaborador_nome', null, ['class'=>'form-control', 'placeholder'=>'Nome do Colaborador'], 'required')}}')
 					$('input[name=colaborador_data_nascimento], select[name=colaborador_sexo], select[name=colaborador_setor_id]').removeAttr('disabled');
 					$('select[name=colaborador_setor_id]').prop('disabled', false).trigger("chosen:updated");
 				}

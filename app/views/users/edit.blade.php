@@ -2,20 +2,25 @@
 
 
 @section('main')
+
     <div class="box box-info">
-        {{ HTML::head('Fornecedores ', 'controla fornecedores!') }}
+        {{ HTML::head('Usuarios ', 'controla usuarios do sistema!') }}
         {{ HTML::boxhead('Altera Usuario '.$user->id) }}
 
          <div class="box-body">
-            {{ link_to('/users/permissao/'.$user->id, 'Permissao', array('class'=>'btn btn-primary')) }}
             {{ Form::model($user, array('method' => 'PATCH',
-                                                 'route' => array('users.update', $user->id) ,
-                                                 'rule'=>'form',
-                                                 'enctype'=>'multipart/form-data'))
+                                                'route' => array('users.update', $user->id) ,
+
+                                                'enctype'=>'multipart/form-data',
+												'id'=>'user' ))
                                                  }}
                 @include('users.form')
             {{ Form::close() }}
          </div>
     </div>
+
+@stop
+
+@section('scripts')
 
 @stop

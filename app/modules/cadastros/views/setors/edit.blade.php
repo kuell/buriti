@@ -13,7 +13,7 @@
 
 		@include('cadastros::setors.form')
 		{{ Form::close() }}
-
+<div class="col-md-12 well">
 		<div role="tabpanel">
 
 			  <!-- Nav tabs -->
@@ -44,7 +44,7 @@
 
 	</div>
 
-
+</div>
 
 </div>
 

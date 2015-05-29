@@ -55,8 +55,7 @@
         @include('dashboard.partials._scripts_js')
 
         <section class="content">
-
-            @yield('scripts')
+			@yield('scripts')
         </section>
 
 

@@ -23,6 +23,8 @@
 {{ HTML::script('js/jquery.maskedinput.js') }}
 {{ HTML::script('js/scripts.js') }}
 {{ HTML::script('js/conf.js') }}
+{{ HTML::script('js/plugins/formValidation/js/formValidation.js') }}
+{{ HTML::script('js/plugins/formValidation/js/framework/bootstrap.js') }}
 
 @yield('scripts')
 

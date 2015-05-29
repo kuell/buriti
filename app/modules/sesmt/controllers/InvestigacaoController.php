@@ -59,7 +59,9 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		//
+		$ocorrencia = [];
+
+		return View::make('sesmt::investigacao.show', compact('ocorrencia'));
 	}
 
 	/**

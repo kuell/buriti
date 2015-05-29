@@ -7,7 +7,7 @@
   <div class="form-group col-md-12">
     <div class="col-md-12">
       {{ Form::label('colaborador_id', 'Nome do Colaborador: ') }}
-      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::whereRaw("situacao is null or situacao = 'ativo'")->orderBy('nome')->lists('nome','id'), null, array('class'=>'form-control') ) }}
+      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::ativos()->lists('nome','id'), null, array('class'=>'form-control') ) }}
     </div>
   </div>
 

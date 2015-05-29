@@ -18,3 +18,7 @@
  	<?php echo HTML::script('js/AdminLTE/demo.js'); ?>
 
 	<?php echo HTML::script('js/plugins/daterangepicker/daterangepicker.js'); ?>
+
+	<?php echo HTML::script('js/plugins/formValidation/js/formValidation.js'); ?>
+
+	<?php echo HTML::script('js/plugins/formValidation/js/framework/bootstrap.js'); ?>

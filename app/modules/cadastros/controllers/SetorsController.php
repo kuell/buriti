@@ -6,6 +6,7 @@ class SetorsController extends \BaseController {
 		'descricao' => 'required|unique:setors,descricao',
 	);
 	private $setors;
+	protected $layout = 'cadastros::setors.index';
 
 	public function __construct(Setor $setor) {
 		$this->setors = $setor;
@@ -60,19 +61,9 @@ class SetorsController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		$setor = Setor::all();
+		$setor = $this->setors->find($id);
 
-		foreach ($setor as $i) {
-			echo $i->descricao.'<br />';
-			echo '<ul>';
-			foreach ($setor->internos as $s) {
-				echo '<li>'.$s->nome.'<li />';
-			}
-
-			echo '</ul>';
-		}
-
-		die;
+		return $this->layout->content = View::make('cadastros::setors.show', compact('setor'));
 	}
 
 	/**
@@ -94,7 +85,8 @@ class SetorsController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		$input = array_except(Input::all(), '_method');
+		$input                      = array_except(Input::all(), '_method');
+		$input['usuario_alteracao'] = Auth::user()->user;
 
 		$this->rules = array('descricao' => 'required|unique:setors,descricao,'.$id);
 

@@ -14,7 +14,7 @@
 	{{ Form::open(['route'=>['setors.posto.atividade.add', $posto->id]]) }}
 		<div class="form form-group">
 			{{ Form::label('Descrição da Atividade: ')}}
-			{{ Form::textArea('descricao', null, ['class'=>'form-control col-md-9','rows'=>4]) }}
+			{{ Form::textArea('descricao', null, ['class'=>'form-control col-md-9','rows'=>4,'required']) }}
 		</div>
 
 			{{ Form::submit('Grava', ['class'=>'btn btn-success']) }}

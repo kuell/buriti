@@ -59,7 +59,7 @@
 
 	    <div class="form-group col-md-8">
 	      {{ Form::label('colaborador_id', 'Matrícula - Nome do Colaborador: ') }}
-	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::orderBy('nome')->whereNull('situacao')->lists('nome','id'), null, array('class'=>'form-control') ) }}
+	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::ativos()->lists('nome','id'), null, array('class'=>'form-control') ) }}
 	    </div>
 	</div>
 
