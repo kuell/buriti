@@ -9,7 +9,7 @@
     	</div>
 		<div class="form-group col-md-3">
 	    	{{ Form::label('agrupamento', 'Agrupamento: ') }}
-	    	{{ Form::text('agrupamento', null, array('class'=>'form-control', 'required') ) }}
+	    	{{ Form::select('agrupamento', Setor::agrupamentos(), null, array('class'=>'form-control', 'required') ) }}
 	  	</div>
   	</div>
 

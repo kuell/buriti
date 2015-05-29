@@ -28,4 +28,16 @@ class Setor extends Eloquent {
 		return $this->hasMany('SetorPosto', 'setor_id');
 	}
 
+	public static function agrupamentos() {
+		$agrupamentos = ['Administração', 'Produção', 'Manutenção', 'Controle de Qualidade', 'Saúde e Segurança', 'S.I.F.', 'Aux. de Produção', 'Transporte'];
+
+		return $agrupamentos;
+	}
+
+	public function getAgrupamntoAttribute($agrupamento) {
+		$agrupamentos = ['Administração', 'Produção', 'Manutenção', 'Controle de Qualidade', 'Saúde e Segurança', 'S.I.F.', 'Aux. de Produção', 'Transporte'];
+
+		return $this->attributes['agrupamento'] = $agrupamentos[$agrupamento];
+	}
+
 }

@@ -25,7 +25,7 @@ Class ColaboradorReport extends Fpdf {
 			$this->SetFont('Arial', '', 8);
 			$this->Cell(60, 4, $id.' - '.utf8_decode($posto->descricao), 'TBL', 0, 'L', 0);
 			$this->SetFont('Times', '', 6);
-			$this->Cell(130, 4, utf8_decode(implode($posto->atividades->lists('descricao'), '/ ')), 'TBR', 0, 'L', 0);
+			$this->MultiCell(130, 4, utf8_decode(implode($posto->atividades->lists('descricao'), '/ ')), 'TBR', 'L', 0);
 			$this->Ln();
 			$id = $id+1;
 		}
