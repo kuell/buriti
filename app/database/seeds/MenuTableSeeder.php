@@ -166,6 +166,28 @@ class MenuTableSeeder extends Seeder {
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
 				'color'      => null,
+			),
+			array(
+				'id'         => 14,
+				'descricao'  => 'Manutenção e Serviços',
+				'url'        => 'manutencao',
+				'icone'      => 'glyphicon glyphicon-cog',
+				'indice'     => null,
+				'menu_pai'   => null,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => 'yellow',
+			),
+			array(
+				'id'         => 15,
+				'descricao'  => 'Ordem Interna',
+				'url'        => 'osi',
+				'icone'      => 'glyphicon glyphicon-wrench',
+				'indice'     => null,
+				'menu_pai'   => 14,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => 'yellow',
 			)
 		);
 

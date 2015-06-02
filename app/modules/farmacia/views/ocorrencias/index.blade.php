@@ -59,7 +59,7 @@
 			periodo = $('#periodo').val()
 			tipo = $('#tipo').val()
 
-			window.open("/farmacia/ocorrencias/report/"+tipo, 'Print')
+			window.open("/farmacia/ocorrencias/relatorioOcorrencias?periodo="+periodo, 'Print', 'channelmode=yes')
 		});
     })
 </script>

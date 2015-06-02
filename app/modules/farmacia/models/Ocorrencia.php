@@ -61,7 +61,5 @@ class Ocorrencia extends Eloquent {
 		} else {
 			return $this->attributes['elemento_id'] = $elemento_id;
 		}
-
 	}
-
 }

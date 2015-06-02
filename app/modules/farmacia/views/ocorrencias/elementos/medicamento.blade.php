@@ -11,7 +11,7 @@
 		{{ Form::text('qtd',  null, ['class'=>'form-control', 'size'=>3, 'placeholder'=>'Qtde.']) }}
 	</div>
 	<div class="form-group">
-		{{ Form::select('medida',  [''=>'Selecione ...', 'gota'=>'Gota', 'comprimido'=>'Comprimido',], ['class'=>'form-control', 'size'=>3, 'placeholder'=>'Qtde.']) }}
+		{{ Form::select('medida',  [''=>'Selecione ...', 'gota'=>'Gota', 'comprimido'=>'Comprimido','sache'=>'Sachê', 'aplicacao'=>'Aplicação'], ['class'=>'form-control', 'size'=>3, 'placeholder'=>'Qtde.']) }}
 	</div>
 		{{ Form::submit('Incluir', ['class'=>'btn btn-primary'])}}
 {{ Form::close() }}

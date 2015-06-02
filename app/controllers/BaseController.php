@@ -9,14 +9,12 @@ class BaseController extends Controller {
 	 *
 	 * @return void
 	 */
-	protected function setupLayout()
-	{
-		if ( ! is_null($this->layout))
-		{
+	protected function setupLayout() {
+		if (!is_null($this->layout)) {
 			$this->layout = View::make($this->layout);
 		}
 	}
-	public static function getMenu($sistema_id){
+	public static function getMenu($sistema_id) {
 		$menu = Auth::user()->menus()->where('menu_id', $sistema_id)->get();
 		return $menu;
 	}

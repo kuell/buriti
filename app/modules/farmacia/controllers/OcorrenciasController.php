@@ -135,10 +135,13 @@ class OcorrenciasController extends \BaseController {
 
 						$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
 
-						$datai = implode('-', array_reverse(explode('/', Input::get('datai'))));
-						$dataf = implode('-', array_reverse(explode('/', Input::get('dataf'))));
+						$data = explode('-', Input::get('periodo'));
 
-						$a = Ocorrencia::getRelatorioOperacoes($datai, $dataf);
+						$datai = implode('-', array_reverse(explode('/', $data[0])));
+
+						$dataf = implode('-', array_reverse(explode('/', $data[1])));
+
+						$a = Ocorrencia::getRelatorioOperacoes(str_replace(' ', '', $datai), str_replace(' ', '', $dataf));
 
 						$sheet->setAutoFilter('A6:J6');
 						$sheet->setOrientation('landscape');
@@ -183,9 +186,19 @@ class OcorrenciasController extends \BaseController {
 	public function addMedicamento($ocorrencia_id) {
 		$input = Input::all()+['ocorrencia_id' => $ocorrencia_id];
 
-		OcorrenciaMedicacao::create($input);
+		$validate = Validator::make($input, $this->ocorrencias->medicamentos->rules);
 
-		return Redirect::route('farmacia.ocorrencias.medicamentos', $ocorrencia_id);
+		if ($validate->passes()) {
+			OcorrenciaMedicacao::create($input);
+
+			return Redirect::route('farmacia.ocorrencias.medicamentos', $ocorrencia_id);
+		} else {
+			return Redirect::route('farmacia.ocorrencias.medicamentos', $ocorrencia_id)
+				->withInput()
+				->withErrors($validate)
+				->with('message', 'Erro na inclusão das informações!');
+		}
+
 	}
 
 	public function destroyMedicamento($medicamento_id) {

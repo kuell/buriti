@@ -82,9 +82,7 @@ class OrdemInternaController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$ordem_interna = $this->ordem_internas->find($id);
-
-		return View::make('ordem_interna.show', compact('ordem_interna'));
+		
 	}
 
 

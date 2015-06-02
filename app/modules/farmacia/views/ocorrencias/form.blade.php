@@ -52,14 +52,19 @@
 	</div>
 
 	<div class="form-group col-md-12" ng-controller="OcorrenciaCtrl">
-	     <div class="form-group col-md-2">
+	     <div class="form-group col-md-3">
 	      {{ Form::label('data', 'Data e Hora: ') }}
-	      {{ Form::text('data_hora', date('d/m/Y H:i'), array('class'=>'form-control') ) }}
+	      {{ Form::text('data_hora', date('d/m/Y H:i:s'), array('class'=>'form-control data_hora', 'required') ) }}
+	    </div>
+
+		<div class="form-group col-md-2">
+	      {{ Form::label('monitoramento', 'Monitoramento?') }}
+	      {{ Form::select('monitoramento', ['Não', 'Sim'], null, array('class'=>'form-control', 'required') ) }}
 	    </div>
 
 	    <div class="form-group col-md-8">
 	      {{ Form::label('colaborador_id', 'Matrícula - Nome do Colaborador: ') }}
-	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::ativos()->lists('nome','id'), null, array('class'=>'form-control') ) }}
+	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::ativos()->lists('nome','id'), null, array('class'=>'form-control', 'required') ) }}
 	    </div>
 	</div>
 
@@ -83,7 +88,7 @@
     </div>
 	 <div class="form-group col-md-5">
 	    {{ Form::label('profissional', 'Profissional: ') }}
-	    {{ Form::text('profissional', null, array('class'=>'form-control') ) }}
+	    {{ Form::text('profissional', null, array('class'=>'form-control', 'required') ) }}
 	  </div>
   </div>
   </fieldset>
@@ -92,7 +97,7 @@
 
 <script type="text/javascript">
 $(function(){
-	$("select[name=colaborador_id]").chosen()
+	$("select[name=colaborador_id]").prop('required', true).chosen()
 	$('#limpa_select').click(function(event) {
 		$('#elemento1, #elemento2, #elemento3, #elemento4').val("");
 		$('#elemento2, #elemento3, #elemento4').addClass('hidden').removeAttr('disabled');
