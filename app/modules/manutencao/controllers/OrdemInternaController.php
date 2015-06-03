@@ -87,4 +87,9 @@ class OrdemInternaController extends \BaseController {
 		//
 	}
 
+	public function getServicos($osi) {
+		$osi = $this->osis;
+
+	}
+
 }

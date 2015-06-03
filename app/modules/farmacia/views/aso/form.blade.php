@@ -34,14 +34,26 @@
 			</div>
 		</div>
 		<div class="col-md-12">
-			<div class="form-group col-md-2">
+			<div class="form-group col-md-3">
 				{{ Form::label('Data Nascimento: ')}}
 				{{ Form::text('colaborador_data_nascimento', null, ['class'=>'form-control data', 'required'])}}
 			</div>
-			<div class="form-group col-md-2">
+			<div class="form-group col-md-3">
 				{{ Form::label('Sexo: ')}}
 				{{ Form::select('colaborador_sexo',['1'=>'Masculino', '0'=>'Feminino'], null, ['class'=>'form-control','required'])}}
 			</div>
+			<div class="form-group col-md-3">
+				{{ Form::label('RG: ')}}
+				{{ Form::text('colaborador_rg', null, ['class'=>'form-control', 'required'])}}
+			</div>
+			<div class="form-group col-md-2">
+				{{ Form::label('Orgão Emissor: ')}}
+				{{ Form::text('colaborador_orgao_emissor', null, ['class'=>'form-control', 'required'])}}
+			</div>
+
+		</div>
+
+		<div class="col-md-12">
 			<div class="form-group col-md-4">
 				{{ Form::label('Setor: ')}}
 				{{ Form::select('colaborador_setor_id', [''=>'Selecione ....']+Setor::all()->lists('descricao', 'id'),null, ['class'=>'form-control', 'required'])}}
@@ -51,6 +63,7 @@
 				{{ Form::select('posto_id', [], null, ['class'=>'form-control'])}}
 			</div>
 		</div>
+
 		@if(!empty($aso))
 			<div class="col-md-12 well">
 				<div class="form-group col-md-2">

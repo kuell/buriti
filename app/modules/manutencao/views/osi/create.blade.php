@@ -1,11 +1,11 @@
 @extends('layouts.modulo')
 
 @section('content')
- {{ Form::open(['route' => 'manutencao.osi.store') }}
+ {{ Form::open(['route' => 'manutencao.osi.store']) }}
 	<div class="panel panel-success">
 		<div class="panel-heading">
 			<h3 class="panel-title">
-				Editar ficha ASO
+				Nova Ordem de Serviço
 			</h3>
 		</div>
 		<div class="panel-body">

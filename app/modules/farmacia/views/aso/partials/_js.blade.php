@@ -3,6 +3,7 @@
 	<script type="text/javascript">
 
 		$(function(){
+			$('input[name=colaborador_orgao_emissor]').mask('aaa/aa')
 
 			$('select[name=colaborador_setor_id]').chosen().change(function() {
 				$.getJSON('/setors/find/'+$(this).val()+'/postoTrabalho', function(data){
