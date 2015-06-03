@@ -123,4 +123,10 @@ class Aso extends \Eloquent {
 		return $this->attributes['colaborador_nome'] = strtoupper(utf8_decode($nome));
 	}
 
+	public function getColaboradorIdadeAttribute() {
+
+		return date('Y-m-d')-$this->attributes['colaborador_data_nascimento'];
+
+	}
+
 }
