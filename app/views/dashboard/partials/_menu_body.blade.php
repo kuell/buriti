@@ -1,16 +1,15 @@
-<section class="content-header">
+<section class="content-header ">
     <h1>S.I.G.
         <small>
             Sistemas Integrados para Gerenciamento.
         </small>
     </h1>
 </section>
-<section class="content">
+<section class="col-md-10">
     <div class="row">
-
 @foreach(Auth::user()->menus()->where('menu_id', '<>', 2)->get() as $menu)
     @if(!$menu->menu->menu_pai)
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-md-3 col-xs-3">
             <!-- small box -->
             <div class="small-box bg-{{ $menu->menu->color }}">
                 <div class="inner">
@@ -29,7 +28,7 @@
                 </a>
             </div>
         </div>
-                <!-- ./col -->
+    		<!-- ./col -->
     @endif
 @endforeach
 </div>

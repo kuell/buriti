@@ -184,9 +184,11 @@ class OcorrenciasController extends \BaseController {
 	}
 
 	public function addMedicamento($ocorrencia_id) {
-		$input = Input::all()+['ocorrencia_id' => $ocorrencia_id];
+		$input       = Input::all()+['ocorrencia_id' => $ocorrencia_id];
+		$ocorrencia  = $this->ocorrencias->find($ocorrencia_id);
+		$medicamento = new OcorrenciaMedicacao();
 
-		$validate = Validator::make($input, $this->ocorrencias->medicamentos->rules);
+		$validate = Validator::make($input, $medicamento->rules);
 
 		if ($validate->passes()) {
 			OcorrenciaMedicacao::create($input);

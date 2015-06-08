@@ -62,4 +62,11 @@ class Ocorrencia extends Eloquent {
 			return $this->attributes['elemento_id'] = $elemento_id;
 		}
 	}
+
+	public function getHoraAttribute(){
+	$hora = explode(' ', $this->attributes['data_hora']);
+
+	return $hora[1];
+
+	}
 }

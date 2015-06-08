@@ -20,7 +20,7 @@
 					<td>{{{ $ocorrencia->colaborador->setor->descricao or "Não Identificado"}}}</td>
 					<td>{{{ $ocorrencia->conduta }}}</td>
 					<td>
-					{{ Form::select('tipo', ['', 'acidente'=>'Acidente','incidente'=>'Incidente', 'outros'=>'Outros'], $ocorrencia->tipo,['class'=>'form-control', 'onchange'=>"definir($ocorrencia->id,this.value)"]) }}</td>
+					{{ Form::select('tipo', ['', 'acidente'=>'Acidente','incidente'=>'Incidente', 'outros'=>'Outros'], $ocorrencia->tipo,['class'=>'form-control', 'onchange'=>"definir($ocorrencia->id,this.value, $ocorrencia->colaborador_id)"]) }}</td>
 					<td>{{ link_to_route('farmacia.ocorrencias.edit', 'Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}</td>
 				</tr>
 			@endforeach
@@ -45,7 +45,7 @@
 </style>
 
 	<script type="text/javascript">
-	function definir(ocorrencia, tipo){
+	function definir(ocorrencia, tipo, colaborador){
 		$(this).attr('disabled', 'disabled');
 		$('#progress').find('progress-bar').addClass('animate');
 		$('#progress').modal('show');
@@ -53,7 +53,7 @@
 		$.ajax({
 			url: '/farmacia/ocorrencias/'+ocorrencia,
 			type: 'PATCH',
-			data: {id: ocorrencia, 'tipo': tipo},
+			data: {id: ocorrencia, 'tipo': tipo, 'colaborador_id': colaborador},
 		})
 		.done(function(data) {
 			location.reload()
@@ -61,8 +61,8 @@
 		.fail(function() {
 			location.reload()
 		})
-		.always(function() {
-			console.log("complete");
+		.always(function(data) {
+			console.log(data);
 		});
 
 	}

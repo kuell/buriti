@@ -36,3 +36,7 @@ $(function(){
 
 	}).mask('99/99/9999 - 99/99/9999');
 })
+
+function print(route){
+	window.open(route, 'Print', 'channelmode=yes');
+}

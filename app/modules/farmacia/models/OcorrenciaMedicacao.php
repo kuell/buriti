@@ -5,7 +5,7 @@ class OcorrenciaMedicacao extends \Eloquent {
 	protected $fillable = [];
 	protected $table    = 'farmacia_ocorrencia_medicacaos';
 
-	protected $rules = [
+	public $rules = [
 		'medicacao_id' => 'required',
 		'qtd'          => 'required',
 		'medida'       => 'required'

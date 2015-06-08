@@ -2,9 +2,11 @@
 
 class InvestigacaoController extends \BaseController {
 	public $investigacao;
+	public $ocorrencias;
 
-	public function __construct(Investigacao $investigacao) {
+	public function __construct(Investigacao $investigacao, Ocorrencia $ocorrencia) {
 		$this->investigacao = $investigacao;
+		$this->ocorrencias = $ocorrencia;
 	}
 
 	/**
@@ -59,7 +61,7 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		$ocorrencia = [];
+		$ocorrencia = $this->ocorrencias->find($id);
 
 		return View::make('sesmt::investigacao.show', compact('ocorrencia'));
 	}

@@ -188,6 +188,17 @@ class MenuTableSeeder extends Seeder {
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
 				'color'      => 'yellow',
+			),
+			array(
+				'id'         => 16,
+				'descricao'  => 'Compras',
+				'url'        => 'compras',
+				'icone'      => 'glyphicon glyphicon-shopping-cart',
+				'indice'     => null,
+				'menu_pai'   => null,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => 'purple',
 			)
 		);
 
