@@ -49,7 +49,7 @@ class Colaborador extends Eloquent {
 			$d = explode('-', $this->attributes['data_admissao']);
 			return $d[2].'/'.$d[1].'/'.$d[0];
 		} else {
-			return null;
+			return 'NÃO INFORMADO';
 		}
 	}
 
@@ -112,7 +112,25 @@ class Colaborador extends Eloquent {
 	public function getFuncaoAttribute() {
 		$funcao = ColaboradorFuncao::where('colaborador_id', $this->attributes['id'])->orderBy('created_at', 'desc')->first();
 
-		return SetorFuncao::find($funcao['funcao_id'])['descricao'];
+		if (count($funcao) == 0) {
+			return 'NÃO INFORMADO';
+		} else {
+			return SetorFuncao::find($funcao['funcao_id'])['descricao'];
+		}
+	}
+
+	public function getIdadeAttribute() {
+		return date('Y-m-d')-$this->attributes['data_nascimento'];
+
+	}
+
+	public function getTempoEmpresaAttribute() {
+		if (empty($this->attributes['data_admissao'])) {
+			return '_____ anos';
+
+		} else {
+			return date('Y-m-d')-$this->attributes['data_admissao'].' anos';
+		}
 	}
 
 }

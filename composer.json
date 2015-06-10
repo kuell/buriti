@@ -10,7 +10,8 @@
 		"creolab/laravel-modules": "dev-master",
 		"maatwebsite/excel": "~1.2.1",
 		"way/generators": "~2.0",
-		"anouar/fpdf": "1.0.1"
+		"anouar/fpdf": "1.0.1",
+		"thujohn/pdf": "^1.0"
 	},
 	"autoload": {
 		"classmap": [

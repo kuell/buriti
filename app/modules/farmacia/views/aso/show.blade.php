@@ -68,7 +68,7 @@ $fpdf->Cell(38, 6, utf8_decode('Ergonomicos'), 'TLRB', 0, 'C');
 $fpdf->Cell(38, 6, utf8_decode('Acidentes'), 'TLRB', 0, 'C');
 $fpdf->Ln();
 
-$fpdf->SetFont('Arial', '', 6);
+$fpdf->SetFont('Arial', '', 5);
 
 $riscos = SetorPosto::riscos($aso->posto_id);
 if (!empty(count($riscos))) {
@@ -159,14 +159,14 @@ $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Parasitológico de fezes'), 'TLRB', 0
 $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Colesterol'), 'TLRB', 0, 'L');
 $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Raio X'), 'TLRB', 0, 'L');
 $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Sumario de Urina'), 'TLRB', 0, 'L');
-$fpdf->Cell(38, 6, '(     ) '.utf8_decode('Outros'), 'TLRB', 0, 'L');
+$fpdf->Cell(38, 6, '(     ) '.utf8_decode('Brucelose'), 'TLRB', 0, 'L');
 $fpdf->Ln();
 
 $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Espirometria'), 'TLRB', 0, 'L');
 $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Glicemia'), 'TLRB', 0, 'L');
 $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Trigliceridios'), 'TLRB', 0, 'L');
 $fpdf->Cell(38, 6, '(     ) '.utf8_decode('Eletrocardiograma'), 'TLRB', 0, 'L');
-$fpdf->Cell(38, 6, '', 'TLRB', 0, 'L');
+$fpdf->Cell(38, 6, '(     ) '.utf8_decode('VDRL'), 'TLRB', 0, 'L');
 $fpdf->Ln();
 
 $fpdf->SetFillColor(200);

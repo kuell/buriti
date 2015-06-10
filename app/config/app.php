@@ -125,6 +125,7 @@ return array(
 		'Maatwebsite\Excel\ExcelServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Anouar\Fpdf\FpdfServiceProvider',
+		'Thujohn\Pdf\PdfServiceProvider',
 	),
 
 	/*
@@ -193,6 +194,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
 		'Fpdf'              => 'Anouar\Fpdf\Fpdf',
+		'PDF'               => 'Thujohn\Pdf\PdfFacade',
 	),
 
 );

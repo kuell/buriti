@@ -6,7 +6,7 @@ class InvestigacaoController extends \BaseController {
 
 	public function __construct(Investigacao $investigacao, Ocorrencia $ocorrencia) {
 		$this->investigacao = $investigacao;
-		$this->ocorrencias = $ocorrencia;
+		$this->ocorrencias  = $ocorrencia;
 	}
 
 	/**
