@@ -59,8 +59,11 @@ class Aso extends \Eloquent {
 			$sexo = $this->attributes['colaborador_sexo'];
 		}
 
-		return $sexo;
-
+		if ($sexo) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	public function getColaboradorSexoDescricaoAttribute() {

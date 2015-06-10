@@ -22,7 +22,7 @@ class AsoController extends \BaseController {
 			echo "<script>window.open('/farmacia/aso/".Input::get('id')."', 'print','changemode=yes');</script>";
 		}
 
-		$asos = $this->asos->all();
+		$asos = $this->asos->where('situacao', '<>', 'fechado')->get();
 
 		return View::make('farmacia::aso.index', compact('asos'));
 	}
