@@ -62,13 +62,13 @@ $fpdf->Ln();
 $fpdf->SetFont('Arial', '', 9);
 $fpdf->SetFillColor(255);
 $fpdf->Cell(38, 6, utf8_decode('Físicos'), 'TLRB', 0, 'C');
-$fpdf->Cell(38, 6, utf8_decode('Químicos'), 'TLRB', 0, 'C');
-$fpdf->Cell(38, 6, utf8_decode('Biológicos'), 'TLRB', 0, 'C');
-$fpdf->Cell(38, 6, utf8_decode('Ergonomicos'), 'TLRB', 0, 'C');
-$fpdf->Cell(38, 6, utf8_decode('Acidentes'), 'TLRB', 0, 'C');
+$fpdf->Cell(28, 6, utf8_decode('Químicos'), 'TLRB', 0, 'C');
+$fpdf->Cell(28, 6, utf8_decode('Biológicos'), 'TLRB', 0, 'C');
+$fpdf->Cell(43, 6, utf8_decode('Ergonomicos'), 'TLRB', 0, 'C');
+$fpdf->Cell(53, 6, utf8_decode('Acidentes'), 'TLRB', 0, 'C');
 $fpdf->Ln();
 
-$fpdf->SetFont('Arial', '', 6);
+$fpdf->SetFont('Arial', '', 5);
 
 $riscos = SetorPosto::riscos($aso->posto_id);
 if (!empty(count($riscos))) {
@@ -90,43 +90,46 @@ if (!empty(count($riscos))) {
 			} else {
 				$marca = '(     ) ';
 			}
-			$fpdf->Cell(38, 6, $marca.utf8_decode($riscos['Quimico'][$i]), 'TLRB', 0, 'L');
+			$fpdf->Cell(28, 6, $marca.utf8_decode($riscos['Quimico'][$i]), 'TLRB', 0, 'L');
 
 		} else {
-			$fpdf->Cell(38, 6, '', 'TLRB', 0, 'L');
+			$fpdf->Cell(28, 6, '', 'TLRB', 0, 'L');
 		}
-		if (!empty($riscos['Biológico'][$i])) {
-			if (SesmtPostoRisco::where('descricao', $riscos['Biológico'][$i])->where('posto_id', $aso->posto_id)->count()) {
+		if (!empty($riscos['Biologico'][$i])) {
+			if (SesmtPostoRisco::where('descricao', $riscos['Biologico'][$i])->where('posto_id', $aso->posto_id)->count()) {
 				$marca = '(  X  ) ';
 			} else {
 				$marca = '(     ) ';
 			}
-			$fpdf->Cell(38, 6, $marca.utf8_decode($riscos['Biológico'][$i]), 'TLRB', 0, 'L');
+			$fpdf->Cell(28, 6, $marca.utf8_decode($riscos['Biologico'][$i]), 'TLRB', 0, 'L');
 
 		} else {
-			$fpdf->Cell(38, 6, '', 'TLRB', 0, 'L');
+			$fpdf->Cell(28, 6, '', 'TLRB', 0, 'L');
 		}
+		$fpdf->SetFont('Arial', '', 4);
 		if (!empty($riscos['Ergonomico'][$i])) {
 			if (SesmtPostoRisco::where('descricao', $riscos['Ergonomico'][$i])->where('posto_id', $aso->posto_id)->count()) {
 				$marca = '(  X  ) ';
 			} else {
 				$marca = '(     ) ';
 			}
-			$fpdf->Cell(38, 6, $marca.utf8_decode($riscos['Ergonomico'][$i]), 'TLRB', 0, 'L');
+			$fpdf->Cell(43, 6, $marca.utf8_decode($riscos['Ergonomico'][$i]), 'TLRB', 0,1, 'L');
 
 		} else {
-			$fpdf->Cell(38, 6, '', 'TLRB', 0, 'L');
+			$fpdf->Cell(43, 6, '', 'TLRB', 0, 'L');
 		}
-		if (!empty($riscos['Acidentes'][$i])) {
-			if (SesmtPostoRisco::where('descricao', $riscos['Acidentes'][$i])->where('posto_id', $aso->posto_id)->count()) {
+		$fpdf->SetFont('Arial', '', 5);
+
+		if (!empty($riscos['Acidente'][$i])) {
+			if (SesmtPostoRisco::where('descricao', $riscos['Acidente'][$i])->where('posto_id', $aso->posto_id)->count()) {
 				$marca = '(  X  ) ';
 			} else {
 				$marca = '(     ) ';
 			}
-			$fpdf->Cell(38, 6, $marca.utf8_decode($riscos['Acidentes'][$i]), 'TLRB', 0, 'L');
+			$fpdf->Cell(53, 6, $marca.utf8_decode($riscos['Acidente'][$i]), 'TLRB', 0, 1, 'L');
 
 		} else {
-			$fpdf->Cell(38, 6, '', 'TLRB', 0, 'L');
+			$fpdf->Cell(53, 6, '', 'TLRB', 0, 'L');
 		}
 
 		$fpdf->Ln();
