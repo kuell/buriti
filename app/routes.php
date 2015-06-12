@@ -51,6 +51,15 @@ Route::group(array('before' => 'auth', 'prefix' => 'restfull'), function () {
 			});
 	});
 
+Route::group(['before' => 'auth'], function () {
+		Route::get('/setors/find/{id}/postoTrabalho', function ($setor_id) {
+				$setor = Setor::find($setor_id);
+
+				return Response::json($setor->postoTrabalhos);
+			});
+
+	});
+
 Route::post('suporte', function () {
 		$input = array_except(Input::all(), '_token');
 		$input['usuario'] = Auth::user()->user;

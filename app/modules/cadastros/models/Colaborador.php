@@ -44,6 +44,15 @@ class Colaborador extends Eloquent {
 
 	}
 
+	public function getMonitoramentoAttribute() {
+		if (!empty($this->attributes['monitoramento']) && $this->attributes['monitoramento'] == true) {
+			return 'Sim';
+		} else {
+			return 'Não';
+		}
+
+	}
+
 	public function getPostoIdAttribute() {
 		$posto = ColaboradorPosto::where('colaborador_id', $this->attributes['id'])->orderBy('id', 'desc')->first();
 		if (empty($posto)) {
@@ -55,13 +64,13 @@ class Colaborador extends Eloquent {
 	}
 
 	public function getPostoDescricaoAttribute() {
-		$posto = SetorPosto::find($this->getPostoIdAttribute());
-		if (empty($posto)) {
-			return null;
-		} else {
-			return $posto;
+		$posto = new SetorPosto();
+
+		if (!empty($this->getPostoIdAttribute())) {
+			$posto = SetorPosto::find($this->getPostoIdAttribute());
 		}
 
+		return $posto;
 	}
 
 	public function getDataAdmissaoAttribute() {
@@ -151,6 +160,15 @@ class Colaborador extends Eloquent {
 		} else {
 			return date('Y-m-d')-$this->attributes['data_admissao'].' anos';
 		}
+	}
+
+	public function getSituacaoAttribute() {
+		if (empty($this->attributes['situacao'])) {
+			return 'Ativo';
+		} else {
+			return $this->attributes['situacao'];
+		}
+
 	}
 
 }

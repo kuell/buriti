@@ -35,7 +35,7 @@ Class ColaboradorReport extends Fpdf {
 
 				foreach ($colaborador->ocorrencias as $ocorrencia) {
 					$this->MultiCell(190, 4, str_replace('
-		', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).' | '.$ocorrencia->profissional), 'LTBR', 'L');
+		', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).' | '.$ocorrencia->profissional.'-'.$ocorrencia->monitoramento), 'LTBR', 'L');
 				}
 			}
 			if (count($colaborador->atestados)) {

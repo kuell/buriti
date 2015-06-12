@@ -15,12 +15,6 @@ Route::group(array('before'                => 'auth|permissao'), function () {
 		Route::post('/setors/posto/{id}/atividades', ['as'       => 'setors.posto.atividade.add', 'uses'       => 'SetorsController@postAtividades']);
 		Route::get('/setors/posto/atividades/{id}/delete', ['as' => 'setors.posto.atividade.delete', 'uses' => 'SetorsController@destroyAtividade']);
 
-		Route::get('/setors/find/{id}/postoTrabalho', function ($setor_id) {
-				$setor = Setor::find($setor_id);
-
-				return Response::json($setor->postoTrabalhos);
-			});
-
 		Route::get('/colaboradors/find/{matricula}', function ($matricula) {
 				$colaborador = Colaborador::where('codigo_interno', $matricula)->first();
 				if (empty($colaborador)) {

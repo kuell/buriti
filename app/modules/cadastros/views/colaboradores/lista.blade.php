@@ -1,5 +1,5 @@
 @if($colaboradores->count())
-<div class="row col-md-10">
+<div class="row col-md-12">
 	<table class="table table-hover" id="colaboradors">
 		<thead>
 			<tr>
