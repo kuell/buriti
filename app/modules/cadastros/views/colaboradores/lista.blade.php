@@ -1,13 +1,12 @@
 @if($colaboradores->count())
-<div class="row col-md-12">
+<div class="row col-md-10">
 	<table class="table table-hover" id="colaboradors">
 		<thead>
 			<tr>
 				<th>#</th>
 				<th>Nome</th>
 				<th>Setor</th>
-				<th>Função</th>
-				<th>Interno</th>
+				<th>Posto de Trabalho</th>
 				<th>Matricula</th>
 				<th>Situação</th>
 				<th></th>
@@ -16,11 +15,10 @@
 		<tbody>
 			@foreach($colaboradores as $colaborador)
 				<tr>
-					<td>{{{ $colaborador->codigo_interno }}}</td>
+					<td>{{{ $colaborador->id }}}</td>
 					<td>{{{ $colaborador->nome }}}</td>
 					<td>{{{ $colaborador->setor->descricao or "Não Definido"}}}</td>
-					<td>{{{ $colaborador->funcao }}}</td>
-					<td>{{{ $colaborador->interno }}}</td>
+					<td>{{{ $colaborador->posto_descricao->descricao or null }}}</td>
 					<td>{{{ $colaborador->codigo_interno }}}</td>
 					<td>{{{ $colaborador->situacao or 'Ativo' }}}</td>
 					<td>
@@ -28,7 +26,6 @@
 						{{ link_to_route('colaboradors.show', ' ', [$colaborador->id, 'f'=>1], ['class'=>'btn btn-warning glyphicon glyphicon-print', 'target'=> '_new']) }}
 					</td>
 				</tr>
-
 			@endforeach
 
 		</tbody>

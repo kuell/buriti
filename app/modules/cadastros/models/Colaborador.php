@@ -40,7 +40,27 @@ class Colaborador extends Eloquent {
 	}
 
 	public function postoTrabalho() {
-		return $this->belongsTo('ColaboradorPosto', 'colaborador_id');
+		return $this->hasMany('ColaboradorPosto', 'colaborador_id');
+
+	}
+
+	public function getPostoIdAttribute() {
+		$posto = ColaboradorPosto::where('colaborador_id', $this->attributes['id'])->orderBy('id', 'desc')->first();
+		if (empty($posto)) {
+			return null;
+		} else {
+			return $posto->posto_id;
+		}
+
+	}
+
+	public function getPostoDescricaoAttribute() {
+		$posto = SetorPosto::find($this->getPostoIdAttribute());
+		if (empty($posto)) {
+			return null;
+		} else {
+			return $posto;
+		}
 
 	}
 

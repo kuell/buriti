@@ -42,6 +42,11 @@
         	{{ Form::select('setor_id', array(""=>'Selecione ...')+Setor::all()->lists('descricao','id'), null, array('class'=>'form-control', 'required') ) }}
       	</div>
 
+      	<div class="form-group col-md-4">
+        	{{ Form::label('posto_id', 'Posto de Trabalho: ') }}
+        	{{ Form::select('posto_id', [], null, array('class'=>'form-control', 'required') ) }}
+      	</div>
+
       	<div class="form-group col-md-3">
         	{{ Form::label('interno', 'O Colaborador é Interno? ') }}
         	{{ Form::select('interno', array('0'=>'NÃO', '1'=>'SIM'), null, array('class'=>'form-control', 'required') ) }}
@@ -53,7 +58,7 @@
       	</div>
       	<div class="form-group col-md-3">
             {{ Form::label('data_admissao', 'Data de Admissão: ') }}
-            {{ Form::text('data_admissao', null, array('class'=>'form-control data', 'required') ) }}
+            {{ Form::text('data_admissao', null, array('class'=>'form-control data') ) }}
        	</div>
 		<div class="form-group col-md-3">
         	{{ Form::label('funcao', 'Função: ') }}
@@ -67,3 +72,71 @@
 
   </fieldset>
 </div>
+
+@section('scripts')
+	<script type="text/javascript">
+		$(function(){
+		$('select[name=setor_id]').chosen()
+		$('select[name=posto_id]').chosen()
+
+		$('select[name=setor_id]').chosen().change(function() {
+				$.getJSON('/setors/find/'+$(this).val()+'/postoTrabalho', function(data){
+					$("select[name=posto_id]").empty().trigger("chosen:updated");
+
+					if(data.length > 0){
+						options += '<option value=""> Selecione ... </option>';
+						$.each(data, function(key, val){
+							options += '<option value="' + val.id + '">' + val.descricao + '</option>';
+						})
+
+						$("select[name=posto_id]").append(options);
+						$('select[name=posto_id]').chosen().trigger("chosen:updated")
+
+
+						}
+						else{
+
+							var options = "<option>Nenhum posto retornado </option>";
+							$("select[name=posto_id]").append(options);
+							$('select[name=posto_id]').chosen().trigger("chosen:updated")
+						}
+					})
+
+				})
+
+			@if(!empty($colaborador))
+				$.getJSON('/setors/find/'+{{ $colaborador->setor_id }}+'/postoTrabalho', function(data){
+					$("select[name=posto_id]").empty().trigger("chosen:updated");
+
+					if(data.length > 0){
+					options += '<option value=""> Selecione ... </option>';
+
+						$.each(data, function(key, val){
+							if(val.id == '{{ $colaborador->posto_id }}'){
+								options += '<option value="' + val.id + '" selected >' + val.descricao + '</option>';
+							}
+							else{
+								options += '<option value="' + val.id + '">' + val.descricao + '</option>';
+							}
+
+
+						})
+
+						$("select[name=posto_id]").append(options);
+						$('select[name=posto_id]').chosen().trigger("chosen:updated")
+
+
+						}
+						else{
+
+							var options = "<option>Nenhum posto retornado </option>";
+							$("select[name=posto_id]").append(options);
+							$('select[name=posto_id]').chosen().trigger("chosen:updated")
+						}
+					})
+
+			@endif
+
+			})
+	</script>
+@stop

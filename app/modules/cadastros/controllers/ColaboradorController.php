@@ -104,6 +104,12 @@ class ColaboradorController extends \BaseController {
 
 		if ($validate->passes()) {
 			$colaborador = $this->colaboradors->find($id);
+			//-- Relaciona o posto de trabalho ao colaborador se o posto de trabalho não estiver vasio e se o colaborador ja não estiver cadastrado neste posto --//
+			if (!empty($input['posto_id']) && $colaborador->posto_id != $input['posto_id']) {
+				$colaborador->postoTrabalho()->create(['colaborador_id' => $colaborador->id, 'posto_id' => $input['posto_id']]);
+			}
+			unset($input['posto_id']);
+
 			$colaborador->update($input);
 
 			return Redirect::route('colaboradors.index');
