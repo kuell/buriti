@@ -14,7 +14,7 @@
 		<tr>
 			<td>{{{ $setor->id }}}</td>
 			<td>{{{ $setor->descricao }}}</td>
-			<td>{{{ $setor->agrupamento}}}</td>
+			<td>{{{ $setor->agrupamento }}}</td>
 			<td>{{{ $setor->situacao == 1 ? 'ativo' : 'inativo' }}}</td>
 			<td>
 				{{ link_to_route('setors.edit', '', $setor->id, array('class'=>'btn glyphicon glyphicon-pencil', 'title'=>'alterar')) }}

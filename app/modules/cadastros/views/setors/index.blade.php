@@ -7,8 +7,8 @@
         <div class="box-header">
             <i class="ion ion-clipboard"></i>
             <h4 class="box-title">Setores</h4>
-            <div class="box-footer clearfix no-border">
-                {{ Form::adicionar('/setors/create') }}
+            <div class="clearfix no-border">
+                   {{ Form::adicionar('/setors/create') }}
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">

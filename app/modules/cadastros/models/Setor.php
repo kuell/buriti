@@ -34,10 +34,13 @@ class Setor extends Eloquent {
 		return $agrupamentos;
 	}
 
-	public function getAgrupamntoAttribute($agrupamento) {
-		$agrupamentos = ['Administração', 'Produção', 'Manutenção', 'Controle de Qualidade', 'Saúde e Segurança', 'S.I.F.', 'Aux. de Produção', 'Transporte'];
+	public function getAgrupamentoAttribute() {
+		$agrupamentos = [0 => 'Administração', 1 => 'Produção', 2 => 'Manutenção', 3 => 'Controle de Qualidade', 4 => 'Saúde e Segurança', 4 => 'S.I.F.', 5 => 'Aux. de Produção', 6 => 'Transporte'];
 
-		return $this->attributes['agrupamento'] = $agrupamentos[$agrupamento];
+		if (!empty($agrupamentos[$this->attributes['agrupamento']])) {
+			return $agrupamentos[$this->attributes['agrupamento']];
+		}
+
 	}
 
 }

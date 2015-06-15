@@ -12,29 +12,30 @@
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
+        	<div class="well col-md-12">
+			{{-- Inicio Formulario filtro por data --}}
+			<div>
+				{{ Form::open(['class'=>'navbar-form navbar-left']) }}
 
-		{{-- Inicio Formulario filtro por data --}}
-		<div>
-			{{ Form::open(['class'=>'navbar-form navbar-left well']) }}
+				{{ Form::label('Periodo: ', null, ['class'=>'nav-brand'])}}
 
-			{{ Form::label('Periodo: ', null, ['class'=>'nav-brand'])}}
+				<div class="form-group">
+						{{ Form::text('periodo', null, ['class'=>'form-control periodo', 'size'=>'30', 'placeholder'=>'Periodo']) }}
+				</div>
+				<div class="form-group">
+					{{ Form::select('colaborador_id', [''=>'Selecione ...']+Colaborador::all()->lists('nome', 'id'), null, ['class'=>'form-control']) }}
+				</div>
+					{{ Form::button('Gerar', ['class'=>'btn btn-primary', 'id'=>'gerar_relatorio']) }}
 
-			<div class="form-group">
-					{{ Form::text('periodo', null, ['class'=>'form-control periodo', 'size'=>'30', 'placeholder'=>'Periodo']) }}
+				</div>
+
+				{{ Form::close() }}
+
+			{{-- Fim formulario filtro por data --}}
 			</div>
-			<div class="form-group">
-				{{ Form::select('colaborador_id', [''=>'Selecione ...']+Colaborador::all()->lists('nome', 'id'), null, ['class'=>'form-control']) }}
-			</div>
-				{{ Form::button('Gerar', ['class'=>'btn btn-primary', 'id'=>'gerar_relatorio']) }}
-
-			</div>
-
-			{{ Form::close() }}
-		</div>
-		{{-- Fim formulario filtro por data --}}
 
             @include('cadastros::colaboradores.lista')
-        </div>
+		</div>
     </div>
 </section>
 @endsection

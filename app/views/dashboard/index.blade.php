@@ -39,7 +39,7 @@
             </aside>
             <!-- Right side column. Contains the navbar and content of the page -->
 
-            <aside class="right-side col-md-11 col-sm-11">
+            <aside class="right-side col-md-10 col-sm-10 col-xs-10">
 
 
                 @if(Request::segment(1) == 'dashboard')

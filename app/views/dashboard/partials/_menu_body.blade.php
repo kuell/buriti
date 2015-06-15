@@ -9,7 +9,7 @@
     <div class="row">
 @foreach(Auth::user()->menus()->where('menu_id', '<>', 2)->get() as $menu)
     @if(!$menu->menu->menu_pai)
-        <div class="col-md-3 col-xs-3">
+        <div class="col-md-4 col-xs-4">
             <!-- small box -->
             <div class="small-box bg-{{ $menu->menu->color }}">
                 <div class="inner">
