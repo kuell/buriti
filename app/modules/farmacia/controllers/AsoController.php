@@ -167,8 +167,9 @@ class AsoController extends \BaseController {
 
 						if ($validaColaborador->passes()) {
 							$col = $this->colaborador->create($colaborador);
-
 							$input['colaborador_id'] = $col->id;
+							$col->postoTrabalho()->create(['posto_id' => $input['posto_id']]);
+
 						} else {
 							return Redirect::route('farmacia.aso.edit', $id)
 								->withInput()
