@@ -13,3 +13,6 @@
 	{{ HTML::script('js/plugins/daterangepicker/daterangepicker.js') }}
 	{{ HTML::script('js/plugins/formValidation/js/formValidation.js') }}
 	{{ HTML::script('js/plugins/formValidation/js/framework/bootstrap.js') }}
+
+	{{ HTML::script('js/plugins/datatables/jquery.dataTables.js') }}
+	{{ HTML::script('js/plugins/datatables/dataTables.bootstrap.js') }}

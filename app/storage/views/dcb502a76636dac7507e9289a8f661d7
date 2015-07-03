@@ -22,3 +22,8 @@
 	<?php echo HTML::script('js/plugins/formValidation/js/formValidation.js'); ?>
 
 	<?php echo HTML::script('js/plugins/formValidation/js/framework/bootstrap.js'); ?>
+
+
+	<?php echo HTML::script('js/plugins/datatables/jquery.dataTables.js'); ?>
+
+	<?php echo HTML::script('js/plugins/datatables/dataTables.bootstrap.js'); ?>

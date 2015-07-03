@@ -24,7 +24,7 @@
 					{{ Form::text('colaborador_matricula', null, ['class'=>'form-control'], 'required') }}
 				</div>
 				@endif
-				<div class="col-md-9">
+				<div class="col-md-10">
 					{{ Form::label('Nome do Colaborador: ')}}
 					<div class="col-md-12 colaborador">
 

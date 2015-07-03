@@ -1,6 +1,6 @@
 <?php
 
-Class ColaboradorReport extends Fpdf {
+Class Rel extends Fpdf {
 
 	function Header() {
 		$this->SetFont('Arial', 'B', 16);
@@ -40,7 +40,7 @@ Class ColaboradorReport extends Fpdf {
 	}
 }
 
-$fpdf = new ColaboradorReport();
+$fpdf = new ColaboradorView();
 $fpdf->AddPage();
 $fpdf->Dados($setor);
 $fpdf->Output();

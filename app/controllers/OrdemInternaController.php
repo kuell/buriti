@@ -1,6 +1,6 @@
 <?php
 
-class OrdemInternaController extends \BaseController {
+class OrdemInternaController1 extends \BaseController {
 
 	private $ordem_internas;
 	private $rules = [];

@@ -30,7 +30,7 @@
 		<div class="col-md-3 hidden" id="elemento_add">
 			<div class="col-md-12">
 				{{ Form::text('elemento_add',  null, ['class'=>'form-control']) }}
-				{{ Form::button('Inclui', ['class'=>'btn btn-primary btn-sm', 'id'=>'incluir'])}}
+				{{ Form::button('Inclui', ['class'=>'btn btn-primary', 'id'=>'incluir'])}}
 			</div>
 		</div>
 	</div>

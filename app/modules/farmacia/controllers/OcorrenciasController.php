@@ -14,7 +14,27 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$ocorrencias = $this->ocorrencias->whereNull('tipo')->whereRaw('date(data_hora) = date(now())')->get();
+		$ocorrencias = $this->ocorrencias;
+
+		if (!empty(Input::get('id'))) {
+			$ocorrencias = $ocorrencias->where('id', Input::get('id'))->get();
+		} else {
+			$periodo = 'date(data_hora) = date(now())';
+			if (!empty(Input::get('periodo'))) {
+				$periodo    = explode(' - ', Input::get('periodo'));
+				$periodo[0] = implode('-', array_reverse(explode('/', $periodo[0])));
+				$periodo[1] = implode('-', array_reverse(explode('/', $periodo[1])));
+
+				$periodo = "date(data_hora) between '".$periodo[0]."' and '".$periodo[1]."'";
+			}
+			$ocorrencias = $this->ocorrencias->whereRaw($periodo);
+
+			if (empty(Input::get('colaborador_id'))) {
+				$ocorrencias = $ocorrencias->get();
+			} else {
+				$ocorrencias = $ocorrencias->where('colaborador_id', Input::get('colaborador_id'))->get();
+			}
+		}
 
 		return View::make('farmacia::ocorrencias.index', compact('ocorrencias'));
 
@@ -210,6 +230,41 @@ class OcorrenciasController extends \BaseController {
 		$medicamento->delete();
 
 		return Redirect::route('farmacia.ocorrencias.medicamentos', $ocorrencia_id);
+
+	}
+
+	public function getAtestados($id) {
+		$ocorrencia = $this->ocorrencias->find($id);
+		$atestado   = new OcorrenciaAtestado();
+		$lista      = true;
+
+		if (!empty(Input::get('lista'))) {
+			$lista = false;
+		} else if (!empty(Input::get('id'))) {
+			$atestado = $ocorrencia->atestados()->find(Input::get('id'));
+		}
+
+		return View::make('farmacia::ocorrencias.elementos.atestados', compact('ocorrencia'), compact('atestado'))->with('lista', $lista);
+	}
+
+	public function addAtestados($id) {
+		$input                       = Input::all();
+		$ocorrencia                  = $this->ocorrencias->find($id);
+		$periodo                     = explode(' - ', $input['periodo_afastamento']);
+		$input['inicio_afastamento'] = $periodo[0];
+		$input['fim_afastamento']    = $periodo[1];
+		unset($input['periodo_afastamento']);
+
+		if (!empty(Input::get('atestado_id'))) {
+			$atestado = $ocorrencia->atestados()->find(Input::get('atestado_id'));
+			unset($input['atestado_id']);
+			$atestado->update($input);
+
+		} else {
+			$ocorrencia->atestados()->create($input);
+		}
+
+		return Redirect::route('farmacia.ocorrencias.atestados', [$id, 'lista' => $id]);
 
 	}
 

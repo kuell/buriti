@@ -24,6 +24,11 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
+
+@include('dashboard.partials._scripts_js')
+
+@yield('scripts')
+
       </head>
       <body class="skin-blue">
 
@@ -51,12 +56,6 @@
         </div>
         <!-- ./wrapper -->
         @include('dashboard.partials._modal_suporte')
-
-        @include('dashboard.partials._scripts_js')
-
-        <section class="content">
-			@yield('scripts')
-        </section>
 
 
         <script type="text/javascript">

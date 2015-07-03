@@ -14,6 +14,11 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     {{ HTML::style('css/styles.css') }}
+
+    @include('dashboard.partials._scripts_js')
+
+    @yield('scripts')
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top col-md-12" role="navigation">
@@ -76,19 +81,7 @@
 
 <!-- script references -->
 
-{{ HTML::script('js/jquery.min.js') }}
 
-{{ HTML::script('js/bootstrap.min.js') }}
-{{ HTML::script('js/jquery.maskedinput.js') }}
-{{ HTML::script('css/bootstrap-chosen/chosen.jquery.js') }}
-{{ HTML::script('js/plugins/daterangepicker/daterangepicker.js') }}
-{{ HTML::script('js/scripts.js') }}
-{{ HTML::script('js/conf.js') }}
-{{ HTML::script('js/plugins/daterangepicker/daterangepicker.js') }}
-{{ HTML::script('js/plugins/formValidation/js/formValidation.js') }}
-{{ HTML::script('js/plugins/formValidation/js/framework/bootstrap.js') }}
-
-@yield('scripts')
 
 </body>
 </html>

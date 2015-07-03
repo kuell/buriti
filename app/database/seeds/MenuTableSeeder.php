@@ -200,6 +200,17 @@ class MenuTableSeeder extends Seeder {
 				'updated_at' => 'now()',
 				'color' => 'purple',
 			),
+			array(
+				'id' => 17,
+				'descricao' => 'Fichas',
+				'url' => '/fichas',
+				'icone' => 'fa-list-alt',
+				'indice' => null,
+				'menu_pai' => 2,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color' => null,
+			)
 		);
 
 		DB::table('menus')->insert($menu);

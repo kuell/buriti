@@ -6,8 +6,7 @@
 				<th>Data/Hora</th>
 				<th>Colaborador</th>
 				<th>Setor</th>
-				<th>Conduta</th>
-				<th>Tipo Ocorrencia</th>
+				<th>Monitoramento</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -18,10 +17,10 @@
 					<td>{{{ $ocorrencia->data_hora }}}</td>
 					<td>{{{ $ocorrencia->colaborador->nome }}}</td>
 					<td>{{{ $ocorrencia->colaborador->setor->descricao or "Não Identificado"}}}</td>
-					<td>{{{ $ocorrencia->conduta }}}</td>
+					<td>{{{ $ocorrencia->monitoramento }}}</td>
 					<td>
-					{{ Form::select('tipo', ['', 'acidente'=>'Acidente','incidente'=>'Incidente', 'outros'=>'Outros'], $ocorrencia->tipo,['class'=>'form-control', 'onchange'=>"definir($ocorrencia->id,this.value, $ocorrencia->colaborador_id)"]) }}</td>
-					<td>{{ link_to_route('farmacia.ocorrencias.edit', 'Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}</td>
+						{{ link_to_route('farmacia.ocorrencias.edit', 'Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}
+					</td>
 				</tr>
 			@endforeach
 

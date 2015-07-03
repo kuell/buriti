@@ -1,5 +1,5 @@
 <?php
-Class ColaboradorReport extends Fpdf {
+Class ColaboradorView extends Fpdf {
 	function Dados($colaborador) {
 		$this->SetFont('Arial', 'B', 16);
 		$this->SetFillColor(200);
@@ -66,7 +66,7 @@ Class ColaboradorReport extends Fpdf {
 	}
 }
 
-$fpdf = new ColaboradorReport();
+$fpdf = new ColaboradorView();
 $fpdf->AddPage();
 $fpdf->Dados($colaborador);
 $fpdf->Output();

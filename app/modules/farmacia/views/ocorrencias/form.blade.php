@@ -26,24 +26,24 @@
 
 @endif --}}
 
-<fieldset ng-app="App">
-	<div class="form-group col-md-12">
+<fieldset>
+	<div class="form-group">
 		<div class="col-md-12">
 			{{ Form::label('Natureza da Lesão: ') }}
 		</div>
-		<div class="form-group col-md-3">
+		<div class="col-md-3 col-sm-3">
 			{{ Form::select('elemento_id', [''=>'Selecione ...']+FarmaciaElemento::whereNull('elemento_pai')->lists('descricao', 'id'), null, ['class'=>'form-control', 'id'=>'elemento1'] ) }}
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-3 col-sm-3">
 			{{ Form::select('elemento', [], null, ['class'=>'form-control hidden', 'id'=>'elemento2'])}}
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-3 col-sm-3">
 			{{ Form::select('elemento', [], null, ['class'=>'form-control hidden', 'id'=>'elemento3'])}}
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-3 col-sm-3">
 			{{ Form::select('elemento', [], null, ['class'=>'form-control hidden', 'id'=>'elemento4'])}}
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-12 col-sm-12">
 			{{ Form::button('Limpa Seleção', ['class'=>'btn btn-success', 'id'=>'limpa_select'])}}
 		</div>
 		{{ Form::hidden('elemento_id', null)}}
@@ -51,46 +51,51 @@
 
 	</div>
 
-	<div class="form-group col-md-12" ng-controller="OcorrenciaCtrl">
-	     <div class="form-group col-md-3">
+	<div class="form-group">
+	     <div class="col-md-3 col-sm-3">
 	      {{ Form::label('data', 'Data e Hora: ') }}
 	      {{ Form::text('data_hora', date('d/m/Y H:i:s'), array('class'=>'form-control data_hora', 'required') ) }}
 	    </div>
 
-		<div class="form-group col-md-2">
+		<div class="col-md-2 col-sm-2">
 	      {{ Form::label('monitoramento', 'Monitoramento?') }}
 	      {{ Form::select('monitoramento', ['Não', 'Sim'], null, array('class'=>'form-control', 'required') ) }}
 	    </div>
+	    <div class="col-md-3 col-sm-3">
+	      {{ Form::label('sesmt', 'Encaminhar para SESMT?') }}
+	      {{ Form::select('sesmt', ['Não', 'Sim'], null, array('class'=>'form-control', 'required') ) }}
+	    </div>
+	</div>
 
-	    <div class="form-group col-md-8">
+	<div class="form-group">
+	    <div class="col-md-12 col-sm-12">
 	      {{ Form::label('colaborador_id', 'Matrícula - Nome do Colaborador: ') }}
 	      {{ Form::select('colaborador_id', array(''=>'Selecione ...')+Colaborador::ativos()->lists('nome','id'), null, array('class'=>'form-control', 'required') ) }}
 	    </div>
 	</div>
 
 
-  <div class="col-md-12">
-    <div class="form-group col-md-6">
-      {{ Form::label('relato', 'Relato da ocorrencia: ') }}
-      {{ Form::textarea('relato', null, array('class'=>'form-control', 'rows'=>4) ) }}
-    </div>
-    <div class="form-group col-md-6">
-      {{ Form::label('diagnostico', 'Diagnóstico: ') }}
-      {{ Form::textarea('diagnostico', null, array('class'=>'form-control', 'rows'=>4) ) }}
-    </div>
-  </div>
+  	<div class="form-group">
+    	<div class="col-md-6 col-sm-6">
+      		{{ Form::label('relato', 'Relato da ocorrencia: ') }}
+      		{{ Form::textarea('relato', null, array('class'=>'form-control', 'rows'=>4) ) }}
+    	</div>
+    	<div class="col-md-6 col-sm-6">
+      		{{ Form::label('diagnostico', 'Diagnóstico: ') }}
+      		{{ Form::textarea('diagnostico', null, array('class'=>'form-control', 'rows'=>4) ) }}
+    	</div>
+  	</div>
 
-  <div class="form-group col-md-12">
-
-    <div class="form-group col-md-6">
-      {{ Form::label('destino', 'Destino: ') }}
-      {{ Form::text('encaminhamento', null, array('class'=>'form-control', 'rows'=>4) ) }}
-    </div>
-	 <div class="form-group col-md-5">
-	    {{ Form::label('profissional', 'Profissional: ') }}
-	    {{ Form::text('profissional', null, array('class'=>'form-control', 'required') ) }}
-	  </div>
-  </div>
+  	<div class="form-group">
+	    <div class="col-md-6 col-sm-6">
+	      {{ Form::label('destino', 'Destino: ') }}
+	      {{ Form::text('encaminhamento', null, array('class'=>'form-control', 'rows'=>4) ) }}
+	    </div>
+		<div class="col-md- col-sm-6">
+			{{ Form::label('profissional', 'Profissional: ') }}
+			{{ Form::text('profissional', null, array('class'=>'form-control', 'required') ) }}
+		</div>
+  	</div>
   </fieldset>
 
 @section('scripts')

@@ -40,22 +40,20 @@ Route::group(array('before' => 'auth|permissao'), function () {
  *
  **/
 
-Route::group(array('before' => 'auth', 'prefix' => 'restfull'), function () {
-		Route::get('cid/{cod}', function ($cod) {
+Route::group(['before' => 'auth'], function () {
+		Route::get('/setors/find/{id}/postoTrabalho', function ($setor_id) {
+				$setor = Setor::find($setor_id);
+
+				return Response::json($setor->postoTrabalhos);
+			});
+
+		Route::get('/farmacia/{cod}/cid', function ($cod) {
 				$cid = FarmaciaCid::where('cod_cid', '=', $cod)->get();
 				if ($cid->count() == 0) {
 					return 0;
 				} else {
 					return $cid;
 				}
-			});
-	});
-
-Route::group(['before' => 'auth'], function () {
-		Route::get('/setors/find/{id}/postoTrabalho', function ($setor_id) {
-				$setor = Setor::find($setor_id);
-
-				return Response::json($setor->postoTrabalhos);
 			});
 
 	});

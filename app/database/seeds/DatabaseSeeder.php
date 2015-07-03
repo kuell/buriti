@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('InternoTableSeeder');
 		//$this->call('UserTableSeeder');
-		//$this->call('MenuTableSeeder');
-		$this->call('FarmaciaCidSeeder');
+		$this->call('MenuTableSeeder');
+		//$this->call('FarmaciaCidSeeder');
 	}
 
 }

@@ -30,9 +30,6 @@
 @endif
 
 @section('scripts')
-{{ HTML::script('js/plugins/datatables/jquery.dataTables.js') }}
-{{ HTML::script('js/plugins/datatables/dataTables.bootstrap.js') }}
-
 <script type="text/javascript">
 	$(function() {
 		$("table").dataTable();
