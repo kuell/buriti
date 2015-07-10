@@ -2,8 +2,6 @@
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('css/bootstrap-chosen/chosen.jquery.js') }}
  	{{ HTML::script('js/jquery.maskedinput.js') }}
- <!-- Configuração -->
- 	{{ HTML::script('js/conf.js') }}
  <!-- Bootstrap -->
  	{{ HTML::script('js/bootstrap.min.js') }}
  <!-- AdminLTE App -->
@@ -16,3 +14,5 @@
 
 	{{ HTML::script('js/plugins/datatables/jquery.dataTables.js') }}
 	{{ HTML::script('js/plugins/datatables/dataTables.bootstrap.js') }}
+<!-- Configuração -->
+ 	{{ HTML::script('js/conf.js') }}

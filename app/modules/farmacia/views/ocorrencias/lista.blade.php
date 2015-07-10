@@ -7,6 +7,7 @@
 				<th>Colaborador</th>
 				<th>Setor</th>
 				<th>Monitoramento</th>
+				<th>Sesmt</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -18,6 +19,7 @@
 					<td>{{{ $ocorrencia->colaborador->nome }}}</td>
 					<td>{{{ $ocorrencia->colaborador->setor->descricao or "Não Identificado"}}}</td>
 					<td>{{{ $ocorrencia->monitoramento }}}</td>
+					<td>{{{ $ocorrencia->sesmt }}}</td>
 					<td>
 						{{ link_to_route('farmacia.ocorrencias.edit', 'Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}
 					</td>

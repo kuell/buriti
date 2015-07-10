@@ -5,9 +5,6 @@
 
  	<?php echo HTML::script('js/jquery.maskedinput.js'); ?>
 
- <!-- Configuração -->
- 	<?php echo HTML::script('js/conf.js'); ?>
-
  <!-- Bootstrap -->
  	<?php echo HTML::script('js/bootstrap.min.js'); ?>
 
@@ -27,3 +24,6 @@
 	<?php echo HTML::script('js/plugins/datatables/jquery.dataTables.js'); ?>
 
 	<?php echo HTML::script('js/plugins/datatables/dataTables.bootstrap.js'); ?>
+
+<!-- Configuração -->
+ 	<?php echo HTML::script('js/conf.js'); ?>

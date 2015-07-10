@@ -1,12 +1,10 @@
 <?php
 
 class InvestigacaoController extends \BaseController {
-	public $investigacao;
-	public $ocorrencias;
+	public $investigacaos;
 
 	public function __construct(Investigacao $investigacao, Ocorrencia $ocorrencia) {
-		$this->investigacao = $investigacao;
-		$this->ocorrencias  = $ocorrencia;
+		$this->investigacaos = $investigacao;
 	}
 
 	/**
@@ -15,9 +13,9 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$ocorrencias = Ocorrencia::where('tipo', '<>', 'outros')->get();
+		$investigacaos = $this->investigacaos->all();
 
-		return View::make('sesmt::investigacao.index', compact('ocorrencias'));
+		return View::make('sesmt::investigacao.index', compact('investigacaos'));
 	}
 
 	/**
@@ -47,7 +45,7 @@ class InvestigacaoController extends \BaseController {
 		 */
 		if (!count($investigacao)) {
 			$input['situacao'] = 'Em investigacao';
-			$investigacao      = $this->investigacao->create($input);
+			$investigacao      = $this->investigacaos->create($input);
 		}
 
 		return Redirect::route('sesmt.investigacao.edit', $investigacao->id);
@@ -61,9 +59,11 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		$ocorrencia = $this->ocorrencias->find($id);
+		$investigacao = $this->investigacaos->find($id);
 
-		return View::make('sesmt::investigacao.show', compact('ocorrencia'));
+		return View::make('sesmt::investigacao.show', compact('investigacao'));
+		//$pdf = DPDF::loadView('sesmt::investigacao.show', compact('investigacao'));
+		//$pdf->download();
 	}
 
 	/**

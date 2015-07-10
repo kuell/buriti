@@ -7,7 +7,7 @@
             <?php echo HTML::boxhead('Novo Usuario'); ?>
 
             <div>
-                <?php echo Form::open(array('route' => 'users.user.store',
+                <?php echo Form::open(array('route' => 'users.store',
                                                      'rule'=>'form')); ?>
 
                     <div class="box-body">

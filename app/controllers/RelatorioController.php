@@ -5,6 +5,8 @@
  */
 class RelatorioController extends Fpdf {
 
+	public $tituloDoc = '';
+
 	public function Header() {
 		$this->SetFont('Arial', 'B', 16);
 		$this->SetFillColor(200);
@@ -15,6 +17,10 @@ class RelatorioController extends Fpdf {
 		$this->Cell(190, 5, 'ROD. BR-262 - KM 375, ZONA SUBURBANA, TERENOS-MS FONE: (67) - 3246-8100', 'BLR', 0, 'C', 0);
 		$this->SetFont('Arial', '', 9);
 		$this->Ln(7);
+		if ($this->tituloDoc != '') {
+			$this->Cell(190, 5, utf8_decode($this->tituloDoc), 'BLTR', 0, 'C', 0);
+			$this->Ln();
+		}
 
 	}
 

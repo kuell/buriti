@@ -21,7 +21,13 @@ class ColaboradorController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$colaboradores = $this->colaboradors->all();
+		$colaboradores = $this->colaboradors;
+
+		if (!empty(Input::get('situacao'))) {
+			$colaboradores = $colaboradores->where('situacao', Input::get('situacao'));
+		}
+
+		$colaboradores = $colaboradores->get();
 
 		return View::make('cadastros::colaboradores.index', compact('colaboradores'));
 	}
@@ -77,7 +83,7 @@ class ColaboradorController extends \BaseController {
 	 */
 	public function update($id) {
 		$input = Input::all();
-
+	
 		// Verifica se a função existe no setor //
 		$funcao = SetorFuncao::where('descricao', $input['funcao'])->where('setor_id', $input['setor_id'])->get();
 
@@ -91,7 +97,10 @@ class ColaboradorController extends \BaseController {
 		// Fim verifica setor funcao
 
 		// Atualiza função do colaborador
-		$colaboradorFuncao = ['colaborador_id' => $id, 'funcao_id' => $func->id, 'data_mudanca' => date('Y-m-d H:i:s')];
+		$colaboradorFuncao = [	'colaborador_id' => $id, 
+								'funcao_id' => $func->id, 
+								'data_mudanca' => date('Y-m-d H:i:s')
+							];
 		ColaboradorFuncao::create($colaboradorFuncao);
 		// Fim verifica funcao colaborador
 
@@ -128,6 +137,25 @@ class ColaboradorController extends \BaseController {
 	 */
 	public function destroy($id) {
 		//
+	}
+
+	public function getDemitir($id) {
+		$colaborador = $this->colaboradors->find($id);
+
+		return View::make('cadastros::colaboradores.demitir', compact('colaborador'));
+	}
+	
+	public function setDemitir($id){
+		$input = Input::all();
+		$input['situacao'] = 'demitido';
+				
+		$colaborador = $this->colaboradors->find($id);
+		
+		$colaborador->update($input);
+		
+		return  Redirect::route('colaboradors.index');
+		
+		
 	}
 
 	public function show($id) {

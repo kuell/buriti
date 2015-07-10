@@ -6,10 +6,10 @@ class FichasController extends BaseController {
 	 *
 	 * @var Ficha
 	 */
-	protected $ficha;
+	protected $fichas;
 
 	public function __construct(Ficha $ficha) {
-		$this->ficha = $ficha;
+		$this->fichas = $ficha;
 	}
 
 	/**
@@ -18,7 +18,7 @@ class FichasController extends BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$fichas = $this->ficha->all();
+		$fichas = $this->fichas->all();
 
 		return View::make('cadastros::fichas.index', compact('fichas'));
 	}
@@ -43,7 +43,7 @@ class FichasController extends BaseController {
 		$validation = Validator::make($input, $this->rules);
 
 		if ($validation->passes()) {
-			$id = $this->ficha->create($input);
+			$id = $this->fichas->create($input);
 			return Redirect::route('fichas.edit', $id->id);
 		}
 
@@ -60,10 +60,9 @@ class FichasController extends BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		$ficha = $this->ficha->findOrFail($id);
-		$pdf   = PDF::loadView('fichas.show2', compact('ficha'));
+		$ficha = $this->fichas->find($id);
 
-		return $pdf->stream();
+		return View::make('cadastros::fichas.show', compact('ficha'));
 	}
 
 	/**
@@ -73,7 +72,7 @@ class FichasController extends BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-		$ficha = $this->ficha->find($id);
+		$ficha = $this->fichas->find($id);
 
 		if (is_null($ficha)) {
 			return Redirect::route('fichas.index');
@@ -97,7 +96,7 @@ class FichasController extends BaseController {
 		$validation = Validator::make($input, $this->rules);
 
 		if ($validation->passes()) {
-			$ficha = $this->ficha->find($id);
+			$ficha = $this->fichas->find($id);
 			$ficha->update($input);
 			return Redirect::route('fichas.edit', $id)
 				->with('message', 'Registro gravado com sucesso!');
@@ -116,7 +115,7 @@ class FichasController extends BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {
-		$this->ficha->find($id)->delete();
+		$this->fichas->find($id)->delete();
 
 		return Redirect::route('fichas.index');
 	}
@@ -127,7 +126,7 @@ class FichasController extends BaseController {
 	 */
 
 	public function getInstrucao($id) {
-		$ficha = $this->ficha->find($id);
+		$ficha = $this->fichas->find($id);
 
 		return View::make('fichas.instrucao.index', compact('ficha'));
 	}
@@ -163,7 +162,7 @@ class FichasController extends BaseController {
 	}
 
 	public function getCursos($id) {
-		$ficha = $this->ficha->find($id);
+		$ficha = $this->fichas->find($id);
 
 		return View::make('fichas.cursos.index', compact('ficha'));
 	}
@@ -199,7 +198,7 @@ class FichasController extends BaseController {
 	}
 
 	public function getEmpregos($id) {
-		$ficha = $this->ficha->find($id);
+		$ficha = $this->fichas->find($id);
 
 		return View::make('fichas.empregos.index', compact('ficha'));
 	}
@@ -235,7 +234,7 @@ class FichasController extends BaseController {
 	}
 
 	public function getParentes($id) {
-		$ficha = $this->ficha->find($id);
+		$ficha = $this->fichas->find($id);
 
 		return View::make('fichas.parentes.index', compact('ficha'));
 	}
@@ -271,7 +270,7 @@ class FichasController extends BaseController {
 	}
 
 	public function getSetors($id) {
-		$ficha = $this->ficha->find($id);
+		$ficha = $this->fichas->find($id);
 
 		return View::make('fichas.setors.index', compact('ficha'));
 	}

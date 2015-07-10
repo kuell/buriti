@@ -6,12 +6,13 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"barryvdh/laravel-dompdf": "0.4.*",
+		"barryvdh/laravel-dompdf": "*",
 		"creolab/laravel-modules": "dev-master",
 		"maatwebsite/excel": "~1.2.1",
 		"way/generators": "~2.0",
 		"anouar/fpdf": "1.0.1",
-		"thujohn/pdf": "^1.0"
+		"thujohn/pdf": "^1.0",
+		"barryvdh/laravel-dompdf": "0.6.*"
 	},
 	"autoload": {
 		"classmap": [

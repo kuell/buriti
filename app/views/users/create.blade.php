@@ -7,7 +7,7 @@
             {{ HTML::head('Usuario ', 'controla usuarios!') }}
             {{ HTML::boxhead('Novo Usuario') }}
             <div>
-                {{ Form::open(array('route' => 'users.user.store',
+                {{ Form::open(array('route' => 'users.store',
                                                      'rule'=>'form'))
                                                      }}
                     <div class="box-body">

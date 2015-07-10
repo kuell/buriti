@@ -6,7 +6,7 @@ class Ficha extends \Eloquent {
 
 	public $rules = array(
 		'pretencao'       => 'required',
-		'nome'            => 'required|unique:fichas',
+		'nome'            => 'required|unique:cadastros.fichas',
 		'sexo'            => 'required',
 		'data_nascimento' => 'required',
 		'naturalidade'    => 'required',
@@ -20,7 +20,7 @@ class Ficha extends \Eloquent {
 		'filhos'          => 'required',
 		'pai'             => 'required',
 		'mae'             => 'required',
-		'rg'              => 'required|unique:fichas',
+		'rg'              => 'required|unique:cadastros.fichas',
 		'cpf'             => 'required',
 		'emissao'         => 'required',
 		'titulo_eleitor'  => 'required',
@@ -33,12 +33,33 @@ class Ficha extends \Eloquent {
 		return $this->hasMany('FichaSetor');
 	}
 
+	public function instrucaos() {
+		return $this->hasMany('FichaInstrucao');
+	}
+
+	public function cursos() {
+		return $this->hasMany('FichaCurso');
+	}
+
+	public function empregos() {
+		return $this->hasMany('FichaEmprego');
+	}
+
+	public function parentes() {
+		return $this->hasMany('FichaParente');
+	}
+
 	public function getIdadeAttribute() {
 		if (!empty($this->attributes['data_nascimento'])) {
 			return date('Y-m-d')-$this->attributes['data_nascimento'];
 		} else {
 			return null;
 		}
+
+	}
+
+	public function getDataNascimentoAttribute() {
+		return Format::viewDate($this->attributes['data_nascimento']);
 
 	}
 

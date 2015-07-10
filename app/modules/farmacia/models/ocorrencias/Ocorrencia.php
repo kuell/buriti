@@ -80,4 +80,19 @@ class Ocorrencia extends Eloquent {
 			return 'SIM';
 		}
 	}
+
+	public function getDataOcorrenciaAttribute() {
+		$hora = explode(' ', $this->attributes['data_hora']);
+
+		return Format::viewDate($hora[0]);
+	}
+	
+	public function getSesmtAttribute(){
+		if($this->attributes['sesmt']){
+			return 'SIM';
+		}
+		else{
+			return 'NÃO';
+		}
+	}
 }

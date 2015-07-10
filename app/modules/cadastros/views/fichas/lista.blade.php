@@ -17,7 +17,7 @@
 			<td>{{ implode(', ', $ficha->setores)}}</td>
 			<td>
 				{{ link_to_route('fichas.edit', ' ', $ficha->id, ['class'=>'btn btn-info glyphicon glyphicon-pencil']) }}
-				{{ Form::button(' ',  ['class'=>'btn btn-warning glyphicon glyphicon-print', 'id'=>'print', 'value'=>$ficha->id]) }}
+				{{ Form::button(' ',  ['class'=>'btn btn-warning glyphicon glyphicon-print', 'name'=>'print', 'value'=>$ficha->id]) }}
 			</td>
 
 		</tr>
@@ -29,7 +29,7 @@
     <script type="text/javascript">
         $(function(){
             $('#fichas').dataTable();
-            $('#print').bind('click', function(){
+            $('button[name=print]').bind('click', function(){
             	window.open('/fichas/'+$(this).val(), 'Print', 'channelmode=yes');
             })
         });

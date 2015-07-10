@@ -2,32 +2,28 @@
     <thead>
         <tr>
             <th>#</th>
+            <th>Cod. Ocorrencia</th>
             <th>Data Ocorrencia</th>
             <th>Colaborador</th>
             <th>Setor</th>
+            <th>Situação</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach($ocorrencias as $ocorrencia)
+        @foreach($investigacaos as $investigacao)
         <tr>
-            <td>{{ $ocorrencia->id }}</td>
-            <td>{{ $ocorrencia->data_hora }}</td>
-            <td>{{ $ocorrencia->colaborador->nome }}</td>
-            <td>{{ $ocorrencia->colaborador->setor->descricao or 'Não Informado' }}</td>
+            <td>{{ $investigacao->id }}</td>
+            <td>{{ $investigacao->ocorrencia->id }}</td>
+            <td>{{ $investigacao->ocorrencia->data_hora }}</td>
+            <td>{{ $investigacao->ocorrencia->colaborador->nome }}</td>
+            <td>{{ $investigacao->ocorrencia->colaborador->setor->descricao or 'Não Informado' }}</td>
+            <td>{{ $investigacao->situacao }}</td>
             <td>
-                {{ link_to('#', ' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'onclick'=>'print("'.URL::route('sesmt.investigacao.show', $ocorrencia->id).'", "Print", "channelmode=yes")']) }}
+                {{ link_to('#', ' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'onclick'=>'print("'.URL::route('sesmt.investigacao.show', $investigacao->id).'", "Print", "channelmode=yes")']) }}
             </td>
         </tr>
         @endforeach
     </tbody>
-    <tfoot>
-        <tr>
-            <th>#</th>
-            <th>Data Ocorrencia</th>
-            <th>Colaborador</th>
-            <th>Setor</th>
-        </tr>
-    </tfoot>
 </table>
 

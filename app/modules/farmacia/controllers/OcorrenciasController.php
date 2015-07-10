@@ -66,6 +66,12 @@ class OcorrenciasController extends \BaseController {
 		if ($validate->passes()) {
 			$ocorrencia = $this->ocorrencias = $this->ocorrencias->create($input);
 
+			//-- Se o campo 'Encaminhar para sesmt' for true --//
+			if($ocorrencia->sesmt){
+				$ocorrencia->investigacao()->create(['situacao'=>'Em investigacao']);
+			}
+			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//
+
 			return Redirect::route('farmacia.ocorrencias.edit', $ocorrencia->id);
 		} else {
 			return Redirect::route('farmacia.ocorrencias.create')

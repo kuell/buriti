@@ -38,15 +38,17 @@
 		</div>
     </div>
 </section>
+
+
+
 @endsection
 
 @section('scripts')
-{{ HTML::script('js/plugins/datatables/jquery.dataTables.js') }}
-{{ HTML::script('js/plugins/datatables/dataTables.bootstrap.js') }}
 
 <script type="text/javascript">
     $(function() {
-        $("#colaboradors").dataTable();
+    	$("#colaboradors").dataTable();
+
 		$('#gerar_relatorio').bind('click', function() {
 			periodo = $('input[name=periodo]').val()
 			colaborador_id = $('select[name=colaborador_id]').val()
@@ -59,7 +61,6 @@
 			window.open("/colaboradors/"+colaborador_id+"?periodo="+periodo, 'Print', 'channelmode=yes')
 		});
 		$('select[name=colaborador_id]').chosen()
-
     })
 </script>
 @stop
