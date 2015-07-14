@@ -67,7 +67,8 @@ class OcorrenciasController extends \BaseController {
 			$ocorrencia = $this->ocorrencias = $this->ocorrencias->create($input);
 
 			//-- Se o campo 'Encaminhar para sesmt' for true --//
-			if($ocorrencia->sesmt){
+			
+			if($ocorrencia->sesmt == 'SIM'){
 				$ocorrencia->investigacao()->create(['situacao'=>'Em investigacao']);
 			}
 			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//
