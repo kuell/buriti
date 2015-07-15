@@ -56,8 +56,7 @@
 	      {{ Form::label('data', 'Data e Hora: ') }}
 	      {{ Form::text('data_hora', date('d/m/Y H:i:s'), array('class'=>'form-control data_hora', 'required') ) }}
 	    </div>
-
-		<div class="col-md-2 col-sm-2">
+	    <div class="col-md-2 col-sm-2">
 	      {{ Form::label('monitoramento', 'Monitoramento?') }}
 	      {{ Form::select('monitoramento', ['Não', 'Sim'], null, array('class'=>'form-control', 'required') ) }}
 	    </div>
@@ -103,6 +102,8 @@
 <script type="text/javascript">
 $(function(){
 	$("select[name=colaborador_id]").prop('required', true).chosen()
+	$("select[name=tipo]").prop('required', true).chosen()
+
 	$('#limpa_select').click(function(event) {
 		$('#elemento1, #elemento2, #elemento3, #elemento4').val("");
 		$('#elemento2, #elemento3, #elemento4').addClass('hidden').removeAttr('disabled');

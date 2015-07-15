@@ -21,6 +21,10 @@ class Ocorrencia extends Eloquent {
 		return $this->hasMany('OcorrenciaAtestado');
 	}
 
+	public function tipo() {
+		return $this->belongsTo('OcorrenciaTipo');
+	}
+
 	public function getDataHoraAttribute() {
 		return date('d/m/Y H:i', strtotime($this->attributes['data_hora']));
 	}
@@ -86,12 +90,11 @@ class Ocorrencia extends Eloquent {
 
 		return Format::viewDate($hora[0]);
 	}
-	
-	public function getSesmtAttribute(){
-		if($this->attributes['sesmt']){
+
+	public function getSesmtAttribute() {
+		if ($this->attributes['sesmt']) {
 			return 'SIM';
-		}
-		else{
+		} else {
 			return 'NÃO';
 		}
 	}

@@ -3,7 +3,7 @@
 class Investigacao extends Eloquent {
 	protected $guarded   = [];
 	protected $filllabel = [];
-	protected $table     = 'sesmt_investigacaos';
+	protected $table     = 'sesmt.investigacaos';
 
 	public function ocorrencia() {
 		return $this->belongsTo('Ocorrencia');

@@ -67,9 +67,9 @@ class OcorrenciasController extends \BaseController {
 			$ocorrencia = $this->ocorrencias = $this->ocorrencias->create($input);
 
 			//-- Se o campo 'Encaminhar para sesmt' for true --//
-			
-			if($ocorrencia->sesmt == 'SIM'){
-				$ocorrencia->investigacao()->create(['situacao'=>'Em investigacao']);
+
+			if ($ocorrencia->sesmt == 'SIM') {
+				$ocorrencia->investigacao()->create(['situacao' => 'Em investigacao']);
 			}
 			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//
 
@@ -89,7 +89,9 @@ class OcorrenciasController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
+		$ocorrencia = $this->ocorrencias->find($id);
 
+		return View::make('farmacia::ocorrencias.show', compact('ocorrencia'));
 	}
 
 	/**
@@ -280,21 +282,21 @@ class OcorrenciasController extends \BaseController {
 		switch ($tipo) {
 			case 's':
 				$dados = DB::select('Select
-										extract(month from data_hora) as mes,
-										extract(year from data_hora) as ano,
-										c.id as setor,
-										b.nome,
-										count(*) as total
-									from
-										farmacia_ocorrencias a
-										inner join colaboradors b on a.colaborador_id = b.id
-										inner join setors c on b.setor_id = c.id
-									where
-										extract(year from data_hora) = ?
-									group by
-										c.id, b.id, extract(month from data_hora), extract(year from data_hora)
-									order by
-										extract(month from data_hora), count(*) desc'	, ['2015']);
+				extract(month from data_hora) as mes,
+				extract(year from data_hora) as ano,
+				c.id as setor,
+				b.nome,
+				count(*) as total
+				from
+				farmacia_ocorrencias a
+				inner join colaboradors b on a.colaborador_id = b.id
+				inner join setors c on b.setor_id = c.id
+				where
+				extract(year from data_hora) = ?
+				group by
+				c.id, b.id, extract(month from data_hora), extract(year from data_hora)
+				order by
+				extract(month from data_hora), count(*) desc'	, ['2015']);
 
 				foreach ($dados as $val) {
 					$returns[$val->setor][$val->nome][$val->ano][$val->mes] = $val->total;
