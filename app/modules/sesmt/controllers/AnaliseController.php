@@ -14,16 +14,19 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$analises = Ocorrencia::whereRaw('sesmt = null or sesmt = false')
-			->whereRaw('monitoramento is null or monitoramento = false')
-			->whereRaw('queixa_id = null');
+		$analises = Ocorrencia::whereRaw('sesmt <> false or sesmt is null')
+			->whereRaw('monitoramento <> true or monitoramento is null')
+			->whereRaw('queixa_id is null');
 
 		if (!empty(Input::get('periodo'))) {
 			$periodo    = explode(' - ', Input::get('periodo'));
 			$periodo[0] = implode('-', array_reverse(explode('/', $periodo[0])));
 			$periodo[1] = implode('-', array_reverse(explode('/', $periodo[1])));
 
-			$analises = $analises->whereRaw("date(data_hora) between '".$periodo[0]."' and '".$periodo[1]."'");
+			$analises = $analises->whereRaw("date(data_hora) between ? and ?", $periodo);
+		} else {
+			$analises = $analises->whereRaw("date(data_hora) between ? and ?", [date('Y-m-d'), date('Y-m-d')]);
+
 		}
 
 		$analises = $analises->get();

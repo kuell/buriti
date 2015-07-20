@@ -14,7 +14,7 @@
 			<td>{{ $analise->id }}</td>
 			<td>{{ $analise->data_hora }}</td>
 			<td>{{ $analise->colaborador->nome }}</td>
-			<td>{{ $analise->colaborador->setor->descricao }}</td>
+			<td>{{ $analise->colaborador->setor->descricao or null }}</td>
 			<td>
 				<button name="analisar" class="btn btn-sm btn-primary" value="{{ $analise->id }}"><i class="glyphicon glyphicon-refresh"></i> Analizar</button>
 			</td>
