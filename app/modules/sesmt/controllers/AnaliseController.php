@@ -16,7 +16,17 @@ class AnaliseController extends \BaseController {
 	public function index() {
 		$analises = Ocorrencia::whereRaw('sesmt = null or sesmt = false')
 			->whereRaw('monitoramento is null or monitoramento = false')
-			->whereRaw('queixa_id = null')	->get();
+			->whereRaw('queixa_id = null');
+
+		if (!empty(Input::get('periodo'))) {
+			$periodo    = explode(' - ', Input::get('periodo'));
+			$periodo[0] = implode('-', array_reverse(explode('/', $periodo[0])));
+			$periodo[1] = implode('-', array_reverse(explode('/', $periodo[1])));
+
+			$analises = $analises->whereRaw("date(data_hora) between '".$periodo[0]."' and '".$periodo[1]."'");
+		}
+
+		$analises = $analises->get();
 
 		return View::make('sesmt::analises.index', compact('analises'));
 	}
