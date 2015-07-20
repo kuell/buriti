@@ -21,7 +21,8 @@
 			<td>{{{ $ocorrencia->monitoramento }}}</td>
 			<td>{{{ $ocorrencia->sesmt }}}</td>
 			<td>
-				{{ link_to_route('farmacia.ocorrencias.edit', 'Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}
+				{{ link_to_route('farmacia.ocorrencias.edit', ' Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}
+				<button class="btn btn-info" name="print" value="{{ $ocorrencia->id }}"><i class="glyphicon glyphicon-print"></i> </button>
 			</td>
 		</tr>
 		@endforeach
@@ -29,44 +30,23 @@
 	</tbody>
 </table>
 
-<div class="modal js-loading-bar" id="progress">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-body">
-				<h4>Atualizando Registro ...</h4>
-			</div>
-		</div>
-	</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
 </div>
 
-<style type="text/css">
-	.progress-bar.animate {
-		width: 100%;
-	}
-</style>
-
 <script type="text/javascript">
-	function definir(ocorrencia, tipo, colaborador){
-		$(this).attr('disabled', 'disabled');
-		$('#progress').find('progress-bar').addClass('animate');
-		$('#progress').modal('show');
+	$(function(){
+		$('button[name=print]').bind('click', function(){
+			$('#myModal').modal({
+				remote:	'/farmacia/ocorrencias/'+$(this).val()
+			})
+		})
 
-		$.ajax({
-			url: '/farmacia/ocorrencias/'+ocorrencia,
-			type: 'PATCH',
-			data: {id: ocorrencia, 'tipo': tipo, 'colaborador_id': colaborador},
+		$('#myModal').on('hidden.bs.modal', function(){
+			location.reload();
 		})
-		.done(function(data) {
-			location.reload()
-		})
-		.fail(function() {
-			location.reload()
-		})
-		.always(function(data) {
-			console.log(data);
-		});
+	})
 
-	}
 </script>
 
 @endif
