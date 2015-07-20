@@ -14,7 +14,9 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$analises = Ocorrencia::where('sesmt', false)->where('monitoramento', false)->get();
+		$analises = Ocorrencia::whereRaw('sesmt = null or sesmt = false')
+			->whereRaw('monitoramento is null or monitoramento = false')
+			->whereRaw('queixa_id = null')	->get();
 
 		return View::make('sesmt::analises.index', compact('analises'));
 	}
@@ -58,7 +60,9 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-		//
+		$ocorrencia = Ocorrencia::find($id);
+
+		return View::make('sesmt::analises.edit', compact('ocorrencia'));
 	}
 
 	/**
@@ -69,7 +73,13 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		//
+		$input = array_except(Input::all(), '_method')+['usuario_analise' => Auth::user()->nome];
+
+		$analise = $this->analises->find($id);
+
+		$analise->update($input);
+
+		return Redirect::route('sesmt.analise.index');
 	}
 
 	/**

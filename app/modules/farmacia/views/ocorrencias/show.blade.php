@@ -1,4 +1,4 @@
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-lg" role="document">
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -17,13 +17,13 @@
 					<td>{{ $ocorrencia->colaborador->postoDescricao->descricao }}</td>
 				</tr>
 				<tr>
-					<th>Data do Acidente: </th>
+					<th>Data da Ocorrencia: </th>
 					<td>{{ $ocorrencia->data_hora }}</td>
 					<th>Destino: </th>
 					<td>{{ $ocorrencia->destino }}</td>
 				</tr>
 				<tr>
-					<th colspan="4" class="well">Relator do Acidente: </th>
+					<th colspan="4" class="well">Relator da Ocorrencia: </th>
 				</tr>
 				<tr>
 					<td colspan="4">
@@ -42,7 +42,7 @@
 				</tr>
 			</table>
 
-
+			@yield('analise')
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>

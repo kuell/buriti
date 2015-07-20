@@ -5,6 +5,7 @@
 			<th>Data Hora</th>
 			<th>Colaborador</th>
 			<th>Setor</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,13 +15,28 @@
 			<td>{{ $analise->data_hora }}</td>
 			<td>{{ $analise->colaborador->nome }}</td>
 			<td>{{ $analise->colaborador->setor->descricao }}</td>
+			<td>
+				<button name="analisar" class="btn btn-sm btn-primary" value="{{ $analise->id }}"><i class="glyphicon glyphicon-refresh"></i> Analizar</button>
+			</td>
 		</tr>
 		@endforeach
 	</tbody>
 </table>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+</div>
+
 <script type="text/javascript">
 	$(function(){
 		$('#analises').dataTable()
+		$('button[name=analisar]').bind('click', function(){
+			$('#myModal').modal({
+				remote: '/sesmt/analise/'+$(this).val()+'/edit'
+			})
+		})
+		$('#myModal').on('hidden.bs.modal', function(e){
+			location.reload()
+		})
 	})
 </script>

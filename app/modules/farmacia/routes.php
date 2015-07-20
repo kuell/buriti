@@ -39,5 +39,11 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 		Route::resource('ocorrencias', 'OcorrenciasController');
 		Route::resource('atestados', 'AtestadoController');
 		Route::resource('aso', 'AsoController');
+		Route::resource('queixas', 'QueixasController');
+
+		Route::group(['prefix' => 'relatorios'], function () {
+				Route::get('pcmso', 'FarmaciaController@getPCMSOview');
+				Route::get('pcmso/{ano}', 'FarmaciaController@viewPCMSO');
+			});
 
 	});

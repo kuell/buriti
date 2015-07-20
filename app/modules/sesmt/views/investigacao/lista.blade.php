@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" id="investigacaos">
     <thead>
         <tr>
             <th>#</th>
@@ -15,8 +15,7 @@
         <tr>
             <td>{{ $investigacao->id }}</td>
             <td>
-                {{ link_to('#', $investigacao->ocorrencia->id,  ['name'=> 'visualizar', 'id'=>$investigacao->ocorrencia->id]) }}
-
+                <button name="visualizar" class="btn btn-primary btn-sm" value="{{ $investigacao->ocorrencia->id }}">{{ $investigacao->ocorrencia->id }}</button>
             </td>
             <td>{{ $investigacao->ocorrencia->data_hora }}</td>
             <td>{{ $investigacao->ocorrencia->colaborador->nome }}</td>
@@ -37,13 +36,14 @@
 </div>
 <script type="text/javascript">
     $(function(){
-        $('a[name=visualizar]').bind('click', function(param){
+        $('button[name=visualizar]').bind('click', function(){
             $('#myModal').modal({
-                remote:'/farmacia/ocorrencias/'+param.currentTarget.id
+                remote:'/farmacia/ocorrencias/'+$(this).val()
             })
         })
         $('#myModal').on('hidden.bs.modal', function(e){
             location.reload()
         })
+        $("#investigacaos").dataTable();
     });
 </script>

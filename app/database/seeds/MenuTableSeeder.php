@@ -221,6 +221,18 @@ class MenuTableSeeder extends Seeder {
 				'updated_at' => 'now()',
 				'color'      => null,
 			),
+			array(
+				'id'         => 19,
+				'descricao'  => 'Causas / Queixas',
+				'url'        => 'queixas',
+				'icone'      => 'glyphicon glyphicon-tint',
+				'indice'     => null,
+				'menu_pai'   => 3,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => null,
+			),
+
 		);
 
 		DB::table('menus')->insert($menu);

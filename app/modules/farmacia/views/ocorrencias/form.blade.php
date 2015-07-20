@@ -64,6 +64,10 @@
 	      {{ Form::label('sesmt', 'Encaminhar para SESMT?') }}
 	      {{ Form::select('sesmt', ['Não', 'Sim'], null, array('class'=>'form-control', 'required') ) }}
 	    </div>
+	    <div class="col-md-4 col-sm-4">
+	      {{ Form::label('queixa', 'Causa Queixa:') }}
+	      {{ Form::select('queixa_id', [''=> 'Selecione ...']+Queixa::all()->lists('descricao', 'id'), null, array('class'=>'form-control', 'required') ) }}
+	    </div>
 	</div>
 
 	<div class="form-group">
@@ -101,7 +105,7 @@
 
 <script type="text/javascript">
 $(function(){
-	$("select[name=colaborador_id]").prop('required', true).chosen()
+	$("select[name=colaborador_id], select[name=queixa_id]").prop('required', true).chosen()
 	$("select[name=tipo]").prop('required', true).chosen()
 
 	$('#limpa_select').click(function(event) {
