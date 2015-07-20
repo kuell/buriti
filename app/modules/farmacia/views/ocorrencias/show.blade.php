@@ -23,7 +23,7 @@
 					<td>{{ $ocorrencia->destino }}</td>
 				</tr>
 				<tr>
-					<th colspan="4" class="well">Relator da Ocorrencia: </th>
+					<th colspan="4" class="well">Relato da Ocorrencia: </th>
 				</tr>
 				<tr>
 					<td colspan="4">

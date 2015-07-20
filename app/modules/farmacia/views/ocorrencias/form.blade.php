@@ -106,7 +106,9 @@
 	<script type="text/javascript">
 		$(function(){
 			$("select[name=colaborador_id], select[name=queixa_id]").prop('required', true).chosen()
-			$("select[name=tipo]").prop('required', true).chosen()
+			$('select[name=monitoramento]').bind('change click blur', function(){
+				alert('Ola')
+			})
 
 			$('#limpa_select').click(function(event) {
 				$('#elemento1, #elemento2, #elemento3, #elemento4').val("");

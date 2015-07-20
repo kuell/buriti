@@ -14,8 +14,8 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$analises = Ocorrencia::whereRaw('sesmt <> false or sesmt is null')
-			->whereRaw('monitoramento <> true or monitoramento is null')
+		$analises = Ocorrencia::whereRaw('(sesmt = false or sesmt is null)')
+			->whereRaw('(monitoramento = false or monitoramento is null)')
 			->whereRaw('queixa_id is null');
 
 		if (!empty(Input::get('periodo'))) {
