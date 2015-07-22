@@ -1,12 +1,6 @@
 $(function(){
 	$('form').formValidation();
-	$(".valor").maskMoney({
-		thousands: '.',
-		decimal:',',
-		prefix: 'R$ ',
-		affixesStay: false
-	});
-
+	
 	$('input[type=text], textarea').blur(function(){
 		var texto = $(this).val().toUpperCase()
 		$(this).val(texto);

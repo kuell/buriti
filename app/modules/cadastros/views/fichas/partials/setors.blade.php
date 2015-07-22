@@ -47,7 +47,7 @@
 
 <script type="text/javascript">
 	$(function(){
-		$('select[name=setor_id]').chosen()
+		$('select[name=setor_id]').chosen({width:'100%'})
 	})
 </script>
 

@@ -113,7 +113,10 @@ class Ficha extends \Eloquent {
 	}
 
 	public function setPretencaoAttribute($valor) {
-		return $this->attributes['pretencao'] = Format::valorDb($valor);
+		if ($valor) {
+			return $this->attributes['pretencao'] = Format::valorDb($valor);
+		}
+
 	}
 
 }

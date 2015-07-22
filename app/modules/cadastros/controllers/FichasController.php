@@ -245,7 +245,8 @@ class FichasController extends BaseController {
 	public function setParente($id) {
 		$input = Input::all()+array('ficha_id' => $id);
 		$rules = array(
-
+			'nome' => 'required',
+			'grau' => 'required',
 		);
 
 		$validation = Validator::make($input, $rules);
@@ -281,7 +282,7 @@ class FichasController extends BaseController {
 	public function setSetor($id) {
 		$input = Input::all()+array('ficha_id' => $id);
 		$rules = array(
-
+			'setor_id' => 'required',
 		);
 
 		$validation = Validator::make($input, $rules);
