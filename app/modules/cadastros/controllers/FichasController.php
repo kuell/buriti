@@ -18,7 +18,7 @@ class FichasController extends BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$fichas = $this->fichas->all();
+		$fichas = $this->fichas->where('situacao', 1)->get();
 
 		return View::make('cadastros::fichas.index', compact('fichas'));
 	}
@@ -40,10 +40,13 @@ class FichasController extends BaseController {
 	 */
 	public function store() {
 		$input      = Input::all()+array('situacao' => 1);
-		$validation = Validator::make($input, $this->rules);
+		$validation = Validator::make($input, $this->fichas->rules);
 
 		if ($validation->passes()) {
+			$input['usuario_add'] = Auth::user()->user;
+
 			$id = $this->fichas->create($input);
+
 			return Redirect::route('fichas.edit', $id->id);
 		}
 
@@ -74,11 +77,11 @@ class FichasController extends BaseController {
 	public function edit($id) {
 		$ficha = $this->fichas->find($id);
 
-		if (is_null($ficha)) {
-			return Redirect::route('fichas.index');
-		}
+		//if (is_null($ficha)) {
+		//	return Redirect::route('fichas.index');
+		//}
 
-		return View::make('fichas.edit', compact('ficha'));
+		return View::make('cadastros::fichas.edit', compact('ficha'));
 	}
 
 	/**
@@ -90,8 +93,7 @@ class FichasController extends BaseController {
 	public function update($id) {
 		$input = array_except(Input::all(), '_method');
 
-		$this->rules['nome'] = 'required|unique:fichas,nome,'.$id;
-		$this->rules['rg']   = 'required|unique:fichas,rg,'.$id;
+		$this->rules['nome'] = 'required|unique:cadastros.fichas,nome,'.$id;
 
 		$validation = Validator::make($input, $this->rules);
 
@@ -100,12 +102,13 @@ class FichasController extends BaseController {
 			$ficha->update($input);
 			return Redirect::route('fichas.edit', $id)
 				->with('message', 'Registro gravado com sucesso!');
-		}
+		} else {
 
-		return Redirect::route('fichas.edit', $id)
-			->withInput()
-			->withErrors($validation)
-			->with('message', 'Houve erros na validação dos dados.');
+			return Redirect::route('fichas.edit', $id)
+				->withInput()
+				->withErrors($validation)
+				->with('message', 'Houve erros na validação dos dados.');
+		}
 	}
 
 	/**
@@ -128,7 +131,7 @@ class FichasController extends BaseController {
 	public function getInstrucao($id) {
 		$ficha = $this->fichas->find($id);
 
-		return View::make('fichas.instrucao.index', compact('ficha'));
+		return View::make('cadastros::fichas.partials.instrucao', compact('ficha'));
 	}
 
 	public function setInstrucao($id) {
@@ -164,10 +167,10 @@ class FichasController extends BaseController {
 	public function getCursos($id) {
 		$ficha = $this->fichas->find($id);
 
-		return View::make('fichas.cursos.index', compact('ficha'));
+		return View::make('cadastros::fichas.partials.cursos', compact('ficha'));
 	}
 
-	public function setCursos($id) {
+	public function setCurso($id) {
 		$input = Input::all()+array('ficha_id' => $id);
 		$rules = array(
 			'descricao' => 'required',
@@ -188,7 +191,7 @@ class FichasController extends BaseController {
 			->with('message', 'Houve erros na validação dos dados.');
 	}
 
-	public function destroyCursos($id) {
+	public function destroyCurso($id) {
 		$curso    = FichaCurso::find($id);
 		$ficha_id = $curso->ficha_id;
 
@@ -200,10 +203,10 @@ class FichasController extends BaseController {
 	public function getEmpregos($id) {
 		$ficha = $this->fichas->find($id);
 
-		return View::make('fichas.empregos.index', compact('ficha'));
+		return View::make('cadastros::fichas.partials.empregos', compact('ficha'));
 	}
 
-	public function setEmpregos($id) {
+	public function setEmprego($id) {
 		$input = Input::all()+array('ficha_id' => $id);
 		$rules = array(
 			'empresa' => 'required',
@@ -224,7 +227,7 @@ class FichasController extends BaseController {
 			->with('message', 'Houve erros na validação dos dados.');
 	}
 
-	public function destroyEmpregos($id) {
+	public function destroyEmprego($id) {
 		$emprego  = FichaEmprego::find($id);
 		$ficha_id = $emprego->ficha_id;
 
@@ -236,10 +239,10 @@ class FichasController extends BaseController {
 	public function getParentes($id) {
 		$ficha = $this->fichas->find($id);
 
-		return View::make('fichas.parentes.index', compact('ficha'));
+		return View::make('cadastros::fichas.partials.parentes', compact('ficha'));
 	}
 
-	public function setParentes($id) {
+	public function setParente($id) {
 		$input = Input::all()+array('ficha_id' => $id);
 		$rules = array(
 
@@ -260,7 +263,7 @@ class FichasController extends BaseController {
 			->with('message', 'Houve erros na validação dos dados.');
 	}
 
-	public function destroyParentes($id) {
+	public function destroyParente($id) {
 		$parente  = FichaParente::find($id);
 		$ficha_id = $parente->ficha_id;
 
@@ -272,10 +275,10 @@ class FichasController extends BaseController {
 	public function getSetors($id) {
 		$ficha = $this->fichas->find($id);
 
-		return View::make('fichas.setors.index', compact('ficha'));
+		return View::make('cadastros::fichas.partials.setors', compact('ficha'));
 	}
 
-	public function setSetors($id) {
+	public function setSetor($id) {
 		$input = Input::all()+array('ficha_id' => $id);
 		$rules = array(
 
@@ -296,7 +299,7 @@ class FichasController extends BaseController {
 			->with('message', 'Houve erros na validação dos dados.');
 	}
 
-	public function destroySetors($id) {
+	public function destroySetor($id) {
 		$setor    = FichaSetor::find($id);
 		$ficha_id = $setor->ficha_id;
 
@@ -310,16 +313,29 @@ class FichasController extends BaseController {
 		return View::make('fichas.informacao', compact('ficha'));
 	}
 
-	public function buscaRg() {
+	public function getSelecionar($id) {
+		$ficha = $this->fichas->find($id);
+		return View::make('cadastros::fichas.selecionar', compact('ficha'));
+	}
+	public function setSelecionar($id) {
+		$input = Input::all();
+		$ficha = $this->fichas->find($id);
 
-		$ficha = Ficha::where('rg', '=', Input::get('rg'))->get();
+		$aso                              = new Aso();
+		$aso->tipo                        = 'admissional';
+		$aso->posto_id                    = $input['posto_id'];
+		$aso->colaborador_setor_id        = $input['setor_id'];
+		$aso->colaborador_nome            = $ficha->nome;
+		$aso->colaborador_data_nascimento = $ficha->data_nascimento;
+		$aso->colaborador_sexo            = $ficha->sexo;
+		$aso->colaborador_rg              = $ficha->rg;
+		$aso->colaborador_orgao_emissor   = $ficha->emissao;
+		$aso->medico                      = "DR PEDRO LUIZ GOMES";
 
-		if (!$ficha) {
-			return '';
+		$aso->save();
+		$ficha->update(['situacao' => 0]);
 
-		} else {
-			return Response::json($ficha);
-		}
+		return Redirect::route('fichas.index');
 
 	}
 

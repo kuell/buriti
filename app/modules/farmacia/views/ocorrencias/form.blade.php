@@ -52,6 +52,7 @@
 		</div>
 
 		<div class="form-group">
+
 			<div class="col-md-3 col-sm-3">
 				{{ Form::label('data', 'Data e Hora: ') }}
 				{{ Form::text('data_hora', date('d/m/Y H:i:s'), array('class'=>'form-control data_hora', 'required') ) }}

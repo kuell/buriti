@@ -3,9 +3,12 @@
 class UserController extends \BaseController {
 
 	private $usuario;
+	private $users;
 
 	public function __construct(User $usuario) {
 		$this->usuario = $usuario;
+		$this->users   = $usuario;
+
 	}
 
 	/**
@@ -102,7 +105,24 @@ class UserController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
+		$input = Input::all();
 
+		$this->usuario->rules = ['nome' => 'required|unique:usuarios,nome,'.$id];
+
+		$validate = Validator::make($input, $this->usuario->rules);
+
+		if ($validate->passes()) {
+			if (empty($input['password'])) {
+				unset($input['password']);
+			}
+
+			$user = $this->users->find($id);
+			$user->update($input);
+
+			return Redirect::route('users.edit', $id);
+		} else {
+			print_r($validate->errors());
+		}
 	}
 
 	/**

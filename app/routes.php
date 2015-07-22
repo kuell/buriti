@@ -55,6 +55,12 @@ Route::group(['before' => 'auth'], function () {
 					return $cid;
 				}
 			});
+		Route::get('/fichas/find/{rg}/rg', function ($rg) {
+				$ficha = Ficha::where('rg', $rg)->get();
+				if (count($ficha)) {
+					return $ficha;
+				}
+			});
 
 	});
 

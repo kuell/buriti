@@ -4,7 +4,7 @@
 <section class="content">
     <div class="box box-info">
             {{ HTML::head('Usuarios ', 'controla usuarios!') }}
-            {{ HTML::boxhead('Lista', '/users/user/create') }}
+            {{ HTML::boxhead('Lista',  URL::route("users.create") ) }}
 
             <div class="box-body">
                 <ul class="todo-list">

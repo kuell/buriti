@@ -1,16 +1,29 @@
 @extends('dashboard.index')
 
 @section('main')
-<div class="box box-info">
-	{{ HTML::head('Fichas', 'controla as fichas de solicitação de emprego') }}
-	{{ HTML::boxhead('Criar uma nova ficha') }}
+{{ Form::model($ficha, array('route' => 'fichas.store', 'rule'=>'form', 'files'=>true)) }}
 
-	<div class="box-body">
-		{{ Form::open(array('route' => 'fichas.store', 'rule'=>'form')) }}
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">Criar uma nova ficha</h3>
+		</div>
+
+		<div class="panel-body">
 			@include('cadastros::fichas.form')
+		</div>
+		<div class="panel-footer">
 			{{ Form::submit('Gravar', ['class'=>'btn btn-primary']) }}
-		{{ Form::close() }}
+			{{ link_to_route('fichas.index', 'Voltar', null, ['class'=>'btn btn-danger']) }}
+		</div>
 	</div>
-</div>
+	{{ Form::close() }}
 
+
+<script type="text/javascript">
+	$(function() {
+		$('button[name=print]').bind('click', function(){
+			window.open('/fichas/'+$(this).val(), 'Print', 'channelmode=yes')
+		})
+	})
+</script>
 @endsection

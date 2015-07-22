@@ -18,6 +18,7 @@
 			<td>
 				{{ link_to_route('fichas.edit', ' ', $ficha->id, ['class'=>'btn btn-info glyphicon glyphicon-pencil']) }}
 				{{ Form::button(' ',  ['class'=>'btn btn-warning glyphicon glyphicon-print', 'name'=>'print', 'value'=>$ficha->id]) }}
+				{{ Form::button(' ', ['class'=>'btn btn-success glyphicon glyphicon-ok', 'name'=>'selecionar', 'value'=>$ficha->id]) }}
 			</td>
 
 		</tr>
@@ -25,14 +26,21 @@
 	</tbody>
 </table>
 
-@section('scripts')
-    <script type="text/javascript">
-        $(function(){
-            $('#fichas').dataTable();
-            $('button[name=print]').bind('click', function(){
-            	window.open('/fichas/'+$(this).val(), 'Print', 'channelmode=yes');
-            })
-        });
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+</div>
 
-    </script>
-@stop
+<script type="text/javascript">
+    $(function(){
+        $('#fichas').dataTable();
+
+        $('button[name=print]').bind('click', function(){
+        	window.open('/fichas/'+$(this).val(), 'Print', 'channelmode=yes');
+        })
+        $('button[name=selecionar]').bind('click',  function() {
+        	$('#myModal').modal({
+        		remote: '/fichas/'+$(this).val()+'/selecionar'
+        	})
+        });
+    });
+
+</script>

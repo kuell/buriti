@@ -7,7 +7,7 @@
                             {{ HTML::image('img/users/'.Auth::user()->avatar, null, array('class'=>'img-circle')) }}
                         </div>
                         <div class="pull-left info">
-                            <p>Ola, {{ Auth::user()->nome }}</p>
+                            <p>Ola, {{ strtoupper(Auth::user()->user) }}</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -15,9 +15,9 @@
                     <!-- search form -->
                     <form action="#" method="get" class="sidebar-form">
                         <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                            <!--input type="text" name="q" class="form-control" placeholder="Search..."/-->
                             <span class="input-group-btn">
-                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                                <!--button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button-->
                             </span>
                         </div>
                     </form>

@@ -3,7 +3,7 @@
     <div class="box box-info">
             <?php echo HTML::head('Usuarios ', 'controla usuarios!'); ?>
 
-            <?php echo HTML::boxhead('Lista', '/users/user/create'); ?>
+            <?php echo HTML::boxhead('Lista',  URL::route("users.create") ); ?>
 
 
             <div class="box-body">

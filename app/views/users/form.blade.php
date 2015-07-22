@@ -13,7 +13,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="cal">Contato: </label>
-          {{ Form::text('cel', null, array('class'=>'form-control', 'data-inputmask'=>'"mask": "(999) 999-9999"', 'id'=>'data-mask')) }}
+          {{ Form::text('cel', null, array('class'=>'form-control fone')) }}
         </div>
     </div>
 

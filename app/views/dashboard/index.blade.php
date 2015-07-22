@@ -30,7 +30,7 @@
 @yield('scripts')
 
       </head>
-      <body class="skin-blue">
+      <body class="skin-black">
 
         <!-- header logo: style can be found in header.less -->
         <header class="header">

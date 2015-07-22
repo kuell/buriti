@@ -1,5 +1,11 @@
 $(function(){
 	$('form').formValidation();
+	$(".valor").maskMoney({
+		thousands: '.',
+		decimal:',',
+		prefix: 'R$ ',
+		affixesStay: false
+	});
 
 	$('input[type=text], textarea').blur(function(){
 		var texto = $(this).val().toUpperCase()
@@ -8,6 +14,17 @@ $(function(){
 	$('.data').mask('99/99/9999');
 	$('.data_hora').mask('99/99/9999 99:99')
 	$('.hora').mask('99:99');
+	$('.emissor').mask('aaa/aa');
+    $('.cpf').mask('999.999.999/99');
+    $('.cep').mask('99.999-999');
+    $('.fone').mask('(99) 9999-9999');
+    $('.numero').bind("keyup blur focus", function(e) {
+                e.preventDefault();
+                var expre = /[^0-9]/g;
+                // REMOVE OS CARACTERES DA EXPRESSAO ACIMA
+                if ($(this).val().match(expre))
+                    $(this).val($(this).val().replace(expre,''));
+            });
 
 	$('.periodo').daterangepicker({
 		ranges:{
@@ -36,7 +53,3 @@ $(function(){
 
 	}).mask('99/99/9999 - 99/99/9999');
 })
-
-function print(route){
-	window.open(route, 'Print', 'channelmode=yes');
-}

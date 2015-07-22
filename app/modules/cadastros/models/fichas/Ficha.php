@@ -1,6 +1,7 @@
 <?php
 
 class Ficha extends \Eloquent {
+	protected $guarded  = [];
 	protected $fillable = [];
 	protected $table    = 'cadastros.fichas';
 
@@ -59,7 +60,9 @@ class Ficha extends \Eloquent {
 	}
 
 	public function getDataNascimentoAttribute() {
-		return Format::viewDate($this->attributes['data_nascimento']);
+		if (!empty($this->attributes['data_nascimento'])) {
+			return Format::viewDate($this->attributes['data_nascimento']);
+		}
 
 	}
 
@@ -78,8 +81,36 @@ class Ficha extends \Eloquent {
 		if (empty($this->attributes['foto'])) {
 			return '/img/users/no_image.jpg';
 		} else {
-			return $this->attributes['foto'];
+			return '/img/fichas/'.$this->attributes['foto'];
 		}
+	}
+
+	public function getPretencaoAttribute() {
+		return Format::valorView($this->attributes['pretencao']);
+	}
+
+	public function setFotoAttribute($foto) {
+
+		if ($foto) {
+			$file            = $foto;
+			$destinationPath = 'img/fichas';
+			$extension       = $file->getClientOriginalExtension();
+
+			$filename = $this->attributes['nome'].'.'.$extension;
+			$foto->move($destinationPath, $filename);
+
+			return $this->attributes['foto'] = $filename;
+		} else {
+			return null;
+		}
+	}
+
+	public function setUsuarioAddAttribute() {
+		return $this->attributes['usuario_add'] = Auth::user()->user;
+	}
+
+	public function setPretencaoAttribute($valor) {
+		return $this->attributes['pretencao'] = Format::valorDb($valor);
 	}
 
 }
