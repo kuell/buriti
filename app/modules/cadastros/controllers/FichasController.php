@@ -331,6 +331,7 @@ class FichasController extends BaseController {
 		$aso->colaborador_rg              = $ficha->rg;
 		$aso->colaborador_orgao_emissor   = $ficha->emissao;
 		$aso->medico                      = "DR PEDRO LUIZ GOMES";
+		$aso->ficha_id                    = $id;
 
 		$aso->save();
 		$ficha->update(['situacao' => 0]);

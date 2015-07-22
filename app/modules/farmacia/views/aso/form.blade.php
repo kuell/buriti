@@ -6,7 +6,7 @@
 
 			<div class="form-group col-md-4">
 				{{ Form::label('Tipo de A.S.O.: ')}}
-				{{ Form::select('tipo', ['admissional'=>'Admissional', 'periodico'=>'Periodico', 'demissional'=>'Demissional', 'mudanca de funcao'=>'Mudança de Função', 'retorno ao trabalho'=>'Retorno ao Trabalho'], null, ['class'=>'form-control', 'id'=>'tipo_aso', 'required'])}}
+				{{ Form::select('tipo', Aso::tipos(), null, ['class'=>'form-control', 'id'=>'tipo_aso', 'required'])}}
 			</div >
 			<div class="form-group">
 				<div class="form-group col-md-6">
@@ -56,7 +56,7 @@
 		<div class="col-md-12">
 			<div class="form-group col-md-4">
 				{{ Form::label('Setor: ')}}
-				{{ Form::select('colaborador_setor_id', [''=>'Selecione ....']+Setor::all()->lists('descricao', 'id'),null, ['class'=>'form-control', 'required'])}}
+				{{ Form::select('colaborador_setor_id', [''=>'Selecione ....']+Setor::where('descricao','<>','OUTRO')->lists('descricao', 'id'),null, ['class'=>'form-control', 'required'])}}
 			</div>
 			<div class="form-group col-md-4">
 				{{ Form::label('Posto de Trabalho: ')}}

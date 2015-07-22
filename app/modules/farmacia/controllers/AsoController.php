@@ -6,7 +6,7 @@ class AsoController extends \BaseController {
 	private $colaborador;
 
 	public function __construct(Aso $aso) {
-		$this->asos = $aso;
+		$this->asos        = $aso;
 		$this->colaborador = new Colaborador();
 	}
 
@@ -19,7 +19,7 @@ class AsoController extends \BaseController {
 	public function index() {
 
 		if (!empty(Input::get('id'))) {
-			echo "<script>window.open('/farmacia/aso/" . Input::get('id') . "', 'print','changemode=yes');</script>";
+			echo "<script>window.open('/farmacia/aso/".Input::get('id')."', 'print','changemode=yes');</script>";
 		}
 
 		$asos = $this->asos->where('situacao', '<>', 'fechado')->get();
@@ -34,7 +34,9 @@ class AsoController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return View::make('farmacia::aso.create');
+		$aso = $this->asos;
+
+		return View::make('farmacia::aso.create', compact('aso'));
 	}
 
 	/**
@@ -72,10 +74,10 @@ class AsoController extends \BaseController {
 					$colaborador = Colaborador::find($input['colaborador_id']);
 
 					$input = $input+[
-						'colaborador_nome' => strtoupper($colaborador->nome),
-						'colaborador_sexo' => $colaborador->sexo,
+						'colaborador_nome'            => strtoupper($colaborador->nome),
+						'colaborador_sexo'            => $colaborador->sexo,
 						'colaborador_data_nascimento' => $colaborador->data_nascimento,
-						'colaborador_setor_id' => $colaborador->setor_id,
+						'colaborador_setor_id'        => $colaborador->setor_id,
 					];
 
 					$aso = $this->asos->create($input);
@@ -153,20 +155,20 @@ class AsoController extends \BaseController {
 					if ($input['situacao'] == 'fechado' && $input['status'] == 'apto') {
 						// Cria Novo Colaborador //
 						$colaborador = [
-							'nome' => $aso->colaborador_nome,
-							'codigo_interno' => $aso->colaborador_matricula,
-							'setor_id' => $aso->colaborador_setor_id,
+							'nome'            => $aso->colaborador_nome,
+							'codigo_interno'  => $aso->colaborador_matricula,
+							'setor_id'        => $aso->colaborador_setor_id,
 							'data_nascimento' => $aso->colaborador_data_nascimento,
-							'sexo' => $aso->colaborador_sexo,
-							'interno' => false,
-							'data_admissao' => $aso->colaborador_data_admissao,
-							'obs' => 'Admitido em: ' . date('d/m/Y', strtotime($aso->created_at)) . ' - ASO: ' . $aso->id . ' |',
+							'sexo'            => $aso->colaborador_sexo,
+							'interno'         => false,
+							'data_admissao'   => $aso->colaborador_data_admissao,
+							'obs'             => 'Admitido em: '.date('d/m/Y', strtotime($aso->created_at)).' - ASO: '.$aso->id.' |',
 						];
 						// Valida Informações do Colaborador
 						$validaColaborador = Validator::make($colaborador, $this->colaborador->rules);
 
 						if ($validaColaborador->passes()) {
-							$col = $this->colaborador->create($colaborador);
+							$col                     = $this->colaborador->create($colaborador);
 							$input['colaborador_id'] = $col->id;
 							$col->postoTrabalho()->create(['posto_id' => $input['posto_id']]);
 
@@ -198,9 +200,9 @@ class AsoController extends \BaseController {
 			case 'demissional':
 
 				if ($input['status'] == 'apto' && $input['situacao'] == 'fechado') {
-					$colaborador = $aso->colaborador;
+					$colaborador           = $aso->colaborador;
 					$colaborador->situacao = 'demitido';
-					$colaborador->obs = $colaborador->obs . ' Demitido em: ' . date('d/m/Y', strtotime($aso->created_at)) . ' - Aso: ' . $aso->id;
+					$colaborador->obs      = $colaborador->obs.' Demitido em: '.date('d/m/Y', strtotime($aso->created_at)).' - Aso: '.$aso->id;
 					$colaborador->save();
 					$aso->update($input);
 					return Redirect::route('farmacia.aso.index');
@@ -214,8 +216,8 @@ class AsoController extends \BaseController {
 				$validate = Validator::make($input, $this->asos->rules['periodico']);
 				if ($validate->passes()) {
 					if ($input['situacao'] == 'fechado') {
-						$colaborador = $aso->colaborador;
-						$colaborador->obs = $colaborador->obs . ' ' . ucwords($aso->tipo) . ' em: ' . date('d/m/Y', strtotime($aso->created_at)) . ' - ASO: ' . $aso->id . '| ';
+						$colaborador      = $aso->colaborador;
+						$colaborador->obs = $colaborador->obs.' '.ucwords($aso->tipo).' em: '.date('d/m/Y', strtotime($aso->created_at)).' - ASO: '.$aso->id.'| ';
 
 						$colaborador->save();
 						$aso->update($input);
@@ -264,7 +266,7 @@ class AsoController extends \BaseController {
 	}
 
 	public function setExames($aso_id) {
-		$input = Input::all();
+		$input               = Input::all();
 		$input['relacao_id'] = $aso_id;
 		$input['tipo_exame'] = 'ASO';
 
@@ -274,7 +276,7 @@ class AsoController extends \BaseController {
 	}
 
 	public function destroyExame($id) {
-		$exame = Exame::find($id);
+		$exame  = Exame::find($id);
 		$aso_id = $exame->relacao_id;
 		$exame->delete();
 

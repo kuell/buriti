@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="content">
-{{ Form::open(array('route' => 'farmacia.aso.store', 'rule'=>'form')) }}
+{{ Form::open( array('route' => 'farmacia.aso.store', 'rule'=>'form')) }}
 	<div class="panel panel-success">
 		<div class="panel-heading">
 			<h3 class="panel-title">

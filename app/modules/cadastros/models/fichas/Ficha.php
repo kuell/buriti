@@ -21,7 +21,7 @@ class Ficha extends \Eloquent {
 		'filhos'          => 'required',
 		'pai'             => 'required',
 		'mae'             => 'required',
-		'rg'              => 'required|unique:cadastros.fichas',
+		'rg'              => 'required|unique:cadastros.fichas,situacao,0',
 		'cpf'             => 'required',
 		'emissao'         => 'required',
 		'titulo_eleitor'  => 'required',
@@ -86,7 +86,10 @@ class Ficha extends \Eloquent {
 	}
 
 	public function getPretencaoAttribute() {
-		return Format::valorView($this->attributes['pretencao']);
+		if (!empty($this->attributes['pretencao'])) {
+			return Format::valorView($this->attributes['pretencao']);
+		}
+
 	}
 
 	public function setFotoAttribute($foto) {
