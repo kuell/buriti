@@ -6,7 +6,11 @@
 
 			<div class="form-group col-md-4">
 				{{ Form::label('Tipo de A.S.O.: ')}}
-				{{ Form::select('tipo', Aso::tipos(), null, ['class'=>'form-control', 'id'=>'tipo_aso', 'required'])}}
+				@if(!empty($aso->id))
+					{{ Form::select('tipo', ['admissional' => 'Admissional', 'periodico' => 'Periodico', 'demissional' => 'Demissional', 'mudanca de funcao' => 'Mudança de Função', 'retorno ao trabalho' => 'Retorno ao Trabalho'], null, ['class'=>'form-control', 'id'=>'tipo_aso', 'disabled'])}}
+				@else
+					{{ Form::select('tipo', ['periodico' => 'Periodico', 'demissional' => 'Demissional', 'mudanca de funcao' => 'Mudança de Função', 'retorno ao trabalho' => 'Retorno ao Trabalho'], null, ['class'=>'form-control', 'id'=>'tipo_aso', 'required'])}}
+				@endif
 			</div >
 			<div class="form-group">
 				<div class="form-group col-md-6">

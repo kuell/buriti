@@ -34,10 +34,6 @@ class Aso extends \Eloquent {
 		return $this->belongsTo('Colaborador', 'colaborador_id');
 	}
 
-	public static function tipos() {
-		return ['admissional' => 'Admissional', 'periodico' => 'Periodico', 'demissional' => 'Demissional', 'mudanca de funcao' => 'Mudança de Função', 'retorno ao trabalho' => 'Retorno ao Trabalho'];
-	}
-
 	public function postoTrabalho() {
 		return $this->belongsTo('SetorPosto', 'posto_id');
 	}

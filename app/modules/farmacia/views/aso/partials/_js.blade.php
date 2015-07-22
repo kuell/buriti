@@ -4,6 +4,17 @@
 
 		$(function(){
 			$('input[name=colaborador_orgao_emissor]').mask('aaa/aa')
+			$('input[name=colaborador_matricula]').bind('blur', function(){
+				if($(this).val() != ''){
+					$.get('/colaboradors/find/'+$(this).val(), function(data) {
+						if(data){
+							console.log(data)
+							alert('Matricula ja cadastrada!\nNome: '+data.nome+'\nData de Admissão: '+data.data_admissao)
+							$('input[name=colaborador_matricula]').focus()
+						}
+					});
+				}
+			})
 
 			$('select[name=colaborador_setor_id]').chosen().change(function() {
 				$.getJSON('/setors/find/'+$(this).val()+'/postoTrabalho', function(data){
