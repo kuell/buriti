@@ -32,6 +32,7 @@
 
                         @foreach (Auth::user()->menus()->where('menu_id', 2)->get() as $menu)
                             @foreach($menu->menu->subMenus as $sub)
+                            @if($sub->permite(Auth::user()))
                             <li class="active">
                                 <a href="{{ $sub->url }}">
                                     <i class="fa {{ $sub->icone  }}"></i>
@@ -40,6 +41,7 @@
 
                                 </a>
                             </li>
+                            @endif
                             @endforeach
                         @endforeach
                     </ul>

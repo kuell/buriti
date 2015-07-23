@@ -10,32 +10,19 @@
             <div class="box-body no-padding">
                 <table class="table table-bordered table-hover">
                     <?php foreach($menus as $menu): ?>
-<?php $p = false;?>
-<tr>
-                            <?php foreach($usuario->menus as $usuarioMenu): ?>
-                                <?php if($usuarioMenu->menu->id == $menu->id): ?>
-<?php $p = true?>
-<?php endif; ?>
+                    <tr>
+                        <th><?php echo $menu->descricao; ?></th>
 
-                            <?php endforeach; ?>
-                            <th><?php echo $menu->descricao; ?></th>
-                            <th><?php echo Form::checkbox('menu', $menu->id, $p ,array('class'=>'form-controll',
-                                                                               'ng-click'=>'save('.$menu->id.')')); ?></th>
+                        <th><?php echo Form::checkbox('menu', $menu->id, $menu->permite($usuario),array('class'=>'form-controll')); ?></th>
+                    </tr>
+
+                        <?php foreach($menu->subMenus as $sub): ?>
+                        <tr>
+                            <td><?php echo $sub->descricao; ?></td>
+                            <td><?php echo Form::checkbox('menu', $sub->id, $sub->permite($usuario) ,array('class'=>'form-controll')); ?></td>
                          </tr>
-                         <?php if(count($menu->subMenus)): ?>
-                            <?php foreach($menu->subMenus as $sub): ?>
-                            <tr>
-<?php $ps = false;?>
-<?php foreach($usuario->menus as $usuarioMenu): ?>
-                                    <?php if($usuarioMenu->menu->id == $sub->id): ?>
-<?php $ps = true;?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                                <td><?php echo $sub->descricao; ?></td>
-                                <td><?php echo Form::checkbox('menu', $menu->id, $ps ,array('class'=>'form-controll', 'ng-click'=>'save('.$sub->id.')')); ?></td>
-                             </tr>
-                            <?php endforeach; ?>
-                         <?php endif; ?>
+                        <?php endforeach; ?>
+
                     <?php endforeach; ?>
 
                 </table>
@@ -53,9 +40,16 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('scripts'); ?>
-   <?php echo HTML::script('js/angular.min.js'); ?>
-
     <script>
+    $(function(){
+        $('input[name=menu]').bind('click', function(){
+            $.post('/users/permissao', {usuario_id: <?php echo $usuario->id; ?>, menu_id: $(this).val() }, function(data){
+                console.log(data)
+            })
+        })
+    })
+
+/*
         var App = angular.module('App',[]);
         App.config(function($interpolateProvider) {
               $interpolateProvider.startSymbol('<%');
@@ -78,6 +72,7 @@
 
                 init();
         };
+        */
       </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

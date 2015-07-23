@@ -33,6 +33,7 @@
 
                         <?php foreach(Auth::user()->menus()->where('menu_id', 2)->get() as $menu): ?>
                             <?php foreach($menu->menu->subMenus as $sub): ?>
+                            <?php if($sub->permite(Auth::user())): ?>
                             <li class="active">
                                 <a href="<?php echo $sub->url; ?>">
                                     <i class="fa <?php echo $sub->icone; ?>"></i>
@@ -41,6 +42,7 @@
 
                                 </a>
                             </li>
+                            <?php endif; ?>
                             <?php endforeach; ?>
                         <?php endforeach; ?>
                     </ul>

@@ -12,32 +12,19 @@
             <div class="box-body no-padding">
                 <table class="table table-bordered table-hover">
                     @foreach($menus as $menu)
-<?php $p = false;?>
-<tr>
-                            @foreach($usuario->menus as $usuarioMenu)
-                                @if($usuarioMenu->menu->id == $menu->id)
-<?php $p = true?>
-@endif
+                    <tr>
+                        <th>{{ $menu->descricao  }}</th>
 
-                            @endforeach
-                            <th>{{ $menu->descricao  }}</th>
-                            <th>{{ Form::checkbox('menu', $menu->id, $p ,array('class'=>'form-controll',
-                                                                               'ng-click'=>'save('.$menu->id.')')) }}</th>
+                        <th>{{ Form::checkbox('menu', $menu->id, $menu->permite($usuario),array('class'=>'form-controll')) }}</th>
+                    </tr>
+
+                        @foreach($menu->subMenus as $sub)
+                        <tr>
+                            <td>{{ $sub->descricao }}</td>
+                            <td>{{ Form::checkbox('menu', $sub->id, $sub->permite($usuario) ,array('class'=>'form-controll')) }}</td>
                          </tr>
-                         @if(count($menu->subMenus))
-                            @foreach($menu->subMenus as $sub)
-                            <tr>
-<?php $ps = false;?>
-@foreach($usuario->menus as $usuarioMenu)
-                                    @if($usuarioMenu->menu->id == $sub->id)
-<?php $ps = true;?>
-                                    @endif
-                                @endforeach
-                                <td>{{ $sub->descricao }}</td>
-                                <td>{{ Form::checkbox('menu', $menu->id, $ps ,array('class'=>'form-controll', 'ng-click'=>'save('.$sub->id.')')) }}</td>
-                             </tr>
-                            @endforeach
-                         @endif
+                        @endforeach
+
                     @endforeach
 
                 </table>
@@ -54,29 +41,13 @@
 @endsection
 
 @section('scripts')
-   {{ HTML::script('js/angular.min.js') }}
-    <script>
-        var App = angular.module('App',[]);
-        App.config(function($interpolateProvider) {
-              $interpolateProvider.startSymbol('<%');
-              $interpolateProvider.endSymbol('%>');
-        });
-
-        function PermissaoCtrl($scope, $http, $window){
-            $scope.save = function(menu_id){
-                $scope.obj.menu_id = menu_id;
-                $http.post('/users/permissao/', $scope.obj)
-                    .success(function(data){
-                        $window.console.log(data);
-                        });
-
-            }
-
-                var init = function(){
-                    $scope.obj = {menu_id: 0, usuario_id: {{ $usuario->id }} }
-                };
-
-                init();
-        };
-      </script>
+<script>
+    $(function(){
+        $('input[name=menu]').bind('click', function(){
+            $.post('/users/permissao', {usuario_id: {{ $usuario->id }}, menu_id: $(this).val() }, function(data){
+                console.log(data)
+            })
+        })
+    })
+</script>
 @stop

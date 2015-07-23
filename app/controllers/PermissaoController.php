@@ -41,7 +41,7 @@ class PermissaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
-		$input = Input::all();
+		$input         = Input::all();
 		$input['user'] = strtolower($input['user']);
 
 		$validation = Validator::make($input, $this->rules);
@@ -156,8 +156,8 @@ class PermissaoController extends \BaseController {
 		if ($res == 0) {
 			$return = UsuarioPermissao::create($input);
 		} else {
-			$return = UsuarioPermissao::where('usuario_id', '=', $input['usuario_id'])
-				->where('menu_id', '=', $input['menu_id'])	->delete();
+			$return = UsuarioPermissao::where('usuario_id', $input['usuario_id'])
+				->where('menu_id', $input['menu_id'])	->delete();
 		}
 
 		return $return;
