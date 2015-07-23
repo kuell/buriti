@@ -46,7 +46,6 @@
 
             <aside class="right-side col-md-10 col-sm-10 col-xs-10">
 
-
                 @if(Request::segment(1) == 'dashboard')
                     @include('dashboard.partials._menu_body')
                 @else

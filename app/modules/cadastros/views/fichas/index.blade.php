@@ -17,4 +17,25 @@
         </div>
 
     </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+</div>
+
+<script type="text/javascript">
+    $(function(){
+
+        $('#fichas').dataTable();
+
+        $('button[name=print]').bind('click', function(){
+            window.open('/fichas/'+$(this).val(), 'Print', 'channelmode=yes');
+        })
+        $('button[name=selecionar]').bind('click',  function() {
+            $('#myModal').modal({
+                remote: '/fichas/'+$(this).val()+'/selecionar'
+            })
+        });
+    });
+
+</script>
+
+
 @endsection

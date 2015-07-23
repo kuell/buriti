@@ -52,7 +52,6 @@
 
             <aside class="right-side col-md-10 col-sm-10 col-xs-10">
 
-
                 <?php if(Request::segment(1) == 'dashboard'): ?>
                     <?php echo $__env->make('dashboard.partials._menu_body', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 <?php else: ?>

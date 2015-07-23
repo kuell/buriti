@@ -63,6 +63,15 @@ Route::group(['before' => 'auth'], function () {
 					return $ficha;
 				}
 			});
+		Route::get('/colaboradors/find/{matricula}', function ($matricula) {
+				$colaborador = Colaborador::where('codigo_interno', $matricula)->first();
+				if (!empty($colaborador)) {
+					return Response::json($colaborador);
+				} else {
+					return false;
+				}
+
+			});
 
 	});
 

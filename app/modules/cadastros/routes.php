@@ -18,15 +18,6 @@ Route::group(array('before'                     => 'auth|permissao'), function (
 		Route::get('colaboradors/{id}/demitir', array('as'  => 'colaboradors.demitir', 'uses'  => 'ColaboradorController@getDemitir'));
 		Route::post('colaboradors/{id}/demitir', array('as' => 'colaboradors.demitir', 'uses' => 'ColaboradorController@setDemitir'));
 
-		Route::get('/colaboradors/find/{matricula}', function ($matricula) {
-				$colaborador = Colaborador::where('codigo_interno', $matricula)->first();
-				if (empty($colaborador)) {
-					$colaborador = Colaborador::find($matricula);
-				}
-
-				return Response::json($colaborador);
-			});
-
 		Route::get('/fichas/{id}/selecionar', ['as'  => 'fichas.selecionar', 'uses'  => 'FichasController@getSelecionar']);
 		Route::post('/fichas/{id}/selecionar', ['as' => 'fichas.selecionar', 'uses' => 'FichasController@setSelecionar']);
 
