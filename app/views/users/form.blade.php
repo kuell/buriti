@@ -19,7 +19,7 @@
 
     <div class="form-group">
         <label for="email">E-mail: </label>
-        {{ Form::text('email', null, array('class'=>'form-control')) }}
+        {{ Form::text('email', null, array('class'=>'form-control minusculo')) }}
     </div>
 
     <div class="form-group">
@@ -45,9 +45,9 @@
         <div class="form-group">
             <label for="exampleInputPassword1">Usuario: </label>
             @if(!empty($user))
-                {{ Form::text('user', null, array('class'=>'form-control', 'disabled')) }}
+                {{ Form::text('user', null, array('class'=>'form-control minusculo', 'disabled')) }}
             @else
-                {{ Form::text('user', null, array('class'=>'form-control')) }}
+                {{ Form::text('user', null, array('class'=>'form-control minusculo')) }}
             @endif
         </div>
     </div>
