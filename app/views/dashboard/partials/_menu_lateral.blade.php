@@ -29,6 +29,9 @@
                                 <i class="fa fa-plus-circle"></i> <span>Inicio</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="#" id="ajuda"><span>Precisa de ajuda?</span></a>
+                        </li>
 
                         @foreach (Auth::user()->menus()->where('menu_id', 2)->get() as $menu)
                             @foreach($menu->menu->subMenus as $sub)
@@ -47,3 +50,17 @@
                     </ul>
                 </section>
                 <!-- /.sidebar -->
+
+
+
+
+
+
+                <script type="text/javascript">
+                $(function(){
+                    $('#ajuda').bind('click', function() {
+                        $('#chatModal').modal()
+                    });
+                })
+
+                </script>

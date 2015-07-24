@@ -35,6 +35,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><i class="glyphicon glyphicon-user"></i> {{ Auth::user()->nome }}</a> </li>
+                <li><a href="#" id="ajuda"><i class="glyphicon glyphicon-question-sign"></i> Precisa de ajuda?</a> </li>
             </ul>
         </div>
     </div>
@@ -81,7 +82,15 @@
 
 <!-- script references -->
 
+@include('dashboard.partials._modal_suporte')
 
+<script type="text/javascript">
+    $(function(){
+        $('#ajuda').click(function() {
+            $('#chatModal').modal()
+        });
+    })
+</script>
 
 </body>
 </html>

@@ -53,7 +53,7 @@
                         </ul>
                         --}}
                     </li>
-                    <li class="footer"><a href="#" data-toggle="modal" data-target="#suporteModal">Enviar</a></li>
+                    <li class="footer"><a href="#" data-toggle="modal" data-target="#chatModal">Enviar</a></li>
                 </ul>
             </li>
 
