@@ -25,8 +25,8 @@ class Aso extends \Eloquent {
 				'status'                      => 'required'
 			]
 		],
-		'periodico'       => [
-			'colaborador_id' => 'required'
+		'periodico' => [
+
 		]
 	];
 
