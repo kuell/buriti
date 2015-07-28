@@ -22,7 +22,8 @@
             <td>{{ $investigacao->ocorrencia->colaborador->setor->descricao or 'Não Informado' }}</td>
             <td>{{ $investigacao->situacao }}</td>
             <td>
-                {{ link_to('#', ' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'onclick'=>'print("'.URL::route('sesmt.investigacao.show', $investigacao->id).'", "Print", "channelmode=yes")']) }}
+                {{ Form::button(' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'name'=>'investigar', 'value'=>$investigacao->id])}}
+
             </td>
         </tr>
         @endforeach
@@ -35,6 +36,7 @@
 
 </div>
 <script type="text/javascript">
+
     $(function(){
         $('button[name=visualizar]').bind('click', function(){
             $('#myModal').modal({
@@ -44,6 +46,11 @@
         $('#myModal').on('hidden.bs.modal', function(e){
             location.reload()
         })
+
+        $('button[name=investigar]').bind('click', function(){
+            window.open('/sesmt/investigacao/'+$(this).val(), 'Investigar', 'channelmode=yes')
+        })
+
         $("#investigacaos").dataTable();
     });
 </script>
