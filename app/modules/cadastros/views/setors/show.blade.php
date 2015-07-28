@@ -40,7 +40,7 @@ Class Rel extends Fpdf {
 	}
 }
 
-$fpdf = new ColaboradorView();
+$fpdf = new Rel();
 $fpdf->AddPage();
 $fpdf->Dados($setor);
 $fpdf->Output();

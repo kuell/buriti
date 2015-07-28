@@ -60,7 +60,7 @@
                 <script type="text/javascript">
                 $(function(){
                     $('#ajuda').bind('click', function() {
-                        $('#chatModal').modal()
+                        window.open('http://10.1.1.248:81', 'Ajuda', 'width=400px, height=300px')
                     });
                 })
 

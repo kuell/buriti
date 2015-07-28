@@ -22,7 +22,7 @@
 			<td>{{{ $ocorrencia->sesmt }}}</td>
 			<td>
 				{{ link_to_route('farmacia.ocorrencias.edit', ' Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}
-				<button class="btn btn-info" name="print" value="{{ $ocorrencia->id }}"><i class="glyphicon glyphicon-print"></i> </button>
+				<button class="btn btn-info" name="print" value="{{ $ocorrencia->id }}"><i class="glyphicon glyphicon-print"></i> Ver</button>
 			</td>
 		</tr>
 		@endforeach
@@ -33,20 +33,4 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
 </div>
-
-<script type="text/javascript">
-	$(function(){
-		$('button[name=print]').bind('click', function(){
-			$('#myModal').modal({
-				remote:	'/farmacia/ocorrencias/'+$(this).val()
-			})
-		})
-
-		$('#myModal').on('hidden.bs.modal', function(){
-			location.reload();
-		})
-	})
-
-</script>
-
 @endif

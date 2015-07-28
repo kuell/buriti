@@ -81,9 +81,18 @@
 
 <script type="text/javascript">
     $(function() {
-        $("#ocorrencias").dataTable( {
-			"order": [ 0, "desc" ]
-			} );
+
+    	$('button[name=print]').bind('click', function(){
+			$('#myModal').modal({
+				remote:	'/farmacia/ocorrencias/'+$(this).val()
+			})
+		})
+
+		$('#myModal').on('hidden.bs.modal', function(){
+			location.reload();
+		})
+
+        $("#ocorrencias").dataTable();
 
         $('select[name=colaborador_id]').chosen()
 
