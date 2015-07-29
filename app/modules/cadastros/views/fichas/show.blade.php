@@ -390,7 +390,7 @@ color:rgb(0,0,0);
                 <span class="fc3">Nome:</span>
                 <span class="fc4"> </span>
                 <span class="fc4">{{ $ficha->nome }} </span>
-                <span class="fc4"> - Masculino - Solteiro</span>
+                <span class="fc4"> - {{ $ficha->sexoDescricao }} - {{ $ficha->estadoCivilDescricao }}</span>
             </p>
         </div>
     </div>

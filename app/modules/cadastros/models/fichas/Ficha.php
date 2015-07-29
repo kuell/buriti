@@ -92,6 +92,66 @@ class Ficha extends \Eloquent {
 
 	}
 
+	public function getSexoDescricaoAttribute() {
+		if ($this->attributes['sexo'] == false) {
+			return 'Masculino';
+		} else {
+			return 'Feminino';
+		}
+	}
+
+	public function getEstadoCivilDescricaoAttribute() {
+		switch ($this->attributes['estado_civil']) {
+			case '0':
+				if ($this->attributes['sexo'] == false) {
+					return 'Solteiro';
+				} else {
+					return 'Solteira';
+				}
+				break;
+
+			case '1':
+				if ($this->attributes['sexo'] == false) {
+					return 'Casado';
+				} else {
+					return 'Casada';
+				}
+				break;
+
+			case '2':
+				if ($this->attributes['sexo'] == false) {
+					return 'Viuvo';
+				} else {
+					return 'Viuva';
+				}
+				break;
+
+			case '3':
+				if ($this->attributes['sexo'] == false) {
+					return 'Amasiado';
+				} else {
+					return 'Amasiada';
+				}
+				break;
+
+			case '4':
+				if ($this->attributes['sexo'] == false) {
+					return 'Divorciado';
+				} else {
+					return 'Divorciada';
+				}
+				break;
+
+			case '5':
+				if ($this->attributes['sexo'] == false) {
+					return 'Disquitado';
+				} else {
+					return 'Disquitada';
+				}
+				break;
+		}
+	}
+
 	public function setFotoAttribute($foto) {
 
 		if ($foto) {
