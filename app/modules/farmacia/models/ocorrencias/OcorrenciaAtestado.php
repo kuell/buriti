@@ -9,6 +9,11 @@ class OcorrenciaAtestado extends \Eloquent {
 		return $this->belongsTo('Ocorrencia', 'ocorrencia_id');
 	}
 
+	public function getCid() {
+		return $this->belongsTo('FarmaciaCid', 'cid', 'cod_cid');
+
+	}
+
 	public function getPeriodoAfastamentoAttribute() {
 		if (empty($this->attributes['inicio_afastamento']) or empty($this->attributes['fim_afastamento'])) {
 			return null;
@@ -41,12 +46,16 @@ class OcorrenciaAtestado extends \Eloquent {
 	}
 
 	public function getTipoDescricaoAttribute() {
+
 		if ($this->attributes['tipo'] == 0) {
-			if ($this->ocorrencia->sesmt = 'SIM') {
+
+			if ($this->ocorrencia->sesmt == 'SIM') {
 				return 'CAT';
 			} else {
+
 				return 'CONSULTA';
 			}
+
 		} else if ($this->attributes['tipo'] == 1) {
 			return "ACOMPANHANTE";
 		} else {
@@ -83,6 +92,12 @@ class OcorrenciaAtestado extends \Eloquent {
 						$return = null;
 
 						foreach ($atestados as $atestado) {
+							if (empty($atestado->getCid->descricao)) {
+								$cid = $atestado->cid;
+							} else {
+								$cid = $atestado->getCid->cod_cid.' - '.$atestado->getCid->descricao;
+							}
+
 							$return[] = [
 								'matricula'       => $atestado->ocorrencia->colaborador->codigo_interno,
 								'nome'            => $atestado->ocorrencia->colaborador->nome,
@@ -91,7 +106,7 @@ class OcorrenciaAtestado extends \Eloquent {
 								'fim afastamento' => Format::viewDate($atestado->fim_afastamento),
 								'descricao'       => $atestado->tipoDescricao,
 								'obs'             => $atestado->obs,
-								'cid'             => $atestado->cid.' - '.$atestado->cid_descricao,
+								'cid'             => $cid,
 								'medico'          => $atestado->profissional,
 								'Total Dias'      => $atestado->dias_afastamento
 							];
