@@ -31,7 +31,7 @@ class OcorrenciaAtestado extends \Eloquent {
 	}
 
 	public function getCidDescricaoAttribute() {
-		if (empty($this->attributes['cid'])) {
+		if (empty($this->attributes['cid']) or $this->attributes['cid'] == 0) {
 			return 'CID nao encontrado!';
 		} else {
 			$cid = FarmaciaCid::where('cod_cid', '=', $this->attributes['cid'])->first();
