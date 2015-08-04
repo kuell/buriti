@@ -21,6 +21,10 @@ class Ocorrencia extends Eloquent {
 		return $this->hasMany('OcorrenciaAtestado');
 	}
 
+	public function queixa() {
+		return $this->belongsTo('Queixa');
+	}
+
 	public function getDataHoraAttribute() {
 		return date('d/m/Y H:i', strtotime($this->attributes['data_hora']));
 	}

@@ -1,10 +1,12 @@
-<table class="table table-hover" id="analises">
+<table class="table" id="analises">
 	<thead>
 		<tr>
 			<th>#</th>
 			<th>Data Hora</th>
 			<th>Colaborador</th>
 			<th>Setor</th>
+			<th>Queixa</th>
+			<th>Diagnóstico</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -15,6 +17,8 @@
 			<td>{{ $analise->data_hora }}</td>
 			<td>{{ $analise->colaborador->nome }}</td>
 			<td>{{ $analise->colaborador->setor->descricao or null }}</td>
+			<td>{{ $analise->queixa->descricao or null }}</td>
+			<td>{{ $analise->diagnostico }}</td>
 			<td>
 				<button name="analisar" class="btn btn-sm btn-primary" value="{{ $analise->id }}"><i class="glyphicon glyphicon-refresh"></i> Analizar</button>
 			</td>
@@ -29,7 +33,7 @@
 
 <script type="text/javascript">
 	$(function(){
-		$('#analises').dataTable()
+
 		$('button[name=analisar]').bind('click', function(){
 			$('#myModal').modal({
 				remote: '/sesmt/analise/'+$(this).val()+'/edit'
@@ -38,5 +42,7 @@
 		$('#myModal').on('hidden.bs.modal', function(e){
 			location.reload()
 		})
+
+		$("#analises").dataTable();
 	})
 </script>

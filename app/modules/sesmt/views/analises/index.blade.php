@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="panel panel-info">
+
 	<div class="panel-heading clearfix">
 		<div class="panel-title pull-left">
 			<h3>Analise de Ocorrencias</h3>
@@ -26,9 +27,7 @@
 
 			{{ Form::close() }}
 		</div>
-
-
-		@include('sesmt::analises.lista')
+			@include('sesmt::analises.lista')
 	</div>
 </div>
 
