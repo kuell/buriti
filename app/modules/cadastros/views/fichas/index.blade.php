@@ -26,8 +26,6 @@
 <script type="text/javascript">
     $(function(){
 
-        //$('#fichas').dataTable();
-
         $('button[name=print]').bind('click', function(){
             window.open('/fichas/'+$(this).val(), 'Print', 'channelmode=yes');
         })
@@ -40,6 +38,8 @@
         $('#myModal').on('hidden.bs.modal', function(){
             location.reload()
         })
+
+        $('#fichas').dataTable();
     });
 
 </script>
