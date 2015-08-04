@@ -27,15 +27,17 @@ $fpdf->MultiCell(190, 9, utf8_decode('A.S.O. - Atestado de Saúde Ocupacional'),
 $fpdf->SetTextColor(0);
 $fpdf->SetFont('Arial', '', 9);
 $fpdf->Cell(33, 7, utf8_decode('Matrícula: '.$aso->matricula), 'LTR', 0, 'L');
-$fpdf->Cell(97, 7, 'Nome: '.$aso->colaborador_nome, 'LTR', 0, 'L');
+$fpdf->Cell(97, 7, utf8_decode('Nome: '.$aso->colaborador_nome), 'LTR', 0, 'L');
 $fpdf->Cell(60, 7, utf8_decode('RG: '.$aso->colaborador_rg.' '.$aso->colaborador_orgao_emissor), 'LTR', 0, 'L');
 $fpdf->Ln();
 
 $fpdf->Cell(30, 7, 'Sexo: '.$aso->colaborador_sexo_descricao, 'LTR', 0, 'L');
 $fpdf->Cell(60, 7, 'Data de Nascimento: '.$aso->colaborador_data_nascimento, 'LTR', 0, 'L');
-$fpdf->Cell(100, 7, 'Idade: '.$aso->colaborador_idade, 'LTR', 0, 'L');
+$fpdf->Cell(30, 7, 'Idade: '.$aso->colaborador_idade, 'LTR', 0, 'L');
+$fpdf->Cell(70, 7, utf8_decode('Setor: '.$aso->setor), 'LTR', 0, 'L');
 $fpdf->Ln();
-$fpdf->Cell(95, 7, utf8_decode('Setor: '.$aso->setor), 'LTR', 0, 'L');
+
+$fpdf->Cell(95, 7, utf8_decode('Função: '.$aso->funcao_descricao), 'LTR', 0, 'L');
 $fpdf->Cell(95, 7, utf8_decode('Data de Admissão: '.$aso->data_admissao), 'LTR', 0, 'L');
 $fpdf->Ln();
 $fpdf->Cell(190, 7, 'Posto de Trabalho: '.utf8_decode(!$aso->postoTrabalho?null:$aso->postoTrabalho->descricao), 'LTR', 0, 'L');
@@ -113,7 +115,7 @@ if (!empty(count($riscos))) {
 			} else {
 				$marca = '(     ) ';
 			}
-			$fpdf->Cell(43, 6, $marca.utf8_decode($riscos['Ergonomico'][$i]), 'TLRB', 0,1, 'L');
+			$fpdf->Cell(43, 6, $marca.utf8_decode($riscos['Ergonomico'][$i]), 'TLRB', 0, 1, 'L');
 
 		} else {
 			$fpdf->Cell(43, 6, '', 'TLRB', 0, 'L');

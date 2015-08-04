@@ -40,7 +40,7 @@
 
 	        			<a href="{{ URL::route('farmacia.ocorrencias.create') }}" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i> Nova Ocorrencia</a>
 
-		                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
+		                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#relatorioModal">
 		                    <i class="glyphicon glyphicon-list-alt"></i>
 		                    Relatorios
 		                </button>
@@ -95,13 +95,6 @@
         $("#ocorrencias").dataTable();
 
         $('select[name=colaborador_id]').chosen()
-
-		$('#gerar').click(function() {
-			periodo = $('#periodo').val()
-			tipo = $('#tipo').val()
-
-			window.open("/farmacia/ocorrencias/relatorioOcorrencias?periodo="+periodo, 'Print', 'channelmode=yes')
-		});
     })
 </script>
 @stop

@@ -18,7 +18,7 @@
 			<td>{{{ $ocorrencia->data_hora }}}</td>
 			<td>{{{ $ocorrencia->colaborador->nome }}}</td>
 			<td>{{{ $ocorrencia->colaborador->setor->descricao or "Não Identificado"}}}</td>
-			<td>{{{ $ocorrencia->monitoramento }}}</td>
+			<td>{{{ $ocorrencia->monitoramento_descricao }}}</td>
 			<td>{{{ $ocorrencia->sesmt }}}</td>
 			<td>
 				{{ link_to_route('farmacia.ocorrencias.edit', ' Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}

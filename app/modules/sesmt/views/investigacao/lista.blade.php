@@ -22,7 +22,9 @@
             <td>{{ $investigacao->ocorrencia->colaborador->setor->descricao or 'Não Informado' }}</td>
             <td>{{ $investigacao->situacao }}</td>
             <td>
-                {{ Form::button(' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'name'=>'investigar', 'value'=>$investigacao->id])}}
+                {{
+                    Form::button(' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'name'=>'investigar', 'value'=>$investigacao->id])
+                }}
 
             </td>
         </tr>
@@ -40,7 +42,7 @@
     $(function(){
         $('button[name=visualizar]').bind('click', function(){
             $('#myModal').modal({
-                remote:'/farmacia/ocorrencias/'+$(this).val()
+                remote:'/sesmt/analise/'+$(this).val()+'/edit?pg=investigacao'
             })
         })
         $('#myModal').on('hidden.bs.modal', function(e){

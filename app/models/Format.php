@@ -5,6 +5,10 @@ class Format {
 		$d = implode('/', array_reverse(explode('-', $data)));
 		return $d;
 	}
+	public static function dbDate($data) {
+		$d = implode('-', array_reverse(explode('/', $data)));
+		return $d;
+	}
 
 	public static function viewDateTime($date_time) {
 		$d    = explode(' ', $date_time);

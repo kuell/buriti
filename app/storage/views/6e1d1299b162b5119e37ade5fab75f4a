@@ -40,7 +40,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('scripts'); ?>
-    <script>
+<script>
     $(function(){
         $('input[name=menu]').bind('click', function(){
             $.post('/users/permissao', {usuario_id: <?php echo $usuario->id; ?>, menu_id: $(this).val() }, function(data){
@@ -48,31 +48,6 @@
             })
         })
     })
-
-/*
-        var App = angular.module('App',[]);
-        App.config(function($interpolateProvider) {
-              $interpolateProvider.startSymbol('<%');
-              $interpolateProvider.endSymbol('%>');
-        });
-
-        function PermissaoCtrl($scope, $http, $window){
-            $scope.save = function(menu_id){
-                $scope.obj.menu_id = menu_id;
-                $http.post('/users/permissao/', $scope.obj)
-                    .success(function(data){
-                        $window.console.log(data);
-                        });
-
-            }
-
-                var init = function(){
-                    $scope.obj = {menu_id: 0, usuario_id: <?php echo $usuario->id; ?> }
-                };
-
-                init();
-        };
-        */
-      </script>
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

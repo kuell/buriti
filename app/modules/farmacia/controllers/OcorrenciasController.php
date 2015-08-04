@@ -64,11 +64,12 @@ class OcorrenciasController extends \BaseController {
 		$validate = Validator::make($input, $this->ocorrencias->rules);
 
 		if ($validate->passes()) {
-			$ocorrencia = $this->ocorrencias = $this->ocorrencias->create($input);
+			$ocorrencia = $this->ocorrencias->create($input);
 
 			//-- Se o campo 'Encaminhar para sesmt' for true --//
 
 			if ($ocorrencia->sesmt == 'SIM') {
+				$ocorrencia->update(['tipo'                     => 7]);
 				$ocorrencia->investigacao()->create(['situacao' => 'Em investigacao']);
 			}
 			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//
@@ -121,6 +122,14 @@ class OcorrenciasController extends \BaseController {
 			$ocorrencia = $this->ocorrencias->find($id);
 			$ocorrencia->update($input);
 
+			//-- Se o campo 'Encaminhar para sesmt' for true --//
+
+			if ($ocorrencia->sesmt == 'SIM') {
+				$ocorrencia->update(['tipo'                     => 'acidente']);
+				$ocorrencia->investigacao()->create(['situacao' => 'Em investigacao']);
+			}
+			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//
+
 			return Redirect::route("farmacia.ocorrencias.edit", $id);
 		} else {
 			return Redirect::route('farmacia.ocorrencias.edit', $id)
@@ -140,47 +149,6 @@ class OcorrenciasController extends \BaseController {
 		//
 	}
 
-	/**
-	 *	Relatorio de Ocorrencias
-	 * @return  excel lista de ocorrencias do periodo
-	 */
-	public function getRelatorio() {
-
-		Excel::create('Planilha de Controle da Farmacia - Ocorrencias', function ($excel) {
-				$excel->sheet('Ref. ', function ($sheet) {
-
-						$sheet->mergeCells('A1:J5');
-						$sheet->setHeight(1, 50);
-
-						$sheet->row(1, function ($row) {
-								$row->setFontFamily('Arial');
-								$row->setFontSize(20);
-							});
-
-						$sheet->cell('A1', function ($cell) {
-								$cell->setAlignment('center');
-							});
-						$sheet->getStyle('D')->getAlignment()->setWrapText(true);
-
-						$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
-
-						$data = explode('-', Input::get('periodo'));
-
-						$datai = implode('-', array_reverse(explode('/', $data[0])));
-
-						$dataf = implode('-', array_reverse(explode('/', $data[1])));
-
-						$a = Ocorrencia::getRelatorioOperacoes(str_replace(' ', '', $datai), str_replace(' ', '', $dataf));
-
-						$sheet->setAutoFilter('A6:J6');
-						$sheet->setOrientation('landscape');
-
-						$sheet->fromArray($a, null, 'A6', true);
-
-					});
-			})->export('xls');
-
-	}
 	public function getElemento($id) {
 		$elementos = FarmaciaElemento::find($id);
 		return $elementos->elementos_filho()->get()->toJson();
@@ -277,45 +245,19 @@ class OcorrenciasController extends \BaseController {
 
 	}
 
-	public function getReport($tipo = null) {
+	public function getReport() {
+		$input   = Input::all();
+		$periodo = explode(' - ', $input['periodo']);
 
-		switch ($tipo) {
-			case 's':
-				$dados = DB::select('Select
-				extract(month from data_hora) as mes,
-				extract(year from data_hora) as ano,
-				c.id as setor,
-				b.nome,
-				count(*) as total
-				from
-				farmacia_ocorrencias a
-				inner join colaboradors b on a.colaborador_id = b.id
-				inner join setors c on b.setor_id = c.id
-				where
-				extract(year from data_hora) = ?
-				group by
-				c.id, b.id, extract(month from data_hora), extract(year from data_hora)
-				order by
-				extract(month from data_hora), count(*) desc'	, ['2015']);
-
-				foreach ($dados as $val) {
-					$returns[$val->setor][$val->nome][$val->ano][$val->mes] = $val->total;
-				}
-			case 'c':
-
-				break;
-			case 'sc':
-
+		switch ($input['tipo']) {
+			case 'atestados':
+				OcorrenciaAtestado::relatorioAtestados();
 				break;
 
 			default:
-
-				return Ocorrencia::all();
+				# code...
 				break;
 		}
-
-		return View::make('farmacia::ocorrencias.report', compact('returns'));
-
 	}
 
 }

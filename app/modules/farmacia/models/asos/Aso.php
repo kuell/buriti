@@ -41,6 +41,18 @@ class Aso extends \Eloquent {
 		return $this->hasMany('Exame', 'relacao_id');
 	}
 
+	public function funcao() {
+		return $this->belongsTo('SetorFuncao', 'colaborador_funcao_id');
+	}
+
+	public function getFuncaoDescricaoAttribute() {
+		if (!empty($this->funcao->id)) {
+			return $this->funcao->descricao;
+		} else {
+			return null;
+		}
+	}
+
 	public function getDataAttribute() {
 		return date('d/m/Y H:i', strtotime($this->attributes['created_at']));
 	}
@@ -53,7 +65,6 @@ class Aso extends \Eloquent {
 		if (!empty($this->attributes['colaborador_data_nascimento'])) {
 			return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_nascimento'])));
 		}
-
 	}
 
 	public function getColaboradorSexoAttribute() {

@@ -36,6 +36,14 @@
 				<tr>
 					<td colspan="4">{{ $ocorrencia->diagnostico }}</td>
 				</tr>
+
+				<tr>
+					<th colspan="4" class="well">Conduta</th>
+				</tr>
+				<tr>
+					<td colspan="4">{{ $ocorrencia->conduta }}</td>
+				</tr>
+
 				<tr>
 					<th>Profissional: </th>
 					<td colspan="3">{{ $ocorrencia->profissional }}</td>
@@ -44,8 +52,6 @@
 
 			@yield('analise')
 		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
-		</div>
+
 	</div>
 </div>

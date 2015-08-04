@@ -22,7 +22,7 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 		Route::post('ocorrencias/{id}/atestados', ['as'       => 'farmacia.ocorrencias.atestados', 'uses'       => 'OcorrenciasController@addAtestados']);
 
 		Route::get('ocorrencias/relatorioOcorrencias', 'OcorrenciasController@getRelatorio');
-		Route::get('ocorrencias/report/{tipo}', ['as' => 'farmacia.ocorrencias.report', 'uses' => 'OcorrenciasController@getReport']);
+		Route::get('ocorrencias/report', ['as' => 'farmacia.ocorrencias.report', 'uses' => 'OcorrenciasController@getReport']);
 
 		// --- Atestados
 		Route::get('atestados/rel_operacoes', 'AtestadoController@relatorioOperacoes');
@@ -46,4 +46,8 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 				Route::get('pcmso/{ano}', 'FarmaciaController@viewPCMSO');
 			});
 
+	});
+
+Route::group(['before' => 'auth', 'prefix' => 'farmacia'], function () {
+		Route::get('ocorrencias/find/{id}', 'OcorrenciasController@show');
 	});

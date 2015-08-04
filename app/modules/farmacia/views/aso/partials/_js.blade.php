@@ -116,6 +116,20 @@
 						}
 					})
 
+			$.getJSON('/setors/find/{{ $aso->colaborador_setor_id }}/funcao', function(data){
+
+					if(data.length > 0){
+						var options = "<option value='0'>Selecione ...</option>";
+
+						$.each(data, function(key, val){
+
+							options += '<option value="' + val.id + '">' + val.descricao + '</option>';
+						})
+
+						$("select[name=colaborador_funcao_id]").html(options).val({{ $aso->colaborador_funcao_id }});
+						}
+					})
+
 
 })
 	</script>

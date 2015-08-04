@@ -73,23 +73,7 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-		$investigacao = $this->investigacao->find($id);
-		$pg           = Input::get('pg');
 
-		switch ($pg) {
-			case 'organizacao':
-				$epi = $investigacao->epis->count();
-				print_r($epi);
-				die;
-				if ($epi == 0) {
-					$investigacao->usava_epi = false;
-				}
-			default:
-				$pg = 'epis';
-				break;
-		}
-
-		return View::make('sesmt::investigacao.edit', compact('investigacao'))->with('pg', $pg);
 	}
 
 	/**
@@ -99,47 +83,6 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		$input = array_except(Input::all(), 'pg');
-		$pg    = Input::get('pg');
-
-		$investigacao = $this->investigacao->find($id);
-		$res          = $investigacao->update($input);
-
-		switch ($pg) {
-			case 'epis':
-				if ($investigacao->usava_epi || $input['usava_epi']) {
-					if (!$investigacao->epis->count()) {
-						$pg                       = 'epis';
-						$investigacao->motivo_epi = null;
-						$investigacao->save();
-
-					} else {
-						$pg = 'organizacao';
-					}
-				} else {
-					if (!$investigacao->motivo_epi) {
-						$investigacao->epis()->delete();
-						$pg = "epis";
-					} else {
-						$pg = 'organizacao';
-					}
-				}
-				break;
-			case 'organizacao':
-				if ($res) {
-					$pg = 'ocorrencia';
-				}
-				break;
-			case 'ocorrencia':
-				if ($res) {
-					$pg = 'informacao';
-				}
-				break;
-
-			default:
-				# code...
-				break;
-		}
 
 		return View::make('sesmt::investigacao.edit', compact('investigacao'))->with('pg', $pg);
 	}
@@ -151,7 +94,10 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {
-		//
+		$investigacao = $this->investigacaos->find($id);
+
+		$investigacao->delete();
+
 	}
 
 	public function getEpi($id) {

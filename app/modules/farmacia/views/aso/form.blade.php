@@ -62,6 +62,12 @@
 				{{ Form::label('Setor: ')}}
 				{{ Form::select('colaborador_setor_id', [''=>'Selecione ....']+Setor::where('descricao','<>','OUTRO')->lists('descricao', 'id'),null, ['class'=>'form-control', 'required'])}}
 			</div>
+
+			<div class="form-group col-md-4">
+				{{ Form::label('Função: ')}}
+				{{ Form::select('colaborador_funcao_id', [], null, ['class'=>'form-control'])}}
+			</div>
+
 			<div class="form-group col-md-4">
 				{{ Form::label('Posto de Trabalho: ')}}
 				{{ Form::select('posto_id', [], null, ['class'=>'form-control'])}}

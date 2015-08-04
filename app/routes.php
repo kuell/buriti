@@ -46,6 +46,11 @@ Route::group(['before' => 'auth'], function () {
 
 				return Response::json($setor->postoTrabalhos);
 			});
+		Route::get('/setors/find/{id}/funcao', function ($setor_id) {
+				$setor = Setor::find($setor_id);
+
+				return Response::json($setor->funcaos);
+			});
 
 		Route::get('/farmacia/{cod}/cid', function ($cod) {
 				$cid = FarmaciaCid::where('cod_cid', '=', $cod)->get();

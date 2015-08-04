@@ -5,6 +5,10 @@ class OcorrenciaAtestado extends \Eloquent {
 	protected $fillable = [];
 	protected $table    = 'farmacia.ocorrencia_atestados';
 
+	public function ocorrencia() {
+		return $this->belongsTo('Ocorrencia', 'ocorrencia_id');
+	}
+
 	public function getPeriodoAfastamentoAttribute() {
 		if (empty($this->attributes['inicio_afastamento']) or empty($this->attributes['fim_afastamento'])) {
 			return null;
@@ -34,6 +38,70 @@ class OcorrenciaAtestado extends \Eloquent {
 
 			return $cid->descricao;
 		}
+	}
+
+	public function getTipoDescricaoAttribute() {
+		if ($this->attributes['tipo'] == 0) {
+			if ($this->ocorrencia->sesmt = 'SIM') {
+				return 'CAT';
+			} else {
+				return 'CONSULTA';
+			}
+		} else if ($this->attributes['tipo'] == 1) {
+			return "ACOMPANHANTE";
+		} else {
+			return "ERRO NO PROCESSAMENTO";
+		}
+	}
+
+	public static function relatorioAtestados() {
+
+		Excel::create('Planilha de Controle da Farmacia - Atestado / Cesta Básica', function ($excel) {
+				$excel->sheet('Excel sheet', function ($sheet) {
+
+						$sheet->mergeCells('A1:J5');
+						$sheet->setHeight(1, 50);
+
+						$sheet->row(1, function ($row) {
+								$row->setFontFamily('Arial');
+								$row->setFontSize(20);
+							});
+
+						$sheet->cell('A1', function ($cell) {
+								$cell->setAlignment('center');
+							});
+
+						$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
+
+						$sheet->setAutoFilter('A6:J6');
+						$sheet->setOrientation('landscape');
+
+						$input = Input::all();
+						$periodo = explode(' - ', $input['periodo']);
+
+						$atestados = OcorrenciaAtestado::whereBetween('inicio_afastamento', $periodo)->get();
+						$return = null;
+
+						foreach ($atestados as $atestado) {
+							$return[] = [
+								'matricula'       => $atestado->ocorrencia->colaborador->codigo_interno,
+								'nome'            => $atestado->ocorrencia->colaborador->nome,
+								'setor'           => $atestado->ocorrencia->colaborador->setor->descricao,
+								'data inicio'     => Format::viewDate($atestado->inicio_afastamento),
+								'fim afastamento' => Format::viewDate($atestado->fim_afastamento),
+								'descricao'       => $atestado->tipoDescricao,
+								'obs'             => $atestado->obs,
+								'cid'             => $atestado->cid.' - '.$atestado->cid_descricao,
+								'medico'          => $atestado->profissional,
+								'Total Dias'      => $atestado->dias_afastamento
+							];
+						}
+
+						$sheet->fromArray($return, null, 'A6', true);
+
+					});
+			})->export('xls');
 
 	}
+
 }

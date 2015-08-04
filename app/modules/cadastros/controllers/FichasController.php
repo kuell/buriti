@@ -326,13 +326,14 @@ class FichasController extends BaseController {
 		$aso->tipo                        = 'admissional';
 		$aso->posto_id                    = $input['posto_id'];
 		$aso->colaborador_setor_id        = $input['setor_id'];
-		$aso->colaborador_nome            = $ficha->nome;
+		$aso->colaborador_nome            = utf8_encode($ficha->nome);
 		$aso->colaborador_data_nascimento = $ficha->data_nascimento;
 		$aso->colaborador_sexo            = $ficha->sexo;
 		$aso->colaborador_rg              = $ficha->rg;
 		$aso->colaborador_orgao_emissor   = $ficha->emissao;
 		$aso->medico                      = "DR PEDRO LUIZ GOMES";
 		$aso->ficha_id                    = $id;
+		$aso->colaborador_funcao_id       = $input['funcao_id'];
 
 		$aso->save();
 		$ficha->update(['situacao' => 0]);

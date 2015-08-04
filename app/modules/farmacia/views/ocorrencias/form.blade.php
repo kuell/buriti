@@ -59,7 +59,7 @@
 			</div>
 			<div class="col-md-2 col-sm-2">
 				{{ Form::label('monitoramento', 'Monitoramento?') }}
-				{{ Form::select('monitoramento', ['Não', 'Sim'], null, array('class'=>'form-control', 'required') ) }}
+				{{ Form::select('monitoramento', ['Não', 'Sim'], null, array('class'=>'form-control', 'required','autofocus') ) }}
 			</div>
 			<div class="col-md-3 col-sm-3">
 				{{ Form::label('sesmt', 'Encaminhar para SESMT?') }}
@@ -108,7 +108,12 @@
 		$(function(){
 			$("select[name=colaborador_id], select[name=queixa_id]").prop('required', true).chosen()
 			$('select[name=monitoramento]').bind('change click blur', function(){
-				alert('Ola')
+				if($(this).val() == 1){
+					$('select[name=sesmt]').attr('disabled', 'disabled');
+				}
+				else{
+					$('select[name=sesmt]').removeAttr('disabled', 'disabled');
+				}
 			})
 
 			$('#limpa_select').click(function(event) {

@@ -14,9 +14,7 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$analises = Ocorrencia::whereRaw('(sesmt = false or sesmt is null)')
-			->whereRaw('(monitoramento = false or monitoramento is null)')
-			->whereRaw('queixa_id is null');
+		$analises = Ocorrencia::whereRaw('monitoramento = false or monitoramento is null');
 
 		if (!empty(Input::get('periodo'))) {
 			$periodo    = explode(' - ', Input::get('periodo'));
@@ -86,13 +84,54 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		$input = array_except(Input::all(), '_method')+['usuario_analise' => Auth::user()->nome];
-
+		$input   = array_except(Input::all(), '_method')+['usuario_analise' => Auth::user()->nome];
 		$analise = $this->analises->find($id);
+
+		if (empty($input['queixa_id'])) {
+			unset($input['queixa_id']);
+		}
+
+		// Se a ocorrência tiver uma investigação e o tipo informado for diferente de 7 //
+
+		if (!empty($analise->investigacao->id) && $input['tipo'] != 7) {
+			$input['sesmt'] = false;
+			$analise->investigacao()->delete();
+		}
+
+		// Se a ocorrencia não tiver uma investigação e o tipo == 7 //
+
+		if (empty($analise->investigacao->id) && $input['tipo'] == 7) {
+			$input['sesmt'] = true;
+			$analise->investigacao()->create(['situacao' => 'Em Investigacao']);
+		}
+
+		if (!empty(Input::get('pg'))) {
+			$pg = Input::get('pg');
+		} else {
+			$pg = null;
+		}
+
+		unset($input['pg']);
 
 		$analise->update($input);
 
-		return Redirect::route('sesmt.analise.index');
+		if (!empty($pg)) {
+
+			switch ($pg) {
+				case 'investigacao':
+
+					return Redirect::route('sesmt.investigacao.index');
+
+					break;
+
+				default:
+					# code...
+					break;
+			}
+
+		} else {
+			return Redirect::route('sesmt.analise.index');
+		}
 	}
 
 	/**

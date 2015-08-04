@@ -49,11 +49,13 @@ class Ocorrencia extends Eloquent {
 		$result = [];
 
 		foreach (Ocorrencia::whereBetween('data_hora', [$datai, $dataf])->get() as $val) {
-			$result[] = ['Nome'     => $val->colaborador->nome,
+			$result[] = [
+				'Nome'                 => $val->colaborador->nome,
 				'Setor'                => !empty($val->colaborador->setor->descricao)?$val->colaborador->setor->descricao:null,
 				'Data'                 => $val->data_hora,
 				'Descrição / Motivo' => $val->relato.' - '.$val->diagnostico,
-				'Conduta / Destino'    => $val->conduta.' - '.$val->destino];
+				'Conduta / Destino'    => $val->conduta.' - '.$val->destino
+			];
 		}
 
 		return $result;
@@ -73,11 +75,19 @@ class Ocorrencia extends Eloquent {
 		return $hora[1];
 	}
 
-	public function getMonitoramentoAttribute() {
+	public function getMonitoramentoDescricaoAttribute() {
 		if (!$this->attributes['monitoramento']) {
 			return 'NAO';
 		} else {
 			return 'SIM';
+		}
+	}
+
+	public function getMonitoramentoAttribute() {
+		if (!$this->attributes['monitoramento']) {
+			return 0;
+		} else {
+			return 1;
 		}
 	}
 
@@ -94,4 +104,22 @@ class Ocorrencia extends Eloquent {
 			return 'NÃO';
 		}
 	}
+
+	public function getCondutaAttribute() {
+		if (empty($this->attributes['conduta'])) {
+
+			if (count($this->medicamentos) != 0) {
+				foreach ($this->medicamentos as $medicamento) {
+					$conduta[] = $medicamento->qtd.' - '.$medicamento->medicacao->descricao.' ('.strtoupper($medicamento->medida).')';
+				}
+				return implode(' + ', $conduta);
+			} else {
+				return null;
+			}
+
+		} else {
+			return $this->attributes['conduta'];
+		}
+	}
+
 }
