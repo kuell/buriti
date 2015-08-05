@@ -102,7 +102,7 @@ class Ocorrencia extends Eloquent {
 	}
 
 	public function getSesmtAttribute() {
-		if ($this->attributes['sesmt']) {
+		if (!empty($this->attributes['sesmt'])) {
 			return 'SIM';
 		} else {
 			return 'NÃO';
