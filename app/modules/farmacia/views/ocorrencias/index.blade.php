@@ -95,7 +95,7 @@
         $("#ocorrencias").dataTable();
 
         $('select[name=colaborador_id]').chosen()
-        $('form[name=relatorio]').bind('submit', function() {
+        $('form[name=relatorio] button').bind('click', function() {
         	location.reload();
         });
     })

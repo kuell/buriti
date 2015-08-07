@@ -1,5 +1,5 @@
 <!-- Modal -->
-{{ Form::open(['name'=>'relatorio', 'class'=>'form', 'method'=>'GET', 'target'=>'_new', 'route'=>'farmacia.ocorrencias.report']) }}
+{{ Form::open(['name'=>'relatorio', 'method'=>'GET', 'target'=>'_new', 'route'=>'farmacia.ocorrencias.report']) }}
 
 <div class="modal fade" id="relatorioModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

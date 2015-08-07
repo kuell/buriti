@@ -42,7 +42,7 @@
     $(function(){
         $('button[name=visualizar]').bind('click', function(){
             $('#myModal').modal({
-                remote:'/sesmt/analise/'+$(this).val()+'/edit?pg=investigacao'
+                remote:'/sesmt/investigacao/'+$(this).val()+'/redirecionar'
             })
         })
         $('#myModal').on('hidden.bs.modal', function(e){

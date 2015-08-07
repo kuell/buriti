@@ -1,5 +1,5 @@
 $(function(){
-	$('form').formValidation();
+	$('.form_validator').formValidation();
 	
 	$('input[type=text], textarea').blur(function(){
 		var texto = $(this).val().toUpperCase()

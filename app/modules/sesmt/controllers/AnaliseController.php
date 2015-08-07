@@ -84,54 +84,17 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
+
 		$input   = array_except(Input::all(), '_method')+['usuario_analise' => Auth::user()->nome];
 		$analise = $this->analises->find($id);
 
-		if (empty($input['queixa_id'])) {
-			unset($input['queixa_id']);
-		}
+		$analise->update($input);
 
-		// Se a ocorrência tiver uma investigação e o tipo informado for diferente de 7 //
-
-		if (!empty($analise->investigacao->id) && $input['tipo'] != 7) {
-			$input['sesmt'] = false;
-			$analise->investigacao()->delete();
-		}
-
-		// Se a ocorrencia não tiver uma investigação e o tipo == 7 //
-
-		if (empty($analise->investigacao->id) && $input['tipo'] == 7) {
-			$input['sesmt'] = true;
+		if ($analise->tipoOcorrencia == 'ACIDENTE') {
 			$analise->investigacao()->create(['situacao' => 'Em Investigacao']);
 		}
 
-		if (!empty(Input::get('pg'))) {
-			$pg = Input::get('pg');
-		} else {
-			$pg = null;
-		}
-
-		unset($input['pg']);
-
-		$analise->update($input);
-
-		if (!empty($pg)) {
-
-			switch ($pg) {
-				case 'investigacao':
-
-					return Redirect::route('sesmt.investigacao.index');
-
-					break;
-
-				default:
-					# code...
-					break;
-			}
-
-		} else {
-			return Redirect::route('sesmt.analise.index');
-		}
+		return Redirect::route('sesmt.analise.index');
 	}
 
 	/**
@@ -143,6 +106,18 @@ class AnaliseController extends \BaseController {
 	 */
 	public function destroy($id) {
 		//
+	}
+
+	public function setFinalizar($id) {
+		$input   = Input::all()+['usuario_finalizacao' => Auth::user()->nome];
+		$analise = $this->analises->find($id);
+
+		if (empty($analise->tipo_id) or empty($analise->queixa_id) or empty($analise->sub_tipo_id)) {
+			return $analise;
+		} else {
+			$analise->update($input);
+			return $analise;
+		}
 	}
 
 }

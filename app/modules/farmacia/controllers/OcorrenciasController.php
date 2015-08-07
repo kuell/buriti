@@ -74,6 +74,12 @@ class OcorrenciasController extends \BaseController {
 			}
 			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//
 
+			//--Se o campo monitoramento for igual a true --//
+			if ($ocorrencia->monitoramento == 1) {
+				return Redirect::route('farmacia.ocorrencias.create');
+			}
+			//-- FIM --//
+
 			return Redirect::route('farmacia.ocorrencias.edit', $ocorrencia->id);
 		} else {
 			return Redirect::route('farmacia.ocorrencias.create')
@@ -252,6 +258,10 @@ class OcorrenciasController extends \BaseController {
 		switch ($input['tipo']) {
 			case 'atestados':
 				OcorrenciaAtestado::relatorioAtestados();
+				break;
+			case 'ocorrencia':
+				Ocorrencia::getRelatorioOperacoes();
+
 				break;
 
 			default:

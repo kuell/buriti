@@ -19,7 +19,7 @@
 			<td>{{{ $ocorrencia->colaborador->nome }}}</td>
 			<td>{{{ $ocorrencia->colaborador->setor->descricao or "Não Identificado"}}}</td>
 			<td>{{{ $ocorrencia->monitoramento_descricao }}}</td>
-			<td>{{{ $ocorrencia->sesmt }}}</td>
+			<td>{{{ $ocorrencia->sesmt_descricao }}}</td>
 			<td>
 				{{ link_to_route('farmacia.ocorrencias.edit', ' Editar', $ocorrencia->id, array('class'=>'btn btn-primary')) }}
 				<button class="btn btn-info" name="print" value="{{ $ocorrencia->id }}"><i class="glyphicon glyphicon-print"></i> Ver</button>

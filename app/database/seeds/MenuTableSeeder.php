@@ -232,6 +232,17 @@ class MenuTableSeeder extends Seeder {
 				'updated_at' => 'now()',
 				'color'      => null,
 			),
+			array(
+				'id'         => 20,
+				'descricao'  => 'Tipos de Ocorrencia',
+				'url'        => 'tipo_ocorrencia',
+				'icone'      => 'glyphicon glyphicon-th-list',
+				'indice'     => null,
+				'menu_pai'   => 3,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => null,
+			)
 
 		);
 

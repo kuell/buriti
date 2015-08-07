@@ -49,20 +49,42 @@ class Ocorrencia extends Eloquent {
 		return $this->hasOne('Investigacao');
 	}
 
-	public static function getRelatorioOperacoes($datai, $dataf) {
-		$result = [];
+	public static function getRelatorioOperacoes() {
 
-		foreach (Ocorrencia::whereBetween('data_hora', [$datai, $dataf])->get() as $val) {
-			$result[] = [
-				'Nome'                 => $val->colaborador->nome,
-				'Setor'                => !empty($val->colaborador->setor->descricao)?$val->colaborador->setor->descricao:null,
-				'Data'                 => $val->data_hora,
-				'Descrição / Motivo' => $val->relato.' - '.$val->diagnostico,
-				'Conduta / Destino'    => $val->conduta.' - '.$val->destino
-			];
-		}
+		Excel::create('Planilha de Controle da Farmacia - Ocorrencias', function ($excel) {
+				$excel->sheet('Ref. ', function ($sheet) {
+						$sheet->mergeCells('A1:J5');
+						$sheet->setHeight(1, 50);
+						$sheet->row(1, function ($row) {
+								$row->setFontFamily('Arial');
+								$row->setFontSize(20);
+							});
+						$sheet->cell('A1', function ($cell) {
+								$cell->setAlignment('center');
+							});
+						$sheet->getStyle('D')->getAlignment()->setWrapText(true);
+						$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
+						$periodo = explode('-', Input::get('periodo'));
 
-		return $result;
+						$a = [];
+
+						foreach (Ocorrencia::whereBetween('data_hora', $periodo)->get() as $val) {
+							$a[] = [
+								'Nome'                 => $val->colaborador->nome,
+								'Setor'                => !empty($val->colaborador->setor->descricao)?$val->colaborador->setor->descricao:null,
+								'Data'                 => $val->data_hora,
+								'Queixa'               => empty($val->queixa->descricao)?null:$val->queixa->descricao,
+								'Descrição / Motivo' => $val->relato.' - '.$val->diagnostico,
+								'Conduta / Destino'    => $val->conduta.' - '.$val->destino
+							];
+						}
+
+						$sheet->setAutoFilter('A6:J6');
+						$sheet->setOrientation('landscape');
+						$sheet->fromArray($a, null, 'A6', true);
+					});
+			})->export('xls');
+
 	}
 
 	public function setElementoIdAttribute($elemento_id = null) {
@@ -101,7 +123,7 @@ class Ocorrencia extends Eloquent {
 		return Format::viewDate($hora[0]);
 	}
 
-	public function getSesmtAttribute() {
+	public function getSesmtDescricaoAttribute() {
 		if (!empty($this->attributes['sesmt'])) {
 			return 'SIM';
 		} else {

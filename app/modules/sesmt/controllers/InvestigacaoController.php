@@ -122,4 +122,21 @@ class InvestigacaoController extends \BaseController {
 		return Redirect::route('sesmt.investigacao.epi', $id);
 	}
 
+	public function getRedirecionar($id) {
+		$ocorrencia = Ocorrencia::find($id);
+
+		return View::make('sesmt::investigacao.redirecionar', compact('ocorrencia'));
+	}
+
+	public function setRedirecionar($id) {
+		$input      = Input::all();
+		$ocorrencia = Ocorrencia::find($id);
+
+		if ($ocorrencia->update($input)) {
+			$ocorrencia->investigacao->delete();
+		}
+
+		return Redirect::route('sesmt.investigacao.index');
+	}
+
 }
