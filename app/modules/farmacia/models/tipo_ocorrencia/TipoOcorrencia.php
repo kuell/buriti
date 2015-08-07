@@ -8,7 +8,7 @@ class TipoOcorrencia extends \Eloquent {
 	['descricao' => 'required|unique:farmacia.ocorrencia_tipos,descricao'];
 
 	public function pai() {
-		return $this->belongsTo('TipoOcorrencia', 'pai_id');
+		return $this->belongsTo('TipoOcorrencia');
 	}
 
 	public function getAgrupamentoAttribute() {

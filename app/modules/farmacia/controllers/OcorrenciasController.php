@@ -68,8 +68,7 @@ class OcorrenciasController extends \BaseController {
 
 			//-- Se o campo 'Encaminhar para sesmt' for true --//
 
-			if ($ocorrencia->sesmt == 'SIM') {
-				$ocorrencia->update(['tipo'                     => 7]);
+			if ($ocorrencia->sesmt == 1) {
 				$ocorrencia->investigacao()->create(['situacao' => 'Em investigacao']);
 			}
 			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//
@@ -130,8 +129,7 @@ class OcorrenciasController extends \BaseController {
 
 			//-- Se o campo 'Encaminhar para sesmt' for true --//
 
-			if ($ocorrencia->sesmt == 'SIM') {
-				$ocorrencia->update(['tipo'                     => 'acidente']);
+			if ($ocorrencia->sesmt == 1) {
 				$ocorrencia->investigacao()->create(['situacao' => 'Em investigacao']);
 			}
 			//-- FIM Se o campo 'Encaminhar para sesmt' for true --//

@@ -73,7 +73,7 @@ Route::group(['before' => 'auth'], function () {
 				if (!empty($colaborador)) {
 					return Response::json($colaborador);
 				} else {
-					return false;
+					return null;
 				}
 
 			});

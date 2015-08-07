@@ -77,7 +77,7 @@
 	})
 </script>
 
-@if(!empty($ocorrencia->tipo_id))
+@if(!empty($ocorrencia->tipo_id) or $ocorrencia->tipo_id <> 0)
 	<script type="text/javascript">
 	$(function(){
 		$.get('/farmacia/tipo_ocorrencia/find/{{ $ocorrencia->tipo_id }}/subtipo', function(data) {
