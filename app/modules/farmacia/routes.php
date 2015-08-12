@@ -43,8 +43,9 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 		Route::resource('tipo_ocorrencia', 'TipoOcorrenciaController');
 
 		Route::group(['prefix' => 'relatorios'], function () {
-				Route::get('pcmso', 'FarmaciaController@getPCMSOview');
+				Route::get('/', 'FarmaciaController@getRelatorios');
 				Route::get('pcmso/{ano}', 'FarmaciaController@viewPCMSO');
+				Route::get('exames/{ano}', 'FarmaciaController@getExamesAnual');
 			});
 
 	});

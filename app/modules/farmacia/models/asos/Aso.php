@@ -34,6 +34,10 @@ class Aso extends \Eloquent {
 		return $this->belongsTo('Colaborador', 'colaborador_id');
 	}
 
+	public function getSetor() {
+		return $this->belongsTo('Setor', 'colaborador_setor_id');
+	}
+
 	public function postoTrabalho() {
 		return $this->belongsTo('SetorPosto', 'posto_id');
 	}
