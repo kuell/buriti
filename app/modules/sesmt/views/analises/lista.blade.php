@@ -23,10 +23,15 @@
 			<td>{{ $analise->situacao }}</td>
 			<td>
 				<div class="btn-group" role="group">
-					@if($analise->situacao != 'finalizada')
-					<button rule="group" title="Analizar ocorrência" name="analisar" class="btn btn-sm btn-primary" value="{{ $analise->id }}"><i class="glyphicon glyphicon-refresh"></i> </button>
 
-					<button name="finalizar" title="Finalizar Ocorrencia" rule="group" class="btn btn-sm btn-warning" value="{{ $analise->id }}"><i class="glyphicon glyphicon-ok"></i> </button>
+					@if($analise->situacao != 'finalizada')
+						@if(count($analise->investigacao) == 0)
+						<button rule="group" title="Analizar ocorrência" name="analisar" class="btn btn-sm btn-primary" value="{{ $analise->id }}"><i class="glyphicon glyphicon-refresh"></i> </button>
+
+						<button name="finalizar" title="Finalizar Ocorrencia" rule="group" class="btn btn-sm btn-warning" value="{{ $analise->id }}"><i class="glyphicon glyphicon-ok"></i> </button>
+						@else
+							Em Investigação
+						@endif
 					@endif
 				</div>
 			</td>

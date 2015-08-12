@@ -1,6 +1,6 @@
 <?php
 
-class AnaliseOcorrencia extends \Eloquent {
+class AnaliseOcorrencia extends Ocorrencia {
 	protected $guarded  = [];
 	protected $fillable = [];
 	protected $table    = 'farmacia.ocorrencias';

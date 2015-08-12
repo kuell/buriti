@@ -13,6 +13,15 @@
 		<div class="well">
 			{{ Form::open(['route'=>'sesmt.analise.index', 'method'=>'get', 'class'=>'form form-horizontal']) }}
 			<div class="form-group">
+				<div class="col-md-12 col-sm-12">
+					Ao informar um valor no campo CÓDIGO DA OCORRÊNCIA, o campo PERIODO será ignorado.
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-4 col-sm-4">
+					{{ Form::label('Codigo da Ocorrencia: ') }}
+					{{ Form::text('id', Input::get('id'), ['class'=>'form-control']) }}
+				</div>
 				<div class="col-md-4 col-sm-4">
 					{{ Form::label('Periodo: ') }}
 					{{ Form::text('periodo', Input::get('periodo'), ['class'=>'form-control periodo']) }}

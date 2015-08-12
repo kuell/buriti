@@ -14,7 +14,24 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$analises = Ocorrencia::where('situacao', '<>', 'finalizada')->limit(100)->get();
+		$analises = $this->analises;
+
+		if (!empty(Input::get('id'))) {
+			$analises = $analises->where('id', Input::get('id'))->get();
+		} else {
+			if (!empty(Input::get('periodo'))) {
+				$periodo = explode(' - ', Input::get('periodo'));
+			} else {
+				$periodo = [date('Y-m-d'), date('Y-m-d')];
+			}
+
+			$analises = $analises->whereRaw('date(data_hora) between ? and ?', $periodo)
+			                     ->where('monitoramento', false)
+			                     ->get();
+
+			//	print_r(DB::getQueryLog());
+
+		}
 
 		return View::make('sesmt::analises.index', compact('analises'));
 	}
