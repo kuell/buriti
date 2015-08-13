@@ -10,9 +10,8 @@ class ColaboradorPosto extends \Eloquent {
 
 	}
 
-	public function colaboradors() {
-		return $this->hasMany('Colaborador', 'colaborador_id');
-
+	public function colaborador() {
+		return $this->belongsTo('Colaborador', 'colaborador_id');
 	}
 
 }

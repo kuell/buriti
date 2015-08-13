@@ -90,4 +90,10 @@ class FarmaciaController extends \BaseController {
 
 		return View::make('farmacia::relatorios.views.exames', compact('exames'));
 	}
+
+	public function getColaboradorExames() {
+		$setors = Setor::all();
+
+		return View::make('farmacia::relatorios.views.colaborador_exames', compact('setors'));
+	}
 }

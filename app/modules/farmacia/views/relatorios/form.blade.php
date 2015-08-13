@@ -14,15 +14,15 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			{{-- Form::button('PCMSO',  ['class'=>'btn btn-primary', 'id'=>'pcmso']) --}}
+			{{ Form::button('Colaborador / Exames',  ['class'=>'btn btn-primary', 'id'=>'colaborador']) }}
 			{{ Form::button('Exames',  ['class'=>'btn btn-info', 'id'=>'exames']) }}
 		</div>
 	</div>
 
 	<script type="text/javascript">
 	$(function(){
-		$('#pcmso').bind('click', function(){
-			window.open('/farmacia/relatorios/pcmso/'+$('input[name=ano]').val(), 'Print', 'channelmode=yes');
+		$('#colaborador').bind('click', function(){
+			window.open('/farmacia/relatorios/colaborador_exames', 'Print', 'channelmode=yes');
 		})
 		$('#exames').bind('click', function(){
 			window.open('/farmacia/relatorios/exames/'+$('input[name=ano]').val(), 'Print', 'channelmode=yes');

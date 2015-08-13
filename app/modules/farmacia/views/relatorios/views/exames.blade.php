@@ -67,8 +67,6 @@ class ExamesView extends RelatorioController {
 
 				$this->Ln();
 			}
-
-			$this->AddPage();
 		}
 
 	}
