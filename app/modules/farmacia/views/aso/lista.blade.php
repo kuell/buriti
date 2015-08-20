@@ -13,7 +13,13 @@
 	</thead>
 	<tbody>
 		@foreach($asos as $aso)
-		<tr>
+
+			@if($aso->ajuste)
+				<tr style="background: red;">
+			@else
+				<tr>
+			@endif
+
 			<td>{{{ $aso->id }}}</td>
 			<td>{{{ Format::viewDate($aso->data) }}}</td>
 			<td>{{{ $aso->colaborador_nome }}}</td>
