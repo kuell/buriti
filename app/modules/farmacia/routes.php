@@ -39,6 +39,7 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 		Route::resource('ocorrencias', 'OcorrenciasController');
 		Route::resource('atestados', 'AtestadoController');
 		Route::resource('aso', 'AsoController');
+		Route::resource('aso_ajustes', 'AsoAjustesController');
 		Route::resource('queixas', 'QueixasController');
 		Route::resource('tipo_ocorrencia', 'TipoOcorrenciaController');
 
@@ -54,4 +55,5 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 Route::group(['before' => 'auth', 'prefix' => 'farmacia'], function () {
 		Route::get('ocorrencias/find/{id}', 'OcorrenciasController@show');
 		Route::get('tipo_ocorrencia/find/{id}/subtipo', 'TipoOcorrenciaController@getSubTipo');
+		Route::get('aso/find/{id}/{tipo}', 'ColaboradorController@getAso');
 	});

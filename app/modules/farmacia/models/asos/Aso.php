@@ -30,6 +30,10 @@ class Aso extends \Eloquent {
 		]
 	];
 
+	public function scopeAjustes($query) {
+		return $query->where('ajuste', true);
+	}
+
 	public function colaborador() {
 		return $this->belongsTo('Colaborador', 'colaborador_id');
 	}
@@ -58,7 +62,12 @@ class Aso extends \Eloquent {
 	}
 
 	public function getDataAttribute() {
-		return date('d/m/Y H:i', strtotime($this->attributes['created_at']));
+		if (empty($this->attributes['data'])) {
+			return date('d/m/Y H:i', strtotime($this->attributes['created_at']));
+		} else {
+			return $this->attributes['data'];
+		}
+
 	}
 
 	public function getNomeAttribute() {

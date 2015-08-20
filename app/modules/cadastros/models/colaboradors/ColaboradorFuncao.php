@@ -8,4 +8,8 @@ class ColaboradorFuncao extends \Eloquent {
 		return $this->belongsTo('SetorFuncao');
 	}
 
+	public function funcao() {
+		return $this->belongsTo('SetorFuncao', 'funcao_id');
+	}
+
 }

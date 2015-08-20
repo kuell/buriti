@@ -78,6 +78,19 @@ Route::group(['before' => 'auth'], function () {
 
 			});
 
+		Route::get('/colaboradors/find/{id}/id', function ($id) {
+				$colaborador = Colaborador::find($id);
+				$col = $colaborador->toArray()+['posto_id' => $colaborador->posto_trabalho_id, 'funcao_id' => $colaborador->funcao_id];
+
+				if (!empty($colaborador)) {
+
+					return Response::json($col);
+				} else {
+					return null;
+				}
+
+			});
+
 	});
 
 Route::post('suporte', function () {

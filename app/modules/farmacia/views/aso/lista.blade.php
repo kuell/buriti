@@ -15,7 +15,7 @@
 		@foreach($asos as $aso)
 		<tr>
 			<td>{{{ $aso->id }}}</td>
-			<td>{{{ $aso->created_at }}}</td>
+			<td>{{{ Format::viewDate($aso->data) }}}</td>
 			<td>{{{ $aso->colaborador_nome }}}</td>
 			<td>{{{ $aso->tipo }}}</td>
 			<td>{{{ $aso->status }}}</td>
@@ -45,4 +45,5 @@
 
 	</tbody>
 </table>
+
 @endif

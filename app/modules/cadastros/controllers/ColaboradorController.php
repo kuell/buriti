@@ -83,7 +83,7 @@ class ColaboradorController extends \BaseController {
 	 */
 	public function update($id) {
 		$input = Input::all();
-	
+
 		// Verifica se a função existe no setor //
 		$funcao = SetorFuncao::where('descricao', $input['funcao'])->where('setor_id', $input['setor_id'])->get();
 
@@ -97,10 +97,10 @@ class ColaboradorController extends \BaseController {
 		// Fim verifica setor funcao
 
 		// Atualiza função do colaborador
-		$colaboradorFuncao = [	'colaborador_id' => $id, 
-								'funcao_id' => $func->id, 
-								'data_mudanca' => date('Y-m-d H:i:s')
-							];
+		$colaboradorFuncao = ['colaborador_id' => $id,
+			'funcao_id'                           => $func->id,
+			'data_mudanca'                        => date('Y-m-d H:i:s')
+		];
 		ColaboradorFuncao::create($colaboradorFuncao);
 		// Fim verifica funcao colaborador
 
@@ -144,18 +144,17 @@ class ColaboradorController extends \BaseController {
 
 		return View::make('cadastros::colaboradores.demitir', compact('colaborador'));
 	}
-	
-	public function setDemitir($id){
-		$input = Input::all();
+
+	public function setDemitir($id) {
+		$input             = Input::all();
 		$input['situacao'] = 'demitido';
-				
+
 		$colaborador = $this->colaboradors->find($id);
-		
+
 		$colaborador->update($input);
-		
-		return  Redirect::route('colaboradors.index');
-		
-		
+
+		return Redirect::route('colaboradors.index');
+
 	}
 
 	public function show($id) {
@@ -180,6 +179,17 @@ class ColaboradorController extends \BaseController {
 		/** **/
 
 		return View::make('cadastros::colaboradores.show', compact('colaborador'));
+	}
+
+	public function getAso($id, $aso_tipo) {
+		$colaborador = $this->colaboradors->find($id);
+		$asos        = $colaborador->asos()->where('tipo', $aso_tipo)->get();
+
+		if (count($asos) == 0) {
+			return 0;
+		} else {
+			return $asos;
+		}
 	}
 
 }

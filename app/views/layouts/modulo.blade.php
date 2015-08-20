@@ -82,12 +82,10 @@
 
 <!-- script references -->
 
-@include('dashboard.partials._modal_suporte')
-
 <script type="text/javascript">
     $(function(){
         $('#ajuda').click(function() {
-             window.open('http://10.1.1.248:81', 'Ajuda', 'width=400px, height=390px')
+             window.open('http://10.1.1.3:81', 'Ajuda', 'width=400px, height=390px')
         });
     })
 </script>

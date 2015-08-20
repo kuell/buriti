@@ -9,15 +9,28 @@ class Colaborador extends Eloquent {
 		'setor_id'       => 'required',
 	);
 
-	public static function ativos() {
-		return Colaborador::whereRaw("situacao = 'ativo' or situacao is null")->get();
+	public function scopeAtivos($query) {
+		return colaborador::whereRaw("situacao = 'ativo' or situacao is null");
+	}
+
+	public function funcaos() {
+		return $this->hasMany('ColaboradorFuncao', 'colaborador_id');
+	}
+
+	public function getFuncaoIdAttribute() {
+
+		if ($this->funcaos->count() != 0) {
+			return $this->funcaos->last()->funcao_id;
+		} else {
+			return null;
+		}
 	}
 
 	public function setor() {
 		return $this->belongsTo('Setor', 'setor_id');
 	}
-	
-	public function aso(){
+
+	public function asos() {
 		return $this->hasMany('Aso', 'colaborador_id');
 	}
 
@@ -60,7 +73,7 @@ class Colaborador extends Eloquent {
 	public function getPostoIdAttribute() {
 		$posto = ColaboradorPosto::where('colaborador_id', $this->attributes['id'])->orderBy('id', 'desc')->first();
 		if (empty($posto)) {
-			return null;
+			return 0;
 		} else {
 			return $posto->posto_id;
 		}
@@ -120,7 +133,7 @@ class Colaborador extends Eloquent {
 			return 'NÃO';
 		}
 	}
-	
+
 	public function setDataNascimentoAttribute($data_nascimento) {
 
 		if (empty($data_nascimento) or $data_nascimento == '__/__/____') {

@@ -253,6 +253,17 @@ class MenuTableSeeder extends Seeder {
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
 				'color'      => null,
+			),
+			array(
+				'id'         => 22,
+				'descricao'  => 'Ficha ASO - Ajustes',
+				'url'        => 'aso_ajustes',
+				'icone'      => 'glyphicon glyphicon-signal',
+				'indice'     => null,
+				'menu_pai'   => 3,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => null,
 			)
 
 		);
