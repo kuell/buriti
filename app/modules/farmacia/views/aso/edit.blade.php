@@ -45,11 +45,12 @@
 					</div>
 				</div>
 			</div>
-
+			@if($aso->ajuste != true && $aso->situacao != 'fechado')
 			<div class="panel-footer">
 				{{ Form::submit('Atualizar', ['class'=>'btn btn-primary btn-sm']) }}
 				{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
 			</div>
+			@endif
 
 		</div>
 
