@@ -59,7 +59,7 @@
                 <script type="text/javascript">
                 $(function(){
                     $('#ajuda').bind('click', function() {
-                        window.open('http://10.1.1.248:81', 'Ajuda', 'width=400px, height=300px')
+                        window.open('http://10.1.1.3:81', 'Ajuda', 'width=400px, height=300px')
                     });
                 })
 
