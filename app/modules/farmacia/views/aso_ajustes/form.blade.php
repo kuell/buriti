@@ -38,6 +38,9 @@
 			$.get('/farmacia/aso/find/'+$(this).val()+'/admissional', null, function(data){
 				if(data != 0){
 					alert('Aso ADMISSIONAL ja cadastrada para este Colaborador!\n '+data[0].id);
+					if(confirm('Deseja abrir a Ficha Aso ADMISSIONAL deste colaborador?')){
+						location = '/farmacia/aso/'+data[0].id+'/edit'
+					}
 				}
 
 			})

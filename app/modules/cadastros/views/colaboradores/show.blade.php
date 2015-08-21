@@ -23,6 +23,8 @@ Class ColaboradorView extends Fpdf {
 		$this->Cell(120, 6, utf8_decode('Posto de Trabalho: '.$colaborador->posto_descricao->descricao), 'BRLT', 0);
 		$this->Ln(7);
 
+		$this->ocorrencias($colaborador);
+
 		if (!empty($colaborador->obs)) {
 			$this->SetFont('Arial', '', 9);
 			$this->Cell(190, 6, utf8_decode('Observações'), 'LTBR', 0, 'L', 1);
