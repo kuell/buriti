@@ -30,6 +30,14 @@ class Colaborador extends Eloquent {
 		return $this->belongsTo('Setor', 'setor_id');
 	}
 
+	public function getSetorDescricaoAttribute() {
+		if (!empty($this->attributes['setor_id'])) {
+			return $this->setor->descricao;
+		} else {
+			return null;
+		}
+	}
+
 	public function asos() {
 		return $this->hasMany('Aso', 'colaborador_id');
 	}

@@ -14,6 +14,14 @@
 		{{ Form::button('Print', ['class'=>'btn btn-warning', 'name'=>'print', 'value'=>$ficha->id]) }}
 		{{ link_to_route('fichas.index', 'Voltar', null, ['class'=>'btn btn-danger']) }}
 
+		<div class="form-group">
+			<div class="col-md-3">
+				{{ Form::label('situacao ', 'Situação da Ficha: ', ['class'=>'form-label']) }}
+				{{ Form::select('situacao', [1=>'Normal', 3=>'Indisponivel Pelo RH'], $ficha->situacao, ['class'=>'form-control']) }}
+			</div>
+		</div>
+
+
 		@include('cadastros::fichas.form')
 	</div>
 </div>

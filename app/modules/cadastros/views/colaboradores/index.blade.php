@@ -12,22 +12,24 @@
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
-        	<div class="well col-md-12">
+
 			{{-- Inicio Formulario filtro por data --}}
-			<div>
-				{{ Form::open(['class'=>'navbar-form navbar-left']) }}
-
-				{{ Form::label('Periodo: ', null, ['class'=>'nav-brand'])}}
-
-				<div class="form-group">
-						{{ Form::text('periodo', null, ['class'=>'form-control periodo', 'size'=>'30', 'placeholder'=>'Periodo']) }}
+			{{ Form::open(['class'=>'form form-horizontal']) }}
+			<div class="form-group">
+				<div class="col-md-3">
+					{{ Form::label('Periodo: ', null, ['class'=>'nav-brand'])}}
+					{{ Form::text('periodo', null, ['class'=>'form-control periodo', 'size'=>'30', 'placeholder'=>'Periodo']) }}
 				</div>
-				<div class="form-group">
+				<div class="col-md-6">
+					{{ Form::label('colaborador', 'Selecione um Colaborador: ', ['class'=>'form-label']) }}
 					{{ Form::select('colaborador_id', [''=>'Selecione ...']+Colaborador::all()->lists('nome', 'id'), null, ['class'=>'form-control']) }}
-				</div>
-					{{ Form::button('Gerar', ['class'=>'btn btn-primary', 'id'=>'gerar_relatorio']) }}
 
 				</div>
+			</div>
+			<div class="form-group">
+				{{ Form::button('Gerar', ['class'=>'btn btn-primary', 'id'=>'gerar_relatorio']) }}
+				{{ Form::button('Colaborador Por Posto de Trabalho', ['class'=>'btn btn-info','id'=>'por_posto']) }}
+			</div>
 
 				{{ Form::close() }}
 
@@ -48,6 +50,9 @@
 <script type="text/javascript">
     $(function() {
     	$("#colaboradors").dataTable();
+    	$('#por_posto').bind('click', function() {
+    		window.open('/colaboradors/reports/por_posto', 'Report')
+    	});
 
 		$('#gerar_relatorio').bind('click', function() {
 			periodo = $('input[name=periodo]').val()

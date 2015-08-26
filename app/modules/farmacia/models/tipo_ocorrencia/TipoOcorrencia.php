@@ -7,6 +7,10 @@ class TipoOcorrencia extends \Eloquent {
 	public $rules       =
 	['descricao' => 'required|unique:farmacia.ocorrencia_tipos,descricao'];
 
+	public function scopeTipoAcidente($query) {
+		return $query->where('pai_id', 1);
+	}
+
 	public function pai() {
 		return $this->belongsTo('TipoOcorrencia');
 	}

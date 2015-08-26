@@ -192,4 +192,40 @@ class ColaboradorController extends \BaseController {
 		}
 	}
 
+	public function colaboradorPorPosto() {
+
+		Excel::create('Planilha de Colaboradores Por Posto de Trabalho', function ($excel) {
+				$excel->sheet('Ref. ', function ($sheet) {
+						$sheet->mergeCells('A1:J5');
+						$sheet->setHeight(1, 50);
+						$sheet->row(1, function ($row) {
+								$row->setFontFamily('Arial');
+								$row->setFontSize(20);
+							});
+						$sheet->cell('A1', function ($cell) {
+								$cell->setAlignment('center');
+							});
+						$sheet->getStyle('D')->getAlignment()->setWrapText(true);
+						$sheet->row(1, array('Frizelo Frigorificos Ltda.'));
+
+						$a = [];
+
+						$colaboradors = $this->colaboradors->orderBy('setor_id')->get();
+
+						foreach ($colaboradors as $colaborador) {
+							$a[] = [
+								'Nome'              => $colaborador->nome,
+								'Data de Admissão' => $colaborador->data_admissao,
+								'Setor'             => $colaborador->setor_descricao,
+								'Posto de Trabalho' => empty($colaborador->posto_descricao->descricao)?null:$colaborador->posto_descricao->descricao
+							];
+						}
+
+						$sheet->setAutoFilter('A6:d6');
+						$sheet->setOrientation('landscape');
+						$sheet->fromArray($a, null, 'A6', true);
+					});
+			})->export('xls');
+
+	}
 }

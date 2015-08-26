@@ -5,6 +5,7 @@
 			<th>Nome</th>
 			<th>Idade</th>
 			<th>Setores Pretendidos</th>
+			<th>Situacao</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -15,10 +16,14 @@
 			<td>{{ $ficha->nome }}</td>
 			<td>{{ $ficha->idade }}</td>
 			<td>{{ implode(', ', $ficha->setores)}}</td>
+			<td>{{ $ficha->situacao }}</td>
 			<td>
-				{{ link_to_route('fichas.edit', ' ', $ficha->id, ['class'=>'btn btn-info glyphicon glyphicon-pencil']) }}
+
 				{{ Form::button(' ',  ['class'=>'btn btn-warning glyphicon glyphicon-print', 'name'=>'print', 'value'=>$ficha->id]) }}
-				{{ Form::button(' ', ['class'=>'btn btn-success glyphicon glyphicon-ok', 'name'=>'selecionar', 'value'=>$ficha->id]) }}
+				@if($ficha->situacao == 'Disponivel')
+					{{ Form::button(' ', ['class'=>'btn btn-success glyphicon glyphicon-ok', 'name'=>'selecionar', 'value'=>$ficha->id]) }}
+					{{ link_to_route('fichas.edit', ' ', $ficha->id, ['class'=>'btn btn-info glyphicon glyphicon-pencil']) }}
+				@endif
 			</td>
 
 		</tr>

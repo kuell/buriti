@@ -42,6 +42,7 @@ class FarmaciaController extends \BaseController {
 	}
 
 	public function getExamesAnual($ano) {
+
 		$rs = DB::select("	SELECT
 								d.id,
 								d.descricao as setor,

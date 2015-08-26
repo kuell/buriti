@@ -30,6 +30,10 @@ class Ficha extends \Eloquent {
 		'pis'             => 'required',
 	);
 
+	public function scopeNormais($query) {
+		return $query->where('situacao', '<>', 0);
+	}
+
 	public function setors() {
 		return $this->hasMany('FichaSetor');
 	}
@@ -48,6 +52,12 @@ class Ficha extends \Eloquent {
 
 	public function parentes() {
 		return $this->hasMany('FichaParente');
+	}
+
+	public function getSituacaoAttribute() {
+		$situacao = ['Aso Incluida', 'Disponivel', 'Reprovado Pela Infermaria', 'Indisponivel Pelo RH'];
+
+		return $situacao[$this->attributes['situacao']];
 	}
 
 	public function getIdadeAttribute() {

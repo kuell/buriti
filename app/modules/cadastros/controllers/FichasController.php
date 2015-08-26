@@ -18,7 +18,7 @@ class FichasController extends BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$fichas = $this->fichas->where('situacao', 1)->get();
+		$fichas = $this->fichas->normais()->get();
 
 		return View::make('cadastros::fichas.index', compact('fichas'));
 	}

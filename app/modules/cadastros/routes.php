@@ -46,3 +46,7 @@ Route::group(array('before'                     => 'auth|permissao'), function (
 		Route::resource('/fichas', 'FichasController');
 
 	});
+
+Route::group(['before'               => 'auth', 'prefix'               => 'colaboradors/reports'], function () {
+		Route::get('por_posto', array('as' => 'colaboradors.report.por_posto', 'uses' => 'ColaboradorController@colaboradorPorPosto'));
+	});

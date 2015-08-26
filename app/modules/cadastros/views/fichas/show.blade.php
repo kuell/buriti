@@ -375,7 +375,12 @@ color:rgb(0,0,0);
     <div class="loc po2">
         <div class="sz2 ofh as1">
             <p class="pp1 nw fc2">
-                <span class="fc2">Ficha e Solicitação de Emprego</span>
+                <span class="fc2">
+                    Ficha e Solicitação de Emprego
+                        @if($ficha->situacao != 'Disponivel')
+                            - <span style="color: red"><b>Ficha em Estado: {{ $ficha->situacao }}</b></span>
+                        @endif
+                </span>
             </p>
         </div>
     </div>

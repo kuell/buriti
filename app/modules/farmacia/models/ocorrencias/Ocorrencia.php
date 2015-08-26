@@ -13,6 +13,10 @@ class Ocorrencia extends Eloquent {
 		'colaborador_id' => 'required'
 	];
 
+	public function scopeMonitoramento($query) {
+		return $query->where('monitoramento', false);
+	}
+
 	public function medicamentos() {
 		return $this->hasMany('OcorrenciaMedicacao', 'ocorrencia_id');
 	}
@@ -138,7 +142,7 @@ class Ocorrencia extends Eloquent {
 				foreach ($this->medicamentos as $medicamento) {
 					$conduta[] = $medicamento->qtd.' - '.$medicamento->medicacao->descricao.' ('.strtoupper($medicamento->medida).')';
 				}
-				return implode(' + ', $conduta);
+				return implode(' / ', $conduta);
 			} else {
 				return null;
 			}

@@ -34,6 +34,10 @@ class Aso extends \Eloquent {
 		return $query->where('ajuste', true);
 	}
 
+	public function ficha() {
+		return $this->belongsTo('Ficha', 'ficha_id');
+	}
+
 	public function colaborador() {
 		return $this->belongsTo('Colaborador', 'colaborador_id');
 	}

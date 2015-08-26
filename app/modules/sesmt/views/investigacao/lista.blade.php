@@ -25,6 +25,7 @@
                 {{
                     Form::button(' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'name'=>'investigar', 'value'=>$investigacao->id])
                 }}
+                {{ link_to_route('sesmt.investigacao.edit', ' ', $investigacao->id, ['class'=>'btn btn-info glyphicon glyphicon-pencil']) }}
 
             </td>
         </tr>

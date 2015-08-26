@@ -38,12 +38,13 @@
 					<a href="#" onclick="window.open('/farmacia/aso/{{ $aso->id }}', 'Print', 'channelmode=yes')" class="btn btn-sm btn-warning ">
 						<i class="glyphicon glyphicon-print"></i>
 					</a>
-					<a href="#" onclick="document.getElementById('{{ $aso->id }}').submit()" class="btn btn-sm btn-danger">
-						<i class="glyphicon glyphicon-trash"></i>
-					</a>
-
-					{{ Form::open(array('route' => array('farmacia.aso.destroy', $aso->id), 'id'=>$aso->id, 'method' => 'delete')) }}
+					@if($aso->tipo == 'admissional' && $aso->ajuste == false)
+					{{ Form::open(array('route' => array('farmacia.aso.destroy', $aso->id), 'id'=>$aso->id, 'method' => 'delete', 'name'=>'delete')) }}
+				    	<button type="submit"  title="Reprovado nos Exames Médicos" class="btn btn-sm btn-danger">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
 				    {{ Form::close() }}
+				    @endif
 				</div>
 			</td>
 		</tr>
@@ -53,3 +54,21 @@
 </table>
 
 @endif
+
+@section('scripts_local')
+
+<script type="text/javascript">
+	$(function(){
+		$('form[name=delete]').submit(function(){
+
+			if(confirm('Deseja realmente reprovar esta ficha aso? ')){
+				return true;
+			}
+			else{
+				return false;
+			}
+		});
+	})
+</script>
+
+@stop

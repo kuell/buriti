@@ -73,7 +73,9 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
+		$investigacao = $this->investigacaos->find($id);
 
+		return View::make('sesmt::investigacao.edit', compact('investigacao'));
 	}
 
 	/**
@@ -83,8 +85,27 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
+		$input        = Input::all();
+		$investigacao = $this->investigacaos->find($id);
 
-		return View::make('sesmt::investigacao.edit', compact('investigacao'))->with('pg', $pg);
+		$investigacao->update($input);
+		print_r($input);
+		die;
+
+		$validate = Validator::make($input, $this->investigacaos->rules);
+
+		if ($validate->passes()) {
+			$investigacao = $this->investigacaos->find($id);
+
+			$investigacao->update($input);
+
+			return Redirect::route('sesmt.investigacao.edit', $id);
+		} else {
+			return Redirect::route('sesmt.investigacao.edit', $id)
+				->withInput()
+				->withErrors($validate)
+				->with('message', 'Erro na inclusão das informações!');
+		}
 	}
 
 	/**

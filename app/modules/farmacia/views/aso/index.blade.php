@@ -39,4 +39,7 @@
         });
     })
 </script>
+
+@yield('scripts_local')
+
 @stop

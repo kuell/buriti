@@ -247,7 +247,20 @@ class AsoController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {
-		//
+		$aso = $this->asos->find($id);
+
+		$aso->status   = 'inapto';
+		$aso->situacao = 'fechado';
+		$aso->obs      = 'ASO REPROVADA POR '.Auth::user()->user;
+		$aso->save();
+
+		if (count($aso->ficha)) {
+			$ficha           = $aso->ficha;
+			$ficha->situacao = 2;
+			$ficha->save();
+		}
+
+		return Redirect::route('farmacia.aso.index');
 	}
 
 	public function setRisco($tipo) {

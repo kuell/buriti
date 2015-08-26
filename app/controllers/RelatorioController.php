@@ -28,7 +28,7 @@ class RelatorioController extends Fpdf {
 		$this->SetY(-15);
 		$this->SetFont("Arial", "I", 8);
 		$this->SetDrawColor(200);
-		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()." - Processado em ".date('d/m/ H:i'), 0, 0, "C");
+		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()." - Processado em ".date('d/m/Y H:i'), 0, 0, "C");
 	}
 
 }
