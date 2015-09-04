@@ -64,6 +64,11 @@ class OcorrenciasController extends \BaseController {
 		$validate = Validator::make($input, $this->ocorrencias->rules);
 
 		if ($validate->passes()) {
+			$colaborador = Colaborador::find($input['colaborador_id']);
+
+			$input['setor_id'] = $colaborador->setor_id;
+			$input['posto_id'] = $colaborador->posto_id;
+
 			$ocorrencia = $this->ocorrencias->create($input);
 
 			//-- Se o campo 'Encaminhar para sesmt' for true --//

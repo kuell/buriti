@@ -48,6 +48,8 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 				Route::get('pcmso/{ano}', 'FarmaciaController@viewPCMSO');
 				Route::get('exames/{ano}', 'FarmaciaController@getExamesAnual');
 				Route::get('colaborador_exames', 'FarmaciaController@getColaboradorExames');
+				Route::get('ocorrencia/queixa/{ano}', 'FarmaciaController@getOcorrenciaQueixa');
+
 			});
 
 	});

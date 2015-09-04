@@ -15,7 +15,8 @@
 		</div>
 		<div class="panel-footer">
 			{{ Form::button('Colaborador / Exames',  ['class'=>'btn btn-primary', 'id'=>'colaborador']) }}
-			{{ Form::button('Exames',  ['class'=>'btn btn-info', 'id'=>'exames']) }}
+			{{ Form::button('PCMSO Exames',  ['class'=>'btn btn-info', 'id'=>'exames']) }}
+			{{ Form::button('PCMSO Queixas',  ['class'=>'btn btn-warning', 'id'=>'queixas']) }}
 		</div>
 	</div>
 
@@ -26,6 +27,9 @@
 		})
 		$('#exames').bind('click', function(){
 			window.open('/farmacia/relatorios/exames/'+$('input[name=ano]').val(), 'Print', 'channelmode=yes');
+		})
+		$('#queixas').bind('click', function(){
+			window.open('/farmacia/relatorios/ocorrencia/queixa/'+$('input[name=ano]').val(), 'Print', 'channelmode=yes');
 		})
 	})
 	</script>

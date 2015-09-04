@@ -3,111 +3,82 @@
 /**
  *
  */
-class ExamesView extends RelatorioController {
-	public function Dados($exames) {
+class OcorrenciasQueixaView extends RelatorioController {
+	public function Dados($queixas) {
+		foreach (Setor::orderBy('descricao')->get() as $setor) {
+			if (!empty($setor->postoTrabalhos->count())) {
+				$this->AddPage();
 
-		$this->AddPage();
+				$this->setFillColor(150);
+				$this->Cell(0, 5, utf8_decode('SETOR - '.$setor->descricao), 1, 0, 'C', 1);
+				//$this->Ln(15);
+				$this->Ln();
 
-		if (!empty($exames)) {
-			$this->Cell(130, 10, utf8_decode('RESPONSÁVEL: DR PEDRO LUIZ GOMES'), 'TRL', 0, 1);
-			$this->Cell(60, 10, utf8_decode('DATA: '.date('d/m/Y')), 'TRL', 0, 1);
-			$this->Ln();
+				$this->setFont('Arial', '', 6);
 
-			$this->Cell(130, 10, utf8_decode('CRM Nº: 1566 - MÉDICO DO TRABALHO'), 'BRL', 0, 1);
-			$this->Cell(60, 10, utf8_decode('ASSINATURA: '), 'RLB', 0, 1);
-			$this->Ln();
+				$this->Cell(50, 25, 'POSTO DE TRABALHO', 1, 0, 'l', 0);
+				$this->Ln();
+				//-- Lista de Causas --//
 
-			$this->setors($exames);
-		} else {
-			$this->Cell(0, 10, utf8_decode('Nenhuma informação retornada!'), 1, 0, 'C', 0);
-		}
-	}
+				$this->Rotate(90);
+				$this->Ln(50);
 
-	public function setors($exames) {
-		foreach ($exames as $setor => $postos) {
-			$this->SetFillColor(150);
+				$qs = null;
 
-			$this->Cell(190, 5, utf8_decode($setor), 1, 0, 'C', 1);
-			$this->Ln();
-
-			$this->SetFillColor(200);
-
-			$this->Cell(50, 4, utf8_decode('Posto de Trabalho'), 1, 0, 'C', 1);
-			$this->Cell(80, 4, utf8_decode('Tipo de Exame'), 1, 0, 'C', 1);
-			$this->Cell(15, 4, utf8_decode('Total'), 1, 0, 'C', 1);
-			$this->Cell(15, 4, utf8_decode('Alterados'), 1, 0, 'C', 1);
-
-			$this->SetFont('Arial', '', 6);
-			$this->Cell(21, 4, utf8_decode('Alterados * 100/Total'), 1, 0, 0, 1);
-			$this->Ln();
-
-			foreach ($postos as $posto => $descricaos) {
-
-				$this->SetFillColor(240);
-				$this->SetFont('Arial', '', 9);
-
-				$this->Cell(50, 4, utf8_decode($posto), 1, 0, 0, 1);
-
-				$cont = 0;
-
-				foreach ($descricaos as $descricao => $val) {
-					if ($cont != 0) {
-						$this->Cell(50, 4, '', 0, 0);
-						$this->Cell(80, 4, utf8_decode($descricao), 'BL', 0);
-						$this->Cell(15, 4, utf8_decode($val['total']), 1, 0);
-						$this->Cell(15, 4, utf8_decode($val['alterado']), 1, 0);
-						$this->Cell(21, 4, number_format($val['alterado']*100/$val['total'], 2, ',', '.').' %', 1, 0, 'R');
-					} else {
-						$this->Cell(80, 4, utf8_decode($descricao), 'BLT', 0);
-						$this->Cell(15, 4, utf8_decode($val['total']), 1, 0);
-						$this->Cell(15, 4, utf8_decode($val['alterado']), 1, 0);
-						$this->Cell(21, 4, number_format($val['alterado']*100/$val['total'], 2, ',', '.').' %', 1, 0, 'R');
-					}
-
-					if (empty($total[$descricao])) {
-						$total[$descricao] = 0;
-					}
-					if (empty($alterado[$descricao])) {
-						$alterado[$descricao] = 0;
-					}
-
-					$total[$descricao]    = $total[$descricao]+$val['total'];
-					$alterado[$descricao] = $alterado[$descricao]+$val['alterado'];
-
+				foreach ($queixas->get() as $queixa) {
+					$this->setFillColor(230);
+					$this->Cell(25, 5, utf8_decode($queixa->descricao), 1, 0, 'l', 1);
+					$qs[] = $queixa;
 					$this->Ln();
-					$cont++;
+				}
+
+				$this->Cell(25, 5, utf8_decode('TOTAL DO POSTO'), 1, 0, 'l', 1);
+
+				$this->Rotate(0);
+
+				$linhas = -($queixas->count()*5+50);
+				//-- Fim ista de Causas --//
+				$this->Ln($linhas);
+
+				unset($totalQueixas);
+
+				foreach ($setor->postoTrabalhos as $posto) {
+					$this->setFillColor(200);
+					$this->Cell(50, 5, utf8_decode(substr($posto->descricao, 0, 37)), 1, 0, 'l', 0);
+					$totalQueixaPosto = 0;
+
+					foreach ($qs as $q) {
+						$totalQueixa = Ocorrencia::where('setor_id', $setor->id)->where('posto_id', $posto->id)->where('queixa_id', $q->id)->count();
+						$this->Cell(5, 5, $totalQueixa, 1, 0, 'C', 0);
+
+						if (empty($totalQueixas[$q->id])) {
+							$totalQueixas[$q->id] = 0;
+						}
+						$totalQueixas[$q->id] = $totalQueixa+$totalQueixas[$q->id];
+
+						$totalQueixaPosto = $totalQueixaPosto+$totalQueixa;
+					}
+					$this->Cell(5, 5, $totalQueixaPosto, 1, 0, 'C', 1);
+					$this->Ln();
+
+				}
+
+				$this->Cell(50, 5, utf8_decode('TOTAL DA QUEIXA'), 1, 0, 'l', 1);
+
+				foreach ($totalQueixas as $total) {
+					$this->Cell(5, 5, $total, 1, 0, 'C', 1);
 				}
 
 				$this->Ln();
 			}
-
-			$this->AddPage();
-		}
-
-		$this->Cell(190, 7, utf8_decode('Total de Exames Realizados'), 1, 0, 'C', 1);
-		$this->Ln();
-
-		$this->Cell(80, 6, utf8_decode('Descrição'), 'BLT', 0, 'C', 1);
-		$this->Cell(30, 6, 'Realizados', 'BLT', 0, 'C', 1);
-		$this->Cell(30, 6, 'Alterados', 'BLT', 0, 'C', 1);
-		$this->Cell(40, 6, 'Alterados*100/Realizados', 1, 0, 'C', 1);
-		$this->Ln();
-
-		foreach ($total as $key => $value) {
-			$this->Cell(80, 6, utf8_decode($key), 'BLT', 0, 'L');
-			$this->Cell(30, 6, $value, 'BLT', 0, 'C');
-			$this->Cell(30, 6, $alterado[$key], 'BLT', 0, 'C');
-			$this->Cell(40, 6, number_format($alterado[$key]*100/$value, 2, ',', '.').' %', 1, 0, 'C');
-			$this->Ln();
 		}
 	}
-
 }
 
-$pdf            = new OcorrenciasQueixa();
-$pdf->tituloDoc = 'PROGRAMA DE CONTROLE MÉDICO DE SAÚDE OCUPACIONAL RELATÓRIO ANUAL - '.Request::segment(4);
+$pdf            = new OcorrenciasQueixaView('L');
+$pdf->tituloDoc = 'LEVANTAMENTO ESTATISTICO DE ATENDIMENTO MÉDICO SESMT';
 
-$pdf->Dados($exames);
+$pdf->Dados($queixas);
 $pdf->Output();
 exit;
 

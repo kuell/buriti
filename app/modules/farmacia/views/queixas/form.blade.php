@@ -1,11 +1,18 @@
 @if(empty($queixa))
-	{{ Form::open(array('route' => 'farmacia.queixas.store', 'rule'=>'form')) }}
+	{{ Form::open(array('route' => 'farmacia.queixas.store', 'class'=>'form form-horizontal')) }}
 @else
-	{{ Form::model($queixa, ['route'=>['farmacia.queixas.update', $queixa->id], 'method'=>'PATCH', 'rule'=>'form']) }}
+	{{ Form::model($queixa, ['route'=>['farmacia.queixas.update', $queixa->id], 'method'=>'PATCH', 'class'=>'form form-horizontal']) }}
 @endif
 	<div class="form-group">
-		{{ Form::label('descricao', 'Descrição: ', ['class'=>'form-label']) }}
-		{{ Form::text('descricao', null, ['class'=>'form-control']) }}
+		<div class="col-md-9">
+			{{ Form::label('descricao', 'Descrição: ', ['class'=>'form-label']) }}
+			{{ Form::text('descricao', null, ['class'=>'form-control']) }}
+		</div>
+		<div class="col-md-3">
+			{{ Form::label('pcmso', 'Entra no Relatorio PCMSO: ', ['class'=>'form-label']) }}
+			{{ Form::select('pcmso',['NÃO', 'SIM'] ,null, ['class'=>'form-control']) }}
+		</div>
+
 	</div>
 	<div class="form-group">
 		{{ Form::submit('Gravar', ['class'=>'btn btn-success']) }}

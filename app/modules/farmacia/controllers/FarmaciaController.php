@@ -97,4 +97,10 @@ class FarmaciaController extends \BaseController {
 
 		return View::make('farmacia::relatorios.views.colaborador_exames', compact('setors'));
 	}
+
+	public function getOcorrenciaQueixa($ano) {
+		$queixas = Queixa::listaPcmso();
+
+		return View::make('farmacia::relatorios.views.ocorrencias', compact('queixas'));
+	}
 }

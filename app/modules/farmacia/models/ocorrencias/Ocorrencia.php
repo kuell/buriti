@@ -152,4 +152,8 @@ class Ocorrencia extends Eloquent {
 		}
 	}
 
+	public function setSetorIdAttribute($setor_id) {
+		return $this->attributes['setor_id'] = $this->colaborador->setor_id;
+	}
+
 }

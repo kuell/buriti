@@ -12,11 +12,12 @@
 		</div>
 
 			<div class="col-md-12 col-sm-12">
-				<table class="table table-hover">
+				<table class="table table-hover" id="queixas">
 					<thead>
 						<tr>
 							<th>#</th>
 							<th>Descrição da Causa / Queixa</th>
+							<th>Entra no PCMSO</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -30,6 +31,7 @@
 
 							<td>{{ $q->id }}</td>
 							<td>{{ $q->descricao }}</td>
+							<td>{{ $q->pcmso }}</td>
 							<td>
 								{{ link_to_route('farmacia.queixas.edit', ' ', $q->id, ['class'=> 'btn btn-sm btn-info glyphicon glyphicon-pencil']) }}
 							</td>
@@ -40,6 +42,11 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript">
+	$(function(){
+		$('#queixas').dataTable()
+	})
+</script>
 
 
 @stop

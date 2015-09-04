@@ -16,8 +16,6 @@ class PCMSO extends RelatorioController {
 				foreach ($setor->postoTrabalhos as $posto) {
 
 					if (!empty($ocorrencias[$setor->descricao][$posto->descricao])) {
-						arsort($ocorrencias[$setor->descricao][$posto->descricao]);
-
 						$this->Cell(100, 5, utf8_decode($posto->descricao), 1, 0, 'L', 0);
 						$this->Cell(40, 5, $ocorrencias[$setor->descricao][$posto->descricao], 1, 0, 'L', 0);
 						$this->Ln();
