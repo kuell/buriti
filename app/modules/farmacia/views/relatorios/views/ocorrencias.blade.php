@@ -23,20 +23,27 @@ class OcorrenciasQueixaView extends RelatorioController {
 				$this->Rotate(90);
 				$this->Ln(50);
 
-				$qs = null;
+				$qs   = null;
+				$cont = 0;
 
 				foreach ($queixas->get() as $queixa) {
 					$this->setFillColor(230);
 					$this->Cell(25, 5, utf8_decode($queixa->descricao), 1, 0, 'l', 1);
 					$qs[] = $queixa;
 					$this->Ln();
+
+					$cont = $cont+1;
+
+					if ($cont == 15) {
+						break;
+					}
 				}
 
 				$this->Cell(25, 5, utf8_decode('TOTAL DO POSTO'), 1, 0, 'l', 1);
 
 				$this->Rotate(0);
 
-				$linhas = -($queixas->count()*5+50);
+				$linhas = -(15*5+50);
 				//-- Fim ista de Causas --//
 				$this->Ln($linhas);
 
