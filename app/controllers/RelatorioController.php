@@ -34,6 +34,8 @@ class RelatorioController extends Fpdf {
 
 	// Rotação de Celulas
 	function Rotate($angle, $x = -1, $y = -1) {
+		$this->SetAutoPageBreak(false);
+
 		if ($x == -1) {
 			$x = $this->x;
 		}

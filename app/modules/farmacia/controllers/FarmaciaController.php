@@ -101,6 +101,10 @@ class FarmaciaController extends \BaseController {
 	public function getOcorrenciaQueixa($ano) {
 		$queixas = Queixa::listaPcmso();
 
-		return View::make('farmacia::relatorios.views.ocorrencias', compact('queixas'));
+		$pdf = DPDF::loadView('farmacia::relatorios.views.ocorrencias', compact('queixas'));
+
+		//		$html = App::make('farmacia::relatorios.views.ocorrencias', compact('queixas'));
+		//return View::make('farmacia::relatorios.views.ocorrencias', compact('queixas'));
+		return $pdf->setOrientation('landscape')->stream();
 	}
 }
