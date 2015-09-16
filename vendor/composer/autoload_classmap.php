@@ -25,6 +25,7 @@ return array(
     'AlterFarmaciaOcorrenciasTable' => $baseDir . '/app/database/migrations/2015_05_29_152223_alter_farmacia_ocorrencias_table.php',
     'AlterFichasAddObsFoto' => $baseDir . '/app/database/migrations/2015_07_20_130832_alter_fichas_add_obs_foto.php',
     'AlterFichasSetSchema' => $baseDir . '/app/database/migrations/2015_06_30_111539_alter_fichas_set_schema.php',
+    'AlterFichasSexoCorrigeSexo' => $baseDir . '/app/database/migrations/2015_09_16_125342_alter_fichas_sexo_corrige_sexo.php',
     'AlterInvestigacaoAddSituacao' => $baseDir . '/app/database/migrations/2015_09_08_093209_alter_investigacao_add_situacao.php',
     'AlterInvestigacaoCampos' => $baseDir . '/app/database/migrations/2015_08_24_141645_alter_investigacao_campos.php',
     'AlterMenuTable' => $baseDir . '/app/database/migrations/2015_01_23_163220_alter_menu_table.php',

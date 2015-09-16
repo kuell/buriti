@@ -104,16 +104,16 @@ class Ficha extends \Eloquent {
 
 	public function getSexoDescricaoAttribute() {
 		if ($this->attributes['sexo'] == false) {
-			return 'Masculino';
-		} else {
 			return 'Feminino';
+		} else {
+			return 'Masculino';
 		}
 	}
 
 	public function getEstadoCivilDescricaoAttribute() {
 		switch ($this->attributes['estado_civil']) {
 			case '0':
-				if ($this->attributes['sexo'] == false) {
+				if ($this->attributes['sexo'] != false) {
 					return 'Solteiro';
 				} else {
 					return 'Solteira';
@@ -121,7 +121,7 @@ class Ficha extends \Eloquent {
 				break;
 
 			case '1':
-				if ($this->attributes['sexo'] == false) {
+				if ($this->attributes['sexo'] != false) {
 					return 'Casado';
 				} else {
 					return 'Casada';
@@ -129,7 +129,7 @@ class Ficha extends \Eloquent {
 				break;
 
 			case '2':
-				if ($this->attributes['sexo'] == false) {
+				if ($this->attributes['sexo'] != false) {
 					return 'Viuvo';
 				} else {
 					return 'Viuva';
@@ -137,7 +137,7 @@ class Ficha extends \Eloquent {
 				break;
 
 			case '3':
-				if ($this->attributes['sexo'] == false) {
+				if ($this->attributes['sexo'] != false) {
 					return 'Amasiado';
 				} else {
 					return 'Amasiada';
@@ -145,7 +145,7 @@ class Ficha extends \Eloquent {
 				break;
 
 			case '4':
-				if ($this->attributes['sexo'] == false) {
+				if ($this->attributes['sexo'] != false) {
 					return 'Divorciado';
 				} else {
 					return 'Divorciada';
@@ -153,7 +153,7 @@ class Ficha extends \Eloquent {
 				break;
 
 			case '5':
-				if ($this->attributes['sexo'] == false) {
+				if ($this->attributes['sexo'] != false) {
 					return 'Disquitado';
 				} else {
 					return 'Disquitada';

@@ -59,7 +59,7 @@
 <div class="form-group">
     <div class    ="col-md-2">
 		{{ Form::label('sexo', 'Sexo:', array('class'=>'control-label')) }}
-		{{ Form::select('sexo',array('0'=>'Masculino','1'=>'Feminino'), null, array('class'=>'form-control')) }}
+		{{ Form::select('sexo',array('1'=>'Masculino','0'=>'Feminino'), null, array('class'=>'form-control')) }}
 	</div>
     <div class    ="col-md-2">
     	{{ Form::label('data_nascimento', 'Data nascimento:', array('class'=>'control-label')) }}

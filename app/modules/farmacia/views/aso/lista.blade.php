@@ -32,6 +32,10 @@
 					<a href="#" onclick="window.open('/farmacia/aso/{{ $aso->id }}', 'Print', 'channelmode=yes')" class="btn btn-sm btn-warning ">
 						<i class="glyphicon glyphicon-print"></i>
 					</a>
+
+					<button class="btn btn-sm btn-success" value="{{{ $aso->id }}}" id="finalizar" title="Classificar e finalizar Ficha ASO">
+						<i class="glyphicon glyphicon-ok"></i>
+					</button>
 				</div>
 			</td>
 		</tr>
@@ -40,12 +44,21 @@
 	</tbody>
 </table>
 
+
+<div class="modal fade" id="modalElementos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+</div>
+
 @endif
 
 @section('scripts_local')
 
 <script type="text/javascript">
 	$(function(){
+		$('#finalizar').click(function(){
+			alert($(this).val())
+		})
+
 		$('form[name=delete]').submit(function(){
 
 			if(confirm('Deseja realmente reprovar esta ficha aso? ')){

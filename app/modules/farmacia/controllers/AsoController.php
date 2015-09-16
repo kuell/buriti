@@ -215,4 +215,8 @@ class AsoController extends \BaseController {
 		return Redirect::route('farmacia.aso.exames', $aso_id);
 	}
 
+	public function getFinalizar($id) {
+		$aso = $this->asos->find($id);
+	}
+
 }

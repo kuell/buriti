@@ -26,7 +26,7 @@ $fpdf->MultiCell(190, 9, utf8_decode('A.S.O. - Atestado de Saúde Ocupacional'),
 
 $fpdf->SetTextColor(0);
 $fpdf->SetFont('Arial', '', 9);
-$fpdf->Cell(33, 7, utf8_decode('Matrícula: '.$aso->matricula), 'LTR', 0, 'L');
+$fpdf->Cell(33, 7, utf8_decode('Matrícula: '.$aso->colaborador_matricula), 'LTR', 0, 'L');
 $fpdf->Cell(97, 7, utf8_decode('Nome: '.$aso->colaborador_nome), 'LTR', 0, 'L');
 $fpdf->Cell(60, 7, utf8_decode('RG: '.$aso->colaborador_rg.' '.$aso->colaborador_orgao_emissor), 'LTR', 0, 'L');
 $fpdf->Ln();
@@ -43,15 +43,11 @@ $fpdf->Ln();
 $fpdf->Cell(190, 7, 'Posto de Trabalho: '.utf8_decode(!$aso->postoTrabalho?null:$aso->postoTrabalho->descricao), 'LTR', 0, 'L');
 $fpdf->Ln();
 
-$atividades = "";
-
 if (!empty($aso->postoTrabalho)) {
-	foreach ($aso->postoTrabalho->atividades as $atividade) {
-		$atividades .= $atividade->descricao.' / ';
-	}
+	$fpdf->SetFont('Arial', '', 7);
+	$fpdf->MultiCell(190, 6, utf8_decode('Atividades: '.implode(', ', $aso->postoTrabalho->atividades->lists('descricao'))), 'LTRB', 'L');
+	$fpdf->SetFont('Arial', 'B', 10);
 }
-
-$fpdf->MultiCell(190, 6, utf8_decode('Atividades: '.$atividades), 'LTRB', 'L');
 
 $fpdf->Cell(190, 6, utf8_decode('Tipo de Exame Médico: ').strtoupper($aso->tipo), 'TLRB', 0, 'C');
 $fpdf->Ln();

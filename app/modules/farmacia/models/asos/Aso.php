@@ -193,7 +193,11 @@ class Aso extends \Eloquent {
 		if (!empty($this->attributes['colaborador_id'])) {
 			return date('Y-m-d')-Format::dbDate($this->colaborador->data_nascimento);
 		} else {
-			return null;
+			if (!empty($this->attributes['colaborador_data_nascimento'])) {
+				return date('Y-m-d')-$this->attributes['colaborador_data_nascimento'];
+			} else {
+				return null;
+			}
 		}
 
 	}
