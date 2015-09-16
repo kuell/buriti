@@ -138,6 +138,14 @@
 </div>
 
 
+<script type="text/javascript">
+    $('.valor').maskMoney({
+        thousands:'.',
+        decimal: ',',
+        allowZero: true
+    })
+</script>
+
 @if($ficha->id)
     <script type="text/javascript">
         $(function(){
