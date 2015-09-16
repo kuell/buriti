@@ -130,10 +130,10 @@ class Aso extends \Eloquent {
 		if (!empty($this->attributes['colaborador_id'])) {
 			$sexo = $this->colaborador->sexo;
 		} else {
-			$sexo = $this->colaborador_sexo;
+			$sexo = $this->attributes['colaborador_sexo'];
 		}
 
-		if ($sexo) {
+		if ($sexo != false) {
 			return 'MASCULINO';
 		} else {
 			return 'FEMININO';
