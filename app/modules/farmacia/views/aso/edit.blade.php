@@ -9,68 +9,92 @@
 			</h3>
 		</div>
 		<div class="panel-body">
+			<div class="form-group">
+				<div class="col-md-3">
+					{{ Form::label('tipo', 'Tipo de A.S.O: ', ['class'=>'form-label']) }}
+					{{ Form::select('tipo', [''=>'Selecione ...']+Aso::tipo(), Input::get('tipo'), ['class'=>'form-control', 'disabled']) }}
+				</div>
+				<div class="col-md-2">
+					{{ Form::label('Matricula: ')}}
+					{{ Form::text('colaborador_matricula', null, ['class'=>'form-control numero', 'disabled']) }}
+				</div>
+				<div class="col-md-7">
+					{{ Form::label('colaborador_id', 'Nome do Colaborador: ', ['class'=>'form-label']) }}
+					@if($aso->tipo != 'admissional')
+						{{ Form::select('colaborador_id', [''=>'Selecione ...']+Colaborador::ativos()->lists('nome', 'id'), Input::get('tipo'), ['class'=>'form-control', 'disabled']) }}
+					@else
+						{{ Form::text('colaborador_nome', null, ['class'=>'form-control']) }}
+					@endif
+				</div>
+			</div>
+
+
 			@include('farmacia::aso.form')
-
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h4 class="panel-title">Informações Complementares</h4>
-				</div>
-				<div class="panel-body">
-					<div role="tabpanel">
-
-						  <!-- Nav tabs -->
-						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active">
-								<a href="#riscos" aria-controls="riscos" role="tab" data-toggle="tab">
-									<h5>Riscos</h5>
-								</a>
-							</li>
-
-						    <li role="presentation">
-								<a href="#exame" aria-controls="exame" role="tab" data-toggle="tab">
-									<h5>Exames Médicos</h5>
-								</a>
-							</li>
-						</ul>
-
-						  <!-- Tab panes -->
-					  	<div class="tab-content">
-					    	<div role="tabpanel" class="tab-pane active" id="riscos">
-								@include('farmacia::aso.partials._riscos')
-							</div>
-							<div role="tabpanel" class="tab-pane" id='exame'>
-								<iframe src="/farmacia/aso/{{ $aso->id }}/exames" style="border: 1px" class="col-md-12" height="350px"></iframe>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			@if($aso->ajuste != true && $aso->situacao != 'fechado')
-			<div class="panel-footer">
-				{{ Form::submit('Atualizar', ['class'=>'btn btn-primary btn-sm']) }}
-				{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
-			</div>
-			@endif
-
 		</div>
 
+			<div class="panel-footer">
+				@if($aso->ajuste != true && $aso->situacao != 'fechado')
+					{{ Form::submit('Atualizar', ['class'=>'btn btn-primary btn-sm']) }}
+
+					{{ Form::button('Informações Adicionais', ['class'=>'btn btn-warning btn-sm', 'id'=>'info']) }}
+
+					{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
+				@else
+					{{ Form::button('Informações Adicionais', ['class'=>'btn btn-warning btn-sm', 'id'=>'info']) }}
+					{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
+				@endif
+			</div>
 	</div>
  {{ Form::close() }}
 
-<div class="modal js-loading-bar" id="progress">
- <div class="modal-dialog">
-   <div class="modal-content">
-     <div class="modal-body">
-     	<h4>Atualizando Registro ...</h4>
-     </div>
-   </div>
- </div>
-</div>
+@include('farmacia::aso.informacoes');
 
-<style type="text/css">
-	.progress-bar.animate {
-	   width: 100%;
-	}
-</style>
+
+<script type="text/javascript">
+	$(function(){
+		$('#info').bind('click', function() {
+			$('#informacoes').modal();
+		});
+	})
+</script>
+
+
+@if($aso->tipo == 'admissional')
+	<script type="text/javascript">
+		$(function(){
+			$('input[name=colaborador_matricula], input[name=colaborador_data_admissao]').removeAttr('disabled');
+
+			$('input[name=colaborador_matricula]').bind('blur', function(){
+				if($(this).val() != 0){
+					$.get('/colaboradors/find/'+$(this).val(), function(data) {
+						if(data.id != null){
+							alert('Matrícula ja cadastrada!\n Colaborador: '+data.nome)
+							$('input[name=colaborador_matricula]').focus()
+						}
+					});
+				}
+			})
+
+		})
+	</script>
+@endif
+
+
+
+@if(!empty($aso->colaborador_rg))
+	<script type="text/javascript">
+		$(function(){
+			$('input[name=colaborador_rg]').prop('disabled', 'true');
+		})
+	</script>
+@endif
+
+@if(!empty($aso->colaborador_orgao_emissor))
+	<script type="text/javascript">
+		$(function(){
+			$('input[name=colaborador_orgao_emissor]').prop('disabled', 'true');
+		})
+	</script>
+@endif
 
 @endsection

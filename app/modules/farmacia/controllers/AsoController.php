@@ -22,7 +22,7 @@ class AsoController extends \BaseController {
 			echo "<script>window.open('/farmacia/aso/".Input::get('id')."', 'print','changemode=yes');</script>";
 		}
 
-		$asos = $this->asos->where('situacao', '<>', 'fechado')->get();
+		$asos = $this->asos->abertos()->get();
 
 		return View::make('farmacia::aso.index', compact('asos'));
 	}
@@ -34,9 +34,25 @@ class AsoController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		$aso = $this->asos;
+		$aso       = $this->asos;
+		$aso->tipo = Input::get('tipo');
 
-		return View::make('farmacia::aso.create', compact('aso'));
+		if (!empty(Input::get('tipo')) && !empty(Input::get('colaborador_id'))) {
+			$colaborador                      = Colaborador::find(Input::get('colaborador_id'));
+			$aso->colaborador_sexo            = $colaborador->sexo;
+			$aso->colaborador_data_nascimento = $colaborador->data_nascimento;
+			$aso->colaborador_rg              = $colaborador->rg;
+			$aso->colaborador_orgao_emissor   = $colaborador->emissor;
+			$aso->colaborador_setor_id        = $colaborador->setor_id;
+			$aso->posto_id                    = $colaborador->posto_id;
+			$aso->colaborador_funcao_id       = $colaborador->funcao_id;
+			$aso->colaborador_data_admissao   = $colaborador->data_admissao;
+
+			return View::make('farmacia::aso.form', compact('aso'));
+		} else {
+			return View::make('farmacia::aso.create', compact('aso'));
+		}
+
 	}
 
 	/**
@@ -47,66 +63,40 @@ class AsoController extends \BaseController {
 	 */
 	public function store() {
 		$input = Input::all();
-		if (empty($input['posto_id'])) {
-			$input['posto_id'] = 0;
-		}
 
-		switch ($input['tipo']) {
-			case 'admissional':
-				$validate = Validator::make($input, $this->asos->rules['admissional']['create']);
-				if ($validate->passes()) {
-					$input['colaborador_nome'] = strtoupper($input['colaborador_nome']);
+		$validate = Validator::make($input, $this->asos->rules['outros']);
 
-					$aso = $this->asos->create($input);
-					return Redirect::route('farmacia.aso.index', ['id' => $aso->id]);
-				} else {
-					return Redirect::route('farmacia.aso.create')
-						->withInput()
-						->withErrors($validate)
-						->with('message', 'Erro na inclusão das informações!');
-				}
-				break;
+		if ($validate->passes()) {
+			$colaborador       = Colaborador::find($input['colaborador_id']);
+			$input['posto_id'] = $colaborador->posto_id;
 
-			default:
-				$validate = Validator::make($input, $this->asos->rules['periodico']);
+			$aso = $this->asos->create($input);
 
-				if ($validate->passes()) {
-					$colaborador = Colaborador::find($input['colaborador_id']);
-
-					$input = $input+[
-						'colaborador_nome'            => strtoupper($colaborador->nome),
-						'colaborador_sexo'            => $colaborador->sexo,
-						'colaborador_data_nascimento' => $colaborador->data_nascimento,
-						'colaborador_setor_id'        => $colaborador->setor_id,
-					];
-
-					$aso = $this->asos->create($input);
-					return Redirect::route('farmacia.aso.index', ['id' => $aso->id]);
-				} else {
-					return Redirect::route('farmacia.aso.create')
-						->withInput()
-						->withErrors($validate)
-						->with('message', 'Erro na inclusão das informações!');
-				}
-				break;
-		}
-
-		// Inclui os riscos a aso incluida
-		if (!empty($input['posto_id'])) {
-			foreach (SesmtPostoRisco::where('posto_id', $input['posto_id'])->get() as $risco) {
-				if (AsoRisco::where('aso_id', $aso->id)->where('risco_id', $risco->id)->count() < 1) {
-					$insert = ['aso_id' => $aso->id, 'risco_id' => $risco->id];
-					AsoRisco::create($insert);
-				}
+			if (!empty($input['colaborador_rg']) or !empty($input['colaborador_orgao_emissor'])) {
+				$colaborador->rg      = $input['colaborador_rg'];
+				$colaborador->emissor = $input['colaborador_orgao_emissor'];
+				$colaborador->save();
 			}
+
+			// Inclui os riscos a aso incluida
+			if (!empty($input['posto_id'])) {
+				foreach (SesmtPostoRisco::where('posto_id', $input['posto_id'])->get() as $risco) {
+					if (AsoRisco::where('aso_id', $aso->id)->where('risco_id', $risco->id)->count() < 1) {
+						$insert = ['aso_id' => $aso->id, 'risco_id' => $risco->id];
+						AsoRisco::create($insert);
+					}
+				}
+
+				return Redirect::route('farmacia.aso.index', ['id' => $aso->id]);
+
+			}
+		} else {
+			echo "Ola";
+			print_r($validate->errors());
+			die;
+
 		}
-
-		// --- Fim Inclui os riscos a aso incluida
-
-		return Redirect::route('farmacia.aso.index', ['id' => $aso->id]);
-
 	}
-
 	/**
 	 * Display the specified resource.
 	 * GET /aso/{id}
@@ -141,100 +131,17 @@ class AsoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		$input = Input::all();
+		$input = array_except(Input::all(), '_method');
 
-		unset($input['risco']);
+		$validate = Validator::make($input, $this->asos->rules['admissional']);
 
-		$aso = $this->asos->find($id);
+		if ($validate->passes()) {
+			$aso = $this->asos->find($id);
+			$aso->update($input);
 
-		switch ($aso->tipo) {
-			case 'admissional':
-				$validate = Validator::make($input, $this->asos->rules['admissional']['update']);
+			return Redirect::route('farmacia.aso.edit', $id);
+		} else {
 
-				if ($validate->passes()) {
-					if ($input['situacao'] == 'fechado' && $input['status'] == 'apto') {
-						// Cria Novo Colaborador //
-						$colaborador = [
-							'nome'            => $aso->colaborador_nome,
-							'codigo_interno'  => $aso->colaborador_matricula,
-							'setor_id'        => $aso->colaborador_setor_id,
-							'data_nascimento' => $aso->colaborador_data_nascimento,
-							'sexo'            => $aso->colaborador_sexo,
-							'interno'         => false,
-							'data_admissao'   => $aso->colaborador_data_admissao,
-							'obs'             => 'Admitido em: '.date('d/m/Y', strtotime($aso->created_at)).' - ASO: '.$aso->id.' |',
-						];
-						// Valida Informações do Colaborador
-						$validaColaborador = Validator::make($colaborador, $this->colaborador->rules);
-
-						if ($validaColaborador->passes()) {
-							$col                     = $this->colaborador->create($colaborador);
-							$input['colaborador_id'] = $col->id;
-							$col->postoTrabalho()->create(['posto_id' => $input['posto_id']]);
-
-						} else {
-							return Redirect::route('farmacia.aso.edit', $id)
-								->withInput()
-								->withErrors($validaColaborador)
-								->with('message', 'Erro nas Informações do Colaborador!');
-						}
-
-						// Fim Cria Novo Colaborador //
-					}
-
-					$aso->update($input);
-					if ($input['situacao'] == 'fechado') {
-						return Redirect::route('farmacia.aso.index');
-					} else {
-						return Redirect::route('farmacia.aso.edit', $id);
-					}
-
-				} else {
-					return Redirect::route('farmacia.aso.edit', $id)
-						->withInput()
-						->withErrors($validate)
-						->with('message', 'Erro na atualização das informações!');
-				}
-				break;
-
-			case 'demissional':
-
-				if ($input['status'] == 'apto' && $input['situacao'] == 'fechado') {
-					$colaborador           = $aso->colaborador;
-					$colaborador->situacao = 'demitido';
-					$colaborador->obs      = $colaborador->obs.' Demitido em: '.date('d/m/Y', strtotime($aso->created_at)).' - Aso: '.$aso->id;
-					$colaborador->save();
-					$aso->update($input);
-					return Redirect::route('farmacia.aso.index');
-				} else {
-					$aso->update($input);
-					return Redirect::route('farmacia.aso.index');
-				}
-				break;
-
-			default:
-				$validate = Validator::make($input, $this->asos->rules['periodico']);
-				if ($validate->passes()) {
-					if ($input['situacao'] == 'fechado') {
-						$colaborador      = $aso->colaborador;
-						$colaborador->obs = $colaborador->obs.' '.ucwords($aso->tipo).' em: '.date('d/m/Y', strtotime($aso->created_at)).' - ASO: '.$aso->id.'| ';
-
-						$colaborador->save();
-						$aso->update($input);
-
-						return Redirect::route('farmacia.aso.index');
-					} else {
-						return Redirect::route('farmacia.aso.edit', $id);
-					}
-
-				} else {
-					return Redirect::route('farmacia.aso.edit', $id)
-						->withInput()
-						->withErrors($validate)
-						->with('message', 'Erro na atualização das informações!');
-				}
-
-				break;
 		}
 
 	}
@@ -283,13 +190,13 @@ class AsoController extends \BaseController {
 		$input['relacao_id'] = $aso_id;
 		$input['tipo_exame'] = 'ASO';
 
-		Exame::create($input);
+		AsoExame::create($input);
 
 		return Redirect::route('farmacia.aso.exames', $aso_id);
 	}
 
 	public function destroyExame($id) {
-		$exame  = Exame::find($id);
+		$exame  = AsoExame::find($id);
 		$aso_id = $exame->relacao_id;
 		$exame->delete();
 

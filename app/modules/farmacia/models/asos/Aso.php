@@ -7,31 +7,31 @@ class Aso extends \Eloquent {
 	protected $table    = 'farmacia.asos';
 
 	public $rules = [
-		'admissional'                   => [
-			'create'                       => [
-				'colaborador_nome'            => 'required',
-				'colaborador_sexo'            => 'required',
-				'colaborador_data_nascimento' => 'required',
-				'colaborador_setor_id'        => 'required',
-				'medico'                      => 'required'],
-
-			'update'                       => [
-				'colaborador_nome'            => 'required',
-				'colaborador_sexo'            => 'required',
-				'colaborador_data_nascimento' => 'required',
-				'colaborador_setor_id'        => 'required',
-				'colaborador_matricula'       => 'required|unique:colaboradors,codigo_interno',
-				'colaborador_data_admissao'   => 'required',
-				'status'                      => 'required'
-			]
+		'outros'          => [
+			'colaborador_id' => 'required',
+			'medico'         => 'required'
 		],
-		'periodico' => [
-
+		'admissional'       => [
+			'colaborador_nome' => 'required'
 		]
 	];
 
+	public static function tipo($delete = null) {
+		$tipos = ['admissional' => 'Admissional', 'periodico' => 'Periodico', 'demissional' => 'Demissional', 'mudanca de funcao' => 'Mudança de Função', 'retorno ao trabalho' => 'Retorno ao Trabalho'];
+
+		if (!empty($delete)) {
+			unset($tipos[$delete]);
+		}
+
+		return $tipos;
+	}
+
 	public function scopeAjustes($query) {
 		return $query->where('ajuste', true);
+	}
+
+	public function scopeAbertos($query) {
+		return $query->where('situacao', '<>', 'fechado');
 	}
 
 	public function ficha() {
@@ -50,7 +50,7 @@ class Aso extends \Eloquent {
 		return $this->belongsTo('SetorPosto', 'posto_id');
 	}
 	public function exames() {
-		return $this->hasMany('Exame', 'relacao_id');
+		return $this->hasMany('AsoExame', 'relacao_id');
 	}
 
 	public function funcao() {
@@ -65,6 +65,22 @@ class Aso extends \Eloquent {
 		}
 	}
 
+	public function getColaboradorFuncaoIdAttribute() {
+		if (!empty($this->colaborador)) {
+			return $this->colaborador->funcao_id;
+		} else {
+			return $this->attributes['colaborador_funcao_id'];
+		}
+	}
+
+	public function getPostoIdAttribute() {
+		if (!empty($this->colaborador)) {
+			return $this->colaborador->posto_id;
+		} else {
+			return $this->attributes['posto_id'];
+		}
+	}
+
 	public function getDataAttribute() {
 		if (empty($this->attributes['data'])) {
 			return date('d/m/Y H:i', strtotime($this->attributes['created_at']));
@@ -74,13 +90,20 @@ class Aso extends \Eloquent {
 
 	}
 
-	public function getNomeAttribute() {
-		return $this->colaborador->nome;
+	public function getColaboradorNomeAttribute() {
+		if (!empty($this->attributes['colaborador_id'])) {
+			return $this->colaborador->nome;
+		} else {
+			return $this->attributes['colaborador_nome'];
+		}
+
 	}
 
 	public function getColaboradorDataNascimentoAttribute() {
 		if (!empty($this->attributes['colaborador_data_nascimento'])) {
 			return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_nascimento'])));
+		} else {
+			return $this->colaborador->data_nascimento;
 		}
 	}
 
@@ -118,9 +141,9 @@ class Aso extends \Eloquent {
 
 	}
 
-	public function getMatriculaAttribute() {
+	public function getColaboradorMatriculaAttribute() {
 		if (empty($this->attributes['colaborador_id'])) {
-			return "________";
+			return empty($this->attributes['colaborador_matricula'])?null:$this->attributes['colaborador_matricula'];
 		} else {
 			return $this->colaborador->codigo_interno;
 		}
@@ -143,6 +166,7 @@ class Aso extends \Eloquent {
 	}
 
 	public function getColaboradorDataAdmissaoAttribute() {
+
 		if (empty($this->attributes['colaborador_id'])) {
 			return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_admissao'])));
 		} else {
@@ -151,6 +175,7 @@ class Aso extends \Eloquent {
 	}
 
 	public function getMedicoAttribute() {
+
 		if (empty($this->attributes['medico'])) {
 			return "DR PEDRO LUIZ GOMES";
 		} else {
@@ -165,7 +190,11 @@ class Aso extends \Eloquent {
 
 	public function getColaboradorIdadeAttribute() {
 
-		return date('Y-m-d')-$this->attributes['colaborador_data_nascimento'];
+		if (!empty($this->attributes['colaborador_id'])) {
+			return date('Y-m-d')-Format::dbDate($this->colaborador->data_nascimento);
+		} else {
+			return null;
+		}
 
 	}
 

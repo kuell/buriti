@@ -20,7 +20,7 @@
 				<tr>
 			@endif
 
-			<td>{{{ $aso->id }}}</td>
+			<td>{{ link_to_route('farmacia.aso.edit', $aso->id, $aso->id,null) }}</td>
 			<td>{{{ Format::viewDate($aso->data) }}}</td>
 			<td>{{{ $aso->colaborador_nome }}}</td>
 			<td>{{{ $aso->tipo }}}</td>
@@ -28,23 +28,10 @@
 			<td>{{{ $aso->situacao }}}</td>
 			<td>
 				<div class="btn-group" role="group">
-					@if($aso->situacao != 'fechado')
-					<a href="/farmacia/aso/{{ $aso->id }}/edit" class="btn btn-sm btn-info ">
-						<i class="glyphicon glyphicon-pencil"></i>
-					</a>
-					@endif
-
 
 					<a href="#" onclick="window.open('/farmacia/aso/{{ $aso->id }}', 'Print', 'channelmode=yes')" class="btn btn-sm btn-warning ">
 						<i class="glyphicon glyphicon-print"></i>
 					</a>
-					@if($aso->tipo == 'admissional' && $aso->ajuste == false)
-					{{ Form::open(array('route' => array('farmacia.aso.destroy', $aso->id), 'id'=>$aso->id, 'method' => 'delete', 'name'=>'delete')) }}
-				    	<button type="submit"  title="Reprovado nos Exames Médicos" class="btn btn-sm btn-danger">
-							<i class="glyphicon glyphicon-remove"></i>
-						</button>
-				    {{ Form::close() }}
-				    @endif
 				</div>
 			</td>
 		</tr>

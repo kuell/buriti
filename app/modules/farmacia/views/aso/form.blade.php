@@ -1,105 +1,70 @@
-<div class="panel panel-info">
-	<div class="panel-heading">
-		<h4 class="panel-title">Informações do Colaborador</h4>
+<div class="form-group">
+	<div class="col-md-3">
+		{{ Form::label('Data Nascimento: ')}}
+		{{ Form::text('colaborador_data_nascimento', $aso->colaborador_data_nascimento, ['class'=>'form-control data', 'disabled'])}}
 	</div>
-	<div class="panel-body">
-
-			<div class="form-group col-md-4">
-				{{ Form::label('Tipo de A.S.O.: ')}}
-				@if(!empty($aso->id))
-					{{ Form::select('tipo', ['admissional' => 'Admissional', 'periodico' => 'Periodico', 'demissional' => 'Demissional', 'mudanca de funcao' => 'Mudança de Função', 'retorno ao trabalho' => 'Retorno ao Trabalho'], null, ['class'=>'form-control', 'id'=>'tipo_aso', 'disabled'])}}
-				@else
-					{{ Form::select('tipo', ['periodico' => 'Periodico', 'demissional' => 'Demissional', 'mudanca de funcao' => 'Mudança de Função', 'retorno ao trabalho' => 'Retorno ao Trabalho'], null, ['class'=>'form-control', 'id'=>'tipo_aso', 'required'])}}
-				@endif
-			</div >
-			<div class="form-group">
-				<div class="form-group col-md-6">
-					{{ Form::label('Médico: ')}}
-					{{ Form::text('medico', empty($aso->medico)? 'DR PEDRO LUIZ GOMES': $aso->medico, ['class'=>'form-control', 'required'])}}
-				</div>
-			</div>
-
-		<div class="col-md-12">
-			<div class="form-group">
-
-				@if(!empty($aso) && $aso->tipo == 'admissional')
-				<div class="col-md-2">
-					{{ Form::label('Matricula / Código Interno: ')}}
-					{{ Form::text('colaborador_matricula', null, ['class'=>'form-control'], 'required') }}
-				</div>
-				@endif
-				<div class="col-md-10">
-					{{ Form::label('Nome do Colaborador: ')}}
-					<div class="col-md-12 colaborador">
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div class="col-md-12">
-			<div class="form-group col-md-3">
-				{{ Form::label('Data Nascimento: ')}}
-				{{ Form::text('colaborador_data_nascimento', null, ['class'=>'form-control data', 'required'])}}
-			</div>
-			<div class="form-group col-md-3">
-				{{ Form::label('Sexo: ')}}
-				{{ Form::select('colaborador_sexo',['1'=>'Masculino', '0'=>'Feminino'], null, ['class'=>'form-control','required'])}}
-			</div>
-			<div class="form-group col-md-3">
-				{{ Form::label('RG: ')}}
-				{{ Form::text('colaborador_rg', null, ['class'=>'form-control', 'required'])}}
-			</div>
-			<div class="form-group col-md-2">
-				{{ Form::label('Orgão Emissor: ')}}
-				{{ Form::text('colaborador_orgao_emissor', null, ['class'=>'form-control', 'required'])}}
-			</div>
-
-		</div>
-
-		<div class="col-md-12">
-			<div class="form-group col-md-4">
-				{{ Form::label('Setor: ')}}
-				{{ Form::select('colaborador_setor_id', [''=>'Selecione ....']+Setor::where('descricao','<>','OUTRO')->lists('descricao', 'id'),null, ['class'=>'form-control', 'required'])}}
-			</div>
-
-			<div class="form-group col-md-4">
-				{{ Form::label('Função: ')}}
-				{{ Form::select('colaborador_funcao_id', [], null, ['class'=>'form-control'])}}
-			</div>
-
-			<div class="form-group col-md-4">
-				{{ Form::label('Posto de Trabalho: ')}}
-				{{ Form::select('posto_id', [], null, ['class'=>'form-control'])}}
-			</div>
-		</div>
-
-		@if(!empty($aso))
-			<div class="col-md-12 well">
-				<div class="form-group col-md-2">
-					{{ Form::label('Data Admissão  ')}}
-					@if(!empty($aso) && $aso->tipo == 'admissional')
-						{{ Form::text('colaborador_data_admissao', null, ['class'=>'form-control data'])}}
-					@else
-						{{ Form::text('colaborador_data_admissao', null, ['class'=>'form-control data', 'disabled'])}}
-					@endif
-				</div>
-				<div class="form-group col-md-4">
-					{{ Form::label('Apto?  ')}}
-					{{ Form::select('status', ['apto'=>'Apto', 'inapto'=>'Inapto'], null, ['class'=>'form-control'])}}
-				</div>
-				<div class="col-md-4">
-				{{ Form::label('Situação da Ficha Aso: ', null) }}
-				{{ Form::select('situacao', [ 'andamento'=>'Em Andamento', 'fechado'=>'Finalizado'], $aso->situacao, ['class'=>'form-control'])}}
-			</div>
-			</div>
-		@endif
-		<div class="col-md-12">
-			{{ Form::label('Observações: ')}}
-			{{ Form::textArea('obs', null, ['class'=>'form-control'])}}
-		</div>
+	<div class="col-md-3">
+		{{ Form::label('Sexo: ')}}
+		{{ Form::select('colaborador_sexo',['1'=>'Masculino', '0'=>'Feminino'], $aso->colaborador_sexo, ['class'=>'form-control','disabled'])}}
+	</div>
+	<div class="col-md-3">
+		{{ Form::label('RG: ')}}
+		{{ Form::text('colaborador_rg', $aso->colaborador_rg, ['class'=>'form-control  numero', 'required'])}}
+	</div>
+	<div class="col-md-3">
+		{{ Form::label('Orgão Emissor: ')}}
+		{{ Form::text('colaborador_orgao_emissor', $aso->colaborador_orgao_emissor, ['class'=>'form-control emissor', 'required'])}}
 	</div>
 </div>
 
+<div class="form-group">
+	<div class="col-md-4">
+		{{ Form::label('Setor: ')}}
+		{{ Form::select('colaborador_setor_id', [''=>'Selecione ....']+Setor::ativos()->lists('descricao', 'id'),$aso->colaborador_setor_id, ['class'=>'form-control', 'disabled'])}}
+	</div>
+	<div class="col-md-4">
+		{{ Form::label('Função: ')}}
+		{{ Form::select('colaborador_funcao_id', [], null, ['class'=>'form-control', 'disabled'])}}
+	</div>
+	<div class="col-md-4">
+		{{ Form::label('Posto de Trabalho: ')}}
+		{{ Form::select('posto_id', [], null, ['class'=>'form-control', 'disabled'])}}
+	</div>
+</div>
 
+<div class="form-group">
+	<div class="col-md-6">
+		{{ Form::label('Médico: ')}}
+		{{ Form::text('medico', $aso->medico, ['class'=>'form-control', 'required'])}}
+	</div>
+	<div class="col-md-3">
+		{{ Form::label('Data de Admissão: ')}}
+		{{ Form::text('colaborador_data_admissao', $aso->colaborador_data_admissao, ['class'=>'form-control data', 'disabled'])}}
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-md-12">
+		{{ Form::label('Observações: ')}}
+		{{ Form::textArea('obs', null, ['class'=>'form-control'])}}
+	</div>
+</div>
+
+@include('dashboard.partials._scripts_js')
 @include('farmacia::aso.partials._js')
+
+@if(!empty($aso->colaborador_rg))
+<script type="text/javascript">
+	$(function(){
+		$('input[name=colaborador_rg]').attr('disabled', 'true');
+	})
+</script>
+@endif
+
+@if(!empty($aso->colaborador_orgao_emissor))
+<script type="text/javascript">
+	$(function(){
+		$('input[name=colaborador_orgao_emissor]').attr('disabled', 'true');
+	})
+</script>
+@endif

@@ -3,6 +3,10 @@
 class Setor extends Eloquent {
 	protected $guarded = array();
 
+	public function scopeAtivos($query) {
+		return $query->where('situacao', true);
+	}
+
 	public function internos() {
 		return $this->hasMany('Interno', 'setor_id');
 	}
@@ -35,7 +39,7 @@ class Setor extends Eloquent {
 	}
 
 	public function getAgrupamentoAttribute() {
-		$agrupamentos = [0 => 'Administração', 1 => 'Produção', 2 => 'Manutenção', 3 => 'Controle de Qualidade', 4 => 'Saúde e Segurança', 4 => 'S.I.F.', 5 => 'Aux. de Produção', 6 => 'Transporte'];
+		$agrupamentos = [0=> 'Administração', 1=> 'Produção', 2=> 'Manutenção', 3=> 'Controle de Qualidade', 4=> 'Saúde e Segurança', 4=> 'S.I.F.', 5=> 'Aux. de Produção', 6=> 'Transporte'];
 
 		if (!empty($agrupamentos[$this->attributes['agrupamento']])) {
 			return $agrupamentos[$this->attributes['agrupamento']];
