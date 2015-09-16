@@ -72,11 +72,23 @@ class AsoController extends \BaseController {
 
 			$aso = $this->asos->create($input);
 
+			// Se o colaborador não tiver rg e emissor cadastrado //
 			if (!empty($input['colaborador_rg']) or !empty($input['colaborador_orgao_emissor'])) {
 				$colaborador->rg      = $input['colaborador_rg'];
 				$colaborador->emissor = $input['colaborador_orgao_emissor'];
 				$colaborador->save();
 			}
+			// FIM Se o colaborador não tiver rg e emissor cadastrado //
+
+			// Se a aso for mudança de função, salva o setor antigo //
+			if ($input['tipo'] == 'mudanca de funcao') {
+				$setor = [
+					'setor_id' => $colaborador->setor_id,
+					'posto_id' => $colaborador->posto_id,
+					'aso_id'   => $aso->id];
+				$colaborador->setors()->create($setor);
+			}
+			//FIM Se a aso for mudança de função, salva o setor antigo //
 
 			// Inclui os riscos a aso incluida
 			if (!empty($input['posto_id'])) {
