@@ -47,39 +47,40 @@ class FarmaciaController extends \BaseController {
 								d.id,
 								d.descricao as setor,
 								c.descricao as posto,
-								b.descricao as natureza_exame,
+								e.descricao as natureza_exame,
 								(
-								SELECT
+								select
 									count(*)
-								FROM
-									farmacia_exames
-									inner join farmacia.asos on farmacia_exames.relacao_id = farmacia.asos.id
+								from
+									farmacia.aso_exames
+									inner join farmacia.asos on farmacia.aso_exames.relacao_id = farmacia.asos.id
 								WHERE
 									farmacia.asos.colaborador_setor_id = d.id and
 									farmacia.asos.posto_id = c.id and
-									farmacia_exames.descricao = b.descricao) as total,
+									farmacia.aso_exames.id = e.id) as total,
 								(
-								SELECT
+								select
 									count(*)
-								FROM
-									farmacia_exames
-									inner join farmacia.asos on farmacia_exames.relacao_id = farmacia.asos.id
+								from
+									farmacia.aso_exames
+									inner join farmacia.asos on farmacia.aso_exames.relacao_id = farmacia.asos.id
 								WHERE
 									farmacia.asos.colaborador_setor_id = d.id and
 									farmacia.asos.posto_id = c.id and
-									farmacia_exames.descricao = b.descricao and
-									farmacia_exames.resultado not in ('NÃO REAGENTE', 'NORMAL')) as alterados
+									farmacia.aso_exames.descricao = e.descricao and
+									farmacia.aso_exames.resultado not in ('normal', 'NÃO REAGENTE', 'NORMAL', 'norm', 'NORMA')) as alterados
 
 							FROM
 								farmacia.asos a
-								inner join farmacia_exames b on a.id = b.relacao_id
+								inner join farmacia.aso_exames b on a.id = b.relacao_id
 								inner join posto_trabalhos c on a.posto_id = c.id
 								inner join setors d on a.colaborador_setor_id = d.id
+								inner join farmacia.exames e on b.exame_id = e.id
 							WHERE
 								extract(year from a.created_at) = ? and
 								a.posto_id <> 0
 							GROUP BY
-								d.id, d.descricao, c.id, b.descricao
+								d.id, d.descricao, c.id, e.id
 							ORDER BY
 								total desc", [$ano]);
 

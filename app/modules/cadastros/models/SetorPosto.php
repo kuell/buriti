@@ -32,4 +32,8 @@ class SetorPosto extends \Eloquent {
 
 	}
 
+	public function asos() {
+		return $this->hasMany('Aso', 'posto_id');
+	}
+
 }
