@@ -1,5 +1,5 @@
 @if($asos->count())
-<table class="table table-hover">
+<table class="table table-hover" id="asos">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -33,7 +33,7 @@
 						<i class="glyphicon glyphicon-print"></i>
 					</a>
 
-					<button class="btn btn-sm btn-success" value="{{{ $aso->id }}}" id="finalizar" title="Classificar e finalizar Ficha ASO">
+					<button class="btn btn-sm btn-success" value="{{{ $aso->id }}}" id="finalizar" name="finalizar" title="Classificar e finalizar Ficha ASO">
 						<i class="glyphicon glyphicon-ok"></i>
 					</button>
 				</div>
@@ -45,29 +45,23 @@
 </table>
 
 
-<div class="modal fade" id="modalElementos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalFinalizar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 </div>
 
 @endif
 
-@section('scripts_local')
-
 <script type="text/javascript">
 	$(function(){
-		$('#finalizar').click(function(){
-			alert($(this).val())
+		$('button[name=finalizar]').bind('click', function(){
+			$('#modalFinalizar').modal({
+				remote: '/farmacia/aso/finalizar/'+$(this).val()
+			})
 		})
 
-		$('form[name=delete]').submit(function(){
-
-			if(confirm('Deseja realmente reprovar esta ficha aso? ')){
-				return true;
-			}
-			else{
-				return false;
-			}
-		});
+		$('#modalFinalizar').on('hidden.bs.modal', function(){
+            location.reload()
+        })
 	})
 </script>
 

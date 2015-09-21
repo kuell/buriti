@@ -29,11 +29,14 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'farmacia'), functi
 		Route::get('atestados/rel_rh', 'AtestadoController@relatorioRh');
 
 		// --- Aso
-		Route::post('aso/risco/{tipo}', 'AsoController@setRisco');
-		Route::get('aso/{aso_id}/exames', ['as'          => 'farmacia.aso.exames', 'uses'          => 'AsoController@getExames']);
-		Route::post('aso/{aso_id}/exames', ['as'         => 'farmacia.aso.exames', 'uses'         => 'AsoController@setExames']);
-		Route::get('aso/{exame_id}/exames/delete', ['as' => 'farmacia.aso.exames.delete', 'uses' => 'AsoController@destroyExame']);
-		Route::post('aso/confirma/{id}', ['as'           => 'farmacia.aso.confirma', 'uses'           => 'AsoController@setConfirma']);
+		Route::group(['prefix' => 'aso'], function () {
+				Route::post('risco/{tipo}', 'AsoController@setRisco');
+				Route::get('{aso_id}/exames', ['as'          => 'farmacia.aso.exames', 'uses'          => 'AsoController@getExames']);
+				Route::post('{aso_id}/exames', ['as'         => 'farmacia.aso.exames', 'uses'         => 'AsoController@setExames']);
+				Route::get('{exame_id}/exames/delete', ['as' => 'farmacia.aso.exames.delete', 'uses' => 'AsoController@destroyExame']);
+				Route::get('finalizar/{id}', ['as'           => 'farmacia.aso.finalizar', 'uses'           => 'AsoController@getFinalizar']);
+				Route::post('finalizar/{id}', ['as'          => 'farmacia.aso.finalizar', 'uses'          => 'AsoController@setFinalizar']);
+			});
 
 		Route::resource('medicamentos', 'MedicamentoController');
 		Route::resource('ocorrencias', 'OcorrenciasController');

@@ -217,6 +217,20 @@ class AsoController extends \BaseController {
 
 	public function getFinalizar($id) {
 		$aso = $this->asos->find($id);
+
+		return View::make('farmacia::aso.finalizar', compact('aso'));
+	}
+
+	public function setFinalizar($id) {
+		$input = Input::all()+['situacao' => 'fechado'];
+		$aso   = $this->asos->find($id);
+
+		if ($aso->update($input)) {
+			return 0;
+		} else {
+			return 1;
+		}
+
 	}
 
 }
