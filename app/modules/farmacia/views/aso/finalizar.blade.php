@@ -54,6 +54,28 @@
 				</div>
 				{{ Form::close() }}
 
+				<div class="form-group">
+					<table class="table table-border">
+						<caption>Exames</caption>
+						<thead>
+							<tr>
+								<th>Descrição</th>
+								<th>Data Realização</th>
+								<th>Validade</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($aso->exames as $exame)
+							<tr>
+								<td>{{ $exame->descricao }}</td>
+								<td>{{ Format::viewDate($exame->data) }}</td>
+								<td>{{ $exame->validade }}</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+
 			</div>
 			<div class="modal-footer">
 				{{ Form::button('Finalizar', ['class'=>'btn btn-primary', 'id'=>'finaliza']) }}
