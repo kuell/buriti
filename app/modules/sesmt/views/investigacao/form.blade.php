@@ -71,8 +71,8 @@
 
 <div class="form-group">
     <div class="col-md-6">
-        {{ Form::label('colaboeador_reincidente', 'O colaborador é reincidente? (RI, ASA, ACA)', ['class'=>'form-label']) }}
-        {{ Form::select('colaboeador_reincidente', ['NÃO','SIM'], null, ['class'=>'form-control']) }}
+        {{ Form::label('colaborador_reincidente', 'O colaborador é reincidente? (RI, ASA, ACA)', ['class'=>'form-label']) }}
+        {{ Form::select('colaborador_reincidente', ['NÃO','SIM'], null, ['class'=>'form-control']) }}
     </div>
     <div class="col-md-6">
         {{ Form::label('fez_hora_extra', 'Fez hora extra? ', ['class'=>'form-label']) }}

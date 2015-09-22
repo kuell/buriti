@@ -53,6 +53,10 @@
 
 <script type="text/javascript">
 	$(function(){
+		$(function() {
+	        $("#asos").dataTable();
+	    })
+
 		$('button[name=finalizar]').bind('click', function(){
 			$('#modalFinalizar').modal({
 				remote: '/farmacia/aso/finalizar/'+$(this).val()
@@ -64,5 +68,3 @@
         })
 	})
 </script>
-
-@stop

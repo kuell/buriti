@@ -1,29 +1,20 @@
 @extends('layouts.modulo')
 
 @section('content')
-<section class="content">
-    {{ HTML::head('Aso', 'controle de A.S.O.') }}
-    <div class="box box-info box-solid">
-        <div class="box-header">
-            <i class="ion ion-clipboard"></i>
-            <div class="box-tools pull-right">
-                {{ Form::adicionar('/farmacia/aso/create') }}
-          </div>
-      </div><!-- /.box-header -->
-      <div class="box-body">
-            @include('farmacia::aso.lista')
-      </div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">ASO
+      <small>controle de A.S.Os</small>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      {{ link_to_route('farmacia.aso.create', 'Nova Ficha Aso', null, ['class'=>'btn btn-success btn-sm']) }}
+    </div>
+
+    @include('farmacia::aso.lista')
+  </div>
 </div>
-</section>
-
-@endsection
-
-@section('scripts')
-
-<script type="text/javascript">
-    $(function() {
-        $("#asos").dataTable();
-    })
-</script>
 
 @stop
