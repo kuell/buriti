@@ -114,12 +114,7 @@ class Aso extends \Eloquent {
 		if (!empty($this->attributes['colaborador_id'])) {
 			return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_nascimento'])));
 		} else {
-			if (!empty($this->colaborador->data_nascimento)) {
-				return $this->colaborador;
-			} else {
-				return null;
-			}
-
+			return $this->colaborador;
 		}
 
 	}
