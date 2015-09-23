@@ -22,10 +22,10 @@
             <td>{{ $investigacao->ocorrencia->colaborador->setor->descricao or 'Não Informado' }}</td>
             <td>{{ $investigacao->situacao }}</td>
             <td>
-                {{
-                    Form::button(' ', ['class'=>'btn btn-primary glyphicon glyphicon-list', 'name'=>'investigar', 'value'=>$investigacao->id])
-                }}
-                {{ link_to_route('sesmt.investigacao.edit', ' ', $investigacao->id, ['class'=>'btn btn-info glyphicon glyphicon-pencil']) }}
+                {{ Form::button(' ', ['class'=>'btn btn-primary btn-sm glyphicon glyphicon-search','title'=>'Investigar' , 'name'=>'investigar', 'value'=>$investigacao->id]) }}
+                {{ link_to_route('sesmt.investigacao.edit', ' ', $investigacao->id, ['class'=>'btn btn-sm btn-info glyphicon glyphicon-pencil']) }}
+
+                {{ Form::button(' ', ['class'=>'btn btn-success btn-sm glyphicon glyphicon-ok', 'name'=>'finalizar', 'value'=>$investigacao->id]) }}
 
             </td>
         </tr>
@@ -41,6 +41,12 @@
 <script type="text/javascript">
 
     $(function(){
+        $('button[name=finalizar]').bind('click', function(event) {
+            $('#myModal').modal({
+                remote: '/sesmt/investigacao/'+$(this).val()+'/finalizar'
+            })
+        });
+
         $('button[name=visualizar]').bind('click', function(){
             $('#myModal').modal({
                 remote:'/sesmt/investigacao/'+$(this).val()+'/redirecionar'
@@ -51,7 +57,7 @@
         })
 
         $('button[name=investigar]').bind('click', function(){
-            window.open('/sesmt/investigacao/'+$(this).val(), 'Investigar', 'channelmode=yes')
+            window.open('/sesmt/investigacao/'+$(this).val()+'/print', 'Investigar', 'channelmode=yes')
         })
 
         $("#investigacaos").dataTable();

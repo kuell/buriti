@@ -94,7 +94,7 @@
 <div class="form-group">
     <div class="col-md-6">
         {{ Form::label('natureza_lesao_id', 'Natureza da Lesão: ', ['class'=>'form-label']) }}
-        {{ Form::select('netureza_lesao_id', [''=>'Selecione ...']+NaturezaLesao::all()->lists('descricao', 'id'), null, ['class'=>'form-control']) }}
+        {{ Form::select('natureza_lesao_id', [''=>'Selecione ...']+NaturezaLesao::all()->lists('descricao', 'id'), null, ['class'=>'form-control']) }}
     </div>
     <div class="col-md-6">
         {{ Form::label('parte_corpo_id', 'Parde do Corpo atingida:  ', ['class'=>'form-label']) }}

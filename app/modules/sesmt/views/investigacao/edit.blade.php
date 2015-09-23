@@ -2,11 +2,12 @@
 
 @section('content')
    <div class="panel panel-info">
-   {{ Form::model($investigacao, ['method' => 'PATCH','route'=>['sesmt.investigacao.update', $investigacao->id], 'class'=>'form form-horizontal']) }}
+
    		<div class="panel-heading">
-   			<h4>Investigação de Acidente</h4>
+   			<h4 class="panel-title">Investigação de Acidente</h4>
    		</div>
    		<div class="panel-body">
+         {{ Form::model($investigacao, ['method' => 'PATCH','route'=>['sesmt.investigacao.update', $investigacao->id], 'class'=>'form form-horizontal']) }}
    			@include('sesmt::investigacao.form')
    		</div>
    		<div class="panel-footer">

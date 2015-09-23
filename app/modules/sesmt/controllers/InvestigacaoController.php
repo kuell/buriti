@@ -121,28 +121,6 @@ class InvestigacaoController extends \BaseController {
 
 	}
 
-	public function getEpi($id) {
-		$investigacao = Investigacao::find($id);
-
-		return View::make('sesmt::investigacao.partials.epi_add', compact('investigacao'));
-	}
-
-	public function postEpi($id) {
-		$input = Input::all();
-
-		InvesticacaoEpi::create($input);
-		return Redirect::route('sesmt.investigacao.epi', $id);
-	}
-
-	public function destroyEpi($id) {
-		$epi = InvesticacaoEpi::find($id);
-		$id  = $epi->investigacao_id;
-
-		$epi->delete();
-
-		return Redirect::route('sesmt.investigacao.epi', $id);
-	}
-
 	public function getRedirecionar($id) {
 		$ocorrencia = Ocorrencia::find($id);
 
@@ -160,4 +138,20 @@ class InvestigacaoController extends \BaseController {
 		return Redirect::route('sesmt.investigacao.index');
 	}
 
+	public function getFinalizar($id) {
+		$investigacao = $this->investigacaos->find($id);
+		$ocorrencia   = $investigacao->ocorrencia;
+
+		return View::make('sesmt::investigacao.finalizar', compact('investigacao'), compact('ocorrencia'));
+	}
+
+	public function postFinalizar($is) {
+		return 'Finalizar';
+	}
+
+	public function getPrint($id) {
+		$investigacao = $this->investigacaos->find($id);
+
+		return View::make('sesmt::investigacao.print', compact('investigacao'));
+	}
 }

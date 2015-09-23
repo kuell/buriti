@@ -33,6 +33,7 @@ return array(
     'AlterOcorrenciasAddObsCausa' => $baseDir . '/app/database/migrations/2015_07_17_115354_alter_ocorrencias_add_obs_causa.php',
     'AlterOcorrenciasAddSituacao' => $baseDir . '/app/database/migrations/2015_07_31_115441_alter_ocorrencias_add_situacao.php',
     'AlterSesmtInvestigacao' => $baseDir . '/app/database/migrations/2015_03_10_143719_alter_sesmt_investigacao.php',
+    'AlterSesmtInvestigacaoAlteracoes' => $baseDir . '/app/database/migrations/2015_09_22_133807_alter_sesmt_investigacao_alteracoes.php',
     'AlterSetorsTable' => $baseDir . '/app/database/migrations/2015_05_29_113456_alter_setors_table.php',
     'AnaliseController' => $baseDir . '/app/modules/sesmt/controllers/AnaliseController.php',
     'AnaliseOcorrencia' => $baseDir . '/app/modules/sesmt/models/analises/AnaliseOcorrencia.php',

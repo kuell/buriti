@@ -34,6 +34,16 @@ class Aso extends \Eloquent {
 		return $query->where('situacao', '<>', 'fechado');
 	}
 
+	public function newColaborador() {
+		$colaborador = [
+			'nome'            => $this->attributes['colaborador_nome'],
+			'sexo'            => $this->attributes['colaborador_sexo'],
+			'data_nascimento' => $this->attributes['colaborador_data_nascimento']
+		];
+
+		return $colaborador;
+	}
+
 	public function ficha() {
 		return $this->belongsTo('Ficha', 'ficha_id');
 	}
@@ -100,11 +110,18 @@ class Aso extends \Eloquent {
 	}
 
 	public function getColaboradorDataNascimentoAttribute() {
-		if (!empty($this->attributes['colaborador_data_nascimento'])) {
+
+		if (!empty($this->attributes['colaborador_id'])) {
 			return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_nascimento'])));
 		} else {
-			return $this->colaborador->data_nascimento;
+			if (!empty($this->colaborador->data_nascimento)) {
+				return $this->colaborador;
+			} else {
+				return null;
+			}
+
 		}
+
 	}
 
 	public function getColaboradorSexoAttribute() {

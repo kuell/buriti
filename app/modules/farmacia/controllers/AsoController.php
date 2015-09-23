@@ -226,6 +226,22 @@ class AsoController extends \BaseController {
 		$aso   = $this->asos->find($id);
 
 		if ($aso->update($input)) {
+
+			if ($aso->situacao == 'apto') {
+				switch ($aso->tipo) {
+					case 'admissional':
+						//$validate = Validator::make(, rules, messages, customAttributes)
+
+						break;
+
+					default:
+						# code...
+						break;
+				}
+			} else {
+
+			}
+
 			return 0;
 		} else {
 			return 1;

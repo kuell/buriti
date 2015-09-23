@@ -10,7 +10,7 @@ class Colaborador extends Eloquent {
 	);
 
 	public function scopeAtivos($query) {
-		return colaborador::whereRaw("situacao = 'ativo' or situacao is null");
+		return colaborador::whereRaw("(situacao = 'ativo' or situacao is null)")->orderBy('nome');
 	}
 
 	public function funcaos() {
