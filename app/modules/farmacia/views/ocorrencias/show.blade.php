@@ -14,7 +14,7 @@
 					<th>Setor: </th>
 					<td>{{ $ocorrencia->colaborador->setor->descricao }}</td>
 					<th>Posto de Trabalho: </th>
-					<td>{{ $ocorrencia->colaborador->postoDescricao->descricao }}</td>
+					<td>{{ $ocorrencia->colaborador->postoTrabalho->descricao or null }}</td>
 				</tr>
 				<tr>
 					<th>Data da Ocorrencia: </th>
@@ -48,16 +48,14 @@
 					<th>Profissional: </th>
 					<td colspan="3">{{ $ocorrencia->profissional }}</td>
 				</tr>
-				<tr>
-					<th colspan="4" class="well">Atestados</th>
-					@foreach($ocorrencia->atestados as $atestado)
-						<td>{{ $atestado->inicio_afastamento }}</td>
-					@endforeach
-				</tr>
 			</table>
 
 			@yield('analise')
 		</div>
+
+		@if(count($ocorrencia->atestados))
+			@include('farmacia::ocorrencias.show_atestados');
+		@endif
 
 	</div>
 </div>

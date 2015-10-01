@@ -13,7 +13,7 @@
    		<div class="panel-footer">
 
             {{ Form::submit('Gravar', ['class'=>'btn btn-success btn-sm']) }}
-               {{ link_to_route('sesmt.investigacao.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
+               {{ link_to_route('sesmt.investigacao.index', 'Voltar', null, ['class'=>'btn btn-danger btn-sm']) }}
      		</div>
    {{ Form::close() }}
    </div>

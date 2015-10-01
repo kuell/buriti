@@ -3,6 +3,7 @@
 $fpdf = new Fpdf();
 $fpdf->AddPage();
 $fpdf->SetFont('Arial', 'B', 16);
+$fpdf->SetAutoPageBreak(false);
 
 $fpdf->image(public_path().'/img/logo.png', 11, 11, 25, 11);
 $fpdf->Cell(140, 8, 'Frizelo Frigorificos Ltda', 'LTR', 0, 'C');
@@ -43,16 +44,31 @@ $fpdf->Ln();
 $fpdf->Cell(190, 7, 'Posto de Trabalho: '.utf8_decode(!$aso->postoTrabalho?null:$aso->postoTrabalho->descricao), 'LTR', 0, 'L');
 $fpdf->Ln();
 
+$fpdf->SetFillColor(200);
+
 if (!empty($aso->postoTrabalho)) {
 	$fpdf->SetFont('Arial', '', 7);
 	$fpdf->MultiCell(190, 6, utf8_decode('Atividades: '.implode(', ', $aso->postoTrabalho->atividades->lists('descricao'))), 'LTRB', 'L');
-	$fpdf->SetFont('Arial', 'B', 10);
+}
+$fpdf->SetFont('Arial', 'B', 10);
+$fpdf->Cell(190, 6, utf8_decode('Tipo de Exame Médico: ').strtoupper($aso->tipo), 'TLRB', 0, 'C', 1);
+$fpdf->Ln();
+$fpdf->SetFont('Arial', '', 9);
+if ($aso->tipo == 'mudanca de funcao') {
+
+	$novo = DB::table('farmacia.asos')->where('id', $aso->id)->first();
+
+	$fpdf->Cell(0, 6, utf8_decode('NOVO POSTO DE TRABALHO'), 'TLRB', 0, 'C', 0);
+	$fpdf->Ln();
+
+	$fpdf->Cell(70, 7, utf8_decode('Setor: '.Setor::find($novo->colaborador_setor_id)->descricao), 'LTR', 0, 'L');
+	$fpdf->Cell(0, 7, utf8_decode('Função: '.SetorFuncao::find($novo->colaborador_funcao_id)->descricao), 'LTR', 0, 'L');
+	$fpdf->Ln();
+
+	$fpdf->Cell(190, 7, 'Posto de Trabalho: '.utf8_decode(SetorPosto::find($novo->posto_id)->descricao), 'LTR', 0, 'L');
+	$fpdf->Ln();
 }
 
-$fpdf->Cell(190, 6, utf8_decode('Tipo de Exame Médico: ').strtoupper($aso->tipo), 'TLRB', 0, 'C');
-$fpdf->Ln();
-
-$fpdf->SetFillColor(200);
 $fpdf->SetFont('Arial', 'B', 10);
 $fpdf->Cell(190, 6, utf8_decode('Riscos'), 'TLRB', 0, 'C', 1);
 $fpdf->Ln();

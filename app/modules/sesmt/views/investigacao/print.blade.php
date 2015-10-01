@@ -118,7 +118,7 @@ class InvestigacaoView extends RelatorioController {
 		$this->Cell(0, 8, utf8_decode('Colaborador: '.$investigacao->colaborador->nome), 'RL', 0, 'L', 0);
 		$this->Ln();
 
-		$this->Cell(0, 8, utf8_decode('Setor: '.$investigacao->colaborador->setor->descricao.' - Posto de Trabalho: '.$investigacao->colaborador->postoDescricao->descricao), 'RL', 0, 'L', 0);
+		$this->Cell(0, 8, utf8_decode('Setor: '.$investigacao->colaborador->setor->descricao.' - Posto de Trabalho: '.$investigacao->colaborador->posto_trabalho->descricao), 'RL', 0, 'L', 0);
 		$this->Ln();
 
 		$this->Cell(0, 8, utf8_decode(''), 'RL', 0, 'L', 0);
@@ -193,7 +193,7 @@ TIPO DE ATIVIDADES;
 		$this->Cell(20, 6, $investigacao->colaborador->data_admissao, 1, 0, 'L');
 
 		$this->Cell(30, 6, utf8_decode('Posto de Trabalho: '), 1, 0, 'L', 1);
-		$this->Cell(110, 6, utf8_decode($investigacao->colaborador->posto_descricao->descricao), 1, 0, 'L');
+		$this->Cell(110, 6, utf8_decode($investigacao->colaborador->posto_trabalho->descricao), 1, 0, 'L');
 
 		$this->Ln();
 

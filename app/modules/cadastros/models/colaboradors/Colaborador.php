@@ -7,6 +7,7 @@ class Colaborador extends Eloquent {
 		'nome'           => 'required|min:5|unique:colaboradors,nome',
 		'codigo_interno' => 'required|unique:colaboradors,codigo_interno',
 		'setor_id'       => 'required',
+		'data_admissao'  => 'required',
 	);
 
 	public function scopeAtivos($query) {
@@ -69,7 +70,7 @@ class Colaborador extends Eloquent {
 	}
 
 	public function postoTrabalho() {
-		return $this->hasMany('ColaboradorPosto', 'colaborador_id');
+		return $this->belongsTo('SetorPosto', 'posto_id');
 
 	}
 
@@ -80,26 +81,6 @@ class Colaborador extends Eloquent {
 			return 'Não';
 		}
 
-	}
-
-	public function getPostoIdAttribute() {
-		$posto = ColaboradorPosto::where('colaborador_id', $this->attributes['id'])->orderBy('id', 'desc')->first();
-		if (empty($posto)) {
-			return 0;
-		} else {
-			return $posto->posto_id;
-		}
-
-	}
-
-	public function getPostoDescricaoAttribute() {
-		$posto = new SetorPosto();
-
-		if (!empty($this->getPostoIdAttribute())) {
-			$posto = SetorPosto::find($this->getPostoIdAttribute());
-		}
-
-		return $posto;
 	}
 
 	public function getDataAdmissaoAttribute() {

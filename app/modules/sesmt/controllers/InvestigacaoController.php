@@ -13,7 +13,7 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$investigacaos = $this->investigacaos->all();
+		$investigacaos = $this->investigacaos->abertas()->get();
 
 		return View::make('sesmt::investigacao.index', compact('investigacaos'));
 	}
@@ -85,19 +85,14 @@ class InvestigacaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		$input        = Input::all();
-		$investigacao = $this->investigacaos->find($id);
+		$input = new Investigacao(Input::all());
 
-		$investigacao->update($input);
-		print_r($input);
-		die;
-
-		$validate = Validator::make($input, $this->investigacaos->rules);
+		$validate = Validator::make($input->toArray(), $this->investigacaos->rules);
 
 		if ($validate->passes()) {
 			$investigacao = $this->investigacaos->find($id);
 
-			$investigacao->update($input);
+			$investigacao->update($input->toArray());
 
 			return Redirect::route('sesmt.investigacao.edit', $id);
 		} else {
@@ -145,8 +140,19 @@ class InvestigacaoController extends \BaseController {
 		return View::make('sesmt::investigacao.finalizar', compact('investigacao'), compact('ocorrencia'));
 	}
 
-	public function postFinalizar($is) {
-		return 'Finalizar';
+	public function postFinalizar($id) {
+		$input = $this->investigacaos->find($id)->toArray();
+
+		$validate = Validator::make($input, $this->investigacaos->rules);
+
+		if ($validate->passes()) {
+			$investigacao = $this->investigacaos->find($id);
+			$investigacao->update(['situacao' => 'fechado']);
+			return 0;
+		} else {
+			return "Houve erro na finalização da ocorencia!\n\n".implode("\n", $validate->errors()->all());
+		}
+
 	}
 
 	public function getPrint($id) {

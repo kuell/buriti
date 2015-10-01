@@ -145,10 +145,12 @@ class AsoController extends \BaseController {
 	public function update($id) {
 		$input = array_except(Input::all(), '_method');
 
-		$validate = Validator::make($input, $this->asos->rules['admissional']);
+		$validate = Validator::make($input, $this->asos->rules[$aso->tipo]);
 
 		if ($validate->passes()) {
-			$aso = $this->asos->find($id);
+			$aso                       = $this->asos->find($id);
+			$input['colaborador_nome'] = utf8_decode($input['colaborador_nome']);
+
 			$aso->update($input);
 
 			return Redirect::route('farmacia.aso.edit', $id);
@@ -222,31 +224,95 @@ class AsoController extends \BaseController {
 	}
 
 	public function setFinalizar($id) {
-		$input = Input::all()+['situacao' => 'fechado'];
+		$input = Input::all();
 		$aso   = $this->asos->find($id);
 
-		if ($aso->update($input)) {
+		$aso->update($input);
 
-			if ($aso->situacao == 'apto') {
-				switch ($aso->tipo) {
-					case 'admissional':
-						//$validate = Validator::make(, rules, messages, customAttributes)
+		if ($input['status'] == 'apto') {
 
-						break;
+			switch ($aso->tipo) {
+				case 'admissional':
+					$colaborador = $aso->newColaborador()->toArray()+['interno' => 0];
 
-					default:
-						# code...
-						break;
-				}
-			} else {
+					$validate = Validator::make($colaborador, $this->colaborador->rules);
 
+					if ($validate->passes()) {
+
+						$col = Colaborador::create($colaborador);
+
+						$aso->update(['situacao' => 'fechado', 'colaborador_id' => $col->id, 'status' => 'apto']);
+						return "Aso finalizada \n Colaborador incluido com sucesso! \n :)";
+					} else {
+						return "Houve erros na inclusão do colaborador! \n Possiveis erros: \n\n ".implode("\n", $validate->errors()->all());
+					}
+
+					break;
+
+				case 'demissional':
+					$aso->update(['situacao'                => 'fechado', 'status'                => 'apto']);
+					$aso->colaborador()->update(['situacao' => 'demitido']);
+
+					return "Aso finalizada \n Colaborador demitido com sucesso! \n :)";
+
+					break;
+				case 'mudanca de funcao':
+					$colaborador           = $aso->colaborador;
+					$colaborador->setor_id = $aso->colaborador_setor_id;
+					$colaborador->posto_id = $aso->posto_id;
+					$colaborador->save();
+
+					$colaborador->funcaos()->create(['funcao_id' => $aso->colaborador_funcao_id, 'data_mudanca' => $aso->created_at]);
+
+					$aso->update(['situacao' => 'fechado', 'status' => 'apto']);
+
+					return "Aso finalizada \n Alterada a função do colaborador! \n :)";
+
+					break;
+
+				default:
+					$aso->update(['situacao' => 'fechado', 'status' => 'apto']);
+
+					return "Aso finalizada com sucesso! \n :)";
+
+					break;
 			}
 
-			return 0;
 		} else {
-			return 1;
+
+			switch ($aso->tipo) {
+				case 'admissional':
+					$aso->update(['situacao' => 'fechado', 'status' => $input['status']]);
+
+					if ($aso->ficha) {
+						$aso->ficha()->update(['situacao' => 2]);
+					}
+
+					return 'ASO finalizada com sucesso!';
+
+					break;
+				case 'mudanca de funcao':
+					$colaborador           = $aso->colaborador;
+					$colaborador->setor_id = $aso->colaborador_setor_id;
+					$colaborador->posto_id = $aso->posto_id;
+					$colaborador->save();
+
+					$colaborador->funcaos()->create(['funcao_id' => $aso->colaborador_funcao_id, 'data_mudanca' => $aso->created_at]);
+
+					$aso->update(['situacao' => 'fechado', 'status' => 'apto']);
+
+					return "Aso finalizada \n Alterada a função do colaborador! \n :)";
+
+					break;
+
+				default:
+					$aso->update(['situacao' => 'fechado', 'status' => 'inapto']);
+
+					return "Aso finalizada com sucesso! \n :)";
+
+					break;
+			}
+
 		}
-
 	}
-
 }

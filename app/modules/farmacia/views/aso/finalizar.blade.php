@@ -1,23 +1,33 @@
-{{ Form::open(['class'=>'form form-horizontal']) }}
+{{ Form::model($aso, ['class'=>'form form-horizontal', 'name'=>'finaliza']) }}
+
+
+@if($aso->tipo != 'admissional')
+	<script type="text/javascript">
+		$(function(){
+			$('input[name=colaborador_data_admissao], input[name=colaborador_matricula]').attr('disabled', 'disabled');
+		})
+	</script>
+@endif
 
 <script type="text/javascript">
 	$(function(){
+		$('.data').mask('99/99/9999');
 		$('#finaliza').bind('click', function(){
-			var apto = $('#status').val();
+			data_admissao = $('input[name=colaborador_data_admissao]').val();
+			matricula = $('input[name=colaborador_matricula]').val();
+			status = $('select[name=status]').val();
 
-			$.post("/farmacia/aso/finalizar/{{ $aso->id }}", {status: apto}, function(data){
-				if(data == 0){
-					alert('Aso finalizada com sucesso !')
-				}
-				else{
-					alert('Problemas na finalização da ficha ASO.')
-				}
-
-				location.reload()
+			$.post("/farmacia/aso/finalizar/{{ $aso->id }}", {
+					colaborador_data_admissao: data_admissao,
+					colaborador_matricula: matricula,
+					status: status
+			},  function(data){
+				alert(data);
 			})
 		})
 	})
 </script>
+
 
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
@@ -47,10 +57,21 @@
 				</div>
 
 				<div class="form-group">
-					<div class="col-xs-6">
+					<div class="col-xs-4">
+							{{ Form::label('Data de Admissão', null, ['class'=>'form-label']) }}
+							{{ Form::text('colaborador_data_admissao', null, ['class'=>'form-control data']) }}
+					</div>
+
+					<div class="col-xs-4">
+							{{ Form::label('Matrícula / Codigo Interno:', null, ['class'=>'form-label']) }}
+							{{ Form::text('colaborador_matricula', null, ['class'=>'form-control numero']) }}
+					</div>
+
+					<div class="col-xs-4">
 						{{ Form::label('Apto?', null, ['class'=>'form-label']) }}
 						{{ Form::select('status', ['apto'=>'apto','inapto'=>'inapto'], null, ['class'=>'form-control']) }}
 					</div>
+
 				</div>
 				{{ Form::close() }}
 
@@ -78,7 +99,7 @@
 
 			</div>
 			<div class="modal-footer">
-				{{ Form::button('Finalizar', ['class'=>'btn btn-primary', 'id'=>'finaliza']) }}
+				{{ Form::submit('Finalizar', ['class'=>'btn btn-primary', 'id'=>'finaliza']) }}
 				{{ link_to_route('farmacia.aso.edit', 'Editar ASO', $aso->id, ['class'=>'btn btn-info']) }}
 			</div>
 

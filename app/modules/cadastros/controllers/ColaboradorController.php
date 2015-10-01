@@ -217,7 +217,7 @@ class ColaboradorController extends \BaseController {
 								'Nome'              => $colaborador->nome,
 								'Data de Admissão' => $colaborador->data_admissao,
 								'Setor'             => $colaborador->setor_descricao,
-								'Posto de Trabalho' => empty($colaborador->posto_descricao->descricao)?null:$colaborador->posto_descricao->descricao
+								'Posto de Trabalho' => empty($colaborador->posto_trabalho->descricao)?null:$colaborador->posto_trabalho->descricao
 							];
 						}
 

@@ -35,13 +35,22 @@ class Aso extends \Eloquent {
 	}
 
 	public function newColaborador() {
-		$colaborador = [
-			'nome'            => $this->attributes['colaborador_nome'],
-			'sexo'            => $this->attributes['colaborador_sexo'],
-			'data_nascimento' => $this->attributes['colaborador_data_nascimento']
-		];
+
+		$colaborador                  = new Colaborador();
+		$colaborador->nome            = $this->attributes['colaborador_nome'];
+		$colaborador->sexo            = $this->attributes['colaborador_sexo'];
+		$colaborador->data_nascimento = $this->getColaboradorDataNascimentoAttribute();
+		$colaborador->data_admissao   = $this->getColaboradorDataAdmissaoAttribute();
+		$colaborador->setor_id        = $this->attributes['colaborador_setor_id'];
+		$colaborador->endereco        = $this->getEnderecoAttribute();
+		$colaborador->codigo_interno  = $this->getColaboradorMatriculaAttribute();
+		$colaborador->situacao        = 'ativo';
+		$colaborador->rg              = $this->attributes['colaborador_rg'];
+		$colaborador->emissor         = $this->attributes['colaborador_orgao_emissor'];
+		$colaborador->posto_id        = $this->attributes['posto_id'];
 
 		return $colaborador;
+
 	}
 
 	public function ficha() {
@@ -109,12 +118,20 @@ class Aso extends \Eloquent {
 
 	}
 
-	public function getColaboradorDataNascimentoAttribute() {
+	public function getEnderecoAttribute() {
+		if (empty($this->ficha)) {
+			return null;
+		} else {
+			return $this->ficha->endereco;
+		}
 
-		if (!empty($this->attributes['colaborador_id'])) {
+	}
+
+	public function getColaboradorDataNascimentoAttribute() {
+		if (empty($this->colaborador)) {
 			return implode('/', array_reverse(explode('-', $this->attributes['colaborador_data_nascimento'])));
 		} else {
-			return $this->colaborador;
+			return $this->colaborador->data_nascimento;
 		}
 
 	}

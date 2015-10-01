@@ -20,7 +20,7 @@ Class ColaboradorView extends Fpdf {
 		$this->Cell(115, 6, utf8_decode('Setor: ').$colaborador->setor->descricao, 'LTBR', 0);
 		$this->Ln();
 		$this->Cell(70, 6, utf8_decode('Função: '.$colaborador->funcao), 'BRLT', 0);
-		$this->Cell(120, 6, utf8_decode('Posto de Trabalho: '.$colaborador->posto_descricao->descricao), 'BRLT', 0);
+		$this->Cell(120, 6, utf8_decode('Posto de Trabalho: '.$colaborador->posto_trabalho->descricao), 'BRLT', 0);
 		$this->Ln(7);
 
 		$this->farmacia($colaborador);

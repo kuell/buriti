@@ -1,3 +1,19 @@
+<script type="text/javascript" charset="utf-8">
+	$(function(){
+		$('#finaliza').bind('click', function() {
+			$.post('/sesmt/investigacao/{{ $investigacao->id }}/finalizar', function(data){
+				if(data == 0){
+					alert('Investigação finalizada com sucesso!');
+					location.reload()
+				}
+				else{
+					alert(data)
+				}
+			})
+		});
+	})
+</script>
+
 <div class="modal-dialog modal-lg" role="document">
 	<div class="modal-content">
 
@@ -24,16 +40,14 @@
 			    <div role="tabpanel" class="tab-pane" id="investigacao">
 			    	@include('sesmt::investigacao.show')
 			    </div>
-			    <div role="tabpanel" class="tab-pane" id="messages">...</div>
-			    <div role="tabpanel" class="tab-pane" id="settings">...</div>
 			  </div>
 
 			</div>
 
 		</div>
 		<div class="modal-footer">
-			{{ Form::button('Finalizar', ['class'=>'btn btn-primary', 'id'=>'finaliza']) }}
+			{{ Form::button('Finalizar', ['class'=>'btn btn-success', 'id'=>'finaliza']) }}
+			{{ link_to_route('sesmt.investigacao.edit', 'Editar Investigação', $investigacao->id, ['class'=>'btn btn-primary']) }}
 		</div>
-
 	</div>
 </div>
