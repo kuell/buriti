@@ -65,7 +65,7 @@ if ($aso->tipo == 'mudanca de funcao') {
 	$fpdf->Cell(0, 7, utf8_decode('Função: '.SetorFuncao::find($novo->colaborador_funcao_id)->descricao), 'LTR', 0, 'L');
 	$fpdf->Ln();
 
-	$fpdf->Cell(190, 7, 'Posto de Trabalho: '.utf8_decode(SetorPosto::find($novo->posto_id)->descricao), 'LTR', 0, 'L');
+	$fpdf->Cell(190, 7, utf8_decode('Posto de Trabalho: '.SetorPosto::find($novo->posto_id)->descricao), 'LTR', 0, 'L');
 	$fpdf->Ln();
 }
 

@@ -11,6 +11,22 @@ class Aso extends \Eloquent {
 			'colaborador_id' => 'required',
 			'medico'         => 'required'
 		],
+		'mudanca de funcao'       => [
+			'create'                 => [
+				'colaborador_id'        => 'required',
+				'colaborador_funcao_id' => 'required',
+				'colaborador_setor_id'  => 'required',
+				'posto_id'              => 'required',
+				'medico'                => 'required'
+			],
+			'update'                 => [
+				'colaborador_funcao_id' => 'required',
+				'colaborador_setor_id'  => 'required',
+				'posto_id'              => 'required',
+				'medico'                => 'required'
+			],
+
+		],
 		'admissional'       => [
 			'colaborador_nome' => 'required'
 		]

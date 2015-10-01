@@ -144,18 +144,23 @@ class AsoController extends \BaseController {
 	 */
 	public function update($id) {
 		$input = array_except(Input::all(), '_method');
+		$aso   = $this->asos->find($id);
 
-		$validate = Validator::make($input, $this->asos->rules[$aso->tipo]);
+		$validate = Validator::make($input, $this->asos->rules[$aso->tipo]['update']);
 
 		if ($validate->passes()) {
-			$aso                       = $this->asos->find($id);
-			$input['colaborador_nome'] = utf8_decode($input['colaborador_nome']);
+			if ($aso->tipo == 'admissional') {
+				$input['colaborador_nome'] = utf8_decode($input['colaborador_nome']);
+			}
 
 			$aso->update($input);
 
 			return Redirect::route('farmacia.aso.edit', $id);
 		} else {
-
+			return Redirect::route('farmacia.aso.edit', $id)
+				->withInput()
+				->withErrors($validate)
+				->with('message', 'Houve erros na validação dos dados.');
 		}
 
 	}
@@ -257,12 +262,14 @@ class AsoController extends \BaseController {
 
 					break;
 				case 'mudanca de funcao':
-					$colaborador           = $aso->colaborador;
-					$colaborador->setor_id = $aso->colaborador_setor_id;
-					$colaborador->posto_id = $aso->posto_id;
-					$colaborador->save();
+					$col = [
+						'posto_id'  => $aso->posto_id,
+						'setor_id'  => $aso->colaborador_setor_id,
+						'funcao_id' => $aso->colaborador_funcao_id
+					];
+					$aso->colaborador()->update($col);
 
-					$colaborador->funcaos()->create(['funcao_id' => $aso->colaborador_funcao_id, 'data_mudanca' => $aso->created_at]);
+					$aso->colaborador->funcaos()->create(['funcao_id' => $aso->colaborador_funcao_id, 'data_mudanca' => $aso->created_at]);
 
 					$aso->update(['situacao' => 'fechado', 'status' => 'apto']);
 
