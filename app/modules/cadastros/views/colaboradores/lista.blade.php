@@ -23,7 +23,7 @@
 					<td>{{{ $colaborador->situacao or 'Ativo' }}}</td>
 					<td>
 						{{ link_to_route('colaboradors.edit', ' ', $colaborador->id, array('class'=>'btn btn-sm btn-primary glyphicon glyphicon-pencil')) }}
-						{{ link_to_route('colaboradors.show', ' ', [$colaborador->id, 'f'=>1], ['class'=>'btn btn-sm btn-warning glyphicon glyphicon-print', 'target'=> '_new']) }}
+						{{ link_to_route('colaboradors.show', ' ', [$colaborador->id, 'f'=>1], ['class'=>'btn btn-sm btn-warning glyphicon glyphicon-print', 'target'=> 'blank']) }}
 					</td>
 				</tr>
 			@endforeach

@@ -13,4 +13,10 @@ class AsoExame extends \Eloquent {
 		return $this->exame->descricao;
 	}
 
+	public function getDataValidadeAttribute() {
+		if (!empty($this->attributes['validade'])) {
+			return date('d/m/Y', strtotime("+".$this->attributes['validade']." month", strtotime($this->attributes['data'])));
+		}
+	}
+
 }

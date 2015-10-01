@@ -19,8 +19,8 @@ Class ColaboradorView extends Fpdf {
 		$this->Cell(45, 6, utf8_decode('Data Nascimento: ').$colaborador->data_nascimento, 'BRLT', 0);
 		$this->Cell(115, 6, utf8_decode('Setor: ').$colaborador->setor->descricao, 'LTBR', 0);
 		$this->Ln();
-		$this->Cell(70, 6, utf8_decode('Função: '.$colaborador->funcao), 'BRLT', 0);
-		$this->Cell(120, 6, utf8_decode('Posto de Trabalho: '.$colaborador->posto_trabalho->descricao), 'BRLT', 0);
+		$this->Cell(70, 6, utf8_decode('Função: '.$colaborador->funcao_descricao), 'BRLT', 0);
+		$this->Cell(120, 6, utf8_decode('Posto de Trabalho: '.$colaborador->posto_trabalho_descricao), 'BRLT', 0);
 		$this->Ln(7);
 
 		$this->farmacia($colaborador);
@@ -28,23 +28,20 @@ Class ColaboradorView extends Fpdf {
 
 	public function farmacia($colaborador) {
 		$this->SetFont('Arial', 'B', 12);
-		$this->Cell(190, 6, utf8_decode('Farmácia'), 'LTBR', 0, 'C');
+		$this->Cell(0, 6, utf8_decode('Farmácia'), 'LTBR', 0, 'C');
 		$this->Ln();
 
 		// -- Ocorrencias -- //
-		if (count($colaborador->ocorrencias)) {
-
-			if (count($colaborador->ocorrencias)) {
+			
+			if (count($colaborador->ocorrencias()->monitoramento()->get())) {
 				$this->SetFont('Arial', '', 9);
-				$this->Cell(190, 6, utf8_decode('Ocorrencias'), 'LTBR', 0, 'L', 1);
+				$this->Cell(0, 6, utf8_decode('Ocorrencias'), 'LTBR', 0, 'L', 1);
 				$this->Ln();
+
 				$this->SetFont('Arial', '', 6);
 
 				foreach ($colaborador->ocorrencias()->monitoramento()->get() as $ocorrencia) {
-					$this->Ln(1);
-
-					$this->MultiCell(190, 4, str_replace('
-		', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).' | '.$ocorrencia->profissional), 'LRT', 'L', 0);
+					$this->MultiCell(0, 4, str_replace('', ' ', $ocorrencia->data_hora.': '.utf8_decode($ocorrencia->relato).' '.utf8_decode($ocorrencia->diagnostico).' '.utf8_decode($ocorrencia->conduta).' | '.$ocorrencia->profissional), 'LRT', 'L', 0);
 
 					if ($ocorrencia->atestados->count()) {
 
@@ -61,7 +58,7 @@ Class ColaboradorView extends Fpdf {
 							$this->Cell(20, 4, Format::viewDate($atestado->fim_afastamento), 'LTBR', 0, 'C');
 							$this->Cell(20, 4, $atestado->dias_afastamento, 'LTBR', 0, 'C');
 							$this->Cell(40, 4, $atestado->local, 'LTBR', 0, 'L');
-							$this->Cell(50, 4, $atestado->cid.' - '.utf8_decode($atestado->getCid->descricao), 'LTBR', 0, 'L');
+							$this->Cell(50, 4, substr(($atestado->cid.' - '.utf8_decode($atestado->getCid->descricao)), 0, 40), 'LTBR', 0, 'L');
 							$this->Cell(40, 4, utf8_decode($atestado->profissional), 'LTBR', 0, 'L');
 							$this->Ln();
 						}
@@ -69,7 +66,7 @@ Class ColaboradorView extends Fpdf {
 
 				}
 			}
-		}
+		
 		// -- Fim Ocorrencias -- //
 
 		// -- Inicio Asos -- //
@@ -80,8 +77,8 @@ Class ColaboradorView extends Fpdf {
 			$this->SetFont('Arial', '', 6);
 
 			foreach ($colaborador->asos as $aso) {
-				$this->Cell(20, 4, Format::viewDate($aso->data), 'LT', 0, 'L');
-				$this->Cell(40, 4, strtoupper($aso->tipo), 'T', 0, 'L');
+				$this->Cell(30, 4, $aso->id.' - '.Format::viewDate($aso->data), 'LT', 0, 'L');
+				$this->Cell(30, 4, strtoupper($aso->tipo), 'T', 0, 'L');
 				$this->Cell(40, 4, strtoupper($aso->medico), 'T', 0, 'L');
 				$this->Cell(40, 4, strtoupper($aso->status), 'T', 0, 'L');
 				$this->Cell(50, 4, strtoupper($aso->situacao), 'TR', 0, 'L');
@@ -92,21 +89,22 @@ Class ColaboradorView extends Fpdf {
 					$this->Cell(15, 3, strtoupper('Data'), 'LTR', 0, 'L', 1);
 					$this->Cell(15, 3, strtoupper('Validade'), 'LTR', 0, 'L', 1);
 					$this->Cell(40, 3, utf8_decode(strtoupper('Local RealizaÇÃo')), 'LTR', 0, 'L', 1);
-					$this->Cell(30, 3, strtoupper('Medico'), 'LTR', 0, 'L', 1);
+					$this->Cell(50, 3, strtoupper('Medico'), 'LTR', 0, 'L', 1);
 					$this->Cell(30, 3, strtoupper('Resultado'), 'LTR', 0, 'L', 1);
 					$this->Ln();
 
 					foreach ($aso->exames as $exame) {
 						$this->Cell(40, 3.5, utf8_decode($exame->descricao), 'L', 0, 'L');
-						$this->Cell(15, 3.5, utf8_decode($exame->data), 0, 0, 'L');
-						$this->Cell(15, 3.5, utf8_decode($exame->validade), 0, 0, 'L');
+						$this->Cell(15, 3.5, Format::viewDate($exame->data), 0, 0, 'L');
+						$this->Cell(15, 3.5, $exame->data_validade, 0, 0, 'L');
 						$this->Cell(40, 3.5, utf8_decode($exame->local_realizacao), 0, 0, 'L');
-						$this->Cell(30, 3.5, utf8_decode($exame->medico), 0, 0, 'L');
+						$this->Cell(50, 3.5, utf8_decode($exame->medico), 0, 0, 'L');
 						$this->Cell(30, 3.5, utf8_decode($exame->resultado), 'R', 0, 'L');
 						$this->Ln();
 					}
 					$this->Cell(0, 1, '', 'T');
 				}
+				$this->Ln();
 			}
 		}
 		// -- Fim Asos -- //

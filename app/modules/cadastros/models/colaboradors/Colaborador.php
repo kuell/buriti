@@ -18,33 +18,12 @@ class Colaborador extends Eloquent {
 		return $this->hasMany('ColaboradorFuncao', 'colaborador_id');
 	}
 
-	public function getFuncaoIdAttribute() {
-
-		if ($this->funcaos->count() != 0) {
-			return $this->funcaos->last()->funcao_id;
-		} else {
-			return null;
-		}
-	}
-
 	public function setor() {
 		return $this->belongsTo('Setor', 'setor_id');
 	}
 
 	public function setors() {
 		return $this->hasMany('ColaboradorSetor');
-	}
-
-	public function getSetorDescricaoAttribute() {
-		if (!empty($this->attributes['setor_id'])) {
-			return $this->setor->descricao;
-		} else {
-			return null;
-		}
-	}
-
-	public function asos() {
-		return $this->hasMany('Aso', 'colaborador_id');
 	}
 
 	public function atestados($datai = null, $dataf = null) {
@@ -71,16 +50,37 @@ class Colaborador extends Eloquent {
 
 	public function postoTrabalho() {
 		return $this->belongsTo('SetorPosto', 'posto_id');
-
+	}
+	public function funcao() {
+		return $this->belongsTo('SetorFuncao', 'funcao_id');
 	}
 
-	public function getMonitoramentoAttribute() {
-		if (!empty($this->attributes['monitoramento']) && $this->attributes['monitoramento'] == true) {
-			return 'Sim';
+	public function getFuncaoDescricaoAttribute() {
+		if ($this->funcao) {
+			return $this->funcao->descricao;
 		} else {
-			return 'Não';
+			return 'NENHUM INFORMADO';
 		}
+	}
 
+	public function getPostoTrabalhoDescricaoAttribute() {
+		if ($this->postoTrabalho) {
+			return $this->postoTrabalho->descricao;
+		} else {
+			return 'NENHUM INFORMADO';
+		}
+	}
+
+	public function getSetorDescricaoAttribute() {
+		if (!empty($this->attributes['setor_id'])) {
+			return $this->setor->descricao;
+		} else {
+			return null;
+		}
+	}
+
+	public function asos() {
+		return $this->hasMany('Aso', 'colaborador_id');
 	}
 
 	public function getDataAdmissaoAttribute() {
@@ -145,16 +145,6 @@ class Colaborador extends Eloquent {
 		} else {
 			$d                                        = explode('/', $data_admissao);
 			return $this->attributes['data_admissao'] = $d[2].'-'.$d[1].'-'.$d[0];
-		}
-	}
-
-	public function getFuncaoAttribute() {
-		$funcao = ColaboradorFuncao::where('colaborador_id', $this->attributes['id'])->orderBy('created_at', 'desc')->first();
-
-		if (count($funcao) == 0) {
-			return 'NÃO INFORMADO';
-		} else {
-			return SetorFuncao::find($funcao['funcao_id'])['descricao'];
 		}
 	}
 
