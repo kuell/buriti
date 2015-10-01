@@ -99,7 +99,7 @@
 
 			</div>
 			<div class="modal-footer">
-				{{ Form::submit('Finalizar', ['class'=>'btn btn-primary', 'id'=>'finaliza']) }}
+				{{ Form::button('Finalizar', ['class'=>'btn btn-primary', 'id'=>'finaliza']) }}
 				{{ link_to_route('farmacia.aso.edit', 'Editar ASO', $aso->id, ['class'=>'btn btn-info']) }}
 			</div>
 
