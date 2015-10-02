@@ -72,11 +72,13 @@ class Colaborador extends Eloquent {
 	}
 
 	public function getSetorDescricaoAttribute() {
-		if (!empty($this->attributes['setor_id'])) {
+
+		if (count($this->setor)) {
 			return $this->setor->descricao;
 		} else {
-			return null;
+			return 'NENHUM INFORMADO';
 		}
+
 	}
 
 	public function asos() {

@@ -19,7 +19,7 @@ class InvestigacaoView extends RelatorioController {
 		$this->tituloDoc = 'Ficha de Investigação de Acidente. Investigação nº: '.$investigacao->id;
 
 		$this->AddPage();
-		$this->colaborador($investigacao);
+		$this->colaborador($investigacao->colaborador);
 		$this->ocorrencia($investigacao);
 
 		$this->AddPage();
@@ -118,7 +118,7 @@ class InvestigacaoView extends RelatorioController {
 		$this->Cell(0, 8, utf8_decode('Colaborador: '.$investigacao->colaborador->nome), 'RL', 0, 'L', 0);
 		$this->Ln();
 
-		$this->Cell(0, 8, utf8_decode('Setor: '.$investigacao->colaborador->setor->descricao.' - Posto de Trabalho: '.$investigacao->colaborador->posto_trabalho->descricao), 'RL', 0, 'L', 0);
+		$this->Cell(0, 8, utf8_decode('Setor: '.$investigacao->colaborador->setor_descricao.' - Posto de Trabalho: '.$investigacao->colaborador->posto_trabalho_descricao), 'RL', 0, 'L', 0);
 		$this->Ln();
 
 		$this->Cell(0, 8, utf8_decode(''), 'RL', 0, 'L', 0);
@@ -158,7 +158,7 @@ TIPO DE ATIVIDADES;
  RELACIONADAS AOS RISCOS INERENTES DA ATIVIDADE.'), 'LRB', 'L');
 	}
 
-	function colaborador($investigacao) {
+	function colaborador($colaborador) {
 		$this->setFillColor('200');
 		$this->setFont('Arial', '', 8);
 
@@ -168,40 +168,40 @@ TIPO DE ATIVIDADES;
 		$this->setFillColor('230');
 
 		$this->Cell(16, 6, 'Matricula: ', 1, 0, 'L', 1);
-		$this->Cell(14, 6, $investigacao->colaborador->codigo_interno, 1, 0, 'L', 0);
+		$this->Cell(14, 6, $colaborador->codigo_interno, 1, 0, 'L', 0);
 
 		$this->Cell(12, 6, 'Nome: ', 1, 0, 'R', 1);
-		$this->Cell(100, 6, $investigacao->colaborador->nome, 1, 0, 'L');
+		$this->Cell(100, 6, $colaborador->nome, 1, 0, 'L');
 
 		$this->Cell(28, 6, 'Data Nascimento: ', 1, 0, 'R', 1);
-		$this->Cell(20, 6, $investigacao->colaborador->data_nascimento, 1, 0, 'L');
+		$this->Cell(20, 6, $colaborador->data_nascimento, 1, 0, 'L');
 
 		$this->Ln();
 
 		$this->Cell(11, 6, 'Sexo: ', 1, 0, 'R', 1);
-		$this->Cell(19, 6, $investigacao->colaborador->sexoDescricao, 1, 0, 'L');
+		$this->Cell(19, 6, $colaborador->sexoDescricao, 1, 0, 'L');
 
 		$this->Cell(11, 6, 'Setor: ', 1, 0, 'L', 1);
-		$this->Cell(60, 6, $investigacao->colaborador->setor->descricao, 1, 0, 'L');
+		$this->Cell(60, 6, $colaborador->setor_descricao, 1, 0, 'L');
 
 		$this->Cell(13, 6, utf8_decode('Função: '), 1, 0, 'L', 1);
-		$this->Cell(76, 6, utf8_decode($investigacao->colaborador->funcao), 1, 0, 'L');
+		$this->Cell(76, 6, utf8_decode($colaborador->funcao_descricao), 1, 0, 'L');
 
 		$this->Ln();
 
 		$this->Cell(30, 6, utf8_decode('Data de Admissão: '), 1, 0, 'L', 1);
-		$this->Cell(20, 6, $investigacao->colaborador->data_admissao, 1, 0, 'L');
+		$this->Cell(20, 6, $colaborador->data_admissao, 1, 0, 'L');
 
 		$this->Cell(30, 6, utf8_decode('Posto de Trabalho: '), 1, 0, 'L', 1);
-		$this->Cell(110, 6, utf8_decode($investigacao->colaborador->posto_trabalho->descricao), 1, 0, 'L');
+		$this->Cell(110, 6, utf8_decode($colaborador->posto_trabalho_descricao), 1, 0, 'L');
 
 		$this->Ln();
 
 		$this->Cell(17, 6, utf8_decode('Endereco: '), 1, 0, 'L', 1);
-		$this->Cell(90, 6, utf8_decode($investigacao->colaborador->endereco), 1, 0, 'L');
+		$this->Cell(90, 6, utf8_decode($colaborador->endereco), 1, 0, 'L');
 
 		$this->Cell(12, 6, utf8_decode('Bairro: '), 1, 0, 'L', 1);
-		$this->Cell(71, 6, utf8_decode($investigacao->colaborador->bairro), 1, 0, 'L');
+		$this->Cell(71, 6, utf8_decode($colaborador->bairro), 1, 0, 'L');
 
 		$this->Ln();
 

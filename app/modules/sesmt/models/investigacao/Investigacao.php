@@ -36,6 +36,11 @@ class Investigacao extends Ocorrencia {
 		return $this->belongsTo('TipoOcorrencia', 'tipo_ocorrhencia');
 	}
 
+	public function naturezaLesaos()
+	{
+		return $this->hasMany('InvestigacaoNaturezaLesao');
+	}
+
 	public function tiposOcorrencia() {
 		return ['Acidente', 'Doença Ocupacional', 'Doença do Trabalho', 'Incidente', 'Tipico', 'Trajeto', 'Atipico', 'Fatal'];
 	}

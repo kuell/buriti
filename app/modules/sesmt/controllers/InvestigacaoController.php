@@ -160,4 +160,17 @@ class InvestigacaoController extends \BaseController {
 
 		return View::make('sesmt::investigacao.print', compact('investigacao'));
 	}
+
+	public function getNaturezaLesao($id) {
+		$investigacao = $this->investigacaos->find($id);
+
+		return View::make('sesmt::investigacao.natureza_lesao', compact('investigacao'));
+	}
+
+	public function setNaturezaLesao($id) {
+		$input        = Input::all();
+		$investigacao = $this->investigacaos->find($id);
+
+		return View::make('sesmt::investigacao.natureza_lesao', compact('investigacao'));
+	}
 }
