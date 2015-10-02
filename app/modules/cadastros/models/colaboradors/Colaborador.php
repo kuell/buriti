@@ -37,6 +37,16 @@ class Colaborador extends Eloquent {
 
 	}
 
+	public function monitoramentos($datai = null, $dataf = null) {
+		$return = $this->hasMany('Ocorrencia', 'colaborador_id');
+
+		if (empty($datai) or empty($dataf)) {
+			return $return;
+		} else {
+			return $return->whereBetween('data_hora', array($datai, $dataf))->where('monitoramento', 'true')->get();
+		}
+	}
+
 	public function ocorrencias($datai = null, $dataf = null) {
 		$return = $this->hasMany('Ocorrencia', 'colaborador_id');
 

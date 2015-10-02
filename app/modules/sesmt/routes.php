@@ -15,14 +15,19 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'sesmt'), function 
 
 				Route::get('{id}/print', ['as' => 'sesmt.investigacao.print', 'uses' => 'InvestigacaoController@getPrint']);
 
-				Route::get('lesao/{id}', ['as'  => 'sesmt.investigacao.lesao', 'uses'  => 'InvestigacaoController@getNaturezaLesao']);
-				Route::post('lesao/{id}', ['as' => 'sesmt.investigacao.lesao', 'uses' => 'InvestigacaoController@setNaturezaLesao']);
+				Route::get('lesao/{id}', ['as'        => 'sesmt.investigacao.lesao', 'uses'        => 'InvestigacaoController@getNaturezaLesao']);
+				Route::post('lesao/{id}', ['as'       => 'sesmt.investigacao.lesao', 'uses'       => 'InvestigacaoController@setNaturezaLesao']);
 				Route::get('lesao/{id}/delete', ['as' => 'sesmt.investigacao.lesao.destroy', 'uses' => 'InvestigacaoController@destroyNaturezaLesao']);
 
-				Route::get('corpo/{id}', ['as'  => 'sesmt.investigacao.corpo', 'uses'  => 'InvestigacaoController@getParteCorpo']);
-				Route::post('corpo/{id}', ['as' => 'sesmt.investigacao.corpo', 'uses' => 'InvestigacaoController@setParteCorpo']);
+				Route::get('corpo/{id}', ['as'        => 'sesmt.investigacao.corpo', 'uses'        => 'InvestigacaoController@getParteCorpo']);
+				Route::post('corpo/{id}', ['as'       => 'sesmt.investigacao.corpo', 'uses'       => 'InvestigacaoController@setParteCorpo']);
 				Route::get('corpo/{id}/delete', ['as' => 'sesmt.investigacao.corpo.destroy', 'uses' => 'InvestigacaoController@destroyParteCorpo']);
 
+			});
+
+		Route::group(['prefix' => 'relatorios'], function () {
+				Route::get('/', 'SesmtController@getRelatorios');
+				Route::get('colaborador_monitoramento', 'SesmtController@getColaboradorMonitoramento');
 			});
 
 		Route::resource('investigacao', 'InvestigacaoController');

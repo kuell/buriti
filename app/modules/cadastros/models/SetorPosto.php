@@ -10,7 +10,7 @@ class SetorPosto extends \Eloquent {
 	}
 
 	public function colaboradors() {
-		return $this->hasMany('ColaboradorPosto', 'posto_id');
+		return $this->hasMany('Colaborador', 'posto_id');
 	}
 
 	public static function riscos($posto_id) {
