@@ -43,7 +43,7 @@ class Colaborador extends Eloquent {
 		if (empty($datai) or empty($dataf)) {
 			return $return;
 		} else {
-			return $return->whereBetween('data_hora', array($datai, $dataf))->where('monitoramento', 'true')->get();
+			return $return->whereBetween('data_hora', array($datai, $dataf))->where('monitoramento', 'true')->orderBy('created_at')->get();
 		}
 	}
 
