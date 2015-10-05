@@ -49,7 +49,7 @@
 @section('scripts')
 	<script type="text/javascript">
 	$(function(){
-		$('select[name=natureza_lesao_id]').chosen('width:100%')
+		$('select[name=natureza_lesao_id]').chosen({width:'100%'})
 	})
 	</script>
 @stop
