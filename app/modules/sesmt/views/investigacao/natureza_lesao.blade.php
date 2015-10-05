@@ -22,23 +22,34 @@
 			</div>
 			{{ Form::close() }}
 			<div class="col-xs-12">
-				<table>
+				<table class="table table-hover">
 					<thead>
 						<tr>
+							<th>#</th>
 							<th>Descrição</th>
 						</tr>
 					</thead>
 					<tbody>
 					@foreach($investigacao->natureza_lesaos as $lesao)
 						<tr>
-							<td>{{ $lesao->descricao }}</td>
+							<td>{{ $lesao->natureza->id }}</td>
+							<td>{{ $lesao->natureza->descricao }}</td>
+							<td>
+								{{ link_to_route('sesmt.investigacao.lesao.destroy',' ', $lesao->id, ['class'=>'btn btn-danger btn-sm glyphicon glyphicon-remove']) }}
+							</td>
 						</tr>
 					@endforeach
 					</tbody>
 				</table>
 			</div>
 		</div>
-
-
 	</div>
+@stop
+
+@section('scripts')
+	<script type="text/javascript">
+	$(function(){
+		$('select[name=natureza_lesao_id]').chosen('width:100%')
+	})
+	</script>
 @stop

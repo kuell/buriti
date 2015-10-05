@@ -33,5 +33,6 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'sesmt'), function 
 		Route::resource('investigacao', 'InvestigacaoController');
 		Route::resource('risco', 'RiscoController');
 		Route::resource('analise', 'AnaliseController');
+		Route::resource('plano_acao', 'PlanoAcaoController');
 
 	});

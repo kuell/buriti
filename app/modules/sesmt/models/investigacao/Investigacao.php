@@ -14,8 +14,6 @@ class Investigacao extends Ocorrencia {
 		'local_acidente'    => 'required',
 		'tipo_lesao'        => 'required',
 		'dias_afastamento'  => 'required',
-		'natureza_lesao_id' => 'required',
-		'parte_corpo_id'    => 'required',
 		'fator_potencial'   => 'required',
 		'rota_acidente'     => 'required'
 	];
@@ -36,9 +34,12 @@ class Investigacao extends Ocorrencia {
 		return $this->belongsTo('TipoOcorrencia', 'tipo_ocorrhencia');
 	}
 
-	public function naturezaLesaos()
-	{
-		return $this->hasMany('InvestigacaoNaturezaLesao');
+	public function naturezaLesaos() {
+		return $this->hasMany('InvestigacaoNaturezaLesao', 'investigacao_id');
+	}
+
+	public function partesCorpo() {
+		return $this->hasMany('InvestigacaoParteCorpo', 'investigacao_id');
 	}
 
 	public function tiposOcorrencia() {

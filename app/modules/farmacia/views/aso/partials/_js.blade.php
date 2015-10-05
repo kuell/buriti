@@ -1,6 +1,8 @@
+{{ $aso->colaborador_funcao_id }}
+
 
 {{-- Carrega os campos referente ao colaborador --}}
-	@if(!empty($aso->colaborador_setor_id))
+@if(!empty($aso->colaborador_setor_id))
 
 	<script type="text/javascript">
 		//Busca Posto //
@@ -50,7 +52,8 @@
 		$('select[name=colaborador_setor_id').val( {{ $aso->colaborador_setor_id }})
 
 	</script>
-	@endif
+
+@endif
 {{-- FIM Carrega os campos referente ao colaborador --}}
 
 

@@ -67,8 +67,10 @@ class AsoController extends \BaseController {
 		$validate = Validator::make($input, $this->asos->rules['outros']);
 
 		if ($validate->passes()) {
-			$colaborador       = Colaborador::find($input['colaborador_id']);
-			$input['posto_id'] = $colaborador->posto_id;
+			$colaborador = Colaborador::find($input['colaborador_id']);
+			if ($input['tipo'] != 'mudanca de funcao') {
+				$input['posto_id'] = $colaborador->posto_id;
+			}
 
 			$aso = $this->asos->create($input);
 
@@ -104,7 +106,7 @@ class AsoController extends \BaseController {
 			}
 		} else {
 			echo "Ola";
-			print_r($validate->errors());
+			print_r($validate->errors()->all());
 			die;
 
 		}

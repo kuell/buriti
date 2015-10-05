@@ -171,6 +171,45 @@ class InvestigacaoController extends \BaseController {
 		$input        = Input::all();
 		$investigacao = $this->investigacaos->find($id);
 
+		if (!$investigacao->naturezaLesaos()->where('natureza_lesao_id', $input['natureza_lesao_id'])->count()) {
+			$investigacao->naturezaLesaos()->create($input);
+		}
+
 		return View::make('sesmt::investigacao.natureza_lesao', compact('investigacao'));
+	}
+
+	public function destroyNaturezaLesao($id) {
+		$natureza     = InvestigacaoNaturezaLesao::find($id);
+		$investigacao = $natureza->investigacao;
+
+		$natureza->delete();
+
+		return View::make('sesmt::investigacao.natureza_lesao', compact('investigacao'));
+	}
+
+	public function getParteCorpo($id) {
+		$investigacao = $this->investigacaos->find($id);
+
+		return View::make('sesmt::investigacao.parte_corpo', compact('investigacao'));
+	}
+
+	public function setParteCorpo($id) {
+		$input        = Input::all();
+		$investigacao = $this->investigacaos->find($id);
+
+		if (!$investigacao->partesCorpo()->where('parte_corpo_id', $input['parte_corpo_id'])->count()) {
+			$investigacao->partesCorpo()->create($input);
+		}
+
+		return View::make('sesmt::investigacao.parte_corpo', compact('investigacao'));
+	}
+
+	public function destroyParteCorpo($id) {
+		$parte_corpo  = InvestigacaoParteCorpo::find($id);
+		$investigacao = $parte_corpo->investigacao;
+
+		$parte_corpo->delete();
+
+		return View::make('sesmt::investigacao.parte_corpo', compact('investigacao'));
 	}
 }

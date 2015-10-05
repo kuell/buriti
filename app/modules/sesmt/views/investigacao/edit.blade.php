@@ -39,7 +39,7 @@
                      <iframe src="/sesmt/investigacao/lesao/{{ $investigacao->id }}" style="width: 100%; height:400px; border:0;"></iframe>
                   </div>
                    <div role="tabpanel" class="tab-pane" id="corpo">
-                     <iframe src="" style="width: 100%; height:400px; border:0;"></iframe>
+                    <iframe src="/sesmt/investigacao/corpo/{{ $investigacao->id }}" style="width: 100%; height:400px; border:0;"></iframe>
                   </div>
                </div>
 

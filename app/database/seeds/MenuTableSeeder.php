@@ -275,6 +275,17 @@ class MenuTableSeeder extends Seeder {
 				'created_at' => 'now()',
 				'updated_at' => 'now()',
 				'color'      => null,
+			),
+			array(
+				'id'         => 24,
+				'descricao'  => 'Planos de Ação',
+				'url'        => 'plano_acao',
+				'icone'      => 'glyphicon glyphicon-ok',
+				'indice'     => null,
+				'menu_pai'   => 9,
+				'created_at' => 'now()',
+				'updated_at' => 'now()',
+				'color'      => null,
 			)
 
 		);
