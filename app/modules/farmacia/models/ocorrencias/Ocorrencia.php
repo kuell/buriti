@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 08/10/14
- * Time: 10:26
- */
 
 class Ocorrencia extends Eloquent {
 	protected $guarded = array();
@@ -12,6 +6,10 @@ class Ocorrencia extends Eloquent {
 	public $rules      = [
 		'colaborador_id' => 'required'
 	];
+
+	public function scopeFinalizadas($query) {
+		return $query->where('situacao', 'finalizada');
+	}
 
 	public function scopeMonitoramento($query) {
 		return $query->where('monitoramento', false);
@@ -23,6 +21,10 @@ class Ocorrencia extends Eloquent {
 
 	public function atestados() {
 		return $this->hasMany('OcorrenciaAtestado');
+	}
+
+	public function planoAcaos() {
+		return $this->hasMany('PlanoAcao');
 	}
 
 	public function queixa() {

@@ -85,8 +85,7 @@ class SetorsController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		$input                      = array_except(Input::all(), '_method');
-		$input['usuario_alteracao'] = Auth::user()->user;
+		$input = array_except(Input::all(), '_method');
 
 		$this->rules = array('descricao' => 'required|unique:setors,descricao,'.$id);
 
@@ -117,9 +116,18 @@ class SetorsController extends \BaseController {
 
 	public function getFuncao($id) {
 
-		$funcaos = $this->setors->find($id)->funcaos;
+		$setor = $this->setors->find($id);
 
-		return View::make('cadastros::setors.elementos.funcao', compact('funcaos'));
+		return View::make('cadastros::setors.elementos.funcao', compact('setor'));
+
+	}
+
+	public function setFuncao($id) {
+		$input = Input::all()+['setor_id' => $id];
+
+		SetorFuncao::create($input);
+
+		return Redirect::route('setors.funcao', $id);
 
 	}
 
@@ -129,10 +137,26 @@ class SetorsController extends \BaseController {
 		return View::make('cadastros::setors.elementos.posto_trabalho', compact('setor'));
 	}
 
-	public function postPosto($id) {
-		$input = Input::all()+['setor_id' => $id];
+	public function editPosto($id) {
+		$posto = SetorPosto::find($id);
+		$setor = $posto->setor;
 
-		SetorPosto::create($input);
+		return View::make('cadastros::setors.elementos.posto_trabalho', compact('setor'), compact('posto'));
+	}
+
+	public function postPosto($id) {
+		$input = Input::all();
+		$setor = $this->setors->find($id);
+
+		if (!empty($input['posto_id'])) {
+			$posto = $setor->postoTrabalhos()->find($input['posto_id']);
+			unset($input['posto_id']);
+
+			$posto->update($input);
+
+		} else {
+			$s = $setor->funcaos()->create($input);
+		}
 
 		return Redirect::route('setors.posto', $id);
 

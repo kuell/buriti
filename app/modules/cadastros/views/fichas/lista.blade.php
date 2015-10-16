@@ -5,6 +5,7 @@
 			<th>Nome</th>
 			<th>Idade</th>
 			<th>Setores Pretendidos</th>
+			<th>Data Criação</th>
 			<th>Situacao</th>
 			<th></th>
 		</tr>
@@ -16,6 +17,7 @@
 			<td>{{ $ficha->nome }}</td>
 			<td>{{ $ficha->idade }}</td>
 			<td>{{ implode(', ', $ficha->setores)}}</td>
+			<td>{{ date('d/m/Y', strtotime($ficha->created_at)) }}</td>
 			<td>{{ $ficha->situacao }}</td>
 			<td>
 

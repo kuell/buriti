@@ -1,14 +1,20 @@
 @extends('dashboard.index')
 
 @section('main')
-<div class="box box-info">
-	{{ HTML::head('Colaboradores', 'controla os colaboradores') }}
-	{{ HTML::boxhead('Criar um novo colaborador') }}
+	<div class="box box-primary">
+	    <div class="box-header">
+	        <i class="ion ion-clipboard"></i>
+	        <h3 class="box-title">Novo Colaborador</h3>
+	        <div class="box-footer clearfix no-border">
 
-	<div class="box-body">
-		{{ Form::open(array('route' => 'colaboradors.store', 'rule'=>'form')) }}
-			@include('cadastros::colaboradores.form')
-		{{ Form::close() }}
+	        </div>
+	    </div><!-- /.box-header -->
+
+		<div class="box-body">
+			{{ Form::open(array('route' => 'colaboradors.store', 'rule'=>'form')) }}
+				@include('cadastros::colaboradores.form')
+			{{ Form::close() }}
+		</div>
 	</div>
-</div>
+
 @endsection

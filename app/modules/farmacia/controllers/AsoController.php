@@ -177,18 +177,19 @@ class AsoController extends \BaseController {
 	public function destroy($id) {
 		$aso = $this->asos->find($id);
 
-		$aso->status   = 'inapto';
-		$aso->situacao = 'fechado';
-		$aso->obs      = 'ASO REPROVADA POR '.Auth::user()->user;
-		$aso->save();
-
 		if (count($aso->ficha)) {
+
 			$ficha           = $aso->ficha;
 			$ficha->situacao = 2;
 			$ficha->save();
 		}
 
-		return Redirect::route('farmacia.aso.index');
+		$aso->situacao = 'deletada';
+		$aso->obs      = 'ASO DELETADA POR '.strtoupper(Auth::user()->user)." -> ".strtoupper(Input::get('descricao', 'Não informado'));
+
+		$aso->save();
+
+		return "Aso deletada com sucesso!";
 	}
 
 	public function setRisco($tipo) {
@@ -269,9 +270,8 @@ class AsoController extends \BaseController {
 						'setor_id'  => $aso->colaborador_setor_id,
 						'funcao_id' => $aso->colaborador_funcao_id
 					];
-					$aso->colaborador()->update($col);
 
-					$aso->colaborador->funcaos()->create(['funcao_id' => $aso->colaborador_funcao_id, 'data_mudanca' => $aso->created_at]);
+					$aso->colaborador()->update($col);
 
 					$aso->update(['situacao' => 'fechado', 'status' => 'apto']);
 

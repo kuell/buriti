@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	{{ HTML::style('css/bootstrap.min.css')}}
-</head>
-<body>
+
+@extends('layouts.modal')
+
+@section('modal')
+	<style type="text/css">
+		*{
+			font-size: 10px;
+		}
+
+	</style>
+
+<div class="well">
+	{{ Form::open(['route'=>['setors.funcao.add', $setor->id], 'class'=>'form form-horizontal']) }}
+		<div class="form form-group">
+			<div class="col-md-9">
+				{{ Form::label('Descrição da Função: ')}}
+				{{ Form::text('descricao', null, ['class'=>'form-control col-md-9', 'required']) }}
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-12">
+				{{ Form::submit('Grava', ['class'=>'btn btn-success btn-sm']) }}
+			</div>
+		</div>
+
+	{{ Form::close() }}
+</div>
+
+
 <div>
 	<table class="table">
 		<thead>
@@ -13,7 +35,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($funcaos as $funcao)
+			@foreach($setor->funcaos as $funcao)
 			<tr>
 				<td>{{{ $funcao->descricao }}}</td>
 			</tr>
@@ -23,5 +45,4 @@
 </div>
 
 
-</body>
-</html>
+@stop

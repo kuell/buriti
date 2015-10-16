@@ -4,16 +4,23 @@
  * Cadastros
  *
  */
-Route::group(array('before'                     => 'auth|permissao'), function () {
-		Route::get('/setors/funcaos/{id}', array('as' => 'setors.funcaos', 'uses' => 'SetorsController@getFuncao'));
+Route::group(array('before' => 'auth|permissao'), function () {
 
-		Route::get('setors/posto/{id}', array('as'         => 'setors.posto', 'uses'         => 'SetorsController@getPosto'));
-		Route::post('/setors/posto/{id}', array('as'       => 'setors.posto.add', 'uses'       => 'SetorsController@postPosto'));
-		Route::get('/setors/posto/{id}/delete', array('as' => 'setors.posto.delete', 'uses' => 'SetorsController@destroyPosto'));
+		Route::group(['prefix' => 'setors'], function () {
 
-		Route::get('/setors/posto/{id}/atividades', array('as'        => 'setors.posto.atividades', 'uses'        => 'SetorsController@getAtividades'));
-		Route::post('/setors/posto/{id}/atividades', array('as'       => 'setors.posto.atividade.add', 'uses'       => 'SetorsController@postAtividades'));
-		Route::get('/setors/posto/atividades/{id}/delete', array('as' => 'setors.posto.atividade.delete', 'uses' => 'SetorsController@destroyAtividade'));
+				Route::get('posto/{id}', array('as'        => 'setors.posto', 'uses'        => 'SetorsController@getPosto'));
+				Route::post('posto/{id}', array('as'       => 'setors.posto.add', 'uses'       => 'SetorsController@postPosto'));
+				Route::get('posto/{id}/edit', array('as'   => 'setors.posto.edit', 'uses'   => 'SetorsController@editPosto'));
+				Route::get('posto/{id}/delete', array('as' => 'setors.posto.delete', 'uses' => 'SetorsController@destroyPosto'));
+
+				Route::get('/posto/{id}/atividades', array('as'        => 'setors.posto.atividades', 'uses'        => 'SetorsController@getAtividades'));
+				Route::post('/posto/{id}/atividades', array('as'       => 'setors.posto.atividade.add', 'uses'       => 'SetorsController@postAtividades'));
+				Route::get('/posto/atividades/{id}/delete', array('as' => 'setors.posto.atividade.delete', 'uses' => 'SetorsController@destroyAtividade'));
+
+				Route::get('/funcao/{id}', array('as'        => 'setors.funcao', 'uses'        => 'SetorsController@getFuncao'));
+				Route::post('/funcao/{id}', array('as'       => 'setors.funcao.add', 'uses'       => 'SetorsController@setFuncao'));
+				Route::get('/funcao/{id}/delete', array('as' => 'setors.funcao.delete', 'uses' => 'SetorsController@destroyFuncao'));
+			});
 
 		Route::get('colaboradors/{id}/demitir', array('as'  => 'colaboradors.demitir', 'uses'  => 'ColaboradorController@getDemitir'));
 		Route::post('colaboradors/{id}/demitir', array('as' => 'colaboradors.demitir', 'uses' => 'ColaboradorController@setDemitir'));

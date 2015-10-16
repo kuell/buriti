@@ -17,9 +17,11 @@
 			<td>{{{ $setor->agrupamento }}}</td>
 			<td>{{{ $setor->situacao == 1 ? 'ativo' : 'inativo' }}}</td>
 			<td>
-				{{ link_to_route('setors.edit', '', $setor->id, array('class'=>'btn glyphicon glyphicon-pencil', 'title'=>'alterar')) }}
-				{{ link_to('#', ' ', array('class'=>'btn glyphicon glyphicon-print', 'title'=>'print',
-							'onclick'=>"window.open('".URL::route('setors.show', $setor->id)."', 'print', 'channelmode=yes')")) }}
+				<div class="btn-group">
+					{{ link_to_route('setors.edit', ' ', $setor->id, array('class'=>'btn btn-info btn-sm glyphicon glyphicon-pencil', 'title'=>'alterar')) }}
+					{{ link_to('#', ' ', array('class'=>'btn btn btn-warning btn-sm glyphicon glyphicon-print', 'title'=>'print',
+								'onclick'=>"window.open('".URL::route('setors.show', $setor->id)."', 'print', 'channelmode=yes')")) }}
+				</div>
 			</td>
 		</tr>
 		@endforeach

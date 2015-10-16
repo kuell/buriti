@@ -13,20 +13,36 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-</head>
-<body>
-	@yield('modal')
 
 <!-- script references -->
-{{ HTML::script('js/jquery.min.js') }}
-{{ HTML::script('js/bootstrap.min.js') }}
-{{ HTML::script('js/jquery.maskedinput.js') }}
-{{ HTML::script('js/scripts.js') }}
-{{ HTML::script('js/conf.js') }}
-{{ HTML::script('js/plugins/formValidation/js/formValidation.js') }}
-{{ HTML::script('js/plugins/formValidation/js/framework/bootstrap.js') }}
+
+<!-- jQuery 2.0.2 -->
+    {{ HTML::script('js/jquery.min.js') }}
+    {{ HTML::script('css/bootstrap-chosen/chosen.jquery.js') }}
+    {{ HTML::script('js/jquery.maskMoney.js') }}
+    {{ HTML::script('js/jquery.maskedinput.js') }}
+
+ <!-- Bootstrap -->
+    {{ HTML::script('js/bootstrap.min.js') }}
+ <!-- AdminLTE App -->
+    {{ HTML::script('js/AdminLTE/app.js') }}
+ <!-- AdminLTE for demo purposes -->
+    {{-- HTML::script('js/AdminLTE/demo.js') --}}
+    {{ HTML::script('js/plugins/daterangepicker/daterangepicker.js') }}
+    {{ HTML::script('js/plugins/formValidation/js/formValidation.js') }}
+    {{ HTML::script('js/plugins/formValidation/js/framework/bootstrap.js') }}
+
+    {{ HTML::script('js/plugins/datatables/jquery.dataTables.js') }}
+    {{ HTML::script('js/plugins/datatables/dataTables.bootstrap.js') }}
+<!-- Configuração -->
+    {{ HTML::script('js/conf.js') }}
+
+<!-- end script references -->
 
 @yield('scripts')
 
+</head>
+<body>
+    @yield('modal')
 </body>
 </html>

@@ -35,10 +35,11 @@
 			<div class="panel-footer">
 				@if($aso->ajuste != true && $aso->situacao != 'fechado')
 					{{ Form::submit('Atualizar', ['class'=>'btn btn-primary btn-sm']) }}
+					{{ Form::button('Informações Adicionais', ['class'=>'btn btn-info btn-sm', 'id'=>'info']) }}
 
-					{{ Form::button('Informações Adicionais', ['class'=>'btn btn-warning btn-sm', 'id'=>'info']) }}
+					{{ Form::button('Excluir', ['class'=>'btn btn-danger btn-sm', 'id'=>'delete', 'value'=>$aso->id]) }}
 
-					{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
+					{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-warning btn-sm']) }}
 				@else
 					{{ Form::button('Informações Adicionais', ['class'=>'btn btn-warning btn-sm', 'id'=>'info']) }}
 					{{ link_to_route('farmacia.aso.index', 'Cancelar', null, ['class'=>'btn btn-danger btn-sm']) }}
@@ -47,13 +48,36 @@
 	</div>
  {{ Form::close() }}
 
-@include('farmacia::aso.informacoes');
+@include('farmacia::aso.informacoes')
 
 
 <script type="text/javascript">
 	$(function(){
 		$('#info').bind('click', function() {
 			$('#informacoes').modal();
+		});
+		$('#delete').bind('click',  function() {
+
+			motivo = prompt('Qual o motivo da exclusão da ficha aso? ')
+
+			$.ajax({
+				url: "/farmacia/aso/"+$(this).val(),
+				type: 'DELETE',
+				data: {id: $(this).val(), descricao: motivo}
+			})
+			.done(function(data) {
+
+				console.log("success"+data);
+			})
+			.fail(function(data) {
+				console.log("error"+data);
+			})
+			.always(function(data) {
+				alert(data);
+			});
+
+			location = "{{ URL::route('farmacia.aso.index') }}"
+
 		});
 	})
 </script>

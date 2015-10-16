@@ -73,7 +73,6 @@
 
 <script type="text/javascript">
 	$(function() {
-
 		$('#info').bind('click', function() {
 			$('#myModal').modal()
 		});

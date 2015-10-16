@@ -13,7 +13,11 @@ class CreateSesmtPlanoAcaosTable extends Migration {
 	public function up() {
 		Schema::create('sesmt.plano_acaos', function (Blueprint $table) {
 				$table->increments('id');
+				$table->integer('ocorrencia_id');
 				$table->text('descricao');
+				$table->text('situacao');
+				$table->text('usuario_created');
+				$table->text('usuario_updated');
 				$table->timestamps();
 			});
 	}

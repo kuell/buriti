@@ -38,7 +38,7 @@
 			tipo = $(this).prop('checked');
 
 			$.post('/farmacia/aso/risco/'+tipo, {aso_id: {{ $aso->id }}, risco_id: $(this).val() }, function(data){
-				console.log(data)
+
 			})
 
 		});

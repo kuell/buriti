@@ -7,7 +7,7 @@
                 <h4 class="modal-title" id="myModalLabel">Diga-nos qual é sua duvida</h4>
             </div>
             <div class="modal-body">
-                <iframe src="http://10.1.1.248:81" width="100%" height="500px" style="border:0px"></iframe>
+                <iframe src="http://10.1.1.3:81" width="100%" height="500px" style="border:0px"></iframe>
             </div>
         </div>
     </div>

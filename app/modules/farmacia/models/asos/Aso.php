@@ -47,7 +47,7 @@ class Aso extends \Eloquent {
 	}
 
 	public function scopeAbertos($query) {
-		return $query->where('situacao', '<>', 'fechado');
+		return $query->whereNotIn('situacao', ['fechado', 'deletada']);
 	}
 
 	public function newColaborador() {

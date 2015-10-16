@@ -2,16 +2,17 @@
 
 @section('main')
 <section class="content">
-    {{ HTML::head('Setores', 'controla os setores') }}
     <div class="box box-primary">
         <div class="box-header">
             <i class="ion ion-clipboard"></i>
             <h4 class="box-title">Setores</h4>
-            <div class="clearfix no-border">
-                   {{ Form::adicionar('/setors/create') }}
-            </div>
         </div><!-- /.box-header -->
         <div class="box-body">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <a href="/setors/create" class="btn btn-default pull-right"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
+                 </div>
+             </div>
             @include('cadastros::setors.lista')
         </div>
     </div>

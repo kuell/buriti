@@ -1,16 +1,20 @@
 @extends('dashboard.index')
 
 @section('main')
-<div class="box box-info">
-    {{ HTML::head('Colaboradores', 'controla os colaboradores') }}
-    {{ HTML::boxhead('Editar Colaborador: '.$colaborador->nome) }}
+<div class="box box-primary">
+	<div class="box-header">
+		<h4 class="box-title">
+			Alteração do setor - {{ $colaborador->nome }}
+		</h4>
+	</div>
 
-    <div class="box-body">
-	<div class="col-md-10">
-		{{ Form::model($colaborador, array('method' => 'PATCH', 'route' => array('colaboradors.update', $colaborador->id) , 'rule'=>'form')) }}
+
+	<div class="box-body">
+
+		{{ Form::model($colaborador, array('method' => 'PATCH', 'route' => array('colaboradors.update', $colaborador->id) , 'classs'=>'form')) }}
 	    	@include('cadastros::colaboradores.form')
 	    {{ Form::close() }}
-	</div>
+
     </div>
 </div>
 @endsection

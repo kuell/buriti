@@ -10,6 +10,40 @@ class Colaborador extends Eloquent {
 		'data_admissao'  => 'required',
 	);
 
+	public static function boot() {
+		parent::boot();
+
+		static ::updating(function ($colaborador) {
+				$col = Colaborador::find($colaborador->id);
+
+				if ($colaborador->posto_id != $col->posto_id) {
+					$info = [
+						'posto_id'     => $colaborador->posto_id,
+						'user_created' => Auth::user()->user
+					];
+
+					$colaborador->postosTrabalho()->create($info);
+				}
+				if ($colaborador->funcao_id != $col->funcao_id) {
+					$info = [
+						'funcao_id'    => $colaborador->funcao_id,
+						'data_mudanca' => date('Y-m-d'),
+						'user_created' => Auth::user()->user
+					];
+
+					$colaborador->funcaos()->create($info);
+				}
+				if ($colaborador->setor_id != $col->setor_id) {
+					$info = [
+						'setor_id'     => $colaborador->setor_id,
+						'user_created' => Auth::user()->user
+					];
+
+					$colaborador->setors()->create($info);
+				}
+			});
+	}
+
 	public function scopeAtivos($query) {
 		return colaborador::whereRaw("(situacao = 'ativo' or situacao is null)")->orderBy('nome');
 	}
@@ -61,6 +95,10 @@ class Colaborador extends Eloquent {
 	public function postoTrabalho() {
 		return $this->belongsTo('SetorPosto', 'posto_id');
 	}
+	public function postosTrabalho() {
+		return $this->hasMany('ColaboradorPosto');
+	}
+
 	public function funcao() {
 		return $this->belongsTo('SetorFuncao', 'funcao_id');
 	}

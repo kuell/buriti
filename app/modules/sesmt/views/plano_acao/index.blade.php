@@ -15,8 +15,7 @@
 
 	</div>
 	<div class="panel-body">
-
+		@include('sesmt::plano_acao.lista')
 	</div>
-
 
 @stop

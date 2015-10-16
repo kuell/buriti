@@ -147,7 +147,8 @@ class InvestigacaoController extends \BaseController {
 
 		if ($validate->passes()) {
 			$investigacao = $this->investigacaos->find($id);
-			$investigacao->update(['situacao' => 'fechado']);
+			$investigacao->update(['situacao'               => 'fechado']);
+			$investigacao->ocorrencia()->update(['situacao' => 'finalizada']);
 			return 0;
 		} else {
 			return "Houve erro na finalização da ocorencia!\n\n".implode("\n", $validate->errors()->all());

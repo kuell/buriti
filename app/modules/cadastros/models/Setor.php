@@ -3,6 +3,14 @@
 class Setor extends Eloquent {
 	protected $guarded = array();
 
+	public static function boot() {
+		parent::boot();
+
+		static ::updating(function ($setor) {
+				$setor->usuario_alteracao = Auth::user()->user;
+			});
+	}
+
 	public function scopeAtivos($query) {
 		return $query->where('situacao', true);
 	}
@@ -45,6 +53,10 @@ class Setor extends Eloquent {
 			return $agrupamentos[$this->attributes['agrupamento']];
 		}
 
+	}
+
+	public function getUltimaAtualizacaoAttribute() {
+		return date('d/m/Y H:i', strtotime($this->attributes['updated_at']));
 	}
 
 }

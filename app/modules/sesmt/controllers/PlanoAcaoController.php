@@ -2,10 +2,10 @@
 
 class PlanoAcaoController extends \BaseController {
 
-	protected $planos;
+	protected $ocorrencias;
 
-	public function __construct(PlanoAcao $plano) {
-		$this->planos = $plano;
+	public function __construct(Ocorrencia $ocorrencia) {
+		$this->ocorrencias = $ocorrencia;
 	}
 
 	/**
@@ -14,9 +14,9 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$planos = $this->planos->all();
+		$ocorrencias = $this->ocorrencias->finalizadas()->get();
 
-		return View::make('sesmt::plano_acao.index', compact('planos'));
+		return View::make('sesmt::plano_acao.index', compact('ocorrencias'));
 	}
 
 	/**
@@ -25,7 +25,9 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		//
+		$ocorrencia = $this->ocorrencias->find(Input::get('id'));
+
+		return View::make('sesmt::plano_acao.form', compact('ocorrencia'));
 	}
 
 	/**
@@ -34,7 +36,15 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function store() {
-		//
+		$input      = Input::all();
+		$ocorrencia = $this->ocorrencias->find($input['ocorrencia_id']);
+
+		unset($input['id']);
+
+		$ocorrencia->planoAcaos()->create($input);
+
+		return Redirect::route('sesmt.plano_acao.create', ['id' => $ocorrencia->id]);
+
 	}
 
 	/**
@@ -54,7 +64,9 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-		//
+		$ocorrencia = $this->ocorrencias->find($id);
+
+		return View::make('sesmt::plano_acao.plano_acao', compact('ocorrencia'));
 	}
 
 	/**
@@ -64,7 +76,11 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
-		//
+		$plano      = PlanoAcao::find($id);
+		$ocorrencia = $plano->ocorrencia;
+		$plano->update(['situacao' => 'Finalizado']);
+
+		return Redirect::route('sesmt.plano_acao.create', ['id' => $ocorrencia->id]);
 	}
 
 	/**
@@ -74,7 +90,11 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {
-		//
+		$plano      = PlanoAcao::find($id);
+		$ocorrencia = $plano->ocorrencia;
+		$plano->delete();
+
+		return Redirect::route('sesmt.plano_acao.create', ['id' => $ocorrencia->id]);
 	}
 
 }
