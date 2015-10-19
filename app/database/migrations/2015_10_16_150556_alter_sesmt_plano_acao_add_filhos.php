@@ -12,6 +12,10 @@ class AlterSesmtPlanoAcaoAddFilhos extends Migration {
 	 */
 	public function up() {
 		Schema::table('sesmt.plano_acaos', function (Blueprint $table) {
+				$table->dropColumn('ocorrencia_id');
+			});
+
+		Schema::table('sesmt.plano_acaos', function (Blueprint $table) {
 				$table->integer('pai_id')->nullable();
 				$table->integer('ocorrencia_id')->nullable();
 			});

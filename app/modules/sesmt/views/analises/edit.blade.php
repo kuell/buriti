@@ -92,10 +92,9 @@
 					options += '<option value="' + val.id + '">' + val.descricao + '</option>';
 				})
 
-				$("select[name=sub_tipo_id]").append(options);
+				$("select[name=sub_tipo_id]").append(options).val({{ $ocorrencia->sub_tipo_id }});
 			}
 		});
-		$("select[name=sub_tipo_id]").val({{ $ocorrencia->sub_tipo_id }})
 	})
 
 	</script>

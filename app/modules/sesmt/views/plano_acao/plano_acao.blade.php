@@ -68,6 +68,8 @@
 					    </div>
 					</div>
 
+					@if(!empty($ocorrencia->investigacao))
+
 					<div class="panel panel-info">
 						<div class="panel-heading">
 							<h4 class="panel-title">
@@ -112,6 +114,7 @@
 						</div>
 					</div>
 
+					@endif
 
 					<div class="panel panel-primary">
 						<div class="panel-heading">

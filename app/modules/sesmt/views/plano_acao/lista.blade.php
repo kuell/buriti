@@ -16,6 +16,7 @@
 				<td>{{ date('d/m/Y', strtotime($ocorrencia->created_at)) }}</td>
 				<td>
 					{{ Form::button('Plano de Ação', ['class'=>'btn btn-sm btn-primary', 'name'=>'plano_acao', 'value'=>$ocorrencia->id]) }}
+					{{ Form::button('Baixar', ['class'=>'btn btn-sm btn-warning', 'name'=>'baixar', 'value'=>$ocorrencia->id]) }}
 
 				</td>
 			</tr>
@@ -30,6 +31,15 @@
 
 <script type="text/javascript">
 	$(function(){
+		$('button[name=baixar]').bind('click', function() {
+			if(confirm('Deseja realmente baixar esta ocorrencia?')){
+				$.post('/sesmt/plano_acao/'+$(this).val()+'/baixar', null, function(data){
+					alert(data);
+					location.reload()
+				})
+			}
+
+		});
 
 		$('button[name=plano_acao]').bind('click',  function() {
 			$('#plano_acao_modal').modal({

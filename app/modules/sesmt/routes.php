@@ -22,7 +22,10 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'sesmt'), function 
 				Route::get('corpo/{id}', ['as'        => 'sesmt.investigacao.corpo', 'uses'        => 'InvestigacaoController@getParteCorpo']);
 				Route::post('corpo/{id}', ['as'       => 'sesmt.investigacao.corpo', 'uses'       => 'InvestigacaoController@setParteCorpo']);
 				Route::get('corpo/{id}/delete', ['as' => 'sesmt.investigacao.corpo.destroy', 'uses' => 'InvestigacaoController@destroyParteCorpo']);
+			});
 
+		Route::group(['prefix'             => 'plano_acao'], function () {
+				Route::post('{id}/baixar', ['as' => 'sesmt.plano_acao.baixar', 'uses' => 'PlanoAcaoController@setBaixar']);
 			});
 
 		Route::group(['prefix' => 'relatorios'], function () {

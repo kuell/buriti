@@ -109,4 +109,12 @@ class PlanoAcaoController extends \BaseController {
 		return Redirect::route('sesmt.plano_acao.create', ['id' => $ocorrencia->id]);
 	}
 
+	public function setBaixar($id) {
+		$ocorrencia           = $this->ocorrencias->find($id);
+		$ocorrencia->situacao = 'baixada';
+		$ocorrencia->save();
+
+		return 'Ocorencia baixada com sucesso!';
+	}
+
 }
