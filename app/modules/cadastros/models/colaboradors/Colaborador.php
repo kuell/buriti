@@ -14,6 +14,7 @@ class Colaborador extends Eloquent {
 		parent::boot();
 
 		static ::updating(function ($colaborador) {
+
 				$col = Colaborador::find($colaborador->id);
 
 				if ($colaborador->posto_id != $col->posto_id) {
@@ -36,6 +37,8 @@ class Colaborador extends Eloquent {
 				if ($colaborador->setor_id != $col->setor_id) {
 					$info = [
 						'setor_id'     => $colaborador->setor_id,
+						'aso_id'       => Input::get('id'),
+						'posto_id'     => $colaborador->posto_id,
 						'user_created' => Auth::user()->user
 					];
 

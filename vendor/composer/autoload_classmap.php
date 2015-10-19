@@ -12,6 +12,7 @@ return array(
     'AlterAsoAddAjuste' => $baseDir . '/app/database/migrations/2015_08_20_082029_alter_aso_add_ajuste.php',
     'AlterAsoAddFuncao' => $baseDir . '/app/database/migrations/2015_08_04_102826_alter_aso_add_funcao.php',
     'AlterColaboradorPostosAddUser' => $baseDir . '/app/database/migrations/2015_10_13_165154_alter_colaborador_postos_add_user.php',
+    'AlterColaboradorSetorsAddUserCreated' => $baseDir . '/app/database/migrations/2015_10_19_145039_alter_colaborador_setors_add_user_created.php',
     'AlterColaboradorTable' => $baseDir . '/app/database/migrations/2015_03_02_105635_alter_colaborador_table.php',
     'AlterColaboradorsAddPosto' => $baseDir . '/app/database/migrations/2015_09_25_105538_alter_colaboradors_add_posto.php',
     'AlterColaboradorsAddRg' => $baseDir . '/app/database/migrations/2015_09_15_160626_alter_colaboradors_add_rg.php',

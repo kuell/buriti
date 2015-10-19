@@ -1,5 +1,5 @@
 {{ Form::model($aso, ['class'=>'form form-horizontal', 'name'=>'finaliza']) }}
-
+{{ Form::hidden('aso_id', $aso->id) }}
 
 @if($aso->tipo != 'admissional')
 	<script type="text/javascript">
@@ -16,11 +16,13 @@
 			data_admissao = $('input[name=colaborador_data_admissao]').val();
 			matricula = $('input[name=colaborador_matricula]').val();
 			status = $('select[name=status]').val();
+			aso = $('input[name=aso_id]').val();
 
 			$.post("/farmacia/aso/finalizar/{{ $aso->id }}", {
 					colaborador_data_admissao: data_admissao,
 					colaborador_matricula: matricula,
-					status: status
+					status: status,
+					id:aso
 			},  function(data){
 				alert(data);
 			})
