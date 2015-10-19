@@ -68,9 +68,52 @@
 					    </div>
 					</div>
 
-
-
 					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#plano_acao" aria-expanded="true" aria-controls="collapseOne">
+						         	Investigação - {{ $ocorrencia->investigacao->id }}
+						        </a>
+							</h4>
+						</div>
+						<div id="plano_acao" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+							<div class="form-group">
+
+								<div class="col-xs-3">
+									<span>Tipo de Acidente:</span> {{ $ocorrencia->investigacao->tipo_ocorrencia_descricao }}
+
+								</div>
+
+								<div class="col-xs-3">
+									<span>Data do Acidente:</span> {{ Format::viewDate($ocorrencia->investigacao->data_acidente) }}
+								</div>
+
+								<div class="col-xs-3">
+									<span>Houve afastamento?</span> {{ $ocorrencia->investigacao->com_afastamento }}
+								</div>
+
+								<div class="col-xs-3">
+									Local de Assistência Médica: {{ $ocorrencia->investigacao->local_assistencia_medica }}
+								</div>
+
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-xs-6">
+									Local do Acidente: {{ $ocorrencia->investigacao->local_acidente }}
+								</div>
+
+								<div class="col-xs-6">
+									Descrição do Acidente: {{ $ocorrencia->investigacao->descricao_acidente }}
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h4 class="panel-title">
 								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#plano_acao" aria-expanded="true" aria-controls="collapseOne">

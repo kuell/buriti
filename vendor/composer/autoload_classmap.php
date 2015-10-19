@@ -37,6 +37,7 @@ return array(
     'AlterSesmtInvestigacao' => $baseDir . '/app/database/migrations/2015_03_10_143719_alter_sesmt_investigacao.php',
     'AlterSesmtInvestigacaoAlteracoes' => $baseDir . '/app/database/migrations/2015_09_22_133807_alter_sesmt_investigacao_alteracoes.php',
     'AlterSesmtInvestigacaoPartecorpoNaturezalesao' => $baseDir . '/app/database/migrations/2015_10_01_150558_alter_sesmt_investigacao_partecorpo_naturezalesao.php',
+    'AlterSesmtPlanoAcaoAddFilhos' => $baseDir . '/app/database/migrations/2015_10_16_150556_alter_sesmt_plano_acao_add_filhos.php',
     'AlterSesmtPlanoAcaosTable' => $baseDir . '/app/database/migrations/2015_10_08_160200_alter_sesmt_plano_acaos_table.php',
     'AlterSetorsTable' => $baseDir . '/app/database/migrations/2015_05_29_113456_alter_setors_table.php',
     'AnaliseController' => $baseDir . '/app/modules/sesmt/controllers/AnaliseController.php',

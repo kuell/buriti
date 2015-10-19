@@ -8,16 +8,27 @@ class PlanoAcao extends \Eloquent {
 	public static function boot() {
 		parent::boot();
 
-		static ::creating(function ($natureza) {
-				$natureza->usuario_created = Auth::user()->user;
-				$natureza->usuario_updated = Auth::user()->user;
-				$natureza->situacao = 'Em Aberto';
+		static ::creating(function ($plano) {
+				$plano->usuario_created = Auth::user()->user;
+				$plano->usuario_updated = Auth::user()->user;
+				$plano->situacao = 'Em Aberto';
 			});
 
-		static ::updating(function ($natureza) {
-				$natureza->usuario_updated = Auth::user()->user;
+		static ::updating(function ($plano) {
+				$plano->usuario_updated = Auth::user()->user;
+			});
+		static ::deleted(function ($plano) {
+				$plano->filhos()->delete();
 			});
 
+	}
+
+	public function pai() {
+		return $this->belongsTo('PlanoAcao', 'pai_id');
+	}
+
+	public function filhos() {
+		return $this->hasMany('PlanoAcao', 'pai_id');
 	}
 
 	public function ocorrencia() {

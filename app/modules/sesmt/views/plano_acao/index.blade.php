@@ -10,7 +10,6 @@
 		</div>
 		<div class="pull-right">
 			{{ link_to_route('sesmt.plano_acao.create', 'Adicionar', null, ['class'=>'btn btn-primary btn-sm']) }}
-
 		</div>
 
 	</div>

@@ -25,9 +25,10 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		$ocorrencia = $this->ocorrencias->find(Input::get('id'));
+		$ocorrencia   = $this->ocorrencias->find(Input::get('id'));
+		$investigacao = $ocorrencia->investigacao;
 
-		return View::make('sesmt::plano_acao.form', compact('ocorrencia'));
+		return View::make('sesmt::plano_acao.form', compact('ocorrencia'), compact('investigacao'));
 	}
 
 	/**
@@ -76,9 +77,20 @@ class PlanoAcaoController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id) {
+		$input      = Input::all();
 		$plano      = PlanoAcao::find($id);
 		$ocorrencia = $plano->ocorrencia;
-		$plano->update(['situacao' => 'Finalizado']);
+
+		switch ($input['method']) {
+			case 'Adicionar':
+				unset($input['method']);
+				$plano->filhos()->create($input);
+				break;
+
+			case 'Finalizar':
+				$plano->update(['situacao' => 'Finalizado']);
+				break;
+		}
 
 		return Redirect::route('sesmt.plano_acao.create', ['id' => $ocorrencia->id]);
 	}
