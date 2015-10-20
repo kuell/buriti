@@ -16,6 +16,7 @@ class Colaborador extends Eloquent {
 		static ::updating(function ($colaborador) {
 
 				$col = Colaborador::find($colaborador->id);
+				$colaborador->user_updated = Auth::user()->user;
 
 				if ($colaborador->posto_id != $col->posto_id) {
 					$info = [
@@ -44,6 +45,10 @@ class Colaborador extends Eloquent {
 
 					$colaborador->setors()->create($info);
 				}
+			});
+
+		static ::creating(function () {
+				$colaborador->user_created = Auth::user()->user;
 			});
 	}
 

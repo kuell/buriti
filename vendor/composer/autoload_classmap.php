@@ -16,6 +16,7 @@ return array(
     'AlterColaboradorTable' => $baseDir . '/app/database/migrations/2015_03_02_105635_alter_colaborador_table.php',
     'AlterColaboradorsAddPosto' => $baseDir . '/app/database/migrations/2015_09_25_105538_alter_colaboradors_add_posto.php',
     'AlterColaboradorsAddRg' => $baseDir . '/app/database/migrations/2015_09_15_160626_alter_colaboradors_add_rg.php',
+    'AlterColaboradorsAddUserUpdate' => $baseDir . '/app/database/migrations/2015_10_20_090557_alter_colaboradors_add_user_update.php',
     'AlterColaboradorsTable' => $baseDir . '/app/database/migrations/2015_03_04_153311_alter_colaboradors_table.php',
     'AlterFarmaciaAsoTable' => $baseDir . '/app/database/migrations/2015_05_22_110328_alter_farmacia_aso_table.php',
     'AlterFarmaciaAsoTable1' => $baseDir . '/app/database/migrations/2015_06_03_162719_alter_farmacia_aso_table.php',

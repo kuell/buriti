@@ -62,13 +62,17 @@
 	        	{{ Form::select('interno', array('0'=>'NÃO', '1'=>'SIM'), null, array('class'=>'form-control', 'required') ) }}
 	      	</div>
 
-	      	<div class="form-group col-md-5">
+	      	<div class="form-group col-md-3">
 	        	{{ Form::label('codigo_interno', 'Matricula: ') }}
 	        	{{ Form::text('codigo_interno', null, array('class'=>'form-control', 'required') ) }}
 	      	</div>
 	      	<div class="form-group col-md-3">
 	            {{ Form::label('data_admissao', 'Data de Admissão: ') }}
 	            {{ Form::text('data_admissao', null, array('class'=>'form-control data') ) }}
+	       	</div>
+	       	<div class="form-group col-md-3">
+	            {{ Form::label('situacao', 'Situação: ') }}
+	            {{ Form::select('situacao', ['ativo'=>'Ativo', 'demitido'=>'Demitido'], null, array('class'=>'form-control') ) }}
 	       	</div>
 	    </div>
     </div>
