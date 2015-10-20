@@ -11,6 +11,7 @@ return array(
     'Adobe_Font_Metrics' => $vendorDir . '/phenx/php-font-lib/classes/Adobe_Font_Metrics.php',
     'AlterAsoAddAjuste' => $baseDir . '/app/database/migrations/2015_08_20_082029_alter_aso_add_ajuste.php',
     'AlterAsoAddFuncao' => $baseDir . '/app/database/migrations/2015_08_04_102826_alter_aso_add_funcao.php',
+    'AlterColaboradorAddDataDemissao' => $baseDir . '/app/database/migrations/2015_10_20_092110_alter_colaborador_add_data_demissao.php',
     'AlterColaboradorPostosAddUser' => $baseDir . '/app/database/migrations/2015_10_13_165154_alter_colaborador_postos_add_user.php',
     'AlterColaboradorSetorsAddUserCreated' => $baseDir . '/app/database/migrations/2015_10_19_145039_alter_colaborador_setors_add_user_created.php',
     'AlterColaboradorTable' => $baseDir . '/app/database/migrations/2015_03_02_105635_alter_colaborador_table.php',

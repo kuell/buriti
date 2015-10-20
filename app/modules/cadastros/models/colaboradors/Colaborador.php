@@ -143,8 +143,15 @@ class Colaborador extends Eloquent {
 
 	public function getDataAdmissaoAttribute() {
 		if ($this->attributes['data_admissao']) {
-			$d = explode('-', $this->attributes['data_admissao']);
-			return $d[2].'/'.$d[1].'/'.$d[0];
+			return Format::viewDate($this->attributes['data_admissao']);
+		} else {
+			return '';
+		}
+	}
+
+	public function getDataDemissaoAttribute() {
+		if ($this->attributes['data_demissao']) {
+			return Format::viewDate($this->attributes['data_demissao']);
 		} else {
 			return '';
 		}
@@ -152,9 +159,7 @@ class Colaborador extends Eloquent {
 
 	public function getDataNascimentoAttribute() {
 		if ($this->attributes['data_nascimento']) {
-			$d = explode('-', $this->attributes['data_nascimento']);
-
-			return $d[2].'/'.$d[1].'/'.$d[0];
+			return Format::viewDate($this->attributes['data_nascimento']);
 		} else {
 			return null;
 		}

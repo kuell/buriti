@@ -11,7 +11,7 @@
 
 	<div class="box-body">
 
-		{{ Form::model($colaborador, array('method' => 'PATCH', 'route' => array('colaboradors.update', $colaborador->id) , 'classs'=>'form')) }}
+		{{ Form::model($colaborador, array('method' => 'PATCH', 'route' => array('colaboradors.update', $colaborador->id) , 'class'=>'form form-horizontal')) }}
 	    	@include('cadastros::colaboradores.form')
 	    {{ Form::close() }}
 
