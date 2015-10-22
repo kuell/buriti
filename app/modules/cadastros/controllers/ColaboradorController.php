@@ -5,7 +5,7 @@ class ColaboradorController extends \BaseController {
 	private $colaboradors;
 	private $reendenize;
 	private $rules = array(
-		'nome'           => 'required|min:5|unique:colaboradors,nome',
+		'nome'           => 'required|min:5|unique:v_colaboradors_ativos,nome',
 		'codigo_interno' => 'required|unique:colaboradors,codigo_interno',
 		'setor_id'       => 'required',
 	);
@@ -84,7 +84,7 @@ class ColaboradorController extends \BaseController {
 	public function update($id) {
 		$input = Input::all();
 
-		$this->rules['nome']           = $this->rules['nome'].', '.$id;
+		$this->rules['nome']           = $this->rules['nome'].','.$id;
 		$this->rules['codigo_interno'] = $this->rules['codigo_interno'].', '.$id;
 
 		$validate = Validator::make($input, $this->rules);

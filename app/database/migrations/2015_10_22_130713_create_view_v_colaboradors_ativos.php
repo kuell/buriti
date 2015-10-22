@@ -10,7 +10,10 @@ class CreateViewVColaboradorsAtivos extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		DB::statement("select * from colaboradors a  where a.situacao = 'ativo' or a.situacao is null");
+		DB::statement("CREATE OR REPLACE VIEW v_colaboradors_ativos AS
+							 SELECT *
+							   FROM colaboradors a
+							  WHERE a.situacao = 'ativo' OR a.situacao IS NULL");
 	}
 
 	/**
