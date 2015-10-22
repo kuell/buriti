@@ -13,6 +13,14 @@
 		<div class="box-body">
 			{{ Form::open(array('route' => 'colaboradors.store', 'rule'=>'form')) }}
 				@include('cadastros::colaboradores.form')
+
+				<div class="form-group">
+					<div class="col-md-12">
+					  <button type="submit" class="btn btn-primary">Gravar</button>
+					  {{ link_to_route('colaboradors.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
+					</div>
+				</div>
+
 			{{ Form::close() }}
 		</div>
 	</div>

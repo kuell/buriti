@@ -1,4 +1,4 @@
-{{ Form::model($aso, ['class'=>'form form-horizontal', 'name'=>'finaliza']) }}
+{{ Form::model($aso, ['class'=>'form form-horizontal', 'name'=>'finaliza', 'route'=>['farmacia.aso.finalizar', $aso->id]]) }}
 {{ Form::hidden('aso_id', $aso->id) }}
 
 @if($aso->tipo != 'admissional')
@@ -103,6 +103,11 @@
 			</div>
 			<div class="modal-footer">
 				{{ Form::button('Finalizar', ['class'=>'btn btn-primary', 'id'=>'finaliza']) }}
+
+				@if(!empty($aso->colaborador_id))
+					{{ link_to_route('colaboradors.edit', 'Alterar Colaborador', [$aso->colaborador_id, 'pg'=>'aso'], ['class'=>'btn btn-warning']) }}
+				@endif
+
 				{{ link_to_route('farmacia.aso.edit', 'Editar ASO', $aso->id, ['class'=>'btn btn-info']) }}
 			</div>
 

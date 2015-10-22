@@ -235,7 +235,7 @@ class AsoController extends \BaseController {
 		$input = Input::all();
 		$aso   = $this->asos->find($id);
 
-		$aso->update($input);
+		$aso->update(array_except($input, 'aso_id'));
 
 		if ($input['status'] == 'apto') {
 

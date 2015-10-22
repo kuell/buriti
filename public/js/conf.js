@@ -10,6 +10,17 @@ $(function(){
 		var texto = $(this).val().toLowerCase()
 		$(this).val(texto);
 	});
+	$('.quantidade').maskMoney({
+		thousands:'.', 
+		decimal:',', 
+		allowZero:true
+	});
+
+	$('.quantidade_null').maskMoney({
+		thousands:'.', 
+		decimal:',', 
+		allowZero: false
+	});
 
 	$('.data').mask('99/99/9999');
 	$('.data_hora').mask('99/99/9999 99:99')

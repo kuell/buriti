@@ -11,6 +11,7 @@
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/bootstrap.min.js') }}
 	{{ HTML::script('js/jquery.maskedinput.js') }}
+	{{ HTML::script('js/jquery.maskMoney.js') }}
 	{{ HTML::script('js/plugins/daterangepicker/daterangepicker.js') }}
 	{{ HTML::script('css/bootstrap-chosen/chosen.jquery.js') }}
 	{{ HTML::script('js/scripts.js') }}

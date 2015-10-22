@@ -4,7 +4,7 @@ class Colaborador extends Eloquent {
 
 	protected $guarded = array();
 	public $rules      = array(
-		'nome'           => 'required|min:5|unique:colaboradors,nome',
+		'nome'           => 'required|min:5|unique:v_colaboradors_ativos,nome',
 		'codigo_interno' => 'required|unique:colaboradors,codigo_interno',
 		'setor_id'       => 'required',
 		'data_admissao'  => 'required',
@@ -47,7 +47,7 @@ class Colaborador extends Eloquent {
 				}
 			});
 
-		static ::creating(function () {
+		static ::creating(function ($colaborador) {
 				$colaborador->user_created = Auth::user()->user;
 			});
 	}

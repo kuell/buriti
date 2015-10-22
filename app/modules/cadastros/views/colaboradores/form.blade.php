@@ -82,13 +82,6 @@
        	</div>
     </div>
 
-	<div class="form-group">
-		<div class="col-md-12">
-		  <button type="submit" class="btn btn-primary">Gravar</button>
-		  {{ link_to_route('colaboradors.index', 'Cancelar', null, array('class'=>'btn btn-danger')) }}
-		</div>
-	</div>
-
 @section('scripts')
 	@if($colaborador->situacao == 'demitido')
 		<script type="text/javascript">
