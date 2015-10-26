@@ -6,11 +6,23 @@ $(function(){
 		$(this).val(texto);
 	});
 
+	$('.email').blur(function(){
+		var texto = $(this).val().toLowerCase()
+		$(this).val(texto);
+	});
+
 	$('.minusculo').blur(function(){
 		var texto = $(this).val().toLowerCase()
 		$(this).val(texto);
 	});
 	$('.quantidade').maskMoney({
+		thousands:'.', 
+		decimal:',', 
+		allowZero:true
+	});
+	$('.valor').maskMoney({
+		prefix:'R$ ', 
+		affixesStay: false,
 		thousands:'.', 
 		decimal:',', 
 		allowZero:true

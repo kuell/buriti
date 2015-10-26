@@ -8,11 +8,18 @@
 		</script>
 	@endif
 
-	{{ Form::open(['class'=>'form form-horizontal well']) }}
+	@if(!empty(Input::get('produto')))
+		{{ Form::model($produto, ['route'=>['compras.pedidos.produtos', $pedido->id, 'produto'=>$produto->id],'class'=>'form form-horizontal well']) }}
+	@else
+		{{ Form::open(['class'=>'form form-horizontal well']) }}
+	@endif
+
+
+
 		<div class="form-group">
 			<div class="col-xs-5">
 				{{ Form::label('produto', 'Produtos: ', ['class'=>'form-label']) }}
-				{{ Form::select('produto_id', [''=>'Selecione ...']+Produto::ativos()->lists('descricao', 'id'), null, ['class'=>'form-control']) }}
+				{{ Form::select('produto_id', [''=>'Selecione ...']+Produto::ativos()->lists('descricao', 'id'), null, ['class'=>'form-control', 'autofocus']) }}
 			</div>
 			<div class="col-xs-2">
 				{{ Form::label('qtd', 'Qtd: ', ['class'=>'form-label']) }}
@@ -29,7 +36,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-xs-12">
-				{{ Form::submit('Incluir', ['class'=>'btn btn-success btn-sm']) }}
+				{{ Form::submit('Gravar', ['class'=>'btn btn-success btn-sm']) }}
 			</div>
 		</div>
 	{{ Form::close() }}
@@ -50,8 +57,8 @@
 			<tbody>
 				@foreach($pedido->produtos as $produto)
 				<tr>
-					<td>{{ link_to_route('compras.pedidos.produto', ' ', $produto->id) }}</td>
-					<td>{{ $produto->descricao }}</td>
+					<td>{{ link_to_route('compras.pedidos.produtos', $produto->id, [$pedido->id, 'produto'=>$produto->id]) }}</td>
+					<td>{{ link_to_route('compras.pedidos.produtos', $produto->descricao, [$pedido->id, 'produto'=>$produto->id]) }}</td>
 					<td>{{ Format::valorView($produto->qtd) }}</td>
 					<td>{{ Format::valorView($produto->estoque) }}</td>
 					<td>{{ $produto->prioridade }}</td>

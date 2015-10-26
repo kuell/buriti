@@ -14,8 +14,7 @@ class Investigacao extends Ocorrencia {
 		'local_acidente'    => 'required',
 		'tipo_lesao'        => 'required',
 		'dias_afastamento'  => 'required',
-		'fator_potencial'   => 'required',
-		'rota_acidente'     => 'required'
+		'fator_potencial'   => 'required'
 	];
 
 	public function scopeAbertas($query) {

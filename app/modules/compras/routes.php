@@ -7,7 +7,10 @@ Route::group(array('before' => 'auth', 'prefix' => 'compras'), function () {
 				Route::get('{id}/produtos', ['as'         => 'compras.pedidos.produtos', 'uses'         => 'PedidosController@getProdutos']);
 				Route::post('{id}/produtos', ['as'        => 'compras.pedidos.produtos', 'uses'        => 'PedidosController@setProdutos']);
 				Route::post('{id}/produtos/delete', ['as' => 'compras.pedidos.produtos.delete', 'uses' => 'PedidosController@destroyProdutos']);
+
 			});
+
+		Route::get('comprar/produtos', ['as' => 'compras.pedidos.comprar.produtos', 'uses' => 'PedidosController@getComprarProdutos']);
 
 		Route::group(['prefix' => 'produtos'], function () {
 				Route::get('find/{id}/pedidos', function ($id) {

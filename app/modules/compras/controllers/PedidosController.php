@@ -57,7 +57,9 @@ class PedidosController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		//
+		$pedido = $this->pedidos->find($id);
+
+		return View::make('compras::pedidos.show', compact('pedido'));
 	}
 
 	/**
@@ -107,9 +109,14 @@ class PedidosController extends \BaseController {
 	}
 
 	public function getProdutos($id) {
-		$pedido = $this->pedidos->find($id);
+		$pedido  = $this->pedidos->find($id);
+		$produto = null;
 
-		return View::make('compras::pedidos.produtos', compact('pedido'));
+		if (!empty(Input::get('produto'))) {
+			$produto = $pedido->produtos->find(1);
+		}
+
+		return View::make('compras::pedidos.produtos', compact('pedido'), compact('produto'));
 	}
 
 	public function setProdutos($id) {
@@ -120,8 +127,15 @@ class PedidosController extends \BaseController {
 		$validate = Validator::make($input, $rules->rules);
 
 		if ($validate->passes()) {
-			$pedido->produtos()->create($input);
+
+			if (empty(Input::get('produto'))) {
+				$pedido->produtos()->create($input);
+			} else {
+				$produto = $pedido->produtos->find(Input::get('produto'));
+				$produto->update(array_except($input, 'produto'));
+			}
 			return Redirect::route('compras.pedidos.produtos', $id);
+
 		} else {
 			return Redirect::route('compras.pedidos.produtos', $id)
 				->withInput()
@@ -133,9 +147,13 @@ class PedidosController extends \BaseController {
 
 	public function destroyProdutos($id) {
 		$pedido = $this->pedidos->find($id)->produtos->find(Input::get('produto_id'))->delete();
-
 		return 'Produto excluido com sucesso!';
+	}
 
+	public function getComprarProdutos() {
+		$produtos = PedidoProduto::requisitados()->get();
+
+		return View::make('compras::pedidos.comprar_produtos', compact('produtos'));
 	}
 
 }

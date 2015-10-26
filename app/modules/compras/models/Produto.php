@@ -5,7 +5,7 @@ class Produto extends \Eloquent {
 	protected $fillable = [];
 	protected $table    = "compras.produtos";
 	public $rules       = [
-		'descricao' => 'required'
+		'descricao' => 'required|unique:compras.produtos,descricao'
 	];
 
 	public static function boot() {

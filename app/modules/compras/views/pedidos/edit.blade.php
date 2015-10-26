@@ -48,7 +48,8 @@
 				<iframe src="{{ URL::route('compras.pedidos.produtos', $pedido->id) }}" width="100%" height="600px" class="frame" style="border:0;"></iframe>
 			</div>
 			<div class="modal-footer">
-
+				{{ Form::button('Visualizar', ['class'=>'btn btn-primary', 'name'=>'view', 'value'=>$pedido->id]) }}
+				<button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">Sair</button>
 			</div>
 		</div>
 	</div>
@@ -61,6 +62,9 @@
 		$(function(){
 			$('#itens').bind('click', function(){
 				$('#itens_modal').modal()
+				$('button[name=view]').bind('click',  function() {
+					open('/compras/pedidos/'+$(this).val(), 'Print', 'width=200, top=40')
+				});
 			})
 		})
 	</script>

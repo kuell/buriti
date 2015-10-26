@@ -27,4 +27,16 @@ class Format {
 	public static function valorView($valor, $casas = 2) {
 		return number_format($valor, $casas, ',', '.');
 	}
+
+	public static function dbPeriodo($periodo) {
+		$p = explode(' - ', $periodo);
+
+		$periodo = [
+			0=> Format::dbDate($p[0]),
+			1=> Format::dbDate($p[1])
+		];
+
+		return $periodo;
+
+	}
 }
