@@ -5,6 +5,8 @@
 				<th>#</th>
 				<th>Descrição</th>
 				<th>Data de Criação</th>
+				<th>Queixa</th>
+				<th>Diagnostico</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -14,6 +16,8 @@
 				<td>{{ $ocorrencia->id }}</td>
 				<td>{{ $ocorrencia->colaborador->nome }}</td>
 				<td>{{ date('d/m/Y', strtotime($ocorrencia->created_at)) }}</td>
+				<td>{{ $ocorrencia->queixa->descricao }}</td>
+				<td>{{ $ocorrencia->diagnostico }}</td>
 				<td>
 					{{ Form::button('Plano de Ação', ['class'=>'btn btn-sm btn-primary', 'name'=>'plano_acao', 'value'=>$ocorrencia->id]) }}
 					{{ Form::button('Baixar', ['class'=>'btn btn-sm btn-warning', 'name'=>'baixar', 'value'=>$ocorrencia->id]) }}
