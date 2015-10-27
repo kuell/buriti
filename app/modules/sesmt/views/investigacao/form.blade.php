@@ -111,6 +111,13 @@
 
 <div class="form-group">
     <div class="col-md-12">
+        {{ Form::label('possiveis_eventos_causadores', 'Possiveis eventos causadores do Acidente ', ['class'=>'form-label']) }}
+        {{ Form::select('rota_acidente', [''=>'Selecione ...', ' FATOR PESSOA L  > RELACIONADO AOS ASPECTOS COMPORTAMENTAIS , COMO , POR EXEMPLO; QUEBRA DE DISCIPLINAS ORGANIZACIONAL , NÃO USO DO EPI , NÃO SEGUIR OU PULAR ETAPAS DO PROCEDIMENTOS , INDISCIPLINA, ATITUDES IMPREVISÍVEIS.', 'FATOR ORGANIZACIONAL   > ENVOLVE DESVIOS RELACIONADOS AOS ELEMENTOS DO SISTEMAS DE GESTÃO SMS , COMO POR EXEMPLO : DIVERGENCIAS ENTRE POLITICA  E APARTICA GERENCIAL , FLHA DE QULAIFICAÇÃO E TREINAMENTO , AUSENCIA OU DEFICIÊNCIA DE PROCEDIMENTOS ENTRE OUTROS .', 'FATOR OPERACIONAL  > ENVOLVE APECTOS FISICOS RELACIONADOS Á ORGANIZAÇÃO DA PRODUÇÃO E AS CONDIÇÕES DO MEIO AMBIENTE DE TRABALHO , PROTEÇÃO DE MAQUINAS E EQUIPAMENTOS , COMO POR  EXEMPLO : FERRAMENTAS IMPROVISADAS , PROTEÇÕES INEXISTENTES E DESEQUILIBRIO NO CICLO DE TRABALHO-DESCANSO , ENTRE OUTROS'], null, ['class'=>'form-control']) }}
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-12">
         {{ Form::label('descricao', 'Descrição do Acidente: ', ['class'=>'form-label']) }}
         {{ Form::textarea('descricao_acidente', null, ['class'=>'form-control']) }}
     </div>
