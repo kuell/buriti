@@ -16,7 +16,7 @@
 				<td>{{ $ocorrencia->id }}</td>
 				<td>{{ $ocorrencia->colaborador->nome }}</td>
 				<td>{{ date('d/m/Y', strtotime($ocorrencia->created_at)) }}</td>
-				<td>{{ $ocorrencia->queixa->descricao }}</td>
+				<td>{{ $ocorrencia->queixa->descricao or null }}</td>
 				<td>{{ $ocorrencia->diagnostico }}</td>
 				<td>
 					{{ Form::button('Plano de Ação', ['class'=>'btn btn-sm btn-primary', 'name'=>'plano_acao', 'value'=>$ocorrencia->id]) }}

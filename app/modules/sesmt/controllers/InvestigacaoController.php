@@ -213,4 +213,47 @@ class InvestigacaoController extends \BaseController {
 
 		return View::make('sesmt::investigacao.parte_corpo', compact('investigacao'));
 	}
+
+	public function getCat($id) {
+		$investigacao = $this->investigacaos->find($id);
+
+		return View::make('sesmt::investigacao.cat', compact('investigacao'));
+	}
+	public function setCat($id) {
+		$input        = Input::all();
+		$investigacao = $this->investigacaos->find($id);
+
+		if (!$investigacao->ocorrencia->colaborador->grau_instrucao) {
+			$investigacao->ocorrencia->colaborador->grau_instrucao = $input['grau_instrucao'];
+		}
+		if (!$investigacao->ocorrencia->colaborador->cbo) {
+			$investigacao->ocorrencia->colaborador->cbo = $input['cbo'];
+		}
+
+		if ($investigacao->ocorrencia->colaborador->remuneracao == '0,00') {
+			$investigacao->ocorrencia->colaborador->remuneracao = $input['remuneracao'];
+		}
+		$investigacao->ocorrencia->colaborador->save();
+
+		if (!empty($input['cat'])) {
+			unset($input['cat']);
+			$input['remuneracao'] = Format::valorDb($input['remuneracao']);
+			$investigacao->cat()->update(array_except($input, '_token'));
+		} else {
+			$cat      = new InvestigacaoCat();
+			$validate = Validator::make($input, $cat->rules);
+
+			if ($validate->passes()) {
+				$investigacao->cat()->create($input);
+				return Redirect::route('sesmt.investigacao.cat', $id);
+			} else {
+				return Redirect::route('sesmt.investigacao.cat', $id)
+					->withInput()
+					->withErrors($validate)
+					->with('message', 'Erro na inclusão das informações!');
+			}
+
+		}
+
+	}
 }

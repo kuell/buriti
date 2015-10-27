@@ -231,7 +231,14 @@ class Colaborador extends Eloquent {
 		} else {
 			return $this->attributes['situacao'];
 		}
+	}
 
+	public function getRemuneracaoAttribute() {
+		return Format::valorView($this->attributes['remuneracao']);
+	}
+
+	public function setRemuneracaoAttribute($remuneracao) {
+		return $this->attributes['remuneracao'] = Format::valorDB($remuneracao);
 	}
 
 }

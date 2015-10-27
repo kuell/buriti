@@ -21,6 +21,10 @@ class Investigacao extends Ocorrencia {
 		return $query->where('situacao', '<>', 'fechado');
 	}
 
+	public function cat() {
+		return $this->hasOne('InvestigacaoCat');
+	}
+
 	public function ocorrencia() {
 		return $this->belongsTo('Ocorrencia');
 	}

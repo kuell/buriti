@@ -81,6 +81,22 @@
             {{ Form::text('data_demissao', null, array('class'=>'form-control data', 'disabled') ) }}
        	</div>
     </div>
+    <div class="form-group">
+    	<div class="col-md-3">
+        	{{ Form::label('grau_instrucao', 'Grau de Instrução: ') }}
+        	{{ Form::text('grau_instrucao', null, array('class'=>'form-control', 'required') ) }}
+      	</div>
+      	<div class="col-md-3">
+        	{{ Form::label('remuneracao', 'Remuneração: ') }}
+        	{{ Form::text('remuneracao', null, array('class'=>'form-control valor', 'required') ) }}
+      	</div>
+      	<div class="col-md-3">
+        	{{ Form::label('cbo', 'CBO: ') }}
+        	{{ Form::text('cbo', null, array('class'=>'form-control', 'required') ) }}
+      	</div>
+
+
+    </div>
 
 @section('scripts')
 	@if($colaborador->situacao == 'demitido')
