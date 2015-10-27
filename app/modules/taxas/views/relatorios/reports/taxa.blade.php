@@ -12,7 +12,7 @@ class TaxaView extends RelatorioController {
 		$this->Cell(95, 5, "Nome: ".$corretor->nome, "BL", 0, "L", 0);
 		$this->Cell(95, 5, "", "BR", 0, "L", 0);
 		$this->Ln(8);
-
+		
 	}
 
 }
