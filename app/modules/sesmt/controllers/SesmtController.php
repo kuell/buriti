@@ -23,4 +23,10 @@ class SesmtController extends \BaseController {
 		return View::make('sesmt::relatorios.reports.colaborador_monitoramento', compact('setor'));
 	}
 
+	public function getSetorAcidentes() {
+		$setors = Setor::ativos()->get();
+
+		return View::make('sesmt::relatorios.reports.setor_acidentes', compact('setors'));
+	}
+
 }

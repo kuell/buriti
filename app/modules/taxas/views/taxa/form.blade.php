@@ -1,7 +1,7 @@
 <div class="form-group">
 	<div class="col-md-3">
 		{{ Form::label('data', 'Data: ', ['class'=>'form-label']) }}
-		{{ Form::text('data', null, ['class'=>'form-control data']) }}
+		{{ Form::text('data', Input::get('periodo', date('d/m/Y')), ['class'=>'form-control data']) }}
 	</div>
 	<div class="col-md-6">
 		{{ Form::label('corretor', 'Corretor: ', ['class'=>'form-label']) }}

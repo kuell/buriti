@@ -14,7 +14,7 @@
 				<div class="form-group">
 					<div class="col-md-3">
 						{{ Form::label('periodo', 'Periodo', ['class'=>'form-label']) }}
-						{{ Form::text('periodo', null,['class'=>'form-control periodo']) }}
+						{{ Form::text('periodo', Input::get('periodo', date('01/m/Y').' - '.date('d/m/Y')),['class'=>'form-control periodo']) }}
 					</div>
 
 					<div class="col-md-3">

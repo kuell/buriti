@@ -18,7 +18,13 @@ class TaxaController extends \BaseController {
 	}
 
 	public function getRelatorioTaxas() {
-		$corretor = Corretor::find(Input::get('corretor_id'));
+		if (empty(Input::get('corretor_id'))) {
+			$corretor                 = new Corretor();
+			$corretor->codigo_interno = '0';
+			$corretor->nome           = "TODOS";
+		} else {
+			$corretor = Corretor::find(Input::get('corretor_id'));
+		}
 
 		return View::make('taxas::relatorios.reports.taxa', compact('corretor'));
 	}

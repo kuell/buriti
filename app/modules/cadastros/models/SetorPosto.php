@@ -13,6 +13,10 @@ class SetorPosto extends \Eloquent {
 		return $this->hasMany('Colaborador', 'posto_id');
 	}
 
+	public function ocorrencias() {
+		return $this->hasMany('Ocorrencia', 'posto_id');
+	}
+
 	public static function riscos($posto_id) {
 		$riscos = SesmtPostoRisco::where('situacao', 'ativo')->distinct()->get();
 		$res    = [];

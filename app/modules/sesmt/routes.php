@@ -35,6 +35,7 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'sesmt'), function 
 		Route::group(['prefix' => 'relatorios'], function () {
 				Route::get('/', 'SesmtController@getRelatorios');
 				Route::get('colaborador_monitoramento', 'SesmtController@getColaboradorMonitoramento');
+				Route::get('setor_acidentes', 'SesmtController@getSetorAcidentes');
 			});
 
 		Route::resource('investigacao', 'InvestigacaoController');

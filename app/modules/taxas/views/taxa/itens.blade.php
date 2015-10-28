@@ -78,7 +78,7 @@
 
 <script type="text/javascript">
 	$(function(){
-		$('select[name=item_id]').chosen();
+		$('select[name=item_id]').chosen({width: '100%'});
 		$('button[name=delete]').bind('click', function(){
 
 			if(confirm('Deseja excluir o item?')){
