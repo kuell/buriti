@@ -16,7 +16,7 @@ class InvestigacaoView extends RelatorioController {
 		$this->AddPage();
 		$this->capa($investigacao);
 
-		$this->tituloDoc = 'Ficha de Investigação de Acidente. Investigação nº: '.$investigacao->id;
+		$this->tituloDoc = 'Ficha de Investigação de Incidente. Investigação nº: '.$investigacao->id;
 
 		$this->AddPage();
 		$this->colaborador($investigacao->colaborador);
@@ -32,7 +32,7 @@ class InvestigacaoView extends RelatorioController {
 	function pagina3($investigacao) {
 		$this->setFillColor('200');
 
-		$this->Cell(0, 4, utf8_decode('Descrição do Acidente: '), 'RTL', 0, 'L', 1);
+		$this->Cell(0, 4, utf8_decode('Descrição do Incidente: '), 'RTL', 0, 'L', 1);
 		$this->Ln();
 		$this->Cell(0, 70, ' ', 'RL', 0);
 		$this->Ln();
@@ -112,7 +112,7 @@ class InvestigacaoView extends RelatorioController {
 		$this->Cell(0, 8, utf8_decode('Ocorrencia Nº: '.$investigacao->id), 'RTL', 0, 'L', 0);
 		$this->Ln();
 
-		$this->Cell(0, 8, utf8_decode('Data do Acidente: '.$investigacao->data_ocorrencia), 'RL', 0, 'L', 0);
+		$this->Cell(0, 8, utf8_decode('Data do Incidente: '.$investigacao->data_ocorrencia), 'RL', 0, 'L', 0);
 		$this->Ln();
 
 		$this->Cell(0, 8, utf8_decode('Colaborador: '.$investigacao->colaborador->nome), 'RL', 0, 'L', 0);
@@ -135,7 +135,7 @@ class InvestigacaoView extends RelatorioController {
 		$this->image(public_path().'/img/corpo_humano.png', 10, 31, 190, 70);
 		$this->Ln(72);
 
-		$this->Cell(0, 4, 'POSSIVEIS EVENTOS CAUSADORES DO ACIDENTE:', 'RTL', 0, 'L', 1);
+		$this->Cell(0, 4, 'POSSIVEIS EVENTOS CAUSADORES DO INCIDENTE:', 'RTL', 0, 'L', 1);
 		$this->Ln();
 
 		$this->MultiCell(0, 4, utf8_decode(' (     ) FATOR PESSOA L  > RELACIONADO AOS ASPECTOS COMPORTAMENTAIS , COMO , POR EXEMPLO; QUEBRA DE DISCIPLINAS ORGANIZACIONAL , NÃO USO DO EPI , NÃO SEGUIR OU PULAR ETAPAS DO PROCEDIMENTOS , INDISCIPLINA, ATITUDES IMPREVISÍVEIS.
@@ -210,7 +210,7 @@ TIPO DE ATIVIDADES;
 	function ocorrencia($investigacao) {
 		$this->setFillColor('200');
 
-		$this->Cell(0, 6, utf8_decode(' ~ INFORMAÇÕES DO ACIDENTE ~'), 1, 0, 'C', 1);
+		$this->Cell(0, 6, utf8_decode(' ~ INFORMAÇÕES DO INCIDENTE ~'), 1, 0, 'C', 1);
 		$this->Ln();
 
 		$this->setFillColor('230');
@@ -257,13 +257,13 @@ TIPO DE ATIVIDADES;
 
 		$this->setFont('Arial', '', 9);
 
-		$this->Cell(30, 6, utf8_decode('Data do Acidente: '), 'BLT', 0, 'L', 1);
+		$this->Cell(30, 6, utf8_decode('Data do Incidente: '), 'BLT', 0, 'L', 1);
 		$this->Cell(20, 6, '___/___/____', 'BR', 0, 'L', 0);
 
 		$this->Cell(30, 6, utf8_decode('Horas Trabalhadas: '), 'BLT', 0, 'L', 1);
 		$this->Cell(18, 6, '____:____', 'BR', 0, 'C', 0);
 
-		$this->Cell(30, 6, utf8_decode('Local do Acidente: '), 'BLT', 0, 'L', 1);
+		$this->Cell(30, 6, utf8_decode('Local do Incidente: '), 'BLT', 0, 'L', 1);
 		$this->Cell(62, 6, '_________________________________', 'BR', 0, 'L', 0);
 
 		$this->Ln();
@@ -412,14 +412,14 @@ TIPO DE ATIVIDADES;
 
 		$this->Ln();
 
-		$this->Cell(0, 4, utf8_decode('Fatores Potenciais de Acidentes:  '), 'LTR', 0, 'L', 1);
+		$this->Cell(0, 4, utf8_decode('Fatores Potenciais de Incidente:  '), 'LTR', 0, 'L', 1);
 		$this->Ln();
 		$this->setFont('Arial', '', 7);
 		$this->MultiCell(190, 4, utf8_decode('(   ) PRATICAS ABAIXO DO PADRÃO: OPERAR EQUIPAMENTOS SEM AUTORIZAÇÃO NÃO SINALIZAR, FALHA DE BLOQUEIO, TORNAR DISPOSITIVOS DE SEGURANÇA INOPERANTES, USO DE IMPROPRIO DE EQUIPAMENTOS, USO DE ALCOOL E DROGAS, ENTRE OUTROS.
  (   ) CONDIÇÕES ABAIXO DO PADRÃO, (CONDIÇÃO INSEGURA );
  PROTEÇÃO AUSENTE  OU INADEQUADA , PERIGO DE EXPLOSÃO OU INCENDIO , AUSENCIA  DE ORDEM E LIMPEZA , EXPOSIÇÃO AOS AGENTES AMBIENTAIS NOCIVOS .'), 'RL', 'L', 0);
 
-		$this->Cell(0, 4, utf8_decode('Preencher em caso de Acidente de Trajeto:  '), 'LTR', 0, 'L', 1);
+		$this->Cell(0, 4, utf8_decode('Preencher em caso de Incidente de Trajeto:  '), 'LTR', 0, 'L', 1);
 
 		$this->Ln();
 
