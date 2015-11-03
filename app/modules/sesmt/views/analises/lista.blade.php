@@ -26,8 +26,12 @@
 
 					@if($analise->situacao != 'finalizada')
 						@if(count($analise->investigacao) == 0)
-						<button rule="group" title="Analizar ocorrência" name="analisar" class="btn btn-sm btn-primary" value="{{ $analise->id }}"><i class="glyphicon glyphicon-refresh"></i> </button>
+							<button rule="group" title="Analizar ocorrência" name="analisar" class="btn btn-sm btn-primary" value="{{ $analise->id }}"><i class="glyphicon glyphicon-refresh"></i> </button>
+						{{-- Se for tipo igual incidente --}}
+						@if($analise->tipo_id == 2)
 
+						<button name="print" title="Investigar Ocorrencia" rule="group" class="btn btn-sm btn-info" value="{{ $analise->id }}"><i class="glyphicon glyphicon-search"></i> </button>
+						@endif
 						<button name="finalizar" title="Finalizar Ocorrencia" rule="group" class="btn btn-sm btn-warning" value="{{ $analise->id }}"><i class="glyphicon glyphicon-ok"></i> </button>
 						@else
 							Em Investigação
@@ -65,7 +69,11 @@
 
 				})
 			}
-		})
+		});
+
+		$('button[name=print]').bind('click', function() {
+			open('/sesmt/analise/'+$(this).val(), 'Print', 'channelmode=yes');
+		});
 
 		$('button[name=analisar]').bind('click', function(){
 			$('#myModal').modal({

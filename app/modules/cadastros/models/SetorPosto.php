@@ -40,4 +40,20 @@ class SetorPosto extends \Eloquent {
 		return $this->hasMany('Aso', 'posto_id');
 	}
 
+	public function getQuantDiasPerdidos() {
+
+		$qtd = DB::select('	select
+								coalesce(sum(b.fim_afastamento - b.inicio_afastamento),0) as total
+							from
+								farmacia.ocorrencias a
+								inner join farmacia.ocorrencia_atestados b on a.id = b.ocorrencia_id
+								inner join setors c on a.setor_id = c.id
+							where
+								a.setor_id = ? and
+								a.posto_id = ?', [$this->attributes['setor_id'], $this->attributes['id']]);
+
+		return $qtd[0]->total;
+
+	}
+
 }

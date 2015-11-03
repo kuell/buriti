@@ -64,7 +64,9 @@ class AnaliseController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id) {
-		//
+		$investigacao = $this->analises->find($id);
+
+		return View::make('sesmt::analises.print', compact('investigacao'));
 	}
 
 	/**
