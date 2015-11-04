@@ -62,9 +62,10 @@
             <li class="dropdown notifications-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-warning"></i>
-                    <span class="label label-warning">10</span>
+                   {{--  <span class="label label-warning">10</span>  --}}
                 </a>
                 <ul class="dropdown-menu">
+                 {{--
                     <li class="header">You have 10 notifications</li>
                     <li>
                         <!-- inner menu: contains the actual data -->
@@ -98,6 +99,7 @@
                         </ul>
                     </li>
                     <li class="footer"><a href="#">View all</a></li>
+                  --}}
                 </ul>
             </li>
 
@@ -106,10 +108,11 @@
             <li class="dropdown tasks-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-tasks"></i>
-                    <span class="label label-danger">9</span>
+                   {{--  <span class="label label-danger">9</span>  --}}
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="header">You have 9 tasks</li>
+                  {{--
+                   <li class="header">You have 9 tasks</li>
                     <li>
                         <!-- inner menu: contains the actual data -->
                         <ul class="menu">
@@ -170,6 +173,7 @@
                     <li class="footer">
                         <a href="#">View all tasks</a>
                     </li>
+                   --}}
                 </ul>
             </li>
 
@@ -204,7 +208,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        {{ link_to_route('users.show', 'Perfil', Auth::user()->id, array('class'=>'btn btn-default btn-flat')) }}
+                                        {{-- link_to_route('users.show', 'Perfil', Auth::user()->id, array('class'=>'btn btn-default btn-flat')) --}}
                                     </div>
                                     <div class="pull-right">
                                         {{ link_to_route('users.logout', 'Sair', null, array('class'=>'btn btn-default btn-flat')) }}
