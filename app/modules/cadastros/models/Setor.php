@@ -32,6 +32,10 @@ class Setor extends Eloquent {
 
 	}
 
+	public function ocorrencias() {
+		return $this->hasMany('Ocorrencia');
+	}
+
 	public function funcaos() {
 		return $this->hasMany('SetorFuncao', 'setor_id');
 	}

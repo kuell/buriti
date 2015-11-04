@@ -11,11 +11,11 @@ class RelatorioController extends Fpdf {
 	public function Header() {
 		$this->SetFont('Arial', 'B', 16);
 		$this->SetFillColor(200);
-		$this->image(public_path().'/img/logo.png', 11, 11, 25, 11);
-		$this->Cell(0, 8, 'Frizelo Frigorificos Ltda', 'LTR', 0, 'C');
+		//$this->image(public_path().'/img/no_image.png', 11, 11, 25, 11);
+		$this->Cell(0, 8, 'Buriti Carnes', 'LTR', 0, 'C');
 		$this->Ln();
 		$this->SetFont('Arial', '', 6);
-		$this->Cell(0, 5, 'ROD. BR-262 - KM 375, ZONA SUBURBANA, TERENOS-MS FONE: (67) - 3246-8100', 'BLR', 0, 'C', 0);
+		$this->Cell(0, 5, '', 'BLR', 0, 'C', 0);
 		$this->SetFont('Arial', '', 9);
 		$this->Ln(7);
 		if ($this->tituloDoc != '') {
@@ -29,7 +29,7 @@ class RelatorioController extends Fpdf {
 		$this->SetY(-15);
 		$this->SetFont("Arial", "I", 6);
 		$this->SetDrawColor(200);
-		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()." | Processado em ".date('d/m/Y H:i').' | Usuario: '.strtoupper(Auth::user()->user), 0, 0, "C");
+		$this->Cell(0, 4, utf8_decode("Página ").$this->PageNo()." | Processado em ".date('d/m/Y H:i').' | Usuario: '.strtoupper(Auth::user()->nome), 0, 0, "C");
 	}
 
 	// Rotação de Celulas

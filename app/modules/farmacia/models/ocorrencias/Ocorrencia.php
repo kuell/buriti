@@ -7,6 +7,10 @@ class Ocorrencia extends Eloquent {
 		'colaborador_id' => 'required'
 	];
 
+	public function scopeAcidentes($query) {
+		return $query->where('sesmt', true);
+	}
+
 	public function scopeFinalizadas($query) {
 		return $query->where('situacao', 'finalizada');
 	}
