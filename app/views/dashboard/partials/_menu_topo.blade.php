@@ -1,7 +1,7 @@
 
     <a href="/" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        Frizelo Frigorificos Ltda.
+        Buriti Carnes
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">

@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>SIG | Frizelo Frigorificos Ltda.</title>
+    <title>SIG | Buriti Carnes.</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     {{ HTML::style('css/bootstrap.min.css') }}
