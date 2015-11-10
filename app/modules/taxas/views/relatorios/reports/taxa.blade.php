@@ -102,10 +102,18 @@ class TaxaView extends RelatorioController {
 					$qtd  = $qtd+$val['qtd'];
 					$peso = $peso+$val['peso'];
 				}
+				if(empty($taxa[2]['valor'])){
+					$taxa[2]['valor'] = 0;
+				}
+				if(empty($taxa[1]['valor'])){
+					$taxa[1]['valor'] = 0;
+				}
+								
 
 				$this->Cell(90, 5, $item, 1, 0, "L", 0);
 				$this->Cell(25, 5, number_format($qtd, 0, ',', '.'), 1, 0, "C", 0);
 				$this->Cell(25, 5, number_format($peso, 2, ',', '.'), 1, 0, "C", 0);
+				
 				$this->Cell(25, 5, 'R$ '.number_format($taxa[2]['valor'], 2, ',', '.'), 1, 0, "R", 0);
 				$this->Cell(25, 5, 'R$ '.number_format($taxa[1]['valor'], 2, ',', '.'), 1, 0, "R", 0);
 				$this->Ln();
