@@ -40,6 +40,7 @@ class Corretor extends \Eloquent {
 					c.descricao as item,
 					c.grupo,
 					b.tipo,
+					c.fiscal,
 					sum(qtd) as qtd,
 					sum(peso) as peso,
 					sum(valor) as valor
@@ -59,6 +60,7 @@ class Corretor extends \Eloquent {
 					c.descricao as item,
 					c.grupo,
 					b.tipo,
+					c.fiscal,
 					sum(qtd) as qtd,
 					sum(peso) as peso,
 					sum(valor) as valor
@@ -81,8 +83,8 @@ class Corretor extends \Eloquent {
 				$return[$taxa->grupo][$taxa->item][$taxa->tipo] = [
 					'qtd'   => $taxa->qtd,
 					'peso'  => $taxa->peso,
-					'valor' => $taxa->valor
-
+					'valor' => $taxa->valor,
+					'fiscal' => $taxa->fiscal
 				];
 			}
 		}
