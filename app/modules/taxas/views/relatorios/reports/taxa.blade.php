@@ -19,6 +19,8 @@ class TaxaView extends RelatorioController {
 		$taxas = $corretor->getTaxas();
 		$this->setFont('Arial', '', 10);
 
+		$totalTaxa = 0 ;
+
 		if (!empty($taxas[0])) {
 			$this->Cell(0, 5, '::: TAXAS :::', 1, 0, "C", 1);
 			$this->Ln();
@@ -144,7 +146,7 @@ class TaxaView extends RelatorioController {
 
 		####### ROMANEIO ########
 
-		$this->setFont('Arial', '', 9);
+		$this->setFont('Arial', '', 10);
 		$this->setFillColor(150);
 
 		if (!empty($taxas[2])) {
