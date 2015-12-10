@@ -8,7 +8,7 @@ class TaxaView extends RelatorioController {
 
 		$this->setFont('Arial', 'B', 11);
 
-		$this->setFillColor(150);
+		$this->setFillColor(200);
 		$this->Cell(95, 5, "Corretor: ".$corretor->codigo_interno, 'TL', 0, "L", 0);
 		$this->Cell(95, 5, "Periodo: ".Input::get('periodo'), 'TR', 0, "L", 0);
 		$this->Ln();
@@ -25,7 +25,7 @@ class TaxaView extends RelatorioController {
 			$this->Cell(0, 5, '::: TAXAS :::', 1, 0, "C", 1);
 			$this->Ln();
 
-			$this->setFillColor(200);
+			$this->setFillColor(230);
 
 			$this->Cell(100, 5, utf8_decode('DESCRIÇÃO'), 1, 0, "L", 1);
 			$this->Cell(30, 5, utf8_decode('QTDE'), 1, 0, "C", 1);
@@ -75,7 +75,7 @@ class TaxaView extends RelatorioController {
 		}
 		####### ITEM ########
 
-		$this->setFillColor(150);
+		$this->setFillColor(200);
 
 		if (!empty($taxas[1])) {
 
@@ -87,7 +87,7 @@ class TaxaView extends RelatorioController {
 			$totalReceber = 0;
 			$totalPagar   = 0;
 
-			$this->setFillColor(200);
+			$this->setFillColor(230);
 
 			$this->Cell(70, 5, utf8_decode('DESCRIÇÃO'), 1, 0, "L", 1);
 			$this->Cell(25, 5, utf8_decode('QTDE'), 1, 0, "C", 1);
@@ -147,13 +147,13 @@ class TaxaView extends RelatorioController {
 		####### ROMANEIO ########
 
 		$this->setFont('Arial', '', 10);
-		$this->setFillColor(150);
+		$this->setFillColor(200);
 
 		if (!empty($taxas[2])) {
 			$this->Cell(0, 5, '::: ROMANEIO :::', 1, 0, "C", 1);
 			$this->Ln();
 
-			$this->setFillColor(200);
+			$this->setFillColor(230);
 
 			$this->Cell(100, 5, utf8_decode('DESCRIÇÃO'), 1, 0, "L", 1);
 			$this->Cell(30, 5, utf8_decode('QTDE'), 1, 0, "C", 1);
