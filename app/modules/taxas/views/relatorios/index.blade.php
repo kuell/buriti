@@ -26,6 +26,7 @@
 				<div class="form-group">
 					<div class="col-md-12">
 						{{ Form::button('Taxa', ['class'=>'btn btn-primary btn-sm', 'name'=>'taxa']) }}
+						{{ Form::button('Balanço Fiscal', ['class'=>'btn btn-info btn-sm', 'name'=>'balanco_fiscal']) }}
 					</div>
 				</div>
 			{{ Form::close() }}
@@ -39,6 +40,10 @@
 
 		$('button[name=taxa]').bind('click', function(){
 			open('/taxa/relatorios/taxa?periodo='+$('input[name=periodo]').val()+'&corretor_id='+$('select[name=corretor_id').val(), 'Print', 'channelmode=yes')
+		})
+
+		$('button[name=balanco_fiscal]').bind('click', function(){
+			open('/taxa/relatorios/balanco_fiscal?periodo='+$('input[name=periodo]').val(), 'Print', 'channelmode=yes')
 		})
 	})
 	</script>

@@ -31,6 +31,11 @@ class Corretor extends \Eloquent {
 		return $this->hasMany('Taxa');
 	}
 
+	public function itens()
+	{
+		return $this->hasManyThrough('TaxaItem', 'Taxa', 'corretor_id');
+	}
+
 	public function getTaxas() {
 
 		$periodo = explode(' - ', Input::get('periodo', date('d/m/Y').' - '.date('d/m/Y')));
@@ -93,6 +98,82 @@ class Corretor extends \Eloquent {
 
 	}
 
+	public function getPesoRomaneioAttribute()
+	{
+		$param = explode(' - ', Input::get('periodo'));
+		$param[] = $this->attributes['id'];
+
+		$dados = DB::select("select 
+									sum(peso) as peso
+								from 
+									taxa.taxas a
+									inner join taxa.taxa_itens b on a.id = b.taxa_id
+									inner join taxa.itens c on b.item_id = c.id
+								where
+									c.grupo = '2' and
+									a.data between ? and ? and
+									a.corretor_id = ?", $param);
+
+		return $dados[0]->peso;
+	}
+
+	public function getPesoFiscalAttribute()
+	{
+		$param = explode(' - ', Input::get('periodo'));
+		$param[] = $this->attributes['id'];
+
+		$dados = DB::select("select 
+									sum(peso) as peso
+								from 
+									taxa.taxas a
+									inner join taxa.taxa_itens b on a.id = b.taxa_id
+									inner join taxa.itens c on b.item_id = c.id
+								where
+									c.fiscal = false and
+									c.grupo = '1' and
+									a.data between ? and ? and
+									a.corretor_id = ?", $param);
+
+		return $dados[0]->peso;
+	}
+
+	public function getIcmsAttribute()
+	{
+		$param = explode(' - ', Input::get('periodo'));
+		$param[] = $this->attributes['id'];
+
+		$dados = DB::select("select 
+									sum(valor) as valor
+								from 
+									taxa.taxas a
+									inner join taxa.taxa_itens b on a.id = b.taxa_id
+									inner join taxa.itens c on b.item_id = c.id
+								where
+									c.fiscal = false and
+									c.grupo = '1' and
+									a.data between ? and ? and
+									a.corretor_id = ?", $param);
+		return $dados[0]->valor;
+	}
+
+	public function getPautaFiscalAttribute()
+	{
+		if($this->getIcmsAttribute() != 0 and $this->getPesoFiscalAttribute() != 0){
+			return $this->getIcmsAttribute() / $this->getPesoFiscalAttribute();
+		}
+		else{
+			return 0;
+		}
+	}
+
+	public function getCorteAttribute(){
+		if($this->getPesoRomaneioAttribute() != 0 and $this->getPesoFiscalAttribute() != 0){
+			$saldo = $this->getPesoFiscalAttribute() - $this->getPesoRomaneioAttribute();
+
+			return $saldo / $this->getPesoRomaneioAttribute();
+		}
+	}
+
 	public function getSituacaoAttribute() {
 		if ($this->attributes['situacao'] == 0) {
 			return 'Ativo';
@@ -102,7 +183,7 @@ class Corretor extends \Eloquent {
 	}
 
 	public function getCodigoInternoAttribute() {
-		return 'COR '.$this->attributes['codigo_interno'];
+		return $this->attributes['codigo_interno'];
 	}
 
 }

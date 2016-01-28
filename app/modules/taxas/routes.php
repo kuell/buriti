@@ -11,6 +11,7 @@ Route::group(array('before' => 'auth|permissao', 'prefix' => 'taxa'), function (
 		Route::group(array('prefix' => 'relatorios'), function () {
 				Route::get('/', 'TaxaController@getRelatorios');
 				Route::get('/taxa', 'TaxaController@getRelatorioTaxas');
+				Route::get('/balanco_fiscal', 'TaxaController@getBalancoFiscal');
 
 			});
 

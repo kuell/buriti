@@ -34,7 +34,7 @@ class Item extends \Eloquent {
 			case 1:
 				return 'ITEM';
 				break;
-			case 3:
+			case 2:
 				return 'ROMANEIO';
 				break;
 		}

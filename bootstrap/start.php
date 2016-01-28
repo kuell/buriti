@@ -25,8 +25,8 @@ $app = new Illuminate\Foundation\Application;
  */
 
 $env = $app->detectEnvironment([
-		'local'  => array('tiago-Latitude-E5420'),
-		'remoto' => array('10.1.1.198')
+		'local'  => array('tiago-Latitude-E7440'),
+		'remoto' => array('192.168.254.210')
 
 	]);
 

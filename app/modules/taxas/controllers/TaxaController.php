@@ -29,4 +29,12 @@ class TaxaController extends \BaseController {
 		return View::make('taxas::relatorios.reports.taxa', compact('corretor'));
 	}
 
+	public function getBalancoFiscal()
+	{
+		$periodo = explode(' - ', Input::get('periodo'));
+		$taxas = Taxa::periodo($periodo);
+
+		return View::make('taxas::relatorios.reports.balanco_fiscal');
+	}
+
 }
